@@ -9,11 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page-id="perspective">
 
 <div class="sitebar">
   <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>Draw Your Own Comics</a>
-  <span class="pos">Table of contents</span>
+  <div class="auth-control" id="auth-control">
+    <span class="progress-pill" id="header-progress" style="display:none"></span>
+    <button class="auth-btn primary" id="signin-btn">Sign in to track</button>
+    <span class="auth-user" id="auth-user" style="display:none"></span>
+    <button class="auth-btn" id="signout-btn" style="display:none">Sign out</button>
+  </div>
 </div>
 <div class="wrap">
 <section>
@@ -31,10 +36,30 @@ Cylinder Challenge. These are technical-perspective marathons for concept artist
 industrial designers. A loose cartoonist fakes and stylizes perspective for expression &mdash; you
 don&rsquo;t need measured vanishing-point precision.</div>
 
+  <div class="tracker-box">
+    <h3>Track your progress</h3>
+    <div class="track-item">
+      <input type="checkbox" id="perspective-onepoint" data-id="onepoint" disabled>
+      <label for="perspective-onepoint">Watch a 1-point perspective video</label>
+    </div>
+<div class="track-item">
+      <input type="checkbox" id="perspective-twopoint" data-id="twopoint" disabled>
+      <label for="perspective-twopoint">Watch a 2-point perspective video</label>
+    </div>
+<div class="track-item">
+      <input type="checkbox" id="perspective-roomsketch" data-id="roomsketch" disabled>
+      <label for="perspective-roomsketch">Sketch a character standing in a simple room</label>
+    </div>
+
+    <p class="tracker-note" id="tracker-note">Sign in above to save your progress and sync it across devices.</p>
+  </div>
 </section>
 <nav class="pn"><a href="03-construction.html"><span class="lbl">&larr; Previous</span>Basic construction &amp; 3D forms</a><a class="to-next" href="05-gesture.html"><span class="lbl">Next &rarr;</span>Gesture &amp; simplified anatomy</a></nav>
 <footer class="site"><p><a href="index.html">&larr; Back to the table of contents</a></p></footer>
 </div>
 
+<script src="progress-schema.js"></script>
+<script src="firebase-config.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>

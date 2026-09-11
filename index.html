@@ -9,8 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page-id="">
 
+<div class="sitebar">
+  <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>Draw Your Own Comics</a>
+  <div class="auth-control" id="auth-control">
+    <span class="progress-pill" id="header-progress" style="display:none"></span>
+    <button class="auth-btn primary" id="signin-btn">Sign in to track</button>
+    <span class="auth-user" id="auth-user" style="display:none"></span>
+    <button class="auth-btn" id="signout-btn" style="display:none">Sign out</button>
+  </div>
+</div>
 <header class="masthead">
   <div class="kicker">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
@@ -30,6 +39,11 @@
     <div><b>Format</b>10 sections, self-paced, years not weeks</div>
   </div>
 </header>
+
+<div class="overall-bar" id="overall-progress">
+  <div class="bar-track"><div class="bar-fill"></div></div>
+  <div class="bar-label">Sign in above to start tracking your progress.</div>
+</div>
 
 <div class="wrap">
 <section>
@@ -66,6 +80,7 @@
       <span class="toc-title">Weekly rhythm &amp; supplies</span>
       <span class="toc-sub">How to structure 1&ndash;3 hours a week, and what to buy</span>
     </span>
+    <span class="toc-progress" data-progress-for="rhythm"></span>
     <span class="toc-arrow">&rarr;</span>
   </a></li>
 <li><a href="02-marks-and-lines.html">
@@ -75,6 +90,7 @@
       <span class="toc-title">Marks, lines &amp; confidence</span>
       <span class="toc-sub">Confident lines, ellipses, and basic perspective</span>
     </span>
+    <span class="toc-progress" data-progress-for="lines"></span>
     <span class="toc-arrow">&rarr;</span>
   </a></li>
 <li><a href="03-construction.html">
@@ -84,6 +100,7 @@
       <span class="toc-title">Basic construction &amp; 3D forms</span>
       <span class="toc-sub">3D forms and the (partial) box challenge</span>
     </span>
+    <span class="toc-progress" data-progress-for="construction"></span>
     <span class="toc-arrow">&rarr;</span>
   </a></li>
 <li><a href="04-perspective.html">
@@ -93,6 +110,7 @@
       <span class="toc-title">Just enough perspective</span>
       <span class="toc-sub">Just enough 1- and 2-point perspective</span>
     </span>
+    <span class="toc-progress" data-progress-for="perspective"></span>
     <span class="toc-arrow">&rarr;</span>
   </a></li>
 <li><a href="05-gesture.html">
@@ -102,6 +120,7 @@
       <span class="toc-title">Gesture &amp; simplified anatomy</span>
       <span class="toc-sub">Movement, flow, and simplified cartoon anatomy</span>
     </span>
+    <span class="toc-progress" data-progress-for="gesture"></span>
     <span class="toc-arrow">&rarr;</span>
   </a></li>
 <li><a href="06-character-design.html">
@@ -111,6 +130,7 @@
       <span class="toc-title">Character design &amp; stylization</span>
       <span class="toc-sub">Shape language, expression, and your own style</span>
     </span>
+    <span class="toc-progress" data-progress-for="character"></span>
     <span class="toc-arrow">&rarr;</span>
   </a></li>
 <li><a href="07-comics.html">
@@ -120,6 +140,7 @@
       <span class="toc-title">Comics: paneling &amp; storytelling</span>
       <span class="toc-sub">Panels, pacing, and making your first minicomic</span>
     </span>
+    <span class="toc-progress" data-progress-for="comics"></span>
     <span class="toc-arrow">&rarr;</span>
   </a></li>
 <li><a href="08-digital.html">
@@ -129,6 +150,7 @@
       <span class="toc-title">Transition to digital</span>
       <span class="toc-sub">Moving from paper to an iPad, when you&rsquo;re ready</span>
     </span>
+    <span class="toc-progress" data-progress-for="digital"></span>
     <span class="toc-arrow">&rarr;</span>
   </a></li>
 <li><a href="09-recommendations.html">
@@ -138,6 +160,7 @@
       <span class="toc-title">Putting it together</span>
       <span class="toc-sub">Where to start and how to know it&rsquo;s time to move on</span>
     </span>
+    
     <span class="toc-arrow">&rarr;</span>
   </a></li>
 <li><a href="10-caveats.html">
@@ -147,6 +170,7 @@
       <span class="toc-title">Caveats worth remembering</span>
       <span class="toc-sub">What&rsquo;s contested, what changes, what to double-check</span>
     </span>
+    
     <span class="toc-arrow">&rarr;</span>
   </a></li>
 
@@ -159,5 +183,8 @@
 </footer>
 </div>
 
+<script src="progress-schema.js"></script>
+<script src="firebase-config.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
