@@ -207,7 +207,7 @@ footer.site{
 }
 .tracker-box h3{margin-top:0;}
 .track-item{
-  display:flex; align-items:flex-start; gap:11px; padding:9px 0; font-size:15px;
+  display:flex; align-items:flex-start; flex-wrap:wrap; gap:11px; padding:9px 0; font-size:15px;
   border-top:1px solid var(--line);
 }
 .track-item:first-of-type{border-top:none; padding-top:2px;}
@@ -216,7 +216,10 @@ footer.site{
   flex:none; cursor:pointer;
 }
 .track-item input[type=checkbox]:disabled{cursor:not-allowed; opacity:.45;}
-.track-item label{cursor:pointer;}
+.track-item label{cursor:pointer; flex:1 1 auto;}
+.item-links{flex:0 0 100%; margin-left:28px; font-size:12px; color:var(--ink-soft);}
+.item-links a{color:var(--ink-soft);}
+.item-links a:hover{color:var(--green);}
 .tracker-note{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
 
 @media print{
@@ -476,6 +479,31 @@ CHECKLISTS = {
     ],
 }
 
+# Optional per-item external reference links (a lesson page, a video, or both),
+# keyed by (page_id, item_id). Filled in module by module.
+ITEM_LINKS = {
+    ("lines", "lesson0"): {
+        "lesson": "https://drawabox.com/lesson/0/2/50percent",
+        "video": "https://www.youtube.com/watch?v=8ocmPR_EprE",
+    },
+    ("lines", "superimposed"): {
+        "lesson": "https://drawabox.com/lesson/1/superimposedlines",
+        "video": "https://www.youtube.com/watch?v=dzGmoJanhbQ",
+    },
+    ("lines", "ghosted"): {
+        "lesson": "https://drawabox.com/lesson/1/ghostedlines",
+        "video": "https://www.youtube.com/watch?v=LkJG6pKTuRc",
+    },
+    ("lines", "ellipses"): {
+        "lesson": "https://drawabox.com/lesson/1/tablesofellipses",
+        "video": "https://www.youtube.com/watch?v=tHJ3rzk6kno",
+    },
+    ("lines", "boxes"): {
+        "lesson": "https://drawabox.com/lesson/1/rotatedboxes",
+        "video": "https://www.youtube.com/watch?v=N3Tm0UDDHgs",
+    },
+}
+
 def tracker_box(page_id):
     items = CHECKLISTS.get(page_id)
     if not items:
@@ -483,9 +511,18 @@ def tracker_box(page_id):
     rows = ""
     for item_id, label in items:
         cb_id = f"{page_id}-{item_id}"
+        links = ITEM_LINKS.get((page_id, item_id))
+        links_html = ""
+        if links:
+            parts = []
+            if links.get("lesson"):
+                parts.append(f'<a href="{links["lesson"]}" target="_blank" rel="noopener">Lesson</a>')
+            if links.get("video"):
+                parts.append(f'<a href="{links["video"]}" target="_blank" rel="noopener">Video</a>')
+            links_html = f'\n      <span class="item-links">{" &middot; ".join(parts)}</span>'
         rows += f'''<div class="track-item">
       <input type="checkbox" id="{cb_id}" data-id="{item_id}" disabled>
-      <label for="{cb_id}">{label}</label>
+      <label for="{cb_id}">{label}</label>{links_html}
     </div>
 '''
     return f'''<div class="tracker-box">
