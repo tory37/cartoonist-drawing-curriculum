@@ -115,8 +115,10 @@ if (!configured){
         var payload = {};
         payload[field] = cb.checked;
         payload.updatedAt = Date.now();
+        console.log("writing", payload, "to progress/" + auth.currentUser.uid);
         setDoc(doc(db, "progress", auth.currentUser.uid), payload, { merge: true })
-          .catch(function(e){ console.error(e); cb.checked = !cb.checked; });
+          .then(function(){ console.log("write succeeded"); })
+          .catch(function(e){ console.error("write failed:", e); cb.checked = !cb.checked; });
       });
     })(boxes[i]);
   }
