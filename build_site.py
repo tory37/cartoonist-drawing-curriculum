@@ -177,6 +177,22 @@ footer.site{
 .bar-fill{height:100%; width:0%; background:var(--green); transition:width .5s ease;}
 .bar-label{font-size:12.5px; color:var(--ink-soft); margin-top:7px;}
 
+/* "continue where you left off" card (index page) */
+.continue-card{max-width:var(--max); margin:18px auto 0; padding:0 24px;}
+.continue-card .continue-label{
+  font-size:12px; color:var(--ink-soft); margin-bottom:6px;
+  text-transform:uppercase; letter-spacing:.04em;
+}
+.continue-link{
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  background:rgba(63,107,79,.08); border:1px solid var(--green); border-radius:6px;
+  padding:16px 20px; text-decoration:none; color:var(--ink);
+}
+.continue-link:hover{background:rgba(63,107,79,.14);}
+.continue-link:hover .continue-title{color:var(--ink);}
+.continue-title{font-family:'Fraunces', serif; font-weight:600; font-size:18px;}
+.continue-arrow{color:var(--green); flex:none; font-size:20px;}
+
 /* per-section progress pill in the table of contents */
 .toc-progress{
   font-size:12px; color:var(--ink-soft); border:1px solid var(--line);
@@ -204,7 +220,7 @@ footer.site{
 .tracker-note{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
 
 @media print{
-  .sitebar, nav.pn, .tracker-box, .overall-bar{display:none;}
+  .sitebar, nav.pn, .tracker-box, .overall-bar, .continue-card{display:none;}
   a{color:var(--ink); text-decoration:none;}
 }
 '''
@@ -567,6 +583,14 @@ index_body = f'''
   <div class="bar-label">Sign in above to start tracking your progress.</div>
 </div>
 
+<div class="continue-card" id="continue-card" style="display:none">
+  <div class="continue-label">Continue where you left off</div>
+  <a class="continue-link" id="continue-link" href="#">
+    <span class="continue-title"></span>
+    <span class="continue-arrow">&rarr;</span>
+  </a>
+</div>
+
 <div class="wrap">
 <section>
   <div class="tldr">
@@ -644,11 +668,13 @@ for i, p in enumerate(PAGES):
     with open(f"{OUT}/{p['file']}", "w") as f:
         f.write(shell(p['title'].replace('&amp;','&'), body, page_id=p['id']))
 
-# ---------- progress-schema.js (single source of truth for counts) ----------
+# ---------- progress-schema.js (single source of truth for counts + page order) ----------
 import json
 schema_obj = {pid: [item_id for item_id, _ in items] for pid, items in CHECKLISTS.items()}
+page_info = [{"id": p["id"], "file": p["file"], "title": p["title"]} for p in PAGES if p["id"] in CHECKLISTS]
 with open(f"{OUT}/progress-schema.js", "w") as f:
     f.write("window.PROGRESS_SCHEMA = " + json.dumps(schema_obj, indent=2) + ";\n")
+    f.write("window.PAGE_INFO = " + json.dumps(page_info, indent=2) + ";\n")
 
 # ---------- firebase-config.js (placeholder — edit with your own project's config) ----------
 FIREBASE_CONFIG_JS = '''// Paste your Firebase project's web config here.
@@ -734,6 +760,30 @@ function renderProgress(data){
   }
 }
 
+function renderContinue(data, signedIn){
+  var card = document.getElementById("continue-card");
+  if (!card) return;
+  var pages = window.PAGE_INFO || [];
+  if (!signedIn || doneAll(data || {}) === 0){
+    card.style.display = "none";
+    return;
+  }
+  var target = null;
+  for (var i = 0; i < pages.length; i++){
+    var p = pages[i];
+    if (doneForPage(p.id, data || {}) < totalForPage(p.id)){ target = p; break; }
+  }
+  if (!target){
+    card.style.display = "none";
+    return;
+  }
+  var link = document.getElementById("continue-link");
+  var titleEl = link.querySelector(".continue-title");
+  titleEl.innerHTML = target.title;
+  link.setAttribute("href", target.file);
+  card.style.display = "";
+}
+
 function setSignedInUI(user){
   if (user){
     if (signinBtn) signinBtn.style.display = "none";
@@ -758,6 +808,7 @@ var configured = cfg && cfg.apiKey && cfg.apiKey.indexOf("PASTE") === -1;
 if (!configured){
   setSignedInUI(null);
   renderProgress({});
+  renderContinue({}, false);
   if (signinBtn){
     signinBtn.textContent = "Tracking not set up yet";
     signinBtn.disabled = true;
@@ -799,10 +850,12 @@ if (!configured){
         var data = snap.data() || {};
         renderChecklist(data);
         renderProgress(data);
+        renderContinue(data, true);
       });
     } else {
       renderChecklist({});
       renderProgress({});
+      renderContinue({}, false);
     }
   });
 }
