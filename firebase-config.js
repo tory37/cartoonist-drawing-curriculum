@@ -2,10 +2,10 @@
 // Firebase Console > Project settings > General > Your apps > SDK setup and configuration.
 // Until apiKey below is filled in, the site works fine but progress tracking stays off.
 window.FIREBASE_CONFIG = {
-  apiKey: "PASTE_YOUR_API_KEY",
-  authDomain: "PASTE_YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_YOUR_PROJECT_ID",
-  storageBucket: "PASTE_YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "PASTE_YOUR_SENDER_ID",
-  appId: "PASTE_YOUR_APP_ID"
+  apiKey: "AIzaSyDl9ohwOsYTpQK4mdSgImIMJ3XrNBwFXI4",
+  authDomain: "djaunt-cartoonist-guide.firebaseapp.com",
+  projectId: "djaunt-cartoonist-guide",
+  storageBucket: "djaunt-cartoonist-guide.firebasestorage.app",
+  messagingSenderId: "516458538114",
+  appId: "1:516458538114:web:56dcc59f315eadc345409b"
 };
