@@ -113,11 +113,10 @@ if (!configured){
         var id = cb.getAttribute("data-id");
         var field = pageId + "." + id;
         var payload = {};
-        payload[field] = cb.checked;
+        payload[pageId] = {};
+        payload[pageId][id] = cb.checked;
         payload.updatedAt = Date.now();
-        console.log("writing", payload, "to progress/" + auth.currentUser.uid);
-        setDoc(doc(db, "progress", auth.currentUser.uid), payload, { merge: true })
-          .then(function(){ console.log("write succeeded"); })
+        setDoc(doc(db, "progress", auth.currentUser.uid), payload, { mergeFields: [field, "updatedAt"] })
           .catch(function(e){ console.error("write failed:", e); cb.checked = !cb.checked; });
       });
     })(boxes[i]);
