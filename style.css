@@ -149,7 +149,55 @@ footer.site{
   font-size:13px; color:var(--ink-soft);
 }
 
+/* auth control in sitebar */
+.auth-control{display:flex; align-items:center; gap:10px; font-size:13px;}
+.auth-btn{
+  border:1px solid var(--line); background:rgba(255,255,255,.5); color:var(--ink);
+  padding:6px 13px; border-radius:16px; font-size:12.5px; cursor:pointer;
+  font-family:inherit; white-space:nowrap;
+}
+.auth-btn:hover{border-color:var(--blue); color:var(--blue);}
+.auth-btn.primary{background:var(--blue); color:var(--paper); border-color:var(--blue);}
+.auth-btn.primary:hover{opacity:.88; color:var(--paper);}
+.auth-user{font-weight:600; color:var(--ink);}
+.progress-pill{
+  font-size:12px; color:var(--ink-soft); border:1px solid var(--line);
+  padding:4px 10px; border-radius:12px; white-space:nowrap;
+}
+
+/* overall progress bar (index page) */
+.overall-bar{max-width:var(--max); margin:22px auto 0; padding:0 24px;}
+.bar-track{height:8px; background:var(--paper-deep); border-radius:4px; overflow:hidden; border:1px solid var(--line);}
+.bar-fill{height:100%; width:0%; background:var(--green); transition:width .5s ease;}
+.bar-label{font-size:12.5px; color:var(--ink-soft); margin-top:7px;}
+
+/* per-section progress pill in the table of contents */
+.toc-progress{
+  font-size:12px; color:var(--ink-soft); border:1px solid var(--line);
+  padding:3px 9px; border-radius:10px; flex:none; margin-left:2px;
+}
+.toc-progress.complete{color:var(--green); border-color:var(--green);}
+
+/* progress tracker checklist box on each phase page */
+.tracker-box{
+  margin:34px 0 6px; border:1px solid var(--line); border-radius:6px;
+  padding:22px 24px; background:rgba(255,255,255,.35);
+}
+.tracker-box h3{margin-top:0;}
+.track-item{
+  display:flex; align-items:flex-start; gap:11px; padding:9px 0; font-size:15px;
+  border-top:1px solid var(--line);
+}
+.track-item:first-of-type{border-top:none; padding-top:2px;}
+.track-item input[type=checkbox]{
+  margin-top:3px; width:17px; height:17px; accent-color:var(--green);
+  flex:none; cursor:pointer;
+}
+.track-item input[type=checkbox]:disabled{cursor:not-allowed; opacity:.45;}
+.track-item label{cursor:pointer;}
+.tracker-note{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
+
 @media print{
-  .sitebar, nav.pn{display:none;}
+  .sitebar, nav.pn, .tracker-box, .overall-bar{display:none;}
   a{color:var(--ink); text-decoration:none;}
 }

@@ -9,11 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page-id="gesture">
 
 <div class="sitebar">
   <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>Draw Your Own Comics</a>
-  <span class="pos">Table of contents</span>
+  <div class="auth-control" id="auth-control">
+    <span class="progress-pill" id="header-progress" style="display:none"></span>
+    <button class="auth-btn primary" id="signin-btn">Sign in to track</button>
+    <span class="auth-user" id="auth-user" style="display:none"></span>
+    <button class="auth-btn" id="signout-btn" style="display:none">Sign out</button>
+  </div>
 </div>
 <div class="wrap">
 <section>
@@ -41,10 +46,34 @@ Rigorous &eacute;corch&eacute;/muscle anatomy, &ldquo;100 heads / 100 hands&rdqu
 Solo Art Curriculum&rsquo;s multi-term anatomy sequence. You need enough anatomy to caricature it,
 not medical accuracy.</div>
 
+  <div class="tracker-box">
+    <h3>Track your progress</h3>
+    <div class="track-item">
+      <input type="checkbox" id="gesture-gesturesession" data-id="gesturesession" disabled>
+      <label for="gesture-gesturesession">Do one timed gesture session (30s&ndash;2min poses)</label>
+    </div>
+<div class="track-item">
+      <input type="checkbox" id="gesture-prokovideo" data-id="prokovideo" disabled>
+      <label for="gesture-prokovideo">Watch a Proko gesture fundamentals video</label>
+    </div>
+<div class="track-item">
+      <input type="checkbox" id="gesture-loomispages" data-id="loomispages" disabled>
+      <label for="gesture-loomispages">Read the first ~30 pages of <em>Fun With a Pencil</em></label>
+    </div>
+<div class="track-item">
+      <input type="checkbox" id="gesture-mannequin" data-id="mannequin" disabled>
+      <label for="gesture-mannequin">Mannequinize 10 gesture sketches into simple shapes</label>
+    </div>
+
+    <p class="tracker-note" id="tracker-note">Sign in above to save your progress and sync it across devices.</p>
+  </div>
 </section>
 <nav class="pn"><a href="04-perspective.html"><span class="lbl">&larr; Previous</span>Just enough perspective</a><a class="to-next" href="06-character-design.html"><span class="lbl">Next &rarr;</span>Character design &amp; stylization</a></nav>
 <footer class="site"><p><a href="index.html">&larr; Back to the table of contents</a></p></footer>
 </div>
 
+<script src="progress-schema.js"></script>
+<script src="firebase-config.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>

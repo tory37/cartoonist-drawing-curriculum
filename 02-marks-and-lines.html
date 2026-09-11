@@ -9,11 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page-id="lines">
 
 <div class="sitebar">
   <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>Draw Your Own Comics</a>
-  <span class="pos">Table of contents</span>
+  <div class="auth-control" id="auth-control">
+    <span class="progress-pill" id="header-progress" style="display:none"></span>
+    <button class="auth-btn primary" id="signin-btn">Sign in to track</button>
+    <span class="auth-user" id="auth-user" style="display:none"></span>
+    <button class="auth-btn" id="signout-btn" style="display:none">Sign out</button>
+  </div>
 </div>
 <div class="wrap">
 <section>
@@ -30,10 +35,38 @@ This trains the single most transferable cartooning skill: a confident line and 
 drawn from the shoulder, not a scratchy, hesitant one.</div>
 <p>Keep it light &mdash; a page or two per session as your structured half, then go draw cartoons for the rest.</p>
 
+  <div class="tracker-box">
+    <h3>Track your progress</h3>
+    <div class="track-item">
+      <input type="checkbox" id="lines-lesson0" data-id="lesson0" disabled>
+      <label for="lines-lesson0">Read Drawabox Lesson 0 (mindset &amp; the 50% rule)</label>
+    </div>
+<div class="track-item">
+      <input type="checkbox" id="lines-superimposed" data-id="superimposed" disabled>
+      <label for="lines-superimposed">Superimposed lines</label>
+    </div>
+<div class="track-item">
+      <input type="checkbox" id="lines-ghosted" data-id="ghosted" disabled>
+      <label for="lines-ghosted">Ghosted lines &amp; planes</label>
+    </div>
+<div class="track-item">
+      <input type="checkbox" id="lines-ellipses" data-id="ellipses" disabled>
+      <label for="lines-ellipses">Tables of ellipses</label>
+    </div>
+<div class="track-item">
+      <input type="checkbox" id="lines-boxes" data-id="boxes" disabled>
+      <label for="lines-boxes">Basic perspective / box exercises</label>
+    </div>
+
+    <p class="tracker-note" id="tracker-note">Sign in above to save your progress and sync it across devices.</p>
+  </div>
 </section>
 <nav class="pn"><a href="01-rhythm.html"><span class="lbl">&larr; Previous</span>Weekly rhythm &amp; supplies</a><a class="to-next" href="03-construction.html"><span class="lbl">Next &rarr;</span>Basic construction &amp; 3D forms</a></nav>
 <footer class="site"><p><a href="index.html">&larr; Back to the table of contents</a></p></footer>
 </div>
 
+<script src="progress-schema.js"></script>
+<script src="firebase-config.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
