@@ -65,6 +65,30 @@ function renderProgress(data){
   }
 }
 
+function renderContinue(data, signedIn){
+  var card = document.getElementById("continue-card");
+  if (!card) return;
+  var pages = window.PAGE_INFO || [];
+  if (!signedIn || doneAll(data || {}) === 0){
+    card.style.display = "none";
+    return;
+  }
+  var target = null;
+  for (var i = 0; i < pages.length; i++){
+    var p = pages[i];
+    if (doneForPage(p.id, data || {}) < totalForPage(p.id)){ target = p; break; }
+  }
+  if (!target){
+    card.style.display = "none";
+    return;
+  }
+  var link = document.getElementById("continue-link");
+  var titleEl = link.querySelector(".continue-title");
+  titleEl.innerHTML = target.title;
+  link.setAttribute("href", target.file);
+  card.style.display = "";
+}
+
 function setSignedInUI(user){
   if (user){
     if (signinBtn) signinBtn.style.display = "none";
@@ -89,6 +113,7 @@ var configured = cfg && cfg.apiKey && cfg.apiKey.indexOf("PASTE") === -1;
 if (!configured){
   setSignedInUI(null);
   renderProgress({});
+  renderContinue({}, false);
   if (signinBtn){
     signinBtn.textContent = "Tracking not set up yet";
     signinBtn.disabled = true;
@@ -130,10 +155,12 @@ if (!configured){
         var data = snap.data() || {};
         renderChecklist(data);
         renderProgress(data);
+        renderContinue(data, true);
       });
     } else {
       renderChecklist({});
       renderProgress({});
+      renderContinue({}, false);
     }
   });
 }
