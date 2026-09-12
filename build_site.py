@@ -380,18 +380,56 @@ where your Phase 1&ndash;2 construction work pays off.</div>
 ''')
 
 add("comics", "07-comics.html", "Comics: paneling &amp; storytelling", "comics",
-    '<a href="https://www.scottmccloud.com" target="_blank" rel="noopener">Scott McCloud</a>, <a href="https://theetheringtonbrothers.blogspot.com/2020/02/what-free-50-page-how-to-think-when-you.html" target="_blank" rel="noopener">Etherington Brothers</a> &middot; ongoing', '''
+    'Brunetti&rsquo;s <em>Cartooning: Philosophy and Practice</em>, <a href="https://www.scottmccloud.com" target="_blank" rel="noopener">Scott McCloud</a>, <a href="https://theetheringtonbrothers.blogspot.com/2020/02/what-free-50-page-how-to-think-when-you.html" target="_blank" rel="noopener">Etherington Brothers</a> &middot; ongoing', '''
+<p>This is where everything else pays off &mdash; and where a course stitched from free links alone
+falls apart. It can teach panel grammar, but not how to actually finish something. This module
+borrows its structure from Ivan Brunetti&rsquo;s <em>Cartooning: Philosophy and Practice</em> (the
+book from module 01): a real, classroom-tested escalation from a doodle to a finished short comic,
+instead of jumping straight from theory to &ldquo;draw a minicomic.&rdquo;</p>
+
+<h3>Learn the grammar</h3>
 <ul>
   <li><strong><a href="https://www.scottmccloud.com" target="_blank" rel="noopener">Scott McCloud</a>, <em>Making Comics</em> &amp; <em>Understanding Comics</em></strong>
   &mdash; the standard texts on panel transitions, gutters, pacing, and expressive acting (library, not free).</li>
   <li><strong>Etherington Brothers&rsquo;</strong> free <a href="https://theetheringtonbrothers.blogspot.com/2020/02/what-free-50-page-how-to-think-when-you.html" target="_blank" rel="noopener">&ldquo;How to THINK when you draw JUNIOR &mdash; How
-  to draw COMICS&rdquo;</a> &mdash; a free 50-page ebook walking through a full comic project: character, world,
-  story, page planning, dialogue, finished page, in short daily sessions.</li>
+  to draw COMICS&rdquo;</a> &mdash; a free 50-page ebook walking through a full comic project in short daily sessions.</li>
 </ul>
+
+<h3>Script it before you draw it</h3>
+<p>A comic is written before it&rsquo;s drawn. Learn the basics of a <a href="https://boords.com/blog/writing-a-comic-book-script-101-expert-storytelling-tips" target="_blank" rel="noopener">comic script</a>:
+panel-by-panel descriptions, keeping dialogue to roughly 25 words a balloon, and controlling pace
+with panel count &mdash; many small panels reads as fast and urgent, a few big ones slows a moment
+down. Then write one full page yourself before pencilling anything.</p>
+
+<h3>Thumbnail before you commit</h3>
+<p>Working cartoonists redraw a page&rsquo;s layout several small, rough ways before picking one &mdash;
+it&rsquo;s a real, teachable skill, not something that just happens. Frank Santoro&rsquo;s free
+<a href="http://www.tcj.com/layout-workbook/frank/" target="_blank" rel="noopener">Layout Workbook</a> column breaks down how professional page compositions actually work.</p>
+
+<h3>Letter it</h3>
+<p>Lettering and balloon placement are their own skill, not an afterthought &mdash; a badly placed
+balloon breaks a reader&rsquo;s flow no matter how good the art is. The Center for Cartoon Studies&rsquo;
+free <a href="https://www.cartoonstudies.org/wp-content/uploads/2014/06/24.pdf" target="_blank" rel="noopener">Expressive Lettering and Balloons</a> handout is a real classroom exercise, not something we invented.</p>
+
+<h3>Build the ladder</h3>
+<p>Instead of one big, scary &ldquo;draw a minicomic&rdquo; leap, finish a series of small things, each
+one all the way through &mdash; pencils, inks, letters &mdash; before moving up. This is Brunetti&rsquo;s own
+structure:</p>
 <blockquote>&ldquo;If you can draw a smiley face and a stick figure, you can start drawing comics.&rdquo;</blockquote>
-<div class="callout do"><span class="tag">just start</span>
-Make a short minicomic early &mdash; eight pages is a common, achievable target. Working cartoonists
-argue there&rsquo;s no prerequisite skill level to begin; starting reveals exactly what to improve next.</div>
+<div class="callout do"><span class="tag">the ladder</span>
+One single-panel gag &rarr; one 4-panel strip &rarr; one full page &rarr; a 4-page minicomic &rarr; an 8-page
+minicomic. Finish each rung before climbing &mdash; the finishing habit matters more than the page count.</div>
+
+<h3>Study the real thing</h3>
+<p>The Adventure Time, Bravest Warriors, and Regular Show comics were real books, drawn by real
+people whose process is documented: <a href="https://comicsalliance.com/adventure-time-25-shelli-paroline-braden-lamb-interview/" target="_blank" rel="noopener">Shelli Paroline &amp; Braden Lamb</a> (the Eisner-winning
+Adventure Time art team) describe splitting script &rarr; layout &rarr; pencils &rarr; inks &rarr; color between
+two people. Read a few actual issues and copy a page panel-for-panel to see how someone working in
+exactly this style solves layout and acting problems.</p>
+
+<h3>Get feedback</h3>
+<p>Practice without feedback plateaus. Post one finished piece somewhere real people will critique
+it &mdash; <a href="https://www.reddit.com/r/ArtCrit/" target="_blank" rel="noopener">r/ArtCrit</a> or a comics-specific Discord &mdash; instead of only judging your own work.</p>
 ''')
 
 add("digital", "08-digital.html", "Transition to digital", "digital",
@@ -681,9 +719,26 @@ CHECKLISTS = {
         ("expressionsheet", "Draw an expression sheet for one character"),
     ],
     "comics": [
+        Section("Learn the grammar"),
         ("mccloudread", "Read/skim McCloud on panel transitions"),
         ("comicsebook", "Download the Etherington Brothers&rsquo; free comics ebook"),
-        ("minicomic", "Draw an 8-page minicomic"),
+        Section("Script it before you draw it"),
+        ("scriptbasics", "Learn comic-script basics: panel descriptions &amp; dialogue economy"),
+        ("writeonepage", "Write one full page of script before pencilling anything"),
+        Section("Thumbnail before you commit"),
+        ("thumbnaildrill", "Redraw one page&rsquo;s layout 4&ndash;5 rough ways before picking one"),
+        Section("Letter it"),
+        ("letteringdrill", "Practice hand-lettering &amp; balloon placement"),
+        Section("Build the ladder &mdash; finish each rung: pencils, inks, letters"),
+        ("gagpanel", "Finish one single-panel gag"),
+        ("fourpanelstrip", "Finish one 4-panel strip"),
+        ("onepagecomic", "Finish one full page"),
+        ("fourpagemini", "Finish a 4-page minicomic"),
+        ("eightpagemini", "Finish an 8-page minicomic"),
+        Section("Study the real thing"),
+        ("kaboomstudy", "Read a few Adventure Time / Bravest Warriors / Regular Show issues and copy a page"),
+        Section("Get feedback"),
+        ("getfeedback", "Post one finished piece to a critique community"),
     ],
     "digital": [
         ("procreatepart1", "Watch Procreate Beginners Series, Part One"),
@@ -800,6 +855,21 @@ ITEM_LINKS = {
     ("comics", "comicsebook"): {
         "lesson": "https://theetheringtonbrothers.blogspot.com/2020/02/what-free-50-page-how-to-think-when-you.html",
     },
+    ("comics", "scriptbasics"): {
+        "lesson": "https://boords.com/blog/writing-a-comic-book-script-101-expert-storytelling-tips",
+    },
+    ("comics", "thumbnaildrill"): {
+        "lesson": "http://www.tcj.com/layout-workbook/frank/",
+    },
+    ("comics", "letteringdrill"): {
+        "lesson": "https://www.cartoonstudies.org/wp-content/uploads/2014/06/24.pdf",
+    },
+    ("comics", "kaboomstudy"): {
+        "lesson": "https://comicsalliance.com/adventure-time-25-shelli-paroline-braden-lamb-interview/",
+    },
+    ("comics", "getfeedback"): {
+        "lesson": "https://www.reddit.com/r/ArtCrit/",
+    },
     ("digital", "procreatepart1"): {
         "video": "https://www.youtube.com/playlist?list=PLlpSQCrjuGkriILjGVhAMxaroOgpGDbvl",
     },
@@ -867,7 +937,7 @@ TOC_SUBS = {
     "perspective": "Just enough 1- and 2-point perspective",
     "gesture": "Movement, flow, and simplified cartoon anatomy",
     "character": "Shape language, expression, and your own style",
-    "comics": "Panels, pacing, and making your first minicomic",
+    "comics": "Scripting, layout, lettering, and finishing a real minicomic",
     "digital": "Moving from paper to an iPad, when you&rsquo;re ready",
     "recs": "Where to start and how to know it&rsquo;s time to move on",
     "caveats": "What&rsquo;s contested, what changes, what to double-check",
