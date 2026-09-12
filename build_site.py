@@ -1,4 +1,7 @@
+import json
 import os
+import struct
+import zlib
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 os.makedirs(OUT, exist_ok=True)
@@ -243,9 +246,127 @@ footer.site{
 with open(f"{OUT}/style.css", "w") as f:
     f.write(CSS)
 
+# ---------- favicon / home-screen icons ----------
+# Generated directly with stdlib zlib+struct (no Pillow/cairosvg available in
+# this environment) so the icons stay a single source of truth alongside the
+# rest of the site, reusing the same three-panel mark as the "comics" nav
+# icon and the site's own paper/ink colors.
+def _hex_to_rgb(h):
+    h = h.lstrip("#")
+    return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+_ICON_BG = _hex_to_rgb("1B1915")
+_ICON_FG = _hex_to_rgb("EDE7D8")
+
+def _write_png(path, size, pixel_fn):
+    raw = bytearray()
+    for y in range(size):
+        raw.append(0)  # filter: none
+        for x in range(size):
+            raw += bytes(pixel_fn(x, y))
+    compressed = zlib.compress(bytes(raw), 9)
+    def chunk(tag, data):
+        c = tag + data
+        return struct.pack("!I", len(data)) + c + struct.pack("!I", zlib.crc32(c) & 0xffffffff)
+    png = (b"\x89PNG\r\n\x1a\n"
+           + chunk(b"IHDR", struct.pack("!IIBBBBB", size, size, 8, 2, 0, 0, 0))
+           + chunk(b"IDAT", compressed)
+           + chunk(b"IEND", b""))
+    with open(path, "wb") as f:
+        f.write(png)
+    return png
+
+def _in_rounded_rect(px, py, x0, y0, x1, y1, r):
+    if px < x0 or px > x1 or py < y0 or py > y1:
+        return False
+    if px < x0 + r and py < y0 + r:
+        return (px - (x0 + r)) ** 2 + (py - (y0 + r)) ** 2 <= r * r
+    if px > x1 - r and py < y0 + r:
+        return (px - (x1 - r)) ** 2 + (py - (y0 + r)) ** 2 <= r * r
+    if px < x0 + r and py > y1 - r:
+        return (px - (x0 + r)) ** 2 + (py - (y1 - r)) ** 2 <= r * r
+    if px > x1 - r and py > y1 - r:
+        return (px - (x1 - r)) ** 2 + (py - (y1 - r)) ** 2 <= r * r
+    return True
+
+# Same three-panel layout as the "comics" nav icon's 24x24 viewBox, scaled
+# in toward the center for the maskable variant so it survives Android's
+# circular safe-zone crop.
+def _panel_shapes(scale):
+    cx = cy = 12.0
+    raw = [(2, 2, 11.5, 11, 1.2), (12.5, 2, 22, 11, 1.2), (2, 12, 22, 22, 1.2)]
+    return [
+        (cx + (x0 - cx) * scale, cy + (y0 - cy) * scale,
+         cx + (x1 - cx) * scale, cy + (y1 - cy) * scale, r * scale)
+        for x0, y0, x1, y1, r in raw
+    ]
+
+def _render_icon_png(path, size, scale=1.0, ss=4):
+    unit = size / 24.0
+    shapes = [(x0 * unit, y0 * unit, x1 * unit, y1 * unit, r * unit) for x0, y0, x1, y1, r in _panel_shapes(scale)]
+    def pixel(x, y):
+        hits = 0
+        for dy in range(ss):
+            for dx in range(ss):
+                px, py = x + (dx + 0.5) / ss, y + (dy + 0.5) / ss
+                if any(_in_rounded_rect(px, py, *s) for s in shapes):
+                    hits += 1
+        t = hits / (ss * ss)
+        return tuple(round(_ICON_BG[i] * (1 - t) + _ICON_FG[i] * t) for i in range(3))
+    return _write_png(path, size, pixel)
+
+def _write_ico(path, entries):
+    n = len(entries)
+    offset = 6 + 16 * n
+    header = struct.pack("<HHH", 0, 1, n)
+    dir_entries = b""
+    data = b""
+    for size, png in entries:
+        dir_entries += struct.pack("<BBBBHHII", size, size, 0, 0, 1, 32, len(png), offset)
+        data += png
+        offset += len(png)
+    with open(path, "wb") as f:
+        f.write(header + dir_entries + data)
+
+_png16 = _render_icon_png(f"{OUT}/icon-16.png", 16, ss=6)
+_png32 = _render_icon_png(f"{OUT}/icon-32.png", 32, ss=6)
+_render_icon_png(f"{OUT}/apple-touch-icon.png", 180, ss=3)
+_render_icon_png(f"{OUT}/icon-192.png", 192, ss=3)
+_render_icon_png(f"{OUT}/icon-512.png", 512, ss=2)
+_render_icon_png(f"{OUT}/icon-512-maskable.png", 512, scale=0.65, ss=2)
+_write_ico(f"{OUT}/favicon.ico", [(16, _png16), (32, _png32)])
+
+MANIFEST = {
+    "name": "Draw Your Own Comics",
+    "short_name": "Draw Comics",
+    "description": "A curated, human-made curriculum for drawing your own comics.",
+    "start_url": "index.html",
+    "scope": ".",
+    "display": "standalone",
+    "background_color": "#1B1915",
+    "theme_color": "#1B1915",
+    "icons": [
+        {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+        {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+        {"src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"},
+    ],
+}
+with open(f"{OUT}/manifest.webmanifest", "w") as f:
+    json.dump(MANIFEST, f, indent=2)
+
 FONT_LINKS = '''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">'''
+
+FAVICON_LINKS = '''<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="icon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1B1915">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Draw Comics">'''
 
 ICONS = {
     "rhythm": '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/></svg>',
@@ -1148,6 +1269,7 @@ def shell(title, body, page_id=""):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title} &mdash; Draw Your Own Comics</title>
+{FAVICON_LINKS}
 {FONT_LINKS}
 <link rel="stylesheet" href="style.css">
 </head>
