@@ -1454,7 +1454,7 @@ with open(f"{OUT}/firebase-config.js", "w") as f:
 # ---------- app.js (tracking logic) ----------
 APP_JS = '''import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 import {
-  getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged
+  getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 import {
   getFirestore, doc, setDoc, onSnapshot
@@ -1579,10 +1579,23 @@ if (!configured){
   var db = getFirestore(app);
   var unsub = null;
 
+  // signInWithPopup is unreliable on mobile: the popup opens as a separate
+  // tab/window, and mobile browsers frequently suspend or reload the
+  // original page while it's open, losing the result entirely. Redirecting
+  // the whole page instead (and picking the result back up here on reload)
+  // works everywhere, including installed/home-screen apps.
   if (signinBtn) signinBtn.addEventListener("click", function(){
-    signInWithPopup(auth, new GoogleAuthProvider()).catch(function(e){ console.error(e); });
+    signInWithRedirect(auth, new GoogleAuthProvider());
   });
   if (signoutBtn) signoutBtn.addEventListener("click", function(){ signOut(auth); });
+
+  getRedirectResult(auth).catch(function(e){
+    console.error("sign-in failed:", e);
+    if (trackerNote){
+      trackerNote.style.display = "";
+      trackerNote.textContent = "Sign-in didn\\u2019t go through (" + e.code + "). Please try again.";
+    }
+  });
 
   var boxes = document.querySelectorAll(".track-item input[type=checkbox]");
   for (var i = 0; i < boxes.length; i++){
