@@ -421,11 +421,18 @@ One single-panel gag &rarr; one 4-panel strip &rarr; one full page &rarr; a 4-pa
 minicomic. Finish each rung before climbing &mdash; the finishing habit matters more than the page count.</div>
 
 <h3>Study the real thing</h3>
-<p>The Adventure Time, Bravest Warriors, and Regular Show comics were real books, drawn by real
-people whose process is documented: <a href="https://comicsalliance.com/adventure-time-25-shelli-paroline-braden-lamb-interview/" target="_blank" rel="noopener">Shelli Paroline &amp; Braden Lamb</a> (the Eisner-winning
-Adventure Time art team) describe splitting script &rarr; layout &rarr; pencils &rarr; inks &rarr; color between
-two people. Read a few actual issues and copy a page panel-for-panel to see how someone working in
-exactly this style solves layout and acting problems.</p>
+<p>All three shows had real comic-book runs published by BOOM! Studios&rsquo; all-ages KaBOOM!
+imprint, drawn by identifiable people whose process is documented:</p>
+<ul>
+  <li><strong>Adventure Time</strong> &mdash; <a href="https://comicsalliance.com/adventure-time-25-shelli-paroline-braden-lamb-interview/" target="_blank" rel="noopener">Shelli Paroline &amp; Braden Lamb</a>, the
+  Eisner-winning art team, describe splitting script &rarr; layout &rarr; pencils &rarr; inks &rarr; color
+  between two people.</li>
+  <li><strong>Bravest Warriors</strong> &mdash; <a href="https://www.popoptiq.com/interview-with-bravest-warriors-artist-ian-mcginty/" target="_blank" rel="noopener">Ian McGinty</a> drew the series for about a
+  year alongside writer Kate Leth.</li>
+  <li><strong>Regular Show</strong> &mdash; <a href="https://comicsalliance.com/allison-strejlau-art/" target="_blank" rel="noopener">Allison Strejlau</a> was the series artist, alongside writer KC Green.</li>
+</ul>
+<p>Read a few actual issues and copy a page panel-for-panel to see how someone working in exactly
+this style solves layout and acting problems.</p>
 
 <h3>Get feedback</h3>
 <p>Practice without feedback plateaus. Post one finished piece somewhere real people will critique
@@ -887,7 +894,11 @@ ITEM_LINKS = {
         "lesson": "https://www.cartoonstudies.org/wp-content/uploads/2014/06/24.pdf",
     },
     ("comics", "kaboomstudy"): {
-        "lesson": "https://comicsalliance.com/adventure-time-25-shelli-paroline-braden-lamb-interview/",
+        "videos": [
+            {"label": "Adventure Time &mdash; Shelli Paroline &amp; Braden Lamb", "lesson": "https://comicsalliance.com/adventure-time-25-shelli-paroline-braden-lamb-interview/"},
+            {"label": "Bravest Warriors &mdash; Ian McGinty", "lesson": "https://www.popoptiq.com/interview-with-bravest-warriors-artist-ian-mcginty/"},
+            {"label": "Regular Show &mdash; Allison Strejlau", "lesson": "https://comicsalliance.com/allison-strejlau-art/"},
+        ],
     },
     ("comics", "getfeedback"): {
         "lesson": "https://www.reddit.com/r/ArtCrit/",
