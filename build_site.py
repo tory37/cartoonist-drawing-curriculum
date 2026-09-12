@@ -35,8 +35,11 @@ a:hover{color:var(--red);}
 /* site header / breadcrumb nav on every page */
 .sitebar{
   max-width:var(--max); margin:0 auto; padding:26px 24px 0;
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 14px;
   font-size:14px; color:var(--ink-soft);
+}
+@media (max-width:480px){
+  .auth-control{width:100%; justify-content:flex-end;}
 }
 .sitebar a.home{
   display:flex; align-items:center; gap:8px; color:var(--ink); font-weight:600;
@@ -218,19 +221,31 @@ footer.site{
 .track-section:first-child{margin-top:0; padding-top:0; border-top:none;}
 .track-section a{font-weight:500; text-transform:none; letter-spacing:0; margin-left:4px;}
 .track-item{
-  display:flex; align-items:flex-start; flex-wrap:wrap; gap:11px; padding:9px 0; font-size:15px;
+  display:grid; grid-template-columns:22px 1fr; column-gap:12px; row-gap:6px;
+  align-items:start; padding:12px 0; font-size:15px;
   border-top:1px solid var(--line);
 }
-.track-item:first-of-type{border-top:none; padding-top:2px;}
+.track-item:first-of-type{border-top:none; padding-top:3px;}
+/* Native checkboxes render at different sizes/positions across mobile
+   browsers, which is what made them look misaligned with the label text.
+   Drawing the box ourselves keeps it pixel-identical everywhere. */
 .track-item input[type=checkbox]{
-  margin-top:3px; width:17px; height:17px; accent-color:var(--green);
-  flex:none; cursor:pointer;
+  appearance:none; -webkit-appearance:none; -moz-appearance:none;
+  margin:0; width:20px; height:20px; grid-column:1; grid-row:1;
+  border:1.5px solid var(--ink-soft); border-radius:5px; background:var(--paper-deep);
+  position:relative; top:2px; cursor:pointer;
 }
+.track-item input[type=checkbox]:checked{background:var(--green); border-color:var(--green);}
+.track-item input[type=checkbox]:checked::after{
+  content:""; position:absolute; left:6px; top:2px; width:5px; height:10px;
+  border:solid var(--paper-deep); border-width:0 2px 2px 0; transform:rotate(45deg);
+}
+.track-item input[type=checkbox]:focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
 .track-item input[type=checkbox]:disabled{cursor:not-allowed; opacity:.45;}
-.track-item label{cursor:pointer; flex:1 1 auto;}
+.track-item label{grid-column:2; grid-row:1; cursor:pointer; overflow-wrap:break-word;}
 .item-links{
-  flex:0 0 100%; display:flex; flex-direction:column; gap:2px;
-  margin-left:28px; font-size:12px; color:var(--ink-soft);
+  grid-column:2; grid-row:2; display:flex; flex-direction:column; gap:2px;
+  font-size:12px; color:var(--ink-soft);
 }
 .item-links a{color:var(--ink-soft);}
 .item-links a:hover{color:var(--green);}
