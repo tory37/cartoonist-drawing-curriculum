@@ -208,6 +208,12 @@ footer.site{
   padding:22px 24px; background:var(--surface);
 }
 .tracker-box h3{margin-top:0;}
+.track-section{
+  font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:.03em;
+  color:var(--ink-soft); margin:18px 0 2px; padding-top:12px; border-top:1px solid var(--line);
+}
+.track-section:first-child{margin-top:0; padding-top:0; border-top:none;}
+.track-section a{font-weight:500; text-transform:none; letter-spacing:0; margin-left:4px;}
 .track-item{
   display:flex; align-items:flex-start; flex-wrap:wrap; gap:11px; padding:9px 0; font-size:15px;
   border-top:1px solid var(--line);
@@ -430,19 +436,128 @@ add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, 
 ''')
 
 # ---------- progress-tracking checklists ----------
-# Each page id maps to a list of (item_id, label) checkable actions.
+# Each page id maps to a list of entries: (item_id, label) is a checkable
+# action; a Section is a non-checkable heading that mirrors a table-of-
+# contents group (used to reproduce a source site's own outline exactly).
+class Section:
+    __slots__ = ("label", "url")
+    def __init__(self, label, url=None):
+        self.label = label
+        self.url = url
+
+# Drawabox Lesson 1's table of contents, mirrored section-for-section and
+# page-for-page from the site's own sidebar so our checklist matches it
+# exactly instead of guessing at a handful of highlights.
+DRAWABOX_LESSON1_TOC = [
+    ("1", "Some Quick Reminders", [
+        ("summary", "Getting Equipped"),
+        ("videotext", "Video vs. Text"),
+        ("audiblogs", "But Comfy! I have trouble with reading!"),
+    ]),
+    ("2", "Lines: Using Your Arm", [
+        ("summary", "Understanding how to use your arm"),
+        ("video", "Drawing from your wrist and shoulder"),
+        ("habits", "Old habits"),
+        ("pivots", "The pivots of the arm"),
+        ("simplified", "Let&rsquo;s keep it simple"),
+        ("wrist", "Do you mean I can&rsquo;t ever draw with my wrist or elbow?"),
+        ("leastresistance", "The path of least resistance"),
+        ("hoverhand", "Hover-hand"),
+        ("grip", "How to hold your pen"),
+    ]),
+    ("3", "Lines: Markmaking", [
+        ("summary", "Rules to follow"),
+        ("markmaking", "The Principles of Markmaking"),
+        ("continuous", "Marks should be continuous and unbroken"),
+        ("chickenscratch", "But that artist uses chicken scratching all the time!"),
+        ("smooth", "Marks must flow smoothly"),
+        ("consistent", "Marks must maintain a consistent trajectory"),
+    ]),
+    ("4", "Lines: Homework", [
+        ("reminder", "Don&rsquo;t forget!"),
+        ("homework", "Homework and exercises"),
+    ]),
+    ("5", "Ellipses", [
+        ("summary", "Circles in 3D space"),
+        ("video", "What is an ellipse?"),
+        ("2d3d", "2D vs 3D"),
+        ("circles", "Circles in 3D space (in depth)"),
+        ("degree", "Degree"),
+        ("degreeshift", "Degree shift"),
+        ("minoraxis", "Minor axis"),
+        ("normalvector", "Normal vector"),
+        ("cylinders", "Cylinders"),
+        ("homework", "Homework and exercises"),
+    ]),
+    ("6", "Boxes: Basics of Perspective and Projection", [
+        ("summary", "The purpose behind the rules"),
+        ("video", "Boxes and perspective"),
+        ("notperspectivecourse", "Not a perspective course"),
+        ("2dvs3d", "2D vs 3D"),
+        ("projection", "Projection"),
+    ]),
+    ("7", "Boxes: Foreshortening and Vanishing Points", [
+        ("summary", "Vanishing points"),
+        ("video", "Conveying distance"),
+        ("foreshortening", "Foreshortening"),
+        ("scaleshift", "As things move farther away, they appear smaller"),
+        ("vanishingpoint", "Vanishing points (in depth)"),
+        ("appliedtobox", "As applied to a box"),
+        ("horizon", "Horizon line"),
+        ("rotation", "What happens when a set of edges rotates?"),
+    ]),
+    ("8", "Boxes: Rotation, Perspective Grids, and the Concept of Infinity", [
+        ("summary", "Getting mathematical"),
+        ("video", "Understanding rotation"),
+        ("lookingatthescene", "How we look at the scene"),
+        ("topdown", "A different point of view"),
+        ("circlehorizon", "Circular horizon"),
+        ("noninfinite", "Infinite vs non-infinite"),
+        ("vpatinfinity", "Vanishing point at infinity"),
+        ("123pt", "1, 2, and 3 point perspective"),
+        ("grids", "Perspective grids"),
+        ("0pp", "0 point perspective does not exist"),
+    ]),
+    ("9", "Boxes: Simplified Guidelines", [
+        ("summary", "Rules of thumb"),
+        ("1ppsimplified", "1 point perspective simplified"),
+        ("2ppsimplified", "2 point perspective simplified"),
+        ("3ppsimplified", "3 point perspective simplified"),
+    ]),
+    ("10", "Boxes: Additional Notes", [
+        ("summary", "Extra concepts"),
+        ("foreshortening", "Foreshortening"),
+        ("lines", "Horizon line, eye line, axis"),
+        ("distortion", "Distortion"),
+        ("placingvps", "Placing vanishing points"),
+    ]),
+    ("11", "Boxes: Homework", [
+        ("homework", "Homework and exercises"),
+    ]),
+    ("12", "What Next?", []),
+]
+
+def _build_lesson1_lines_module():
+    entries = [("lesson0", "Read Drawabox Lesson 0 (mindset &amp; the 50% rule)")]
+    default_links = {}
+    for section, title, subitems in DRAWABOX_LESSON1_TOC:
+        entries.append(Section(title, f"https://drawabox.com/lesson/1/{section}"))
+        for slug, label in subitems:
+            item_id = f"l1_{section}_{slug}"
+            entries.append((item_id, label))
+            default_links[("lines", item_id)] = {
+                "lesson": f"https://drawabox.com/lesson/1/{section}/{slug}"
+            }
+    return entries, default_links
+
+_LINES_ITEMS, _LINES_DEFAULT_LINKS = _build_lesson1_lines_module()
+
 CHECKLISTS = {
     "rhythm": [
         ("supplies", "Got a fineliner pen, an HB pencil, and cheap paper"),
         ("schedule", "Picked your two weekly session slots"),
     ],
-    "lines": [
-        ("lesson0", "Read Drawabox Lesson 0 (mindset &amp; the 50% rule)"),
-        ("superimposed", "Superimposed lines"),
-        ("ghosted", "Ghosted lines &amp; planes"),
-        ("ellipses", "Tables of ellipses"),
-        ("boxes", "Basic perspective / box exercises"),
-    ],
+    "lines": _LINES_ITEMS,
     "construction": [
         ("organic", "Lesson 2: organic forms with contour curves"),
         ("texture", "Lesson 2: texture analysis"),
@@ -486,30 +601,86 @@ CHECKLISTS = {
 ITEM_LINKS = {
     ("lines", "lesson0"): {
         "lesson": "https://drawabox.com/lesson/0",
+        "video": "https://www.youtube.com/watch?v=8ocmPR_EprE",
+        "videos": [
+            ("Drawabox Videos (overview)", "https://www.youtube.com/watch?v=9708PBUvCQ0"),
+            ("Part 2: What are the Fundamentals?", "https://www.youtube.com/watch?v=GEAFLXM34L4"),
+            ("Part 4: Getting the Most out of Drawabox", "https://www.youtube.com/watch?v=nBjTGvpd-q8"),
+            ("Part 5: The Tools We Recommend", "https://www.youtube.com/watch?v=Egxv9dycg5Q"),
+        ],
     },
-    ("lines", "superimposed"): {
-        "lesson": "https://drawabox.com/lesson/1/2",
-        "video": "https://drawabox.com/lesson/1/2/video",
+    ("lines", "l1_2_video"): {
+        "video": "https://www.youtube.com/watch?v=0_AdsK8x9Lw",
     },
-    ("lines", "ghosted"): {
-        "lesson": "https://drawabox.com/lesson/1/3",
+    ("lines", "l1_2_grip"): {
+        "video": "https://www.youtube.com/watch?v=_IR8zH4RCfU",
     },
-    ("lines", "ellipses"): {
-        "lesson": "https://drawabox.com/lesson/1/5",
-        "video": "https://drawabox.com/lesson/1/5/video",
+    ("lines", "l1_3_markmaking"): {
+        "video": "https://www.youtube.com/watch?v=x5Pes5fy-Eo",
     },
-    ("lines", "boxes"): {
-        "lesson": "https://drawabox.com/lesson/1/6",
-        "video": "https://drawabox.com/lesson/1/6/video",
+    ("lines", "l1_4_homework"): {
+        "videos": [
+            ("Exercise 1: Superimposed Lines", "https://www.youtube.com/watch?v=dzGmoJanhbQ"),
+            ("Exercise 2: Ghosted Lines", "https://www.youtube.com/watch?v=LkJG6pKTuRc"),
+            ("The Levels of the Ghosting Method", "https://www.youtube.com/watch?v=o1HAVipdsZM"),
+            ("Exercise 3: Ghosted Planes", "https://www.youtube.com/watch?v=JsG7cMasVjo"),
+        ],
+    },
+    ("lines", "l1_5_video"): {
+        "video": "https://www.youtube.com/watch?v=tHJ3rzk6kno",
+    },
+    ("lines", "l1_5_homework"): {
+        "videos": [
+            ("Exercise 4: Tables of Ellipses", "https://www.youtube.com/watch?v=7WLmXufShyA"),
+            ("Exercise 4: Things to Remember", "https://www.youtube.com/watch?v=gyRHkTPqfrQ"),
+            ("Exercise 5: Ellipses in Planes", "https://www.youtube.com/watch?v=9EUc-nni1_w"),
+            ("Exercise 5: Things to Remember", "https://www.youtube.com/watch?v=CKgeIA2PqY8"),
+            ("Exercise 6: Funnels", "https://www.youtube.com/watch?v=xiMEIg2fU-g"),
+            ("Exercise 6: Things to Remember", "https://www.youtube.com/watch?v=HMbBMQMICmk"),
+        ],
+    },
+    ("lines", "l1_6_video"): {
+        "video": "https://www.youtube.com/watch?v=XhDWiPARouY",
+    },
+    ("lines", "l1_7_video"): {
+        "video": "https://www.youtube.com/watch?v=tH6kpY6lYUw",
+    },
+    ("lines", "l1_8_video"): {
+        "video": "https://www.youtube.com/watch?v=N3Tm0UDDHgs",
+    },
+    ("lines", "l1_11_homework"): {
+        "videos": [
+            ("Exercise 7: Plotted Perspective", "https://www.youtube.com/watch?v=mrn8Z6IqRnw"),
+            ("Exercise 8: Rough Perspective", "https://www.youtube.com/watch?v=hbjFN6RN1jA"),
+            ("Exercise 9: Rotated Boxes", "https://www.youtube.com/watch?v=Oz98L4Fyxoo"),
+            ("Estimating Rotation", "https://www.youtube.com/watch?v=gSbFHHrQK7w"),
+            ("Line Weight and Overlaps", "https://www.youtube.com/watch?v=treOc3Pp-aE"),
+            ("Exercise 10: Organic Perspective", "https://www.youtube.com/watch?v=OCIBJSxS9fY"),
+            ("Boxes: The Y Method", "https://www.youtube.com/watch?v=evGWbjDI6xQ"),
+            ("The 250 Box Challenge", "https://www.youtube.com/watch?v=ltbHkgPiQZo"),
+            ("250 Box Challenge: The First Fifty", "https://www.youtube.com/watch?v=86g7QL7gOWg"),
+            ("250 Box Challenge: The Next Fifty", "https://www.youtube.com/watch?v=KFEFN139TdY"),
+        ],
     },
 }
+# Every Lesson 1 sub-page gets at least a plain link to its own page;
+# entries above layer confirmed videos on top of (or instead of) that.
+for _key, _val in _LINES_DEFAULT_LINKS.items():
+    ITEM_LINKS.setdefault(_key, {})
+    for _k, _v in _val.items():
+        ITEM_LINKS[_key].setdefault(_k, _v)
 
 def tracker_box(page_id):
     items = CHECKLISTS.get(page_id)
     if not items:
         return ""
     rows = ""
-    for item_id, label in items:
+    for entry in items:
+        if isinstance(entry, Section):
+            open_link = f' &middot; <a href="{entry.url}" target="_blank" rel="noopener">Open</a>' if entry.url else ""
+            rows += f'<div class="track-section">{entry.label}{open_link}</div>\n'
+            continue
+        item_id, label = entry
         cb_id = f"{page_id}-{item_id}"
         links = ITEM_LINKS.get((page_id, item_id))
         links_html = ""
@@ -519,6 +690,8 @@ def tracker_box(page_id):
                 parts.append(f'<a href="{links["lesson"]}" target="_blank" rel="noopener">Lesson</a>')
             if links.get("video"):
                 parts.append(f'<a href="{links["video"]}" target="_blank" rel="noopener">Video</a>')
+            for vlabel, vurl in links.get("videos", []):
+                parts.append(f'<a href="{vurl}" target="_blank" rel="noopener">{vlabel}</a>')
             links_html = f'\n      <span class="item-links">{" &middot; ".join(parts)}</span>'
         rows += f'''<div class="track-item">
       <input type="checkbox" id="{cb_id}" data-id="{item_id}" disabled>
@@ -707,7 +880,10 @@ for i, p in enumerate(PAGES):
 
 # ---------- progress-schema.js (single source of truth for counts + page order) ----------
 import json
-schema_obj = {pid: [item_id for item_id, _ in items] for pid, items in CHECKLISTS.items()}
+schema_obj = {
+    pid: [entry[0] for entry in items if not isinstance(entry, Section)]
+    for pid, items in CHECKLISTS.items()
+}
 page_info = [{"id": p["id"], "file": p["file"], "title": p["title"]} for p in PAGES if p["id"] in CHECKLISTS]
 with open(f"{OUT}/progress-schema.js", "w") as f:
     f.write("window.PROGRESS_SCHEMA = " + json.dumps(schema_obj, indent=2) + ";\n")
