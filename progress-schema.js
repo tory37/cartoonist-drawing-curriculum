@@ -107,9 +107,7 @@ window.PROGRESS_SCHEMA = {
   ],
   "character": [
     "etherington",
-    "circleschar",
-    "squareschar",
-    "triangleschar",
+    "shapedrill",
     "expressionsheet"
   ],
   "comics": [
@@ -133,7 +131,8 @@ window.PROGRESS_SCHEMA = {
     "layerworkflow",
     "brushpicks",
     "flattingdrill",
-    "limitedpalette"
+    "limitedpalette",
+    "colortheory"
   ]
 };
 window.PAGE_INFO = [

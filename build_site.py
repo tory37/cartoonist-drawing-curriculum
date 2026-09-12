@@ -284,16 +284,17 @@ add("rhythm", "01-rhythm.html", "Weekly rhythm &amp; supplies", "rhythm", None, 
   <div>&#9998; A pack of fineliners (for Drawabox &mdash; ink only, no erasing)</div>
   <div>&#9998; Printer paper is fine to start</div>
 </div>
-<h3>Two books worth buying (~$45 total, one-time)</h3>
-<p>Everything else in this course is free, but two real, proven, expert-designed texts are worth
+<h3>Three books worth buying (~$70 total, one-time)</h3>
+<p>Everything else in this course is free, but three real, proven, expert-designed texts are worth
 paying for instead of us improvising an equivalent from YouTube:</p>
 <div class="supply-grid">
   <div>&#128214; Ivan Brunetti, <a href="https://yalebooks.yale.edu/book/9780300170993/cartooning/" target="_blank" rel="noopener"><em>Cartooning: Philosophy and Practice</em></a> (~$20)</div>
   <div>&#128214; Lynda Barry, <a href="https://drawnandquarterly.com/books/making-comics/" target="_blank" rel="noopener"><em>Making Comics</em></a> (~$25)</div>
+  <div>&#128214; Marcos Mateu-Mestre, <a href="https://www.amazon.com/Framed-Ink-Drawing-Composition-Storytellers/dp/1933492953" target="_blank" rel="noopener"><em>Framed Ink</em></a> (~$25)</div>
 </div>
-<p>You won&rsquo;t open either right away &mdash; Brunetti&rsquo;s escalating drills and Barry&rsquo;s teaching
-approach come into play starting at the comics module &mdash; but both are real, classroom-tested
-courses in book form, worth ordering now.</p>
+<p>You won&rsquo;t open any of them right away &mdash; Brunetti&rsquo;s escalating drills, Barry&rsquo;s teaching
+approach, and Mateu-Mestre&rsquo;s panel-staging system all come into play starting at the comics
+module &mdash; but all three are real, classroom-tested courses in book form, worth ordering now.</p>
 <h3>Start this now: the 4-minute diary</h3>
 <p>Before any fundamentals, start a habit you&rsquo;ll keep for the whole course &mdash; Lynda Barry&rsquo;s
 <a href="https://www.openculture.com/2021/09/cartoonist-lynda-barry-teaches-you-how-to-make-a-visual-daily-diary.html" target="_blank" rel="noopener">4-minute diary</a>.
@@ -350,9 +351,17 @@ add("gesture", "05-gesture.html", "Gesture &amp; simplified anatomy", "gesture",
   Archive. The first ~30 pages teach cartoon heads and figures via ball-and-plane construction,
   the perfect bridge from fundamentals to cartoon character.</li>
 </ul>
+<h3>Make it a weekly habit, not a single session</h3>
+<p>Gesture doesn&rsquo;t come from one good session &mdash; it comes from a repeated cycle, which is exactly
+how it was actually taught. For twenty years, Disney animator Walt Stanchfield ran weekly gesture
+classes for the studio&rsquo;s own animators (his students include Glen Keane, Brad Bird, and John
+Lasseter): draw from a model, get critiqued, repeat, week after week. His own class handouts are
+freely shared online with his family&rsquo;s blessing at
+<a href="https://www.thinkinganimation.com/walt-stanchfield-handouts" target="_blank" rel="noopener">Thinking Animation</a> &mdash; read a few alongside your own weekly sessions; they&rsquo;re as much
+about attitude as technique.</p>
 <div class="callout do"><span class="tag">how to practice</span>
 Short timed gestures (30 seconds&ndash;2 minutes), then &ldquo;mannequinize&rdquo; into simple shapes.
-Chase flow and exaggeration, not accuracy.</div>
+Chase flow and exaggeration, not accuracy &mdash; and keep it weekly for the whole course, not just this phase.</div>
 <div class="callout skip"><span class="tag">skip / deprioritize</span>
 Rigorous &eacute;corch&eacute;/muscle anatomy, &ldquo;100 heads / 100 hands&rdquo; realism challenges, and the
 Solo Art Curriculum&rsquo;s multi-term anatomy sequence. You need enough anatomy to caricature it,
@@ -364,7 +373,8 @@ add("character", "06-character-design.html", "Character design &amp; stylization
 <ul>
   <li><strong>Etherington Brothers, <a href="https://theetheringtonbrothers.blogspot.com/p/every-how-to-think-when-you-draw.html" target="_blank" rel="noopener">&ldquo;How to THINK When You Draw&rdquo;</a></strong> &mdash; 300+ free tutorials,
   including &ldquo;How to draw CHARACTERS (3-Shapes)&rdquo; and &ldquo;(Flipped-Shapes).&rdquo; The richest free
-  cartoonist library on the web.</li>
+  cartoonist library on the web, made by two working comic artists (Robin &amp; Lorenzo Etherington,
+  <em>The Phoenix</em> comic).</li>
   <li><strong><a href="https://www.youtube.com/tonikopantoja" target="_blank" rel="noopener">Toniko Pantoja</a></strong> (YouTube) &mdash; story/animation artist (How to Train Your
   Dragon 3, Trolls, Croods 2); excellent free videos on appealing shape language.</li>
   <li><strong><a href="https://www.youtube.com/channel/UC5dyu9y0EV0cSvGtbBtHw_w" target="_blank" rel="noopener">Sycra</a></strong> (YouTube) &mdash; &ldquo;iterative drawing&rdquo; and shape-design; great for
@@ -373,10 +383,16 @@ add("character", "06-character-design.html", "Character design &amp; stylization
   Invader Zim, and similar cartoons. Break each character into its underlying simple shapes &mdash;
   Finn is a rounded box, Jake is a fluid blob.</li>
 </ul>
+<h3>A real, repeatable design drill &mdash; not a one-off</h3>
+<p>The Etherington Brothers&rsquo; <a href="https://theetheringtonbrothers.blogspot.com/2018/01/how-to-think-when-you-draw-3-shape.html" target="_blank" rel="noopener">3-Shape Characters</a>
+method is built to be run over and over, not done once: split a body into three sections, then
+randomly pick each section&rsquo;s height (short/medium/tall) and width (narrow/medium/wide). Every
+combination produces a different, usable silhouette. Run it weekly with a fresh random combination
+&mdash; it&rsquo;s how the Etheringtons themselves teach building a personal library of shapes fast.</p>
 <div class="callout do"><span class="tag">exercises</span>
-Shape-language studies (design the same character from circles, then squares, then triangles),
-expression sheets, and model sheets &mdash; the same character from multiple angles, which is exactly
-where your Phase 1&ndash;2 construction work pays off.</div>
+Run the 3-Shape drill weekly, then draw an expression sheet (and eventually a full turnaround model
+sheet) for whichever result you liked best that week &mdash; exactly where your Phase 1&ndash;2 construction
+work pays off.</div>
 ''')
 
 add("comics", "07-comics.html", "Comics: paneling &amp; storytelling", "comics",
@@ -405,6 +421,13 @@ down. Then write one full page yourself before pencilling anything.</p>
 <p>Working cartoonists redraw a page&rsquo;s layout several small, rough ways before picking one &mdash;
 it&rsquo;s a real, teachable skill, not something that just happens. Frank Santoro&rsquo;s free
 <a href="http://www.tcj.com/layout-workbook/frank/" target="_blank" rel="noopener">Layout Workbook</a> column breaks down how professional page compositions actually work.</p>
+
+<h3>Stage each panel, not just the page</h3>
+<p>Santoro&rsquo;s workbook is about the whole page; staging is about each individual panel &mdash; where
+you put the camera, what&rsquo;s in the foreground, how a silhouette reads at a glance. Marcos
+Mateu-Mestre&rsquo;s <a href="https://www.amazon.com/Framed-Ink-Drawing-Composition-Storytellers/dp/1933492953" target="_blank" rel="noopener"><em>Framed Ink</em></a> (~$25, the book from module 01) is the standard
+reference working storyboard and comic artists use for exactly this &mdash; shot choice, staging, and
+visual clarity, one panel at a time.</p>
 
 <h3>Letter it</h3>
 <p>Lettering and balloon placement are their own skill, not an afterthought &mdash; a badly placed
@@ -436,7 +459,10 @@ this style solves layout and acting problems.</p>
 
 <h3>Get feedback</h3>
 <p>Practice without feedback plateaus. Post one finished piece somewhere real people will critique
-it &mdash; <a href="https://www.reddit.com/r/ArtCrit/" target="_blank" rel="noopener">r/ArtCrit</a> or a comics-specific Discord &mdash; instead of only judging your own work.</p>
+it &mdash; <a href="https://www.reddit.com/r/ArtCrit/" target="_blank" rel="noopener">r/ArtCrit</a> or a comics-specific Discord &mdash; instead of only judging your own work. Be honest with
+yourself that this is the weakest link in a free curriculum: a genuinely consistent feedback loop
+is mostly gated behind a paid critique tier (Drawabox&rsquo;s own paid add-on, for one). Free
+communities are worth using anyway &mdash; they&rsquo;re just less reliable than that.</p>
 ''')
 
 add("digital", "08-digital.html", "Transition to digital", "digital",
@@ -462,6 +488,14 @@ first step in digital comic coloring, and the difference between a coloring sess
 <div class="callout do"><span class="tag">keep it simple</span>
 Pick 3&ndash;5 colors total for your first colored page. A limited palette forces decisions that
 actually read, and it&rsquo;s far more forgiving than choosing from millions of colors with no plan.</div>
+<h3>Choosing a palette, not just filling it in</h3>
+<p>Flatting is mechanical; picking colors that actually read is a separate skill most free
+&ldquo;how to color&rdquo; tutorials skip. Working comic colorist
+<a href="https://www.comiccolor.com" target="_blank" rel="noopener">K. Michael Russell</a> teaches color theory alongside flatting for free on his own site and
+YouTube &mdash; the same lessons he sells in his paid courses, offered as free trials. The Sequential
+Artists Workshop&rsquo;s free <a href="https://www.sequentialartistsworkshop.org/blog/color-in-comics" target="_blank" rel="noopener">&ldquo;How To Color Your Comics&rdquo;</a> is a shorter, practical companion: get
+your <em>values</em> right before worrying about which exact hue you picked &mdash; readable line art
+beats a pretty palette every time.</p>
 ''')
 
 add("recs", "09-recommendations.html", "Putting it together", "recs", None, '''
@@ -469,8 +503,9 @@ add("recs", "09-recommendations.html", "Putting it together", "recs", None, '''
 <ul>
   <li>Read <a href="https://drawabox.com/lesson/0" target="_blank" rel="noopener">Drawabox Lesson 0</a> and adopt the 50% rule. Buy a fineliner pen and cheap paper.</li>
   <li>Begin Phase 1 at two short sessions a week, always splitting time with fun cartoon doodling.</li>
-  <li>Order Brunetti&rsquo;s <em>Cartooning: Philosophy and Practice</em> and Barry&rsquo;s <em>Making
-  Comics</em> now (~$45 total) &mdash; you won&rsquo;t open them for a while, but shipping takes time.</li>
+  <li>Order Brunetti&rsquo;s <em>Cartooning: Philosophy and Practice</em>, Barry&rsquo;s <em>Making
+  Comics</em>, and Mateu-Mestre&rsquo;s <em>Framed Ink</em> now (~$70 total) &mdash; you won&rsquo;t open them
+  for a while, but shipping takes time.</li>
   <li>Start Lynda Barry&rsquo;s 4-minute diary this week &mdash; it needs no drawing skill and runs
   alongside everything else, for the whole course.</li>
 </ul>
@@ -508,14 +543,15 @@ add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, 
   fully free, with an optional paid critique tier.</li>
   <li><strong>Links and channels change.</strong> If a specific video or playlist has moved,
   search the creator&rsquo;s name directly &mdash; the recommendation still stands even when the URL doesn&rsquo;t.</li>
-  <li><strong>This course asks you to spend about $45, deliberately.</strong> Brunetti&rsquo;s
-  <em>Cartooning: Philosophy and Practice</em> and Barry&rsquo;s <em>Making Comics</em> are real,
-  classroom-tested courses in book form &mdash; chosen instead of assembling an equivalent from free
-  YouTube links, which doesn&rsquo;t really exist for the comics-craft parts of this course. We looked
-  at pricier structured alternatives too &mdash; Proko&rsquo;s Marvel-branded storytelling course ($249)
-  and Frank Santoro&rsquo;s mentored correspondence course ($500) &mdash; and skipped both: good programs,
-  but priced for someone making comics a career, and the Proko course leans mainstream-superhero
-  rather than the loose cartoon style this course targets.</li>
+  <li><strong>This course asks you to spend about $70, deliberately.</strong> Brunetti&rsquo;s
+  <em>Cartooning: Philosophy and Practice</em>, Barry&rsquo;s <em>Making Comics</em>, and
+  Mateu-Mestre&rsquo;s <em>Framed Ink</em> are real, classroom-tested courses in book form &mdash; chosen
+  instead of assembling an equivalent from free YouTube links, which doesn&rsquo;t really exist for the
+  comics-craft parts of this course. We looked at pricier structured alternatives too &mdash;
+  Proko&rsquo;s Marvel-branded storytelling course ($249) and Frank Santoro&rsquo;s mentored correspondence
+  course ($500) &mdash; and skipped both: good programs, but priced for someone making comics a career,
+  and the Proko course leans mainstream-superhero rather than the loose cartoon style this course
+  targets.</li>
   <li>This is a synthesis of what free resources, a couple of inexpensive books, and their
   communities recommend, not a guarantee of outcomes. Progress depends almost entirely on
   consistent, enjoyable practice sustained over years.</li>
@@ -733,17 +769,15 @@ CHECKLISTS = {
         ("roomsketch", "Sketch a character standing in a simple room"),
     ],
     "gesture": [
-        ("gesturesession", "Do one timed gesture session (30s&ndash;2min poses)"),
+        ("gesturesession", "Started weekly timed-gesture sessions (Stanchfield&rsquo;s own Disney classes ran the same draw-critique-repeat cycle) &mdash; keep it going"),
         ("prokovideo", "Watch a Proko gesture fundamentals video"),
         ("loomispages", "Read the first ~30 pages of <em>Fun With a Pencil</em>"),
         ("mannequin", "Mannequinize 10 gesture sketches into simple shapes"),
     ],
     "character": [
         ("etherington", "Browse the Etherington Brothers&rsquo; character-shape tutorials"),
-        ("circleschar", "Design one character built from circles"),
-        ("squareschar", "Design the same character built from squares"),
-        ("triangleschar", "Design the same character built from triangles"),
-        ("expressionsheet", "Draw an expression sheet for one character"),
+        ("shapedrill", "Run the 3-Shape design drill (repeat weekly with a new random combination)"),
+        ("expressionsheet", "Draw an expression sheet for your favorite result each week"),
     ],
     "comics": [
         Section("Learn the grammar"),
@@ -774,6 +808,7 @@ CHECKLISTS = {
         ("brushpicks", "Pick your 2&ndash;3 go-to brushes"),
         ("flattingdrill", "Practice flatting a page: solid color fills before any shading"),
         ("limitedpalette", "Pick a 3&ndash;5 color limited palette for your first colored page"),
+        ("colortheory", "Read a real color-theory lesson before picking your palette"),
     ],
 }
 
@@ -869,6 +904,9 @@ ITEM_LINKS = {
     # These two already have real, verified sources named in this page's own
     # prose (a Proko YouTube playlist and the archive.org Loomis scan) -- no
     # need to guess a single specific video out of a whole playlist.
+    ("gesture", "gesturesession"): {
+        "lesson": "https://www.thinkinganimation.com/walt-stanchfield-handouts",
+    },
     ("gesture", "prokovideo"): {
         "video": "https://www.youtube.com/playlist?list=PLtG4P3lq8RHEQ1kiN_Nub1vXR8fQQLjDF",
     },
@@ -877,6 +915,9 @@ ITEM_LINKS = {
     },
     ("character", "etherington"): {
         "lesson": "https://theetheringtonbrothers.blogspot.com/p/every-how-to-think-when-you-draw.html",
+    },
+    ("character", "shapedrill"): {
+        "lesson": "https://theetheringtonbrothers.blogspot.com/2018/01/how-to-think-when-you-draw-3-shape.html",
     },
     ("comics", "mccloudread"): {
         "lesson": "https://www.scottmccloud.com",
@@ -908,6 +949,12 @@ ITEM_LINKS = {
     },
     ("digital", "flattingdrill"): {
         "video": "https://www.youtube.com/watch?v=s55gkBwZRU8",
+    },
+    ("digital", "colortheory"): {
+        "videos": [
+            {"label": "K. Michael Russell &mdash; free color &amp; flatting tutorials", "lesson": "https://www.comiccolor.com/resources"},
+            {"label": "Sequential Artists Workshop &mdash; How To Color Your Comics", "lesson": "https://www.sequentialartistsworkshop.org/blog/color-in-comics"},
+        ],
     },
 }
 # Every sub-page gets at least a plain link to its own page; entries above
