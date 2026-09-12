@@ -444,10 +444,11 @@ add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, 
 # action; a Section is a non-checkable heading that mirrors a table-of-
 # contents group (used to reproduce a source site's own outline exactly).
 class Section:
-    __slots__ = ("label", "url")
-    def __init__(self, label, url=None):
+    __slots__ = ("label", "url", "videos")
+    def __init__(self, label, url=None, videos=None):
         self.label = label
         self.url = url
+        self.videos = videos or []
 
 # Drawabox Lesson 1's table of contents, mirrored section-for-section and
 # page-for-page from the site's own sidebar so our checklist matches it
@@ -541,11 +542,42 @@ DRAWABOX_LESSON1_TOC = [
     ("12", "What Next?", []),
 ]
 
+# Several official Drawabox videos explain an entire section rather than one
+# sub-page: their own descriptions cite the section's ROOT url ("the reading
+# for this video is available at https://drawabox.com/lesson/1/2") as their
+# reading, covering every sibling sub-page underneath it. Attached to the
+# section heading itself rather than to one arbitrarily-chosen leaf item.
+SECTION_VIDEOS = {
+    "2": [
+        ("Drawing from your wrist and shoulder", "https://www.youtube.com/watch?v=0_AdsK8x9Lw"),
+        ("How to hold your pen", "https://www.youtube.com/watch?v=_IR8zH4RCfU"),
+    ],
+    "3": [
+        ("The Principles of Markmaking", "https://www.youtube.com/watch?v=x5Pes5fy-Eo"),
+    ],
+    "5": [
+        ("What is an ellipse?", "https://www.youtube.com/watch?v=tHJ3rzk6kno"),
+    ],
+    "6": [
+        ("Boxes and perspective", "https://www.youtube.com/watch?v=XhDWiPARouY"),
+    ],
+    "7": [
+        ("Conveying distance", "https://www.youtube.com/watch?v=tH6kpY6lYUw"),
+    ],
+    "8": [
+        ("Understanding rotation", "https://www.youtube.com/watch?v=N3Tm0UDDHgs"),
+    ],
+}
+
 def _build_lesson1_lines_module():
     entries = [("lesson0", "Read Drawabox Lesson 0 (mindset &amp; the 50% rule)")]
     default_links = {}
     for section, title, subitems in DRAWABOX_LESSON1_TOC:
-        entries.append(Section(title, f"https://drawabox.com/lesson/1/{section}"))
+        entries.append(Section(
+            title,
+            f"https://drawabox.com/lesson/1/{section}",
+            videos=SECTION_VIDEOS.get(section),
+        ))
         for slug, label in subitems:
             item_id = f"l1_{section}_{slug}"
             entries.append((item_id, label))
@@ -687,7 +719,11 @@ def tracker_box(page_id):
     for entry in items:
         if isinstance(entry, Section):
             open_link = f' &middot; <a href="{entry.url}" target="_blank" rel="noopener">Open</a>' if entry.url else ""
-            rows += f'<div class="track-section">{entry.label}{open_link}</div>\n'
+            video_links = "".join(
+                f' &middot; <a href="{vurl}" target="_blank" rel="noopener">Video: {vlabel}</a>'
+                for vlabel, vurl in entry.videos
+            )
+            rows += f'<div class="track-section">{entry.label}{open_link}{video_links}</div>\n'
             continue
         item_id, label = entry
         cb_id = f"{page_id}-{item_id}"
