@@ -485,24 +485,22 @@ CHECKLISTS = {
 # keyed by (page_id, item_id). Filled in module by module.
 ITEM_LINKS = {
     ("lines", "lesson0"): {
-        "lesson": "https://drawabox.com/lesson/0/2/50percent",
-        "video": "https://www.youtube.com/watch?v=8ocmPR_EprE",
+        "lesson": "https://drawabox.com/lesson/0",
     },
     ("lines", "superimposed"): {
-        "lesson": "https://drawabox.com/lesson/1/superimposedlines",
-        "video": "https://www.youtube.com/watch?v=dzGmoJanhbQ",
+        "lesson": "https://drawabox.com/lesson/1/2",
+        "video": "https://drawabox.com/lesson/1/2/video",
     },
     ("lines", "ghosted"): {
-        "lesson": "https://drawabox.com/lesson/1/ghostedlines",
-        "video": "https://www.youtube.com/watch?v=LkJG6pKTuRc",
+        "lesson": "https://drawabox.com/lesson/1/3",
     },
     ("lines", "ellipses"): {
-        "lesson": "https://drawabox.com/lesson/1/tablesofellipses",
-        "video": "https://www.youtube.com/watch?v=tHJ3rzk6kno",
+        "lesson": "https://drawabox.com/lesson/1/5",
+        "video": "https://drawabox.com/lesson/1/5/video",
     },
     ("lines", "boxes"): {
-        "lesson": "https://drawabox.com/lesson/1/rotatedboxes",
-        "video": "https://www.youtube.com/watch?v=N3Tm0UDDHgs",
+        "lesson": "https://drawabox.com/lesson/1/6",
+        "video": "https://drawabox.com/lesson/1/6/video",
     },
 }
 
