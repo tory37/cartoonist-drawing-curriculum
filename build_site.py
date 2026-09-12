@@ -284,6 +284,25 @@ add("rhythm", "01-rhythm.html", "Weekly rhythm &amp; supplies", "rhythm", None, 
   <div>&#9998; A pack of fineliners (for Drawabox &mdash; ink only, no erasing)</div>
   <div>&#9998; Printer paper is fine to start</div>
 </div>
+<h3>Two books worth buying (~$45 total, one-time)</h3>
+<p>Everything else in this course is free, but two real, proven, expert-designed texts are worth
+paying for instead of us improvising an equivalent from YouTube:</p>
+<div class="supply-grid">
+  <div>&#128214; Ivan Brunetti, <a href="https://yalebooks.yale.edu/book/9780300170993/cartooning/" target="_blank" rel="noopener"><em>Cartooning: Philosophy and Practice</em></a> (~$20)</div>
+  <div>&#128214; Lynda Barry, <a href="https://drawnandquarterly.com/books/making-comics/" target="_blank" rel="noopener"><em>Making Comics</em></a> (~$25)</div>
+</div>
+<p>You won&rsquo;t open either right away &mdash; Brunetti&rsquo;s escalating drills and Barry&rsquo;s teaching
+approach come into play starting at the comics module &mdash; but both are real, classroom-tested
+courses in book form, worth ordering now.</p>
+<h3>Start this now: the 4-minute diary</h3>
+<p>Before any fundamentals, start a habit you&rsquo;ll keep for the whole course &mdash; Lynda Barry&rsquo;s
+<a href="https://www.openculture.com/2021/09/cartoonist-lynda-barry-teaches-you-how-to-make-a-visual-daily-diary.html" target="_blank" rel="noopener">4-minute diary</a>.
+Split a page into four boxes: 7 things you did (2 min), 7 things you saw (2 min), one thing you
+overheard (30 sec), and one quick sketch from the day (30 sec).</p>
+<div class="callout do"><span class="tag">why it matters</span>
+It takes zero drawing skill to start, and it builds the observation and finishing habits that
+storytelling actually depends on &mdash; running in parallel with the hand-control drills in the next
+module, not after them. Do it a few times a week from here on, for the whole course.</div>
 ''')
 
 add("lines", "02-marks-and-lines.html", "Marks, lines &amp; confidence", "lines",
@@ -639,6 +658,7 @@ CHECKLISTS = {
     "rhythm": [
         ("supplies", "Got a fineliner pen, an HB pencil, and cheap paper"),
         ("schedule", "Picked your two weekly session slots"),
+        ("diaryhabit", "Started the 4-minute diary habit (keep it going a few times a week)"),
     ],
     "lines": _LINES_ITEMS,
     "construction": _CONSTRUCTION_ITEMS,
@@ -680,6 +700,9 @@ CHECKLISTS = {
 # video, sourced from the official video descriptions on the real "Drawabox
 # Videos" YouTube playlist (not guessed).
 ITEM_LINKS = {
+    ("rhythm", "diaryhabit"): {
+        "lesson": "https://www.openculture.com/2021/09/cartoonist-lynda-barry-teaches-you-how-to-make-a-visual-daily-diary.html",
+    },
     ("lines", "lesson0"): {
         "lesson": "https://drawabox.com/lesson/0/2",
         "video": "https://www.youtube.com/watch?v=8ocmPR_EprE",
