@@ -569,24 +569,71 @@ SECTION_VIDEOS = {
     ],
 }
 
-def _build_lesson1_lines_module():
-    entries = [("lesson0", "Read Drawabox Lesson 0 (mindset &amp; the 50% rule)")]
+# Drawabox Lesson 2's table of contents, mirrored the same way from the
+# site's own sidebar.
+DRAWABOX_LESSON2_TOC = [
+    ("1", "Thinking in 3D", [
+        ("summary", "What it means to think in 3D"),
+        ("introduction", "Preparing for the climb"),
+        ("video", "The great conspiracy"),
+        ("lying", "Telling a convincing lie"),
+        ("exploring", "Exploring a 3D space"),
+        ("contour", "Contour lines"),
+        ("homework", "Homework and exercises"),
+    ]),
+    ("2", "Texture and Detail", [
+        ("understandingtexture", "Understanding texture"),
+        ("observation", "Observation and memory"),
+        ("visuallibrary", "Visual library"),
+        ("formshading", "Don&rsquo;t worry about shading here"),
+        ("castshadows", "Cast shadows"),
+        ("implicitexplicit", "Implicit vs explicit"),
+        ("density", "Detail density"),
+        ("silhouette", "Silhouette"),
+        ("reminders", "Don&rsquo;t copy your reference &mdash; understand it"),
+        ("homework", "Homework and exercises"),
+    ]),
+    ("3", "Construction", [
+        ("video", "Constructional Drawing"),
+        ("theprocess", "The process"),
+        ("observationvsconstruction", "Observation vs construction"),
+        ("learningtechnique", "A technique for learning"),
+        ("homework", "Homework and exercises"),
+    ]),
+]
+
+SECTION2_VIDEOS = {
+    "1": [
+        ("Introduction", "https://www.youtube.com/watch?v=DxEK_zjXbcE"),
+        ("Thinking in 3D", "https://www.youtube.com/watch?v=zr3S8eGLSiw"),
+    ],
+}
+
+def _build_drawabox_module(page_id, lesson_num, toc, section_videos, id_prefix):
+    entries = []
     default_links = {}
-    for section, title, subitems in DRAWABOX_LESSON1_TOC:
+    for section, title, subitems in toc:
         entries.append(Section(
             title,
-            f"https://drawabox.com/lesson/1/{section}",
-            videos=SECTION_VIDEOS.get(section),
+            f"https://drawabox.com/lesson/{lesson_num}/{section}",
+            videos=section_videos.get(section),
         ))
         for slug, label in subitems:
-            item_id = f"l1_{section}_{slug}"
+            item_id = f"{id_prefix}{section}_{slug}"
             entries.append((item_id, label))
-            default_links[("lines", item_id)] = {
-                "lesson": f"https://drawabox.com/lesson/1/{section}/{slug}"
+            default_links[(page_id, item_id)] = {
+                "lesson": f"https://drawabox.com/lesson/{lesson_num}/{section}/{slug}"
             }
     return entries, default_links
 
-_LINES_ITEMS, _LINES_DEFAULT_LINKS = _build_lesson1_lines_module()
+_LINES_ITEMS, _LINES_DEFAULT_LINKS = _build_drawabox_module(
+    "lines", "1", DRAWABOX_LESSON1_TOC, SECTION_VIDEOS, "l1_"
+)
+_LINES_ITEMS = [("lesson0", "Read Drawabox Lesson 0 (mindset &amp; the 50% rule)")] + _LINES_ITEMS
+
+_CONSTRUCTION_ITEMS, _CONSTRUCTION_DEFAULT_LINKS = _build_drawabox_module(
+    "construction", "2", DRAWABOX_LESSON2_TOC, SECTION2_VIDEOS, "l2_"
+)
 
 CHECKLISTS = {
     "rhythm": [
@@ -594,13 +641,7 @@ CHECKLISTS = {
         ("schedule", "Picked your two weekly session slots"),
     ],
     "lines": _LINES_ITEMS,
-    "construction": [
-        ("organic", "Lesson 2: organic forms with contour curves"),
-        ("texture", "Lesson 2: texture analysis"),
-        ("intersect", "Lesson 2: form intersections"),
-        ("organicintersect", "Lesson 2: organic intersections"),
-        ("boxwarmup", "50&ndash;100 warm-up boxes (partial box challenge)"),
-    ],
+    "construction": _CONSTRUCTION_ITEMS,
     "perspective": [
         ("onepoint", "Watch a 1-point perspective video"),
         ("twopoint", "Watch a 2-point perspective video"),
@@ -703,10 +744,16 @@ ITEM_LINKS = {
             {"label": "250 Box Challenge: The Next Fifty", "lesson": "https://drawabox.com/lesson/250boxes/3", "video": "https://www.youtube.com/watch?v=KFEFN139TdY"},
         ],
     },
+    ("construction", "l2_1_homework"): {
+        "videos": [
+            {"label": "Organic Arrows", "lesson": "https://drawabox.com/lesson/2/organicarrows", "video": "https://www.youtube.com/watch?v=B_iaMu-crZk"},
+            {"label": "Sausages with Contour Lines", "lesson": "https://drawabox.com/lesson/2/contourlines", "video": "https://www.youtube.com/watch?v=y5By0Q_XFBM"},
+        ],
+    },
 }
-# Every Lesson 1 sub-page gets at least a plain link to its own page;
-# entries above layer confirmed videos on top of (or instead of) that.
-for _key, _val in _LINES_DEFAULT_LINKS.items():
+# Every sub-page gets at least a plain link to its own page; entries above
+# layer confirmed videos on top of (or instead of) that.
+for _key, _val in list(_LINES_DEFAULT_LINKS.items()) + list(_CONSTRUCTION_DEFAULT_LINKS.items()):
     ITEM_LINKS.setdefault(_key, {})
     for _k, _v in _val.items():
         ITEM_LINKS[_key].setdefault(_k, _v)

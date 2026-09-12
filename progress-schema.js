@@ -70,11 +70,28 @@ window.PROGRESS_SCHEMA = {
     "l1_11_homework"
   ],
   "construction": [
-    "organic",
-    "texture",
-    "intersect",
-    "organicintersect",
-    "boxwarmup"
+    "l2_1_summary",
+    "l2_1_introduction",
+    "l2_1_video",
+    "l2_1_lying",
+    "l2_1_exploring",
+    "l2_1_contour",
+    "l2_1_homework",
+    "l2_2_understandingtexture",
+    "l2_2_observation",
+    "l2_2_visuallibrary",
+    "l2_2_formshading",
+    "l2_2_castshadows",
+    "l2_2_implicitexplicit",
+    "l2_2_density",
+    "l2_2_silhouette",
+    "l2_2_reminders",
+    "l2_2_homework",
+    "l2_3_video",
+    "l2_3_theprocess",
+    "l2_3_observationvsconstruction",
+    "l2_3_learningtechnique",
+    "l2_3_homework"
   ],
   "perspective": [
     "onepoint",
