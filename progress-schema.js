@@ -115,7 +115,17 @@ window.PROGRESS_SCHEMA = {
   "comics": [
     "mccloudread",
     "comicsebook",
-    "minicomic"
+    "scriptbasics",
+    "writeonepage",
+    "thumbnaildrill",
+    "letteringdrill",
+    "gagpanel",
+    "fourpanelstrip",
+    "onepagecomic",
+    "fourpagemini",
+    "eightpagemini",
+    "kaboomstudy",
+    "getfeedback"
   ],
   "digital": [
     "procreatepart1",
