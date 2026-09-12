@@ -225,9 +225,13 @@ footer.site{
 }
 .track-item input[type=checkbox]:disabled{cursor:not-allowed; opacity:.45;}
 .track-item label{cursor:pointer; flex:1 1 auto;}
-.item-links{flex:0 0 100%; margin-left:28px; font-size:12px; color:var(--ink-soft);}
+.item-links{
+  flex:0 0 100%; display:flex; flex-direction:column; gap:2px;
+  margin-left:28px; font-size:12px; color:var(--ink-soft);
+}
 .item-links a{color:var(--ink-soft);}
 .item-links a:hover{color:var(--green);}
+.item-links b{font-weight:600; color:var(--ink);}
 .tracker-note{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
 
 @media print{
@@ -598,16 +602,20 @@ CHECKLISTS = {
 
 # Optional per-item external reference links (a lesson page, a video, or both),
 # keyed by (page_id, item_id). Filled in module by module.
+# A "videos" entry is a dict {"label", "lesson" (optional), "video" (optional)}
+# pairing one named exercise/part with its own confirmed reading page and/or
+# video, sourced from the official video descriptions on the real "Drawabox
+# Videos" YouTube playlist (not guessed).
 ITEM_LINKS = {
     ("lines", "lesson0"): {
-        "lesson": "https://drawabox.com/lesson/0",
+        "lesson": "https://drawabox.com/lesson/0/2",
         "video": "https://www.youtube.com/watch?v=8ocmPR_EprE",
         "videos": [
-            ("Drawabox Videos (overview)", "https://www.youtube.com/watch?v=9708PBUvCQ0"),
-            ("Overcoming the Fear of a Blank Page", "https://www.youtube.com/watch?v=mgl6Ll3K3gw"),
-            ("Part 2: What are the Fundamentals?", "https://www.youtube.com/watch?v=GEAFLXM34L4"),
-            ("Part 4: Getting the Most out of Drawabox", "https://www.youtube.com/watch?v=nBjTGvpd-q8"),
-            ("Part 5: The Tools We Recommend", "https://www.youtube.com/watch?v=Egxv9dycg5Q"),
+            {"label": "Part 1: What is Drawabox?", "lesson": "https://drawabox.com/lesson/0/1", "video": "https://www.youtube.com/watch?v=9708PBUvCQ0"},
+            {"label": "Overcoming the Fear of a Blank Page", "video": "https://www.youtube.com/watch?v=mgl6Ll3K3gw"},
+            {"label": "Part 2: What are the Fundamentals?", "lesson": "https://drawabox.com/lesson/0/1", "video": "https://www.youtube.com/watch?v=GEAFLXM34L4"},
+            {"label": "Part 4: Getting the Most out of Drawabox", "lesson": "https://drawabox.com/lesson/0/3", "video": "https://www.youtube.com/watch?v=nBjTGvpd-q8"},
+            {"label": "Part 5: The Tools We Recommend", "lesson": "https://drawabox.com/lesson/0/4", "video": "https://www.youtube.com/watch?v=Egxv9dycg5Q"},
         ],
     },
     ("lines", "l1_2_video"): {
@@ -621,10 +629,10 @@ ITEM_LINKS = {
     },
     ("lines", "l1_4_homework"): {
         "videos": [
-            ("Exercise 1: Superimposed Lines", "https://www.youtube.com/watch?v=dzGmoJanhbQ"),
-            ("Exercise 2: Ghosted Lines", "https://www.youtube.com/watch?v=LkJG6pKTuRc"),
-            ("The Levels of the Ghosting Method", "https://www.youtube.com/watch?v=o1HAVipdsZM"),
-            ("Exercise 3: Ghosted Planes", "https://www.youtube.com/watch?v=JsG7cMasVjo"),
+            {"label": "Exercise 1: Superimposed Lines", "lesson": "https://drawabox.com/lesson/1/superimposedlines", "video": "https://www.youtube.com/watch?v=dzGmoJanhbQ"},
+            {"label": "Exercise 2: Ghosted Lines", "lesson": "https://drawabox.com/lesson/1/ghostedlines", "video": "https://www.youtube.com/watch?v=LkJG6pKTuRc"},
+            {"label": "The Levels of the Ghosting Method", "lesson": "https://drawabox.com/lesson/1/ghostedlines", "video": "https://www.youtube.com/watch?v=o1HAVipdsZM"},
+            {"label": "Exercise 3: Ghosted Planes", "lesson": "https://drawabox.com/lesson/1/ghostedplanes", "video": "https://www.youtube.com/watch?v=JsG7cMasVjo"},
         ],
     },
     ("lines", "l1_5_video"): {
@@ -632,12 +640,12 @@ ITEM_LINKS = {
     },
     ("lines", "l1_5_homework"): {
         "videos": [
-            ("Exercise 4: Tables of Ellipses", "https://www.youtube.com/watch?v=7WLmXufShyA"),
-            ("Exercise 4: Things to Remember", "https://www.youtube.com/watch?v=gyRHkTPqfrQ"),
-            ("Exercise 5: Ellipses in Planes", "https://www.youtube.com/watch?v=9EUc-nni1_w"),
-            ("Exercise 5: Things to Remember", "https://www.youtube.com/watch?v=CKgeIA2PqY8"),
-            ("Exercise 6: Funnels", "https://www.youtube.com/watch?v=xiMEIg2fU-g"),
-            ("Exercise 6: Things to Remember", "https://www.youtube.com/watch?v=HMbBMQMICmk"),
+            {"label": "Exercise 4: Tables of Ellipses", "lesson": "https://drawabox.com/lesson/1/tablesofellipses", "video": "https://www.youtube.com/watch?v=7WLmXufShyA"},
+            {"label": "Exercise 4: Things to Remember", "lesson": "https://drawabox.com/lesson/1/tablesofellipses", "video": "https://www.youtube.com/watch?v=gyRHkTPqfrQ"},
+            {"label": "Exercise 5: Ellipses in Planes", "lesson": "https://drawabox.com/lesson/1/ellipsesinplanes", "video": "https://www.youtube.com/watch?v=9EUc-nni1_w"},
+            {"label": "Exercise 5: Things to Remember", "lesson": "https://drawabox.com/lesson/1/ellipsesinplanes", "video": "https://www.youtube.com/watch?v=CKgeIA2PqY8"},
+            {"label": "Exercise 6: Funnels", "lesson": "https://drawabox.com/lesson/1/funnels", "video": "https://www.youtube.com/watch?v=xiMEIg2fU-g"},
+            {"label": "Exercise 6: Things to Remember", "lesson": "https://drawabox.com/lesson/1/funnels", "video": "https://www.youtube.com/watch?v=HMbBMQMICmk"},
         ],
     },
     ("lines", "l1_6_video"): {
@@ -651,16 +659,16 @@ ITEM_LINKS = {
     },
     ("lines", "l1_11_homework"): {
         "videos": [
-            ("Exercise 7: Plotted Perspective", "https://www.youtube.com/watch?v=mrn8Z6IqRnw"),
-            ("Exercise 8: Rough Perspective", "https://www.youtube.com/watch?v=hbjFN6RN1jA"),
-            ("Exercise 9: Rotated Boxes", "https://www.youtube.com/watch?v=Oz98L4Fyxoo"),
-            ("Estimating Rotation", "https://www.youtube.com/watch?v=gSbFHHrQK7w"),
-            ("Line Weight and Overlaps", "https://www.youtube.com/watch?v=treOc3Pp-aE"),
-            ("Exercise 10: Organic Perspective", "https://www.youtube.com/watch?v=OCIBJSxS9fY"),
-            ("Boxes: The Y Method", "https://www.youtube.com/watch?v=evGWbjDI6xQ"),
-            ("The 250 Box Challenge", "https://www.youtube.com/watch?v=ltbHkgPiQZo"),
-            ("250 Box Challenge: The First Fifty", "https://www.youtube.com/watch?v=86g7QL7gOWg"),
-            ("250 Box Challenge: The Next Fifty", "https://www.youtube.com/watch?v=KFEFN139TdY"),
+            {"label": "Exercise 7: Plotted Perspective", "lesson": "https://drawabox.com/lesson/1/plottedperspective", "video": "https://www.youtube.com/watch?v=mrn8Z6IqRnw"},
+            {"label": "Exercise 8: Rough Perspective", "lesson": "https://drawabox.com/lesson/1/roughperspective", "video": "https://www.youtube.com/watch?v=hbjFN6RN1jA"},
+            {"label": "Exercise 9: Rotated Boxes", "lesson": "https://drawabox.com/lesson/1/rotatedboxes", "video": "https://www.youtube.com/watch?v=Oz98L4Fyxoo"},
+            {"label": "Estimating Rotation", "lesson": "https://drawabox.com/lesson/1/rotatedboxes", "video": "https://www.youtube.com/watch?v=gSbFHHrQK7w"},
+            {"label": "Line Weight and Overlaps", "video": "https://www.youtube.com/watch?v=treOc3Pp-aE"},
+            {"label": "Exercise 10: Organic Perspective", "lesson": "https://drawabox.com/lesson/1/organicperspective", "video": "https://www.youtube.com/watch?v=OCIBJSxS9fY"},
+            {"label": "Boxes: The Y Method", "lesson": "https://drawabox.com/lesson/1/organicperspective", "video": "https://www.youtube.com/watch?v=evGWbjDI6xQ"},
+            {"label": "The 250 Box Challenge", "lesson": "https://drawabox.com/lesson/250boxes", "video": "https://www.youtube.com/watch?v=ltbHkgPiQZo"},
+            {"label": "250 Box Challenge: The First Fifty", "lesson": "https://drawabox.com/lesson/250boxes/2", "video": "https://www.youtube.com/watch?v=86g7QL7gOWg"},
+            {"label": "250 Box Challenge: The Next Fifty", "lesson": "https://drawabox.com/lesson/250boxes/3", "video": "https://www.youtube.com/watch?v=KFEFN139TdY"},
         ],
     },
 }
@@ -686,14 +694,25 @@ def tracker_box(page_id):
         links = ITEM_LINKS.get((page_id, item_id))
         links_html = ""
         if links:
-            parts = []
+            lines = []
+            base_parts = []
             if links.get("lesson"):
-                parts.append(f'<a href="{links["lesson"]}" target="_blank" rel="noopener">Lesson</a>')
+                base_parts.append(f'<a href="{links["lesson"]}" target="_blank" rel="noopener">Lesson</a>')
             if links.get("video"):
-                parts.append(f'<a href="{links["video"]}" target="_blank" rel="noopener">Video</a>')
-            for vlabel, vurl in links.get("videos", []):
-                parts.append(f'<a href="{vurl}" target="_blank" rel="noopener">{vlabel}</a>')
-            links_html = f'\n      <span class="item-links">{" &middot; ".join(parts)}</span>'
+                base_parts.append(f'<a href="{links["video"]}" target="_blank" rel="noopener">Video</a>')
+            if base_parts:
+                lines.append(" &middot; ".join(base_parts))
+            for ex in links.get("videos", []):
+                ex_parts = []
+                if ex.get("lesson"):
+                    ex_parts.append(f'<a href="{ex["lesson"]}" target="_blank" rel="noopener">Lesson</a>')
+                if ex.get("video"):
+                    ex_parts.append(f'<a href="{ex["video"]}" target="_blank" rel="noopener">Video</a>')
+                if ex_parts:
+                    lines.append(f'<b>{ex["label"]}:</b> ' + " &middot; ".join(ex_parts))
+            if lines:
+                joined = "".join(f'<span class="link-line">{l}</span>' for l in lines)
+                links_html = f'\n      <span class="item-links">{joined}</span>'
         rows += f'''<div class="track-item">
       <input type="checkbox" id="{cb_id}" data-id="{item_id}" disabled>
       <label for="{cb_id}">{label}</label>{links_html}
