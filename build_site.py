@@ -771,6 +771,12 @@ ITEM_LINKS = {
     ("character", "etherington"): {
         "lesson": "https://theetheringtonbrothers.blogspot.com/p/every-how-to-think-when-you-draw.html",
     },
+    ("comics", "mccloudread"): {
+        "lesson": "https://www.scottmccloud.com",
+    },
+    ("comics", "comicsebook"): {
+        "lesson": "https://theetheringtonbrothers.blogspot.com/2020/02/what-free-50-page-how-to-think-when-you.html",
+    },
 }
 # Every sub-page gets at least a plain link to its own page; entries above
 # layer confirmed videos on top of (or instead of) that.
