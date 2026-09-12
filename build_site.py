@@ -604,6 +604,7 @@ ITEM_LINKS = {
         "video": "https://www.youtube.com/watch?v=8ocmPR_EprE",
         "videos": [
             ("Drawabox Videos (overview)", "https://www.youtube.com/watch?v=9708PBUvCQ0"),
+            ("Overcoming the Fear of a Blank Page", "https://www.youtube.com/watch?v=mgl6Ll3K3gw"),
             ("Part 2: What are the Fundamentals?", "https://www.youtube.com/watch?v=GEAFLXM34L4"),
             ("Part 4: Getting the Most out of Drawabox", "https://www.youtube.com/watch?v=nBjTGvpd-q8"),
             ("Part 5: The Tools We Recommend", "https://www.youtube.com/watch?v=Egxv9dycg5Q"),
