@@ -1,7 +1,8 @@
 window.PROGRESS_SCHEMA = {
   "rhythm": [
     "supplies",
-    "schedule"
+    "schedule",
+    "diaryhabit"
   ],
   "lines": [
     "lesson0",
