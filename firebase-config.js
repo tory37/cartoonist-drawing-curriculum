@@ -7,5 +7,6 @@ window.FIREBASE_CONFIG = {
   projectId: "djaunt-cartoonist-guide",
   storageBucket: "djaunt-cartoonist-guide.firebasestorage.app",
   messagingSenderId: "516458538114",
-  appId: "1:516458538114:web:56dcc59f315eadc345409b"
+  appId: "1:516458538114:web:56dcc59f315eadc345409b",
+  googleClientId: "516458538114-1n4j6ipemhrb2sgt5n10h5gue3dg74lv.apps.googleusercontent.com"
 };

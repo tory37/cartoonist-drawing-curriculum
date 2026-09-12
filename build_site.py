@@ -1277,15 +1277,19 @@ def shell(title, body, page_id=""):
 {body}
 <script src="progress-schema.js"></script>
 <script src="firebase-config.js"></script>
+<script src="https://accounts.google.com/gsi/client"></script>
 <script type="module" src="app.js"></script>
 </body>
 </html>
 '''
 
 def auth_control():
+    # signin-btn is a plain container now, not a button: Google Identity
+    # Services renders its own real "Sign in with Google" button (a
+    # cross-origin iframe) inside it -- see the note in APP_JS for why.
     return '''<div class="auth-control" id="auth-control">
     <span class="progress-pill" id="header-progress" style="display:none"></span>
-    <button class="auth-btn primary" id="signin-btn">Sign in to track</button>
+    <span id="signin-btn"></span>
     <span class="auth-user" id="auth-user" style="display:none"></span>
     <button class="auth-btn" id="signout-btn" style="display:none">Sign out</button>
   </div>'''
@@ -1445,7 +1449,13 @@ window.FIREBASE_CONFIG = {
   projectId: "PASTE_YOUR_PROJECT_ID",
   storageBucket: "PASTE_YOUR_PROJECT_ID.appspot.com",
   messagingSenderId: "PASTE_YOUR_SENDER_ID",
-  appId: "PASTE_YOUR_APP_ID"
+  appId: "PASTE_YOUR_APP_ID",
+  // Firebase Console > Authentication > Sign-in method > Google > click it
+  // > "Web SDK configuration" > Web client ID. Used to sign in via Google
+  // Identity Services directly instead of Firebase's own popup/redirect,
+  // which silently fails on mobile browsers that block third-party
+  // storage between this site's domain and the authDomain above.
+  googleClientId: "PASTE_YOUR_GOOGLE_OAUTH_WEB_CLIENT_ID"
 };
 '''
 with open(f"{OUT}/firebase-config.js", "w") as f:
@@ -1454,7 +1464,7 @@ with open(f"{OUT}/firebase-config.js", "w") as f:
 # ---------- app.js (tracking logic) ----------
 APP_JS = '''import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 import {
-  getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged
+  getAuth, GoogleAuthProvider, signInWithCredential, signOut, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 import {
   getFirestore, doc, setDoc, onSnapshot
@@ -1568,10 +1578,7 @@ if (!configured){
   setSignedInUI(null);
   renderProgress({});
   renderContinue({}, false);
-  if (signinBtn){
-    signinBtn.textContent = "Tracking not set up yet";
-    signinBtn.disabled = true;
-  }
+  if (signinBtn) signinBtn.textContent = "Tracking not set up yet";
   if (trackerNote) trackerNote.textContent = "Progress tracking isn\\u2019t connected yet \\u2014 see the setup steps to enable it.";
 } else {
   var app = initializeApp(cfg);
@@ -1579,22 +1586,39 @@ if (!configured){
   var db = getFirestore(app);
   var unsub = null;
 
-  // signInWithPopup is unreliable on mobile: the popup opens as a separate
-  // tab/window, and mobile browsers frequently suspend or reload the
-  // original page while it's open, losing the result entirely. Redirecting
-  // the whole page instead (and picking the result back up here on reload)
-  // works everywhere, including installed/home-screen apps.
-  if (signinBtn) signinBtn.addEventListener("click", function(){
-    signInWithRedirect(auth, new GoogleAuthProvider());
-  });
-  if (signoutBtn) signoutBtn.addEventListener("click", function(){ signOut(auth); });
+  // Firebase's own popup/redirect sign-in depends on a storage/iframe relay
+  // between this site's own domain and the Firebase authDomain (a
+  // different origin) to complete. Modern mobile browsers increasingly
+  // block that relay as third-party tracking protection (Safari's ITP,
+  // Firefox's Total Cookie Protection, etc.), so it fails silently: it
+  // looks like it worked, but the result never comes back. Google Identity
+  // Services talks to accounts.google.com directly instead (first-party,
+  // no relay needed) and hands back an ID token, which we exchange for a
+  // Firebase session in one direct call.
+  function handleGoogleCredential(response){
+    var cred = GoogleAuthProvider.credential(response.credential);
+    signInWithCredential(auth, cred).catch(function(e){
+      console.error("sign-in failed:", e);
+      if (trackerNote){
+        trackerNote.style.display = "";
+        trackerNote.textContent = "Sign-in didn\\u2019t go through (" + e.code + "). Please try again.";
+      }
+    });
+  }
 
-  getRedirectResult(auth).catch(function(e){
-    console.error("sign-in failed:", e);
-    if (trackerNote){
-      trackerNote.style.display = "";
-      trackerNote.textContent = "Sign-in didn\\u2019t go through (" + e.code + "). Please try again.";
-    }
+  var gsi = window.google && window.google.accounts && window.google.accounts.id;
+  if (signinBtn && gsi && cfg.googleClientId && cfg.googleClientId.indexOf("PASTE") === -1){
+    gsi.initialize({
+      client_id: cfg.googleClientId,
+      callback: handleGoogleCredential,
+      auto_select: false
+    });
+    gsi.renderButton(signinBtn, { theme: "filled_black", shape: "pill", size: "medium", text: "signin_with" });
+  }
+
+  if (signoutBtn) signoutBtn.addEventListener("click", function(){
+    signOut(auth);
+    if (gsi) gsi.disableAutoSelect();
   });
 
   var boxes = document.querySelectorAll(".track-item input[type=checkbox]");
