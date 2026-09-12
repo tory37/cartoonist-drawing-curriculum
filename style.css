@@ -1,10 +1,12 @@
 
 :root{
-  --paper:#F2EFE6; --paper-deep:#EBE6D8; --line:#DBD4BF;
-  --ink:#221F1B; --ink-soft:#5B5646;
-  --blue:#2B3A55; --blue-soft:#4C5D7D;
-  --red:#A83B2E; --green:#3F6B4F;
+  --paper:#1B1915; --paper-deep:#141210; --line:#38352C;
+  --ink:#EDE7D8; --ink-soft:#A69C87;
+  --blue:#8CA3D6; --blue-soft:#6C82AD;
+  --red:#E2766A; --green:#7BB496;
+  --surface:rgba(255,255,255,.045); --tint:rgba(140,163,214,.08);
   --max:700px;
+  color-scheme:dark;
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -81,7 +83,7 @@ strong{font-weight:600;}
 
 .callout{
   border-left:3px solid var(--line); padding:12px 16px; margin:16px 0;
-  border-radius:2px; background:rgba(255,255,255,.4); font-size:15.5px;
+  border-radius:2px; background:var(--surface); font-size:15.5px;
 }
 .callout.do{border-color:var(--green);}
 .callout.skip{border-color:var(--red);}
@@ -90,7 +92,7 @@ strong{font-weight:600;}
 .callout.skip .tag{color:var(--red);}
 
 .tldr{
-  background:rgba(43,58,85,.05); border:1px solid var(--line); border-radius:6px;
+  background:var(--tint); border:1px solid var(--line); border-radius:6px;
   padding:24px 26px; margin:30px 0;
 }
 .tldr h3{margin-top:0;}
@@ -152,7 +154,7 @@ footer.site{
 /* auth control in sitebar */
 .auth-control{display:flex; align-items:center; gap:10px; font-size:13px;}
 .auth-btn{
-  border:1px solid var(--line); background:rgba(255,255,255,.5); color:var(--ink);
+  border:1px solid var(--line); background:var(--surface); color:var(--ink);
   padding:6px 13px; border-radius:16px; font-size:12.5px; cursor:pointer;
   font-family:inherit; white-space:nowrap;
 }
@@ -197,7 +199,7 @@ footer.site{
 /* progress tracker checklist box on each phase page */
 .tracker-box{
   margin:34px 0 6px; border:1px solid var(--line); border-radius:6px;
-  padding:22px 24px; background:rgba(255,255,255,.35);
+  padding:22px 24px; background:var(--surface);
 }
 .tracker-box h3{margin-top:0;}
 .track-item{
