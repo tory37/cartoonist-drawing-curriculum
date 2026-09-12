@@ -759,6 +759,15 @@ ITEM_LINKS = {
     ("perspective", "twopoint"): {
         "video": "https://www.youtube.com/watch?v=nAlCyQqEZSU",
     },
+    # These two already have real, verified sources named in this page's own
+    # prose (a Proko YouTube playlist and the archive.org Loomis scan) -- no
+    # need to guess a single specific video out of a whole playlist.
+    ("gesture", "prokovideo"): {
+        "video": "https://www.youtube.com/playlist?list=PLtG4P3lq8RHEQ1kiN_Nub1vXR8fQQLjDF",
+    },
+    ("gesture", "loomispages"): {
+        "lesson": "https://archive.org/details/andrew-loomis-fun-with-a-pencil",
+    },
 }
 # Every sub-page gets at least a plain link to its own page; entries above
 # layer confirmed videos on top of (or instead of) that.
