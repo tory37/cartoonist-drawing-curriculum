@@ -131,7 +131,9 @@ window.PROGRESS_SCHEMA = {
     "procreatepart1",
     "digitaldrill",
     "layerworkflow",
-    "brushpicks"
+    "brushpicks",
+    "flattingdrill",
+    "limitedpalette"
   ]
 };
 window.PAGE_INFO = [
