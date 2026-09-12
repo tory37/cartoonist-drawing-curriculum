@@ -24,7 +24,7 @@
   <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>Draw Your Own Comics</a>
   <div class="auth-control" id="auth-control">
     <span class="progress-pill" id="header-progress" style="display:none"></span>
-    <button class="auth-btn primary" id="signin-btn">Sign in to track</button>
+    <span id="signin-btn"></span>
     <span class="auth-user" id="auth-user" style="display:none"></span>
     <button class="auth-btn" id="signout-btn" style="display:none">Sign out</button>
   </div>
@@ -71,6 +71,7 @@ don&rsquo;t need measured vanishing-point precision.</div>
 
 <script src="progress-schema.js"></script>
 <script src="firebase-config.js"></script>
+<script src="https://accounts.google.com/gsi/client"></script>
 <script type="module" src="app.js"></script>
 </body>
 </html>
