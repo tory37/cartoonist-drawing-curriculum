@@ -768,6 +768,9 @@ ITEM_LINKS = {
     ("gesture", "loomispages"): {
         "lesson": "https://archive.org/details/andrew-loomis-fun-with-a-pencil",
     },
+    ("character", "etherington"): {
+        "lesson": "https://theetheringtonbrothers.blogspot.com/p/every-how-to-think-when-you-draw.html",
+    },
 }
 # Every sub-page gets at least a plain link to its own page; entries above
 # layer confirmed videos on top of (or instead of) that.
