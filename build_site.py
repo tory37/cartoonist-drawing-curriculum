@@ -750,6 +750,15 @@ ITEM_LINKS = {
             {"label": "Sausages with Contour Lines", "lesson": "https://drawabox.com/lesson/2/contourlines", "video": "https://www.youtube.com/watch?v=y5By0Q_XFBM"},
         ],
     },
+    # ModernDayJames' "UNDERSTANDING PERSPECTIVE" playlist has no separate
+    # dedicated 2-point video; its own "One Point Perspective for Beginners"
+    # description says it covers all three (1, 2, and 3 point) in one video.
+    ("perspective", "onepoint"): {
+        "video": "https://www.youtube.com/watch?v=nAlCyQqEZSU",
+    },
+    ("perspective", "twopoint"): {
+        "video": "https://www.youtube.com/watch?v=nAlCyQqEZSU",
+    },
 }
 # Every sub-page gets at least a plain link to its own page; entries above
 # layer confirmed videos on top of (or instead of) that.
