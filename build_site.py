@@ -447,6 +447,14 @@ software skill; layering it on too early spends hours you don&rsquo;t have to sp
 <div class="callout do"><span class="tag">first steps</span>
 Re-do a few Phase 1 line/ellipse drills digitally to calibrate to the screen, learn layers
 (sketch &rarr; ink &rarr; color), and settle on two or three brushes you like. Don&rsquo;t chase advanced rendering.</div>
+<h3>Color it: flatting basics</h3>
+<p>Once your layer workflow is comfortable, learn <strong>flatting</strong> &mdash; filling each area of
+your linework with a flat, solid color on its own layer before any shading. It&rsquo;s the standard
+first step in digital comic coloring, and the difference between a coloring session that takes
+20 minutes and one that takes 3: <a href="https://www.youtube.com/watch?v=s55gkBwZRU8" target="_blank" rel="noopener">this Procreate walkthrough</a> shows the selection-and-fill method.</p>
+<div class="callout do"><span class="tag">keep it simple</span>
+Pick 3&ndash;5 colors total for your first colored page. A limited palette forces decisions that
+actually read, and it&rsquo;s far more forgiving than choosing from millions of colors with no plan.</div>
 ''')
 
 add("recs", "09-recommendations.html", "Putting it together", "recs", None, '''
@@ -454,6 +462,10 @@ add("recs", "09-recommendations.html", "Putting it together", "recs", None, '''
 <ul>
   <li>Read <a href="https://drawabox.com/lesson/0" target="_blank" rel="noopener">Drawabox Lesson 0</a> and adopt the 50% rule. Buy a fineliner pen and cheap paper.</li>
   <li>Begin Phase 1 at two short sessions a week, always splitting time with fun cartoon doodling.</li>
+  <li>Order Brunetti&rsquo;s <em>Cartooning: Philosophy and Practice</em> and Barry&rsquo;s <em>Making
+  Comics</em> now (~$45 total) &mdash; you won&rsquo;t open them for a while, but shipping takes time.</li>
+  <li>Start Lynda Barry&rsquo;s 4-minute diary this week &mdash; it needs no drawing skill and runs
+  alongside everything else, for the whole course.</li>
 </ul>
 <h3>How you&rsquo;ll know it&rsquo;s time to move on</h3>
 <ul>
@@ -489,9 +501,17 @@ add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, 
   fully free, with an optional paid critique tier.</li>
   <li><strong>Links and channels change.</strong> If a specific video or playlist has moved,
   search the creator&rsquo;s name directly &mdash; the recommendation still stands even when the URL doesn&rsquo;t.</li>
-  <li>This is a synthesis of what free resources and their communities recommend, not a
-  guarantee of outcomes. Progress depends almost entirely on consistent, enjoyable practice
-  sustained over years.</li>
+  <li><strong>This course asks you to spend about $45, deliberately.</strong> Brunetti&rsquo;s
+  <em>Cartooning: Philosophy and Practice</em> and Barry&rsquo;s <em>Making Comics</em> are real,
+  classroom-tested courses in book form &mdash; chosen instead of assembling an equivalent from free
+  YouTube links, which doesn&rsquo;t really exist for the comics-craft parts of this course. We looked
+  at pricier structured alternatives too &mdash; Proko&rsquo;s Marvel-branded storytelling course ($249)
+  and Frank Santoro&rsquo;s mentored correspondence course ($500) &mdash; and skipped both: good programs,
+  but priced for someone making comics a career, and the Proko course leans mainstream-superhero
+  rather than the loose cartoon style this course targets.</li>
+  <li>This is a synthesis of what free resources, a couple of inexpensive books, and their
+  communities recommend, not a guarantee of outcomes. Progress depends almost entirely on
+  consistent, enjoyable practice sustained over years.</li>
 </ul>
 </div>
 ''')
@@ -745,6 +765,8 @@ CHECKLISTS = {
         ("digitaldrill", "Redo a line/ellipse drill digitally"),
         ("layerworkflow", "Set up a sketch &rarr; ink &rarr; color layer workflow"),
         ("brushpicks", "Pick your 2&ndash;3 go-to brushes"),
+        ("flattingdrill", "Practice flatting a page: solid color fills before any shading"),
+        ("limitedpalette", "Pick a 3&ndash;5 color limited palette for your first colored page"),
     ],
 }
 
@@ -872,6 +894,9 @@ ITEM_LINKS = {
     },
     ("digital", "procreatepart1"): {
         "video": "https://www.youtube.com/playlist?list=PLlpSQCrjuGkriILjGVhAMxaroOgpGDbvl",
+    },
+    ("digital", "flattingdrill"): {
+        "video": "https://www.youtube.com/watch?v=s55gkBwZRU8",
     },
 }
 # Every sub-page gets at least a plain link to its own page; entries above
