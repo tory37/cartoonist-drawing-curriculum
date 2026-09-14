@@ -49,12 +49,19 @@ a:hover{color:var(--red);}
 @media (max-width:480px){
   .auth-control{width:100%; justify-content:flex-end;}
 }
+.sitebar-links{display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
 .sitebar a.home{
   display:flex; align-items:center; gap:8px; color:var(--ink); font-weight:600;
   text-decoration:none;
 }
 .sitebar a.home svg{width:18px; height:18px;}
 .sitebar .pos{color:var(--ink-soft);}
+.toolkit-link{
+  display:flex; align-items:center; gap:6px; color:var(--ink-soft); font-weight:500;
+  text-decoration:none;
+}
+.toolkit-link svg{width:16px; height:16px;}
+.toolkit-link:hover{color:var(--blue);}
 
 .wrap{max-width:var(--max); margin:0 auto; padding:20px 24px 90px;}
 
@@ -262,6 +269,41 @@ footer.site{
 .item-links b{font-weight:600; color:var(--ink);}
 .tracker-note{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
 
+/* exercise toolkit page */
+.toolkit-toolbar{
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:26px 0;
+}
+.filter-chip{
+  font-family:inherit; font-size:13px; color:var(--ink-soft); background:var(--surface);
+  border:1px solid var(--line); border-radius:14px; padding:6px 14px; cursor:pointer;
+}
+.filter-chip:hover{border-color:var(--blue); color:var(--ink);}
+.filter-chip.active{background:var(--blue); border-color:var(--blue); color:var(--paper); font-weight:600;}
+.toolkit-pick-btn{
+  font-family:inherit; font-size:13px; font-weight:600; color:var(--paper); background:var(--green);
+  border:1px solid var(--green); border-radius:14px; padding:6px 16px; cursor:pointer; margin-left:auto;
+}
+.toolkit-pick-btn:hover{opacity:.88;}
+.exercise-grid{display:flex; flex-direction:column; gap:16px; margin:20px 0;}
+.exercise-card{
+  border:1px solid var(--line); border-radius:8px; padding:20px 22px; background:var(--surface);
+  transition:border-color .25s ease, box-shadow .25s ease;
+}
+.exercise-card.picked{border-color:var(--green); box-shadow:0 0 0 1px var(--green);}
+.exercise-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;}
+.exercise-tags{display:flex; flex-wrap:wrap; gap:6px;}
+.tag-chip{
+  font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--blue-soft);
+  border:1px solid var(--line); border-radius:8px; padding:2px 8px;
+}
+.exercise-time{font-size:12.5px; color:var(--ink-soft); white-space:nowrap; flex:none;}
+.exercise-title{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0 0 8px;}
+.exercise-body{font-size:15px; margin:0;}
+.exercise-images{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 0;}
+.exercise-images img{max-width:100%; border-radius:6px; border:1px solid var(--line);}
+.exercise-source{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
+.toolkit-empty{color:var(--ink-soft); font-size:15px; display:none;}
+
 @media print{
   .sitebar, nav.pn, .tracker-box, .overall-bar, .continue-card{display:none;}
   a{color:var(--ink); text-decoration:none;}
@@ -408,6 +450,7 @@ ICONS = {
 }
 
 HOME_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+TOOLKIT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h18" stroke-linecap="round"/></svg>'
 
 PAGES = []  # filled below, list of dicts: id, file, title, kicker, icon, duration, body
 
@@ -1019,6 +1062,87 @@ ITEM_LINKS = {
     },
 }
 
+# ---------- exercise toolkit ----------
+# A standalone, browsable library of warm-up/practice drills -- separate from
+# the CHECKLISTS above (which are one-time module checkpoints). This list is
+# meant to grow over time as the user learns new drills worth revisiting; ask
+# to have new ones added here rather than editing by hand.
+#
+# Each entry: id (unique slug), title, tags (list of str, used for the filter
+# chips -- chips are generated from whatever tags actually appear below, so a
+# new tag just needs to be used here), time (short display string or None),
+# body (plain-language instructions, may include simple inline HTML like
+# <strong>/<em>), images (list of image paths/URLs -- empty for now; the site
+# doesn't host any exercise images yet, but a non-empty list renders them, so
+# this needs no future markup changes, just adding files and paths here) and
+# source (optional {"label", "url"} credit link back to where the drill came
+# from).
+EXERCISES = [
+    dict(
+        id="parallel-lines",
+        title="Parallel lines",
+        tags=["warmup", "lines"],
+        time="5 min",
+        body="Draw a series of straight, parallel lines across the page. Start short &mdash; about 3 inches "
+             "&mdash; and let each one grow a little longer than the last, working up to the full width of "
+             "the page. Keep the spacing and angle consistent as the lines lengthen.",
+        images=[],
+        source=None,
+    ),
+    dict(
+        id="ghosting",
+        title="Ghosting",
+        tags=["warmup", "lines"],
+        time="5 min",
+        body="Mark two points anywhere on the page. Before committing, &ldquo;ghost&rdquo; the stroke &mdash; "
+             "replay the arm motion just above the paper a few times to rehearse the line &mdash; then draw "
+             "it in one confident pass, aiming to hit both the start and end point precisely.",
+        images=[],
+        source=None,
+    ),
+    dict(
+        id="lines-through-point",
+        title="Lines through a point",
+        tags=["warmup", "lines"],
+        time="5 min",
+        body="Mark a single point on the page. Ghost each stroke the same way as in the Ghosting drill, but "
+             "this time aim to pass straight through that point somewhere in the middle of the line, not at "
+             "its start or end. Repeat from many angles until the point is surrounded by lines radiating "
+             "through it.",
+        images=[],
+        source=None,
+    ),
+]
+
+def exercise_tags_used():
+    seen = []
+    for ex in EXERCISES:
+        for t in ex["tags"]:
+            if t not in seen:
+                seen.append(t)
+    return seen
+
+def exercise_card(ex):
+    tag_chips = "".join(f'<span class="tag-chip">{t}</span>' for t in ex["tags"])
+    time_html = f'<span class="exercise-time">{ex["time"]}</span>' if ex["time"] else ""
+    images_html = ""
+    if ex["images"]:
+        imgs = "".join(f'<img src="{src}" alt="">' for src in ex["images"])
+        images_html = f'<div class="exercise-images">{imgs}</div>'
+    source_html = ""
+    if ex["source"]:
+        source_html = f'<p class="exercise-source">From <a href="{ex["source"]["url"]}" target="_blank" rel="noopener">{ex["source"]["label"]}</a></p>'
+    return f'''<div class="exercise-card" id="ex-{ex['id']}" data-tags="{' '.join(ex['tags'])}">
+    <div class="exercise-head">
+      <span class="exercise-tags">{tag_chips}</span>
+      {time_html}
+    </div>
+    <h3 class="exercise-title">{ex['title']}</h3>
+    <p class="exercise-body">{ex['body']}</p>
+    {images_html}
+    {source_html}
+  </div>'''
+
 def tracker_box(page_id):
     items = CHECKLISTS.get(page_id)
     if not items:
@@ -1116,7 +1240,10 @@ def auth_control():
 
 def sitebar():
     return f'''<div class="sitebar">
-  <a class="home" href="index.html">{HOME_ICON}Draw Your Own Comics</a>
+  <div class="sitebar-links">
+    <a class="home" href="index.html">{HOME_ICON}Draw Your Own Comics</a>
+    <a class="toolkit-link" href="toolkit.html">{TOOLKIT_ICON}Toolkit</a>
+  </div>
   {auth_control()}
 </div>'''
 
@@ -1207,6 +1334,12 @@ index_body = f'''
   <ul class="toc">
     {toc_items}
   </ul>
+
+  <div class="callout">
+    <span class="tag">Warm up anytime</span>
+    Once you've learned a few drills, revisit them from the <a href="toolkit.html">exercise toolkit</a> &mdash;
+    pick a few, warm up, and get drawing without hunting back through old modules.
+  </div>
 </section>
 
 <footer class="site">
@@ -1218,6 +1351,98 @@ index_body = f'''
 
 with open(f"{OUT}/index.html", "w") as f:
     f.write(shell("Contents", index_body))
+
+# ---------- build toolkit.html ----------
+toolkit_tags = exercise_tags_used()
+filter_chips = '<button class="filter-chip active" data-filter="all">All</button>' + "".join(
+    f'<button class="filter-chip" data-filter="{t}">{t.capitalize()}</button>' for t in toolkit_tags
+)
+exercise_cards = "\n".join(exercise_card(ex) for ex in EXERCISES)
+
+TOOLKIT_JS = '''
+(function(){
+  var chips = document.querySelectorAll(".filter-chip");
+  var cards = document.querySelectorAll(".exercise-card");
+  var empty = document.getElementById("toolkit-empty");
+  var pickBtn = document.getElementById("toolkit-pick-btn");
+  var activeFilter = "all";
+
+  function applyFilter(){
+    var visible = 0;
+    for (var i = 0; i < cards.length; i++){
+      var tags = (cards[i].getAttribute("data-tags") || "").split(" ");
+      var show = activeFilter === "all" || tags.indexOf(activeFilter) !== -1;
+      cards[i].style.display = show ? "" : "none";
+      if (show) visible++;
+    }
+    empty.style.display = visible ? "none" : "block";
+  }
+
+  for (var i = 0; i < chips.length; i++){
+    chips[i].addEventListener("click", function(){
+      for (var j = 0; j < chips.length; j++) chips[j].classList.remove("active");
+      this.classList.add("active");
+      activeFilter = this.getAttribute("data-filter");
+      applyFilter();
+    });
+  }
+
+  pickBtn.addEventListener("click", function(){
+    for (var i = 0; i < cards.length; i++) cards[i].classList.remove("picked");
+    var visible = [];
+    for (var i = 0; i < cards.length; i++){
+      if (cards[i].style.display !== "none") visible.push(cards[i]);
+    }
+    var n = Math.min(3, visible.length);
+    var pool = visible.slice();
+    var picked = [];
+    for (var i = 0; i < n; i++){
+      var idx = Math.floor(Math.random() * pool.length);
+      picked.push(pool.splice(idx, 1)[0]);
+    }
+    for (var i = 0; i < picked.length; i++) picked[i].classList.add("picked");
+    if (picked.length) picked[0].scrollIntoView({behavior:"smooth", block:"center"});
+  });
+
+  applyFilter();
+})();
+'''
+
+toolkit_body = f'''
+{sitebar()}
+<header class="masthead">
+  <div class="kicker">
+    {TOOLKIT_ICON}
+    Your growing set of practice drills
+  </div>
+  <h1>Warm-up <em>toolkit.</em></h1>
+  <svg class="underline" viewBox="0 0 180 14"><path d="M3 9 C 40 2, 90 14, 130 6 S 175 4, 177 9"/></svg>
+  <p class="subhead">
+    Exercises you've already learned, kept somewhere you can just open, pick a few, and warm up &mdash;
+    no need to dig back through old modules. Ask to have new drills added here as you learn them.
+  </p>
+</header>
+
+<div class="wrap">
+<section>
+  <div class="toolkit-toolbar">
+    {filter_chips}
+    <button class="toolkit-pick-btn" id="toolkit-pick-btn">Pick 3 for me</button>
+  </div>
+
+  <div class="exercise-grid">
+    {exercise_cards}
+  </div>
+  <p class="toolkit-empty" id="toolkit-empty">Nothing tagged that yet.</p>
+</section>
+
+<footer class="site"><p><a href="index.html">&larr; Back to the table of contents</a></p></footer>
+</div>
+<script>{TOOLKIT_JS}</script>
+'''
+
+with open(f"{OUT}/toolkit.html", "w") as f:
+    f.write(shell("Exercise Toolkit", toolkit_body, page_id="toolkit"))
 
 # ---------- build each section page ----------
 for i, p in enumerate(PAGES):
