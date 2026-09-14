@@ -284,6 +284,15 @@ footer.site{
 .exercise-steps{font-size:15px; margin:0; padding-left:20px;}
 .exercise-steps li{margin-bottom:6px;}
 .exercise-steps li:last-child{margin-bottom:0;}
+.exercise-note{
+  font-size:13.5px; color:var(--ink-soft); background:var(--tint);
+  border-left:2px solid var(--blue-soft); border-radius:0 4px 4px 0;
+  padding:8px 12px; margin-top:12px;
+}
+.exercise-note .note-label{
+  display:block; font-weight:700; text-transform:uppercase; letter-spacing:.03em;
+  font-size:11px; color:var(--blue-soft); margin-bottom:3px;
+}
 .exercise-images{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 0;}
 .exercise-images img{max-width:100%; border-radius:6px; border:1px solid var(--line);}
 .exercise-source{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
