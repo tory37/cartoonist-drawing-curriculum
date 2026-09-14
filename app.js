@@ -17,9 +17,14 @@ var trackerNote = document.getElementById("tracker-note");
 
 function totalForPage(pid){ return (schema[pid] || []).length; }
 function doneForPage(pid, data){
+  // Only count item ids that are still in the current schema -- stored
+  // data can carry checked ids from a checklist that's since been
+  // rewritten (renamed or removed items), and those shouldn't inflate
+  // the count against today's total.
   var items = (data && data[pid]) || {};
+  var valid = schema[pid] || [];
   var n = 0;
-  for (var k in items) { if (items[k]) n++; }
+  for (var i = 0; i < valid.length; i++) { if (items[valid[i]]) n++; }
   return n;
 }
 function totalAll(){
