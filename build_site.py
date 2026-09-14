@@ -142,19 +142,21 @@ blockquote{
 .toc li{border-top:1px solid var(--line);}
 .toc li:last-child{border-bottom:1px solid var(--line);}
 .toc a{
-  display:flex; align-items:center; gap:16px; padding:18px 4px; text-decoration:none;
+  display:flex; flex-direction:column; gap:10px; padding:20px 4px; text-decoration:none;
   color:var(--ink);
 }
 .toc a:hover{color:var(--blue);}
 .toc a:hover .toc-title{color:var(--blue);}
-.toc svg.icon{width:30px; height:30px; flex:0 0 30px; color:var(--blue-soft);}
+.toc-head{display:flex; align-items:center; justify-content:space-between; gap:12px;}
+.toc-marker{display:flex; align-items:center; gap:8px;}
+.toc svg.icon{width:19px; height:19px; flex:none; color:var(--blue-soft);}
 .toc .no{
-  font-family:'Fraunces', serif; font-style:italic; color:var(--blue-soft); font-size:20px; width:26px; flex:none;
+  font-family:'Fraunces', serif; font-style:italic; color:var(--blue-soft); font-size:19px; flex:none;
 }
-.toc-body{flex:1; min-width:0;}
-.toc-title{font-family:'Fraunces', serif; font-weight:600; font-size:19px; display:block;}
-.toc-sub{font-size:13.5px; color:var(--ink-soft); margin-top:2px;}
-.toc-arrow{color:var(--ink-soft); flex:none;}
+.toc-status{display:flex; align-items:center; gap:10px;}
+.toc-title{font-family:'Fraunces', serif; font-weight:600; font-size:21px; line-height:1.22; letter-spacing:-.005em; display:block;}
+.toc-sub{font-size:14.5px; color:var(--ink-soft); line-height:1.5;}
+.toc-arrow{color:var(--ink-soft); flex:none; display:flex;}
 
 /* prev / next footer nav */
 nav.pn{
@@ -211,8 +213,8 @@ footer.site{
 
 /* per-section progress pill in the table of contents */
 .toc-progress{
-  font-size:12px; color:var(--ink-soft); border:1px solid var(--line);
-  padding:3px 9px; border-radius:10px; flex:none; margin-left:2px;
+  font-size:12px; font-weight:600; color:var(--ink-soft); border:1px solid var(--line);
+  padding:3px 10px; border-radius:10px; flex:none; white-space:nowrap;
 }
 .toc-progress.complete{color:var(--green); border-color:var(--green);}
 
@@ -1123,14 +1125,18 @@ toc_items = ""
 for i, p in enumerate(PAGES):
     progress_pill = f'<span class="toc-progress" data-progress-for="{p["id"]}"></span>' if p['id'] in CHECKLISTS else ""
     toc_items += f'''<li><a href="{p['file']}">
-    <span class="no">{i+1:02d}</span>
-    {ICONS[p['icon']]}
-    <span class="toc-body">
-      <span class="toc-title">{p['title']}</span>
-      <span class="toc-sub">{TOC_SUBS[p['id']]}</span>
+    <span class="toc-head">
+      <span class="toc-marker">
+        {ICONS[p['icon']]}
+        <span class="no">{i+1:02d}</span>
+      </span>
+      <span class="toc-status">
+        {progress_pill}
+        <span class="toc-arrow">&rarr;</span>
+      </span>
     </span>
-    {progress_pill}
-    <span class="toc-arrow">&rarr;</span>
+    <span class="toc-title">{p['title']}</span>
+    <span class="toc-sub">{TOC_SUBS[p['id']]}</span>
   </a></li>
 '''
 
