@@ -301,10 +301,11 @@ footer.site{
 .exercise-steps{font-size:15px; margin:0; padding-left:20px;}
 .exercise-steps li{margin-bottom:6px;}
 .exercise-steps li:last-child{margin-bottom:0;}
-.exercise-note{
+.exercise-steps li.exercise-note{
+  list-style:none; margin-left:-20px;
   font-size:13.5px; color:var(--ink-soft); background:var(--tint);
   border-left:2px solid var(--blue-soft); border-radius:0 4px 4px 0;
-  padding:8px 12px; margin-top:12px;
+  padding:8px 12px; margin-top:2px; margin-bottom:12px;
 }
 .exercise-note .note-label{
   display:block; font-weight:700; text-transform:uppercase; letter-spacing:.03em;
@@ -1085,10 +1086,13 @@ ITEM_LINKS = {
 # steps (list of plain-language instruction steps, rendered as a bulleted
 # list so a multi-step drill reads clearly at a glance; may include simple
 # inline HTML like <strong>/<em> per step), notes (optional list of
-# {"label", "text"} asides -- e.g. an alternative method for a couple of the
-# steps, or a tip -- rendered as their own callouts below the step list so
-# they read as clearly separate from the sequence, never inserted as a step
-# themselves; omit the key entirely on an exercise with no notes), images
+# {"label", "text", "after"} asides -- e.g. an alternative method for a
+# couple of the steps, or a tip -- rendered as their own callout, visually
+# distinct from a step (no bullet, tinted background) so it never reads as
+# "the next step" in the sequence. "after" places it inline: the 1-based
+# step index it follows, or 0 to put it before step 1; omit "after" for a
+# general tip appended once after all the steps. Omit the "notes" key
+# entirely on an exercise with none), images
 # (list of image paths/URLs -- empty for now; the site doesn't host any
 # exercise images yet, but a non-empty list renders them, so this needs no
 # future markup changes, just adding files and paths here) and source
@@ -1166,6 +1170,7 @@ EXERCISES = [
             {
                 "label": "Alternative to steps 1&ndash;2",
                 "text": "Place the left and right vanishing points on the horizon first, then draw the vertical and connect them afterward &mdash; instead of the corner's angle defining where the vanishing points fall.",
+                "after": 2,
             },
         ],
         images=[],
@@ -1191,11 +1196,22 @@ def exercise_card(ex):
     source_html = ""
     if ex["source"]:
         source_html = f'<p class="exercise-source">From <a href="{ex["source"]["url"]}" target="_blank" rel="noopener">{ex["source"]["label"]}</a></p>'
-    steps_html = "".join(f'<li>{step}</li>' for step in ex["steps"])
-    notes_html = "".join(
-        f'<div class="exercise-note"><span class="note-label">{n["label"]}</span>{n["text"]}</div>'
-        for n in ex.get("notes", [])
-    )
+    def note_li(n):
+        return f'<li class="exercise-note"><span class="note-label">{n["label"]}</span>{n["text"]}</li>'
+
+    # Notes attach inline within the step list via "after" (the 1-based step
+    # index they follow; 0 means before step 1). A note with no "after" key
+    # is a general tip, appended once all steps are laid out.
+    notes = ex.get("notes", [])
+    inline_notes = [n for n in notes if "after" in n]
+    trailing_notes = [n for n in notes if "after" not in n]
+
+    steps_html = "".join(note_li(n) for n in inline_notes if n["after"] == 0)
+    for i, step in enumerate(ex["steps"], start=1):
+        steps_html += f'<li>{step}</li>'
+        steps_html += "".join(note_li(n) for n in inline_notes if n["after"] == i)
+    steps_html += "".join(note_li(n) for n in trailing_notes)
+
     return f'''<div class="exercise-card" id="ex-{ex['id']}" data-tags="{' '.join(ex['tags'])}">
     <div class="exercise-head">
       <span class="exercise-tags">{tag_chips}</span>
@@ -1203,7 +1219,6 @@ def exercise_card(ex):
     </div>
     <h3 class="exercise-title">{ex['title']}</h3>
     <ul class="exercise-steps">{steps_html}</ul>
-    {notes_html}
     {images_html}
     {source_html}
   </div>'''

@@ -284,10 +284,11 @@ footer.site{
 .exercise-steps{font-size:15px; margin:0; padding-left:20px;}
 .exercise-steps li{margin-bottom:6px;}
 .exercise-steps li:last-child{margin-bottom:0;}
-.exercise-note{
+.exercise-steps li.exercise-note{
+  list-style:none; margin-left:-20px;
   font-size:13.5px; color:var(--ink-soft); background:var(--tint);
   border-left:2px solid var(--blue-soft); border-radius:0 4px 4px 0;
-  padding:8px 12px; margin-top:12px;
+  padding:8px 12px; margin-top:2px; margin-bottom:12px;
 }
 .exercise-note .note-label{
   display:block; font-weight:700; text-transform:uppercase; letter-spacing:.03em;
