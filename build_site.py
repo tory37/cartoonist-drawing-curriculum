@@ -298,7 +298,9 @@ footer.site{
 }
 .exercise-time{font-size:12.5px; color:var(--ink-soft); white-space:nowrap; flex:none;}
 .exercise-title{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0 0 8px;}
-.exercise-body{font-size:15px; margin:0;}
+.exercise-steps{font-size:15px; margin:0; padding-left:20px;}
+.exercise-steps li{margin-bottom:6px;}
+.exercise-steps li:last-child{margin-bottom:0;}
 .exercise-images{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 0;}
 .exercise-images img{max-width:100%; border-radius:6px; border:1px solid var(--line);}
 .exercise-source{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
@@ -1071,21 +1073,24 @@ ITEM_LINKS = {
 # Each entry: id (unique slug), title, tags (list of str, used for the filter
 # chips -- chips are generated from whatever tags actually appear below, so a
 # new tag just needs to be used here), time (short display string or None),
-# body (plain-language instructions, may include simple inline HTML like
-# <strong>/<em>), images (list of image paths/URLs -- empty for now; the site
-# doesn't host any exercise images yet, but a non-empty list renders them, so
-# this needs no future markup changes, just adding files and paths here) and
-# source (optional {"label", "url"} credit link back to where the drill came
-# from).
+# steps (list of plain-language instruction steps, rendered as a bulleted
+# list so a multi-step drill reads clearly at a glance; may include simple
+# inline HTML like <strong>/<em> per step), images (list of image paths/URLs
+# -- empty for now; the site doesn't host any exercise images yet, but a
+# non-empty list renders them, so this needs no future markup changes, just
+# adding files and paths here) and source (optional {"label", "url"} credit
+# link back to where the drill came from).
 EXERCISES = [
     dict(
         id="parallel-lines",
         title="Parallel lines",
         tags=["warmup", "lines"],
         time="5 min",
-        body="Draw a series of straight, parallel lines across the page. Start short &mdash; about 3 inches "
-             "&mdash; and let each one grow a little longer than the last, working up to the full width of "
-             "the page. Keep the spacing and angle consistent as the lines lengthen.",
+        steps=[
+            "Draw a series of straight, parallel lines across the page.",
+            "Start short &mdash; about 3 inches &mdash; and let each one grow a little longer than the last, working up to the full width of the page.",
+            "Keep the spacing and angle consistent as the lines lengthen.",
+        ],
         images=[],
         source=None,
     ),
@@ -1094,9 +1099,11 @@ EXERCISES = [
         title="Ghosting",
         tags=["warmup", "lines"],
         time="5 min",
-        body="Mark two points anywhere on the page. Before committing, &ldquo;ghost&rdquo; the stroke &mdash; "
-             "replay the arm motion just above the paper a few times to rehearse the line &mdash; then draw "
-             "it in one confident pass, aiming to hit both the start and end point precisely.",
+        steps=[
+            "Mark two points anywhere on the page.",
+            "Before committing, &ldquo;ghost&rdquo; the stroke &mdash; replay the arm motion just above the paper a few times to rehearse the line.",
+            "Draw it in one confident pass, aiming to hit both the start and end point precisely.",
+        ],
         images=[],
         source=None,
     ),
@@ -1105,10 +1112,12 @@ EXERCISES = [
         title="Lines through a point",
         tags=["warmup", "lines"],
         time="5 min",
-        body="Mark a single point on the page. Ghost each stroke the same way as in the Ghosting drill, but "
-             "this time aim to pass straight through that point somewhere in the middle of the line, not at "
-             "its start or end. Repeat from many angles until the point is surrounded by lines radiating "
-             "through it.",
+        steps=[
+            "Mark a single point on the page.",
+            "Ghost each stroke the same way as in the Ghosting drill.",
+            "Aim to pass straight through the point somewhere in the middle of the line, not at its start or end.",
+            "Repeat from many angles until the point is surrounded by lines radiating through it.",
+        ],
         images=[],
         source=None,
     ),
@@ -1117,11 +1126,14 @@ EXERCISES = [
         title="1-point perspective boxes",
         tags=["perspective"],
         time="15 min",
-        body="Draw a horizon line and choose a vanishing point on it. Draw a rectangle, then connect each of "
-             "its corners to the vanishing point. Draw a second, smaller rectangle between those connecting "
-             "lines, farther away, and you have a box. Build the whole box with light construction lines "
-             "first, then darken the box's inside edges, and darken its outline darkest of all. Retrace each "
-             "line several times to build up different line weights.",
+        steps=[
+            "Draw a horizon line and choose a vanishing point on it.",
+            "Draw a rectangle, then connect each of its corners to the vanishing point.",
+            "Draw a second, smaller rectangle between those connecting lines, farther away &mdash; that&rsquo;s your box.",
+            "Build the whole box with light construction lines first.",
+            "Darken the box's inside edges, then darken its outline darkest of all.",
+            "Retrace each line several times to build up different line weights.",
+        ],
         images=[],
         source=None,
     ),
@@ -1145,13 +1157,14 @@ def exercise_card(ex):
     source_html = ""
     if ex["source"]:
         source_html = f'<p class="exercise-source">From <a href="{ex["source"]["url"]}" target="_blank" rel="noopener">{ex["source"]["label"]}</a></p>'
+    steps_html = "".join(f'<li>{step}</li>' for step in ex["steps"])
     return f'''<div class="exercise-card" id="ex-{ex['id']}" data-tags="{' '.join(ex['tags'])}">
     <div class="exercise-head">
       <span class="exercise-tags">{tag_chips}</span>
       {time_html}
     </div>
     <h3 class="exercise-title">{ex['title']}</h3>
-    <p class="exercise-body">{ex['body']}</p>
+    <ul class="exercise-steps">{steps_html}</ul>
     {images_html}
     {source_html}
   </div>'''
