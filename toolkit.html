@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise Toolkit &mdash; Draw Your Own Comics</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="icon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1B1915">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Draw Comics">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=ad09fd88b9">
+</head>
+<body data-page-id="toolkit">
+
+<div class="sitebar">
+  <div class="sitebar-links">
+    <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>Draw Your Own Comics</a>
+    <a class="toolkit-link" href="toolkit.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h18" stroke-linecap="round"/></svg>Toolkit</a>
+  </div>
+  <div class="auth-control" id="auth-control">
+    <span class="progress-pill" id="header-progress" style="display:none"></span>
+    <span id="signin-btn"></span>
+    <span class="auth-user" id="auth-user" style="display:none"></span>
+    <button class="auth-btn" id="signout-btn" style="display:none">Sign out</button>
+  </div>
+</div>
+<header class="masthead">
+  <div class="kicker">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h18" stroke-linecap="round"/></svg>
+    Your growing set of practice drills
+  </div>
+  <h1>Warm-up <em>toolkit.</em></h1>
+  <svg class="underline" viewBox="0 0 180 14"><path d="M3 9 C 40 2, 90 14, 130 6 S 175 4, 177 9"/></svg>
+  <p class="subhead">
+    Exercises you've already learned, kept somewhere you can just open, pick a few, and warm up &mdash;
+    no need to dig back through old modules. Ask to have new drills added here as you learn them.
+  </p>
+</header>
+
+<div class="wrap">
+<section>
+  <div class="toolkit-toolbar">
+    <button class="filter-chip active" data-filter="all">All</button><button class="filter-chip" data-filter="warmup">Warmup</button><button class="filter-chip" data-filter="lines">Lines</button>
+    <button class="toolkit-pick-btn" id="toolkit-pick-btn">Pick 3 for me</button>
+  </div>
+
+  <div class="exercise-grid">
+    <div class="exercise-card" id="ex-parallel-lines" data-tags="warmup lines">
+    <div class="exercise-head">
+      <span class="exercise-tags"><span class="tag-chip">warmup</span><span class="tag-chip">lines</span></span>
+      <span class="exercise-time">5 min</span>
+    </div>
+    <h3 class="exercise-title">Parallel lines</h3>
+    <p class="exercise-body">Draw a series of straight, parallel lines across the page. Start short &mdash; about 3 inches &mdash; and let each one grow a little longer than the last, working up to the full width of the page. Keep the spacing and angle consistent as the lines lengthen.</p>
+    
+    
+  </div>
+<div class="exercise-card" id="ex-ghosting" data-tags="warmup lines">
+    <div class="exercise-head">
+      <span class="exercise-tags"><span class="tag-chip">warmup</span><span class="tag-chip">lines</span></span>
+      <span class="exercise-time">5 min</span>
+    </div>
+    <h3 class="exercise-title">Ghosting</h3>
+    <p class="exercise-body">Mark two points anywhere on the page. Before committing, &ldquo;ghost&rdquo; the stroke &mdash; replay the arm motion just above the paper a few times to rehearse the line &mdash; then draw it in one confident pass, aiming to hit both the start and end point precisely.</p>
+    
+    
+  </div>
+<div class="exercise-card" id="ex-lines-through-point" data-tags="warmup lines">
+    <div class="exercise-head">
+      <span class="exercise-tags"><span class="tag-chip">warmup</span><span class="tag-chip">lines</span></span>
+      <span class="exercise-time">5 min</span>
+    </div>
+    <h3 class="exercise-title">Lines through a point</h3>
+    <p class="exercise-body">Mark a single point on the page. Ghost each stroke the same way as in the Ghosting drill, but this time aim to pass straight through that point somewhere in the middle of the line, not at its start or end. Repeat from many angles until the point is surrounded by lines radiating through it.</p>
+    
+    
+  </div>
+  </div>
+  <p class="toolkit-empty" id="toolkit-empty">Nothing tagged that yet.</p>
+</section>
+
+<footer class="site"><p><a href="index.html">&larr; Back to the table of contents</a></p></footer>
+</div>
+<script>
+(function(){
+  var chips = document.querySelectorAll(".filter-chip");
+  var cards = document.querySelectorAll(".exercise-card");
+  var empty = document.getElementById("toolkit-empty");
+  var pickBtn = document.getElementById("toolkit-pick-btn");
+  var activeFilter = "all";
+
+  function applyFilter(){
+    var visible = 0;
+    for (var i = 0; i < cards.length; i++){
+      var tags = (cards[i].getAttribute("data-tags") || "").split(" ");
+      var show = activeFilter === "all" || tags.indexOf(activeFilter) !== -1;
+      cards[i].style.display = show ? "" : "none";
+      if (show) visible++;
+    }
+    empty.style.display = visible ? "none" : "block";
+  }
+
+  for (var i = 0; i < chips.length; i++){
+    chips[i].addEventListener("click", function(){
+      for (var j = 0; j < chips.length; j++) chips[j].classList.remove("active");
+      this.classList.add("active");
+      activeFilter = this.getAttribute("data-filter");
+      applyFilter();
+    });
+  }
+
+  pickBtn.addEventListener("click", function(){
+    for (var i = 0; i < cards.length; i++) cards[i].classList.remove("picked");
+    var visible = [];
+    for (var i = 0; i < cards.length; i++){
+      if (cards[i].style.display !== "none") visible.push(cards[i]);
+    }
+    var n = Math.min(3, visible.length);
+    var pool = visible.slice();
+    var picked = [];
+    for (var i = 0; i < n; i++){
+      var idx = Math.floor(Math.random() * pool.length);
+      picked.push(pool.splice(idx, 1)[0]);
+    }
+    for (var i = 0; i < picked.length; i++) picked[i].classList.add("picked");
+    if (picked.length) picked[0].scrollIntoView({behavior:"smooth", block:"center"});
+  });
+
+  applyFilter();
+})();
+</script>
+
+<script src="progress-schema.js?v=ad09fd88b9"></script>
+<script src="firebase-config.js?v=ad09fd88b9"></script>
+<script src="https://accounts.google.com/gsi/client"></script>
+<script type="module" src="app.js?v=ad09fd88b9"></script>
+</body>
+</html>
