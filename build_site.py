@@ -418,20 +418,22 @@ add("rhythm", "01-rhythm.html", "Weekly rhythm &amp; supplies", "rhythm", None, 
   <div>&#9998; Vinyl or kneaded eraser</div>
   <div>&#9998; Canson XL or Strathmore sketchbook</div>
   <div>&#9998; Staedtler Mars Lumograph pencils</div>
-  <div>&#9998; A pack of fineliners (for Drawabox &mdash; ink only, no erasing)</div>
+  <div>&#9998; A pack of fineliners (for ink line drills &mdash; no erasing)</div>
   <div>&#9998; Printer paper is fine to start</div>
 </div>
-<h3>Three books worth buying (~$70 total, one-time)</h3>
-<p>Everything else in this course is free, but three real, proven, expert-designed texts are worth
+<h3>Four books worth buying (~$110 total, one-time)</h3>
+<p>Everything else in this course is free, but four real, proven, expert-designed texts are worth
 paying for instead of us improvising an equivalent from YouTube:</p>
 <div class="supply-grid">
+  <div>&#128214; Scott Robertson &amp; Thomas Bertling, <a href="https://designstudiopress.com/products/how-to-draw" target="_blank" rel="noopener"><em>How to Draw</em></a> (~$40)</div>
   <div>&#128214; Ivan Brunetti, <a href="https://yalebooks.yale.edu/book/9780300170993/cartooning/" target="_blank" rel="noopener"><em>Cartooning: Philosophy and Practice</em></a> (~$20)</div>
   <div>&#128214; Lynda Barry, <a href="https://drawnandquarterly.com/books/making-comics/" target="_blank" rel="noopener"><em>Making Comics</em></a> (~$25)</div>
   <div>&#128214; Marcos Mateu-Mestre, <a href="https://www.amazon.com/Framed-Ink-Drawing-Composition-Storytellers/dp/1933492953" target="_blank" rel="noopener"><em>Framed Ink</em></a> (~$25)</div>
 </div>
-<p>You won&rsquo;t open any of them right away &mdash; Brunetti&rsquo;s escalating drills, Barry&rsquo;s teaching
-approach, and Mateu-Mestre&rsquo;s panel-staging system all come into play starting at the comics
-module &mdash; but all three are real, classroom-tested courses in book form, worth ordering now.</p>
+<p><strong>Order <em>How to Draw</em> first</strong> &mdash; it&rsquo;s the very next module. Brunetti&rsquo;s
+escalating drills, Barry&rsquo;s teaching approach, and Mateu-Mestre&rsquo;s panel-staging system don&rsquo;t
+come into play until the comics module, but all four are real, classroom-tested courses in book
+form, worth ordering now while shipping catches up.</p>
 <h3>Start this now: the 4-minute diary</h3>
 <p>Before any fundamentals, start a habit you&rsquo;ll keep for the whole course &mdash; Lynda Barry&rsquo;s
 <a href="https://www.openculture.com/2021/09/cartoonist-lynda-barry-teaches-you-how-to-make-a-visual-daily-diary.html" target="_blank" rel="noopener">4-minute diary</a>.
@@ -444,9 +446,11 @@ module, not after them. Do it a few times a week from here on, for the whole cou
 ''')
 
 add("lines", "02-marks-and-lines.html", "Marks, lines &amp; confidence", "lines",
-    '<a href="https://drawabox.com/lesson/0" target="_blank" rel="noopener">Drawabox Lesson 0</a>&ndash;<a href="https://drawabox.com/lesson/1" target="_blank" rel="noopener">1</a> &middot; roughly 4&ndash;8 weeks', '''
-<p>Read <a href="https://drawabox.com/lesson/0" target="_blank" rel="noopener">Lesson 0</a> for the mindset and the 50% rule, then work <a href="https://drawabox.com/lesson/1" target="_blank" rel="noopener">Lesson 1</a>: superimposed lines,
-ghosted lines and planes, tables of ellipses, and the basic perspective/box exercises.</p>
+    'Scott Robertson &amp; Thomas Bertling, <a href="https://designstudiopress.com/products/how-to-draw" target="_blank" rel="noopener"><em>How to Draw</em></a> (Ch. 1 &amp; 5) &middot; roughly 3&ndash;6 weeks', '''
+<p>Work Chapter 1 of <a href="https://designstudiopress.com/products/how-to-draw" target="_blank" rel="noopener"><em>How to Draw</em></a> for confident, unbroken line work and proper
+markmaking, then jump ahead to Chapter 5, &ldquo;Ellipses and Rotations,&rdquo; for ellipse control.
+Robertson and Bertling both taught for years at Art Center College of Design, and the book
+explains the reasoning behind each drill instead of just assigning it.</p>
 <div class="callout do"><span class="tag">why it matters</span>
 This trains the single most transferable cartooning skill: a confident line and a clean shape
 drawn from the shoulder, not a scratchy, hesitant one.</div>
@@ -454,31 +458,43 @@ drawn from the shoulder, not a scratchy, hesitant one.</div>
 ''')
 
 add("construction", "03-construction.html", "Basic construction &amp; 3D forms", "construction",
-    '<a href="https://drawabox.com/lesson/2" target="_blank" rel="noopener">Drawabox Lesson 2</a> + optional partial <a href="https://drawabox.com/lesson/250boxes" target="_blank" rel="noopener">Box Challenge</a> &middot; roughly 4&ndash;10 weeks', '''
-<p>Work <a href="https://drawabox.com/lesson/2" target="_blank" rel="noopener">Lesson 2</a>&rsquo;s form and intersection exercises &mdash; understanding how simple
-volumes fit together in space is the backbone of &ldquo;built from shapes&rdquo; cartooning
-(a head as a rounded box, a body as a blob).</p>
-<div class="callout skip"><span class="tag">contested &mdash; read before skipping</span>
-The full <a href="https://drawabox.com/lesson/250boxes" target="_blank" rel="noopener">250 Box Challenge</a> is tedious for many students and a real burnout risk. Others argue
-the spatial payoff helps you rotate a character consistently across comic panels. Compromise:
-spread 50&ndash;100 boxes across several weeks as warm-ups instead of grinding all 250 in a block.
-Skip the deep texture-rendering drills &mdash; a cartoonist rarely needs realistic texture.</div>
+    '<em>How to Draw</em> (Ch. 2&ndash;4 &amp; 6) &middot; roughly 4&ndash;10 weeks', '''
+<p>Work Chapters 2 through 4 of <em>How to Draw</em> &mdash; perspective terminology, technique, and
+building your first perspective grids &mdash; then Chapter 6, &ldquo;Working with Volume,&rdquo; for
+constructing solid 3D forms inside those grids. Understanding how simple volumes fit together in
+space is the backbone of &ldquo;built from shapes&rdquo; cartooning (a head as a rounded box, a body
+as a blob).</p>
+<div class="callout do"><span class="tag">pace it</span>
+This is the densest material in the book. Go slowly and work small &mdash; a page of simple boxes
+and cylinders sitting in a grid is plenty per session &mdash; and skip the book&rsquo;s later
+vehicle/product-design chapters entirely. A loose cartoonist fakes and stylizes perspective for
+expression; you don&rsquo;t need that level of measured precision.</div>
 ''')
 
 add("perspective", "04-perspective.html", "Just enough perspective", "perspective",
-    '<a href="https://www.youtube.com/moderndayjames" target="_blank" rel="noopener">ModernDayJames</a> (YouTube), Norling&rsquo;s <a href="https://archive.org/details/perspective-made-easy-by-ernest-r.-norling" target="_blank" rel="noopener"><em>Perspective Made Easy</em></a> &middot; roughly 3&ndash;6 weeks', '''
+    'Marshall Vandruff&rsquo;s <a href="https://marshallart.gumroad.com/l/wbwxz" target="_blank" rel="noopener">Perspective Drawing Series</a> ($12) &middot; roughly 3&ndash;6 weeks', '''
 <p>Learn enough 1- and 2-point perspective to place a character in a room and draw a believable
 box, building, or prop. That&rsquo;s the whole goal here.</p>
+<h3>The best perspective teacher most people never hear of</h3>
+<p>Marshall Vandruff&rsquo;s <a href="https://marshallart.gumroad.com/l/wbwxz" target="_blank" rel="noopener">1994 Perspective Drawing Series</a> &mdash; twelve one-hour lectures recorded
+live at Fullerton College &mdash; is widely considered some of the clearest perspective teaching ever
+put on video, and it&rsquo;s $12 for the whole series. It explains the <em>why</em> behind the
+grid-building you just practiced in the construction module, taught as an actual lecture instead
+of a wall of procedural text. Preview his teaching style for free on his
+<a href="https://www.youtube.com/@MarshallVandruffVideos" target="_blank" rel="noopener">YouTube channel</a> before buying.</p>
 <div class="callout skip"><span class="tag">skip / deprioritize</span>
-Drawabox&rsquo;s Lesson 6 (everyday objects), Lesson 7 (vehicles), the 25 Wheel Challenge, and 250
-Cylinder Challenge. These are technical-perspective marathons for concept artists and
-industrial designers. A loose cartoonist fakes and stylizes perspective for expression &mdash; you
-don&rsquo;t need measured vanishing-point precision.</div>
+Lectures 10&ndash;12 (Depth Measuring Systems and Plan Projection) are aimed at technical/product-design
+precision &mdash; measuring exact real-world distances into a drawing. Skip them; a cartoonist fakes
+and stylizes perspective for expression, not measured accuracy.</div>
+<div class="callout do"><span class="tag">free alternatives</span>
+<a href="https://www.youtube.com/moderndayjames" target="_blank" rel="noopener">ModernDayJames</a> covers the same 1/2/3-point basics for free on YouTube in a looser,
+cartoon-friendly way, and Ernest Norling&rsquo;s classic <a href="https://archive.org/details/perspective-made-easy-by-ernest-r.-norling" target="_blank" rel="noopener"><em>Perspective Made Easy</em></a> (free and legal,
+Internet Archive) is a good plain-English companion if you&rsquo;d rather read than watch or pay.</div>
 ''')
 
 add("gesture", "05-gesture.html", "Gesture &amp; simplified anatomy", "gesture",
     '<a href="https://www.proko.com" target="_blank" rel="noopener">Proko</a>, <a href="https://www.lovelifedrawing.com" target="_blank" rel="noopener">Love Life Drawing</a>, Loomis&rsquo; <a href="https://archive.org/details/andrew-loomis-fun-with-a-pencil" target="_blank" rel="noopener"><em>Fun With a Pencil</em></a> &middot; roughly 8&ndash;12 weeks, then ongoing', '''
-<p>This is the pivot away from Drawabox and toward cartooning proper.</p>
+<p>This is the pivot away from pure fundamentals drilling and toward cartooning proper.</p>
 <ul>
   <li><strong><a href="https://www.youtube.com/playlist?list=PLtG4P3lq8RHEQ1kiN_Nub1vXR8fQQLjDF" target="_blank" rel="noopener">Proko</a></strong> &mdash; free gesture and figure-drawing videos on YouTube. Gesture is the
   single most important skill for expressive cartooning; it&rsquo;s what keeps drawings from looking stiff.</li>
@@ -598,8 +614,8 @@ this style solves layout and acting problems.</p>
 <p>Practice without feedback plateaus. Post one finished piece somewhere real people will critique
 it &mdash; <a href="https://www.reddit.com/r/ArtCrit/" target="_blank" rel="noopener">r/ArtCrit</a> or a comics-specific Discord &mdash; instead of only judging your own work. Be honest with
 yourself that this is the weakest link in a free curriculum: a genuinely consistent feedback loop
-is mostly gated behind a paid critique tier (Drawabox&rsquo;s own paid add-on, for one). Free
-communities are worth using anyway &mdash; they&rsquo;re just less reliable than that.</p>
+is mostly gated behind a paid critique tier &mdash; a pattern across almost every free-to-start art
+platform. Free communities are worth using anyway &mdash; they&rsquo;re just less reliable than that.</p>
 ''')
 
 add("digital", "08-digital.html", "Transition to digital", "digital",
@@ -638,7 +654,8 @@ beats a pretty palette every time.</p>
 add("recs", "09-recommendations.html", "Putting it together", "recs", None, '''
 <h3>Start this week</h3>
 <ul>
-  <li>Read <a href="https://drawabox.com/lesson/0" target="_blank" rel="noopener">Drawabox Lesson 0</a> and adopt the 50% rule. Buy a fineliner pen and cheap paper.</li>
+  <li>Order <em>How to Draw</em> by Scott Robertson &amp; Thomas Bertling today &mdash; it&rsquo;s the very
+  next module. Buy a fineliner pen and cheap paper while you wait for it to ship.</li>
   <li>Begin Phase 1 at two short sessions a week, always splitting time with fun cartoon doodling.</li>
   <li>Order Brunetti&rsquo;s <em>Cartooning: Philosophy and Practice</em>, Barry&rsquo;s <em>Making
   Comics</em>, and Mateu-Mestre&rsquo;s <em>Framed Ink</em> now (~$70 total) &mdash; you won&rsquo;t open them
@@ -650,8 +667,9 @@ add("recs", "09-recommendations.html", "Putting it together", "recs", None, '''
 <ul>
   <li><strong>Past Phase 1&ndash;2</strong> &mdash; your lines are noticeably more confident and a box or
   cylinder &ldquo;sits&rdquo; believably in 3D. Don&rsquo;t wait for perfection.</li>
-  <li><strong>Cap your Drawabox investment</strong> at Lessons 0&ndash;2 plus a partial box challenge.
-  If boxes are killing your motivation, stop around 50 and move on.</li>
+  <li><strong>Don&rsquo;t try to master every grid-construction method in <em>How to Draw</em>.</strong>
+  Once basic one- and two-point boxes click, move to the perspective module and start applying it
+  loosely &mdash; precision grids are a means, not the goal, for a cartoonist.</li>
   <li><strong>Spend the bulk of your years in Phases 4&ndash;6</strong> &mdash; gesture, character design,
   comics. This is what actually makes a cartoonist.</li>
 </ul>
@@ -668,23 +686,30 @@ add("recs", "09-recommendations.html", "Putting it together", "recs", None, '''
 add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, '''
 <div class="caveat-box">
 <ul style="margin:0; padding-left:20px;">
-  <li><strong>The &ldquo;skip&rdquo; advice is contested, not settled.</strong> Some experienced Drawabox
-  students argue the full construction sequence &mdash; including the box challenge &mdash; pays off in
-  any style, comics included. Treating it as optional here is a deliberate trade-off for your
-  time budget, not a fact everyone agrees on.</li>
+  <li><strong>Swapping out Drawabox is a real trade-off, not a consensus call.</strong> It&rsquo;s
+  free, thorough, and plenty of successful artists swear by it &mdash; this course dropped it as the
+  default path because its dense, procedural writing style was a genuine dealbreaker for the
+  person this course was built for, not because the underlying drills are bad. If Drawabox is
+  working for you, there&rsquo;s no reason to switch.</li>
   <li><strong>Free-book legality varies by title and country.</strong> Treat the <a href="https://archive.org" target="_blank" rel="noopener">Internet
   Archive</a> as the safest free reading source for Loomis and Norling; buy in print if you want certainty.
   McCloud&rsquo;s books are in copyright &mdash; use a library.</li>
-  <li><strong>Some &ldquo;free&rdquo; resources have paid upsells.</strong> <a href="https://www.proko.com" target="_blank" rel="noopener">Proko</a> and the Solo Art
-  Curriculum surface a lot of free content but also sell premium courses. <a href="https://drawabox.com" target="_blank" rel="noopener">Drawabox</a> itself is
-  fully free, with an optional paid critique tier.</li>
+  <li><strong>Some &ldquo;free&rdquo; resources have paid upsells &mdash; and some good resources were
+  never free.</strong> <a href="https://www.proko.com" target="_blank" rel="noopener">Proko</a> and the Solo Art
+  Curriculum surface a lot of free content but also sell premium courses. Marshall Vandruff&rsquo;s
+  perspective lectures are $12, not free, and there&rsquo;s no legitimate free copy of Scott
+  Robertson&rsquo;s <em>How to Draw</em> &mdash; ignore any &ldquo;free PDF&rdquo; scan you find online; it&rsquo;s
+  still in print and in copyright.</li>
   <li><strong>Links and channels change.</strong> If a specific video or playlist has moved,
   search the creator&rsquo;s name directly &mdash; the recommendation still stands even when the URL doesn&rsquo;t.</li>
-  <li><strong>This course asks you to spend about $70, deliberately.</strong> Brunetti&rsquo;s
+  <li><strong>This course asks you to spend about $120, deliberately.</strong> Scott Robertson
+  &amp; Thomas Bertling&rsquo;s <em>How to Draw</em> (~$40) and Marshall Vandruff&rsquo;s perspective
+  lectures ($12) replace what used to be a fully free path through this material &mdash; a
+  deliberate trade for teaching quality, not a cost added lightly. Brunetti&rsquo;s
   <em>Cartooning: Philosophy and Practice</em>, Barry&rsquo;s <em>Making Comics</em>, and
-  Mateu-Mestre&rsquo;s <em>Framed Ink</em> are real, classroom-tested courses in book form &mdash; chosen
-  instead of assembling an equivalent from free YouTube links, which doesn&rsquo;t really exist for the
-  comics-craft parts of this course. We looked at pricier structured alternatives too &mdash;
+  Mateu-Mestre&rsquo;s <em>Framed Ink</em> add another ~$70 for the comics-craft half, chosen
+  instead of assembling an equivalent from free YouTube links, which doesn&rsquo;t really exist for
+  that material. We looked at pricier structured alternatives too &mdash;
   Proko&rsquo;s Marvel-branded storytelling course ($249) and Frank Santoro&rsquo;s mentored correspondence
   course ($500) &mdash; and skipped both: good programs, but priced for someone making comics a career,
   and the Proko course leans mainstream-superhero rather than the loose cartoon style this course
@@ -705,8 +730,9 @@ draw comics in a specific tradition &mdash; the all-ages, cartoon-style comics t
 shows like <em>Adventure Time</em>, <em>Bravest Warriors</em>, and <em>Regular Show</em> &mdash; and
 Claude, an AI assistant, doing the research and drafting.</p>
 <p>That means every claim in this course was checked, not invented: real book titles and prices,
-Drawabox&rsquo;s own published table of contents, real published interviews with the actual artists
-who drew these comics, and real class materials from real institutions. Where something couldn&rsquo;t
+Scott Robertson&rsquo;s own published table of contents and Marshall Vandruff&rsquo;s own published
+lecture list, real published interviews with the actual artists who drew these comics, and real
+class materials from real institutions. Where something couldn&rsquo;t
 be verified &mdash; a resource with no identifiable author, a vague &ldquo;there&rsquo;s probably a Discord
 for that&rdquo; &mdash; it was either left out or flagged honestly as unverified, rather than presented
 as settled fact.</p>
@@ -726,13 +752,16 @@ as settled fact.</p>
   identifiable working artist, a published book, or an established institution &mdash; not an
   anonymous blog or an assembled mixtape of whatever ranked well in a search.</li>
   <li><strong>Free by default, paid when it&rsquo;s actually worth it.</strong> Most of this course
-  costs nothing. A small number of real, classroom-tested books (about $70 total across the whole
-  course) were added deliberately where no free equivalent really exists &mdash; while pricier
-  options ($249, $500) were looked at and explicitly turned down as overkill for a hobbyist goal.</li>
+  costs nothing. A small number of real, classroom-tested books and one cheap video series (about
+  $120 total across the whole course) were added deliberately where no free equivalent taught as
+  well &mdash; while pricier options ($249, $500) were looked at and explicitly turned down as
+  overkill for a hobbyist goal.</li>
   <li><strong>Honest about the weak spots.</strong> The &ldquo;skip / contested&rdquo; callouts, the
   caveats page, and the note in the comics module admitting that free critique loops are genuinely
   hard to come by are all here on purpose &mdash; a curriculum that hides its own tradeoffs isn&rsquo;t
-  trustworthy.</li>
+  trustworthy. So is swapping a resource out entirely, like dropping Drawabox for a
+  clearer-taught (if no longer free) alternative, when it stops working for the person actually
+  using this course.</li>
 </ul>
 
 <h3>Disclaimers</h3>
@@ -754,7 +783,8 @@ as settled fact.</p>
 <h3>Full list of sources &amp; thanks</h3>
 <p><strong>Foundations</strong></p>
 <ul>
-  <li><a href="https://drawabox.com" target="_blank" rel="noopener">Drawabox</a> (Uncomfortable) &mdash; free spatial-fundamentals curriculum, Lessons 0&ndash;2</li>
+  <li>Scott Robertson &amp; Thomas Bertling, <a href="https://designstudiopress.com/products/how-to-draw" target="_blank" rel="noopener"><em>How to Draw</em></a> (Design Studio Press)</li>
+  <li>Marshall Vandruff, <a href="https://marshallart.gumroad.com/l/wbwxz" target="_blank" rel="noopener">1994 Perspective Drawing Series</a></li>
   <li>Andrew Loomis, <em>Fun With a Pencil</em>, via the <a href="https://archive.org/details/andrew-loomis-fun-with-a-pencil" target="_blank" rel="noopener">Internet Archive</a></li>
   <li>Ernest Norling, <em>Perspective Made Easy</em>, via the <a href="https://archive.org/details/perspective-made-easy-by-ernest-r.-norling" target="_blank" rel="noopener">Internet Archive</a></li>
   <li><a href="https://www.youtube.com/moderndayjames" target="_blank" rel="noopener">ModernDayJames</a> (YouTube)</li>
@@ -804,6 +834,7 @@ as settled fact.</p>
 against them shaped what this course chose to include:</p>
 <ul>
   <li>The <a href="https://www.soloartcurriculum.com/" target="_blank" rel="noopener">Solo Art Curriculum</a> &mdash; excellent, but built for a concept-art/realism artist, not a cartoonist</li>
+  <li><a href="https://drawabox.com" target="_blank" rel="noopener">Drawabox</a> (Uncomfortable) &mdash; free, thorough, and it works well for plenty of people; dropped from the main path here because its dense, procedural writing style was a genuine dealbreaker for the person this course was built for, not because the drills themselves are bad</li>
   <li>Proko&rsquo;s Marvel-branded &ldquo;The Art of Storytelling&rdquo; course ($249)</li>
   <li>Frank Santoro&rsquo;s mentored correspondence course ($500)</li>
 </ul>
@@ -820,202 +851,35 @@ class Section:
         self.url = url
         self.videos = videos or []
 
-# Drawabox Lesson 1's table of contents, mirrored section-for-section and
-# page-for-page from the site's own sidebar so our checklist matches it
-# exactly instead of guessing at a handful of highlights.
-DRAWABOX_LESSON1_TOC = [
-    ("1", "Some Quick Reminders", [
-        ("summary", "Getting Equipped"),
-        ("videotext", "Video vs. Text"),
-        ("audiblogs", "But Comfy! I have trouble with reading!"),
-    ]),
-    ("2", "Lines: Using Your Arm", [
-        ("summary", "Understanding how to use your arm"),
-        ("video", "Drawing from your wrist and shoulder"),
-        ("habits", "Old habits"),
-        ("pivots", "The pivots of the arm"),
-        ("simplified", "Let&rsquo;s keep it simple"),
-        ("wrist", "Do you mean I can&rsquo;t ever draw with my wrist or elbow?"),
-        ("leastresistance", "The path of least resistance"),
-        ("hoverhand", "Hover-hand"),
-        ("grip", "How to hold your pen"),
-    ]),
-    ("3", "Lines: Markmaking", [
-        ("summary", "Rules to follow"),
-        ("markmaking", "The Principles of Markmaking"),
-        ("continuous", "Marks should be continuous and unbroken"),
-        ("chickenscratch", "But that artist uses chicken scratching all the time!"),
-        ("smooth", "Marks must flow smoothly"),
-        ("consistent", "Marks must maintain a consistent trajectory"),
-    ]),
-    ("4", "Lines: Homework", [
-        ("reminder", "Don&rsquo;t forget!"),
-        ("homework", "Homework and exercises"),
-    ]),
-    ("5", "Ellipses", [
-        ("summary", "Circles in 3D space"),
-        ("video", "What is an ellipse?"),
-        ("2d3d", "2D vs 3D"),
-        ("circles", "Circles in 3D space (in depth)"),
-        ("degree", "Degree"),
-        ("degreeshift", "Degree shift"),
-        ("minoraxis", "Minor axis"),
-        ("normalvector", "Normal vector"),
-        ("cylinders", "Cylinders"),
-        ("homework", "Homework and exercises"),
-    ]),
-    ("6", "Boxes: Basics of Perspective and Projection", [
-        ("summary", "The purpose behind the rules"),
-        ("video", "Boxes and perspective"),
-        ("notperspectivecourse", "Not a perspective course"),
-        ("2dvs3d", "2D vs 3D"),
-        ("projection", "Projection"),
-    ]),
-    ("7", "Boxes: Foreshortening and Vanishing Points", [
-        ("summary", "Vanishing points"),
-        ("video", "Conveying distance"),
-        ("foreshortening", "Foreshortening"),
-        ("scaleshift", "As things move farther away, they appear smaller"),
-        ("vanishingpoint", "Vanishing points (in depth)"),
-        ("appliedtobox", "As applied to a box"),
-        ("horizon", "Horizon line"),
-        ("rotation", "What happens when a set of edges rotates?"),
-    ]),
-    ("8", "Boxes: Rotation, Perspective Grids, and the Concept of Infinity", [
-        ("summary", "Getting mathematical"),
-        ("video", "Understanding rotation"),
-        ("lookingatthescene", "How we look at the scene"),
-        ("topdown", "A different point of view"),
-        ("circlehorizon", "Circular horizon"),
-        ("noninfinite", "Infinite vs non-infinite"),
-        ("vpatinfinity", "Vanishing point at infinity"),
-        ("123pt", "1, 2, and 3 point perspective"),
-        ("grids", "Perspective grids"),
-        ("0pp", "0 point perspective does not exist"),
-    ]),
-    ("9", "Boxes: Simplified Guidelines", [
-        ("summary", "Rules of thumb"),
-        ("1ppsimplified", "1 point perspective simplified"),
-        ("2ppsimplified", "2 point perspective simplified"),
-        ("3ppsimplified", "3 point perspective simplified"),
-    ]),
-    ("10", "Boxes: Additional Notes", [
-        ("summary", "Extra concepts"),
-        ("foreshortening", "Foreshortening"),
-        ("lines", "Horizon line, eye line, axis"),
-        ("distortion", "Distortion"),
-        ("placingvps", "Placing vanishing points"),
-    ]),
-    ("11", "Boxes: Homework", [
-        ("homework", "Homework and exercises"),
-    ]),
-    ("12", "What Next?", []),
-]
-
-# Several official Drawabox videos explain an entire section rather than one
-# sub-page: their own descriptions cite the section's ROOT url ("the reading
-# for this video is available at https://drawabox.com/lesson/1/2") as their
-# reading, covering every sibling sub-page underneath it. Attached to the
-# section heading itself rather than to one arbitrarily-chosen leaf item.
-SECTION_VIDEOS = {
-    "2": [
-        ("Drawing from your wrist and shoulder", "https://www.youtube.com/watch?v=0_AdsK8x9Lw"),
-        ("How to hold your pen", "https://www.youtube.com/watch?v=_IR8zH4RCfU"),
-    ],
-    "3": [
-        ("The Principles of Markmaking", "https://www.youtube.com/watch?v=x5Pes5fy-Eo"),
-    ],
-    "5": [
-        ("What is an ellipse?", "https://www.youtube.com/watch?v=tHJ3rzk6kno"),
-    ],
-    "6": [
-        ("Boxes and perspective", "https://www.youtube.com/watch?v=XhDWiPARouY"),
-    ],
-    "7": [
-        ("Conveying distance", "https://www.youtube.com/watch?v=tH6kpY6lYUw"),
-    ],
-    "8": [
-        ("Understanding rotation", "https://www.youtube.com/watch?v=N3Tm0UDDHgs"),
-    ],
-}
-
-# Drawabox Lesson 2's table of contents, mirrored the same way from the
-# site's own sidebar.
-DRAWABOX_LESSON2_TOC = [
-    ("1", "Thinking in 3D", [
-        ("summary", "What it means to think in 3D"),
-        ("introduction", "Preparing for the climb"),
-        ("video", "The great conspiracy"),
-        ("lying", "Telling a convincing lie"),
-        ("exploring", "Exploring a 3D space"),
-        ("contour", "Contour lines"),
-        ("homework", "Homework and exercises"),
-    ]),
-    ("2", "Texture and Detail", [
-        ("understandingtexture", "Understanding texture"),
-        ("observation", "Observation and memory"),
-        ("visuallibrary", "Visual library"),
-        ("formshading", "Don&rsquo;t worry about shading here"),
-        ("castshadows", "Cast shadows"),
-        ("implicitexplicit", "Implicit vs explicit"),
-        ("density", "Detail density"),
-        ("silhouette", "Silhouette"),
-        ("reminders", "Don&rsquo;t copy your reference &mdash; understand it"),
-        ("homework", "Homework and exercises"),
-    ]),
-    ("3", "Construction", [
-        ("video", "Constructional Drawing"),
-        ("theprocess", "The process"),
-        ("observationvsconstruction", "Observation vs construction"),
-        ("learningtechnique", "A technique for learning"),
-        ("homework", "Homework and exercises"),
-    ]),
-]
-
-SECTION2_VIDEOS = {
-    "1": [
-        ("Introduction", "https://www.youtube.com/watch?v=DxEK_zjXbcE"),
-        ("Thinking in 3D", "https://www.youtube.com/watch?v=zr3S8eGLSiw"),
-    ],
-}
-
-def _build_drawabox_module(page_id, lesson_num, toc, section_videos, id_prefix):
-    entries = []
-    default_links = {}
-    for section, title, subitems in toc:
-        entries.append(Section(
-            title,
-            f"https://drawabox.com/lesson/{lesson_num}/{section}",
-            videos=section_videos.get(section),
-        ))
-        for slug, label in subitems:
-            item_id = f"{id_prefix}{section}_{slug}"
-            entries.append((item_id, label))
-            default_links[(page_id, item_id)] = {
-                "lesson": f"https://drawabox.com/lesson/{lesson_num}/{section}/{slug}"
-            }
-    return entries, default_links
-
-_LINES_ITEMS, _LINES_DEFAULT_LINKS = _build_drawabox_module(
-    "lines", "1", DRAWABOX_LESSON1_TOC, SECTION_VIDEOS, "l1_"
-)
-_LINES_ITEMS = [("lesson0", "Read Drawabox Lesson 0 (mindset &amp; the 50% rule)")] + _LINES_ITEMS
-
-_CONSTRUCTION_ITEMS, _CONSTRUCTION_DEFAULT_LINKS = _build_drawabox_module(
-    "construction", "2", DRAWABOX_LESSON2_TOC, SECTION2_VIDEOS, "l2_"
-)
-
 CHECKLISTS = {
     "rhythm": [
         ("supplies", "Got a fineliner pen, an HB pencil, and cheap paper"),
         ("schedule", "Picked your two weekly session slots"),
         ("diaryhabit", "Started the 4-minute diary habit (keep it going a few times a week)"),
     ],
-    "lines": _LINES_ITEMS,
-    "construction": _CONSTRUCTION_ITEMS,
+    "lines": [
+        ("ch1read", "Read How to Draw Chapter 1 (materials &amp; markmaking)"),
+        ("linedrill", "Practice confident, unbroken line strokes drawn from the shoulder, not the wrist"),
+        ("ch5read", "Read How to Draw Chapter 5, &ldquo;Ellipses and Rotations&rdquo;"),
+        ("ellipsedrill", "Fill a page with ellipses in a range of degrees and rotations"),
+    ],
+    "construction": [
+        ("ch2read", "Read How to Draw Chapter 2 (perspective terminology)"),
+        ("ch3read", "Read How to Draw Chapter 3 (perspective drawing technique)"),
+        ("ch4read", "Read How to Draw Chapter 4 and build your first perspective grid"),
+        ("ch6read", "Read How to Draw Chapter 6, &ldquo;Working with Volume&rdquo;"),
+        ("formdrill", "Draw a page of simple boxes and cylinders sitting inside a perspective grid"),
+    ],
     "perspective": [
-        ("onepoint", "Watch a 1-point perspective video"),
-        ("twopoint", "Watch a 2-point perspective video"),
+        ("lecture1", "Lecture 1: Intro to Perspective"),
+        ("lecture2", "Lecture 2: Right Angles, Part 1"),
+        ("lecture3", "Lecture 3: Right Angles, Part 2"),
+        ("lecture4", "Lecture 4: Right Angles, Part 3"),
+        ("lecture5", "Lecture 5: Circles &amp; Ellipses, Part 1"),
+        ("lecture6", "Lecture 6: Circles &amp; Ellipses, Part 2"),
+        ("lecture7", "Lecture 7: Circles &amp; Ellipses, Part 3"),
+        ("lecture8", "Lecture 8: Right Angles &amp; Circles Combined"),
+        ("lecture9", "Lecture 9: Inclined Planes &amp; The Vanishing Trace"),
         ("roomsketch", "Sketch a character standing in a simple room"),
     ],
     "gesture": [
@@ -1066,90 +930,24 @@ CHECKLISTS = {
 # keyed by (page_id, item_id). Filled in module by module.
 # A "videos" entry is a dict {"label", "lesson" (optional), "video" (optional)}
 # pairing one named exercise/part with its own confirmed reading page and/or
-# video, sourced from the official video descriptions on the real "Drawabox
-# Videos" YouTube playlist (not guessed).
+# video.
 ITEM_LINKS = {
     ("rhythm", "diaryhabit"): {
         "lesson": "https://www.openculture.com/2021/09/cartoonist-lynda-barry-teaches-you-how-to-make-a-visual-daily-diary.html",
     },
-    ("lines", "lesson0"): {
-        "lesson": "https://drawabox.com/lesson/0/2",
-        "video": "https://www.youtube.com/watch?v=8ocmPR_EprE",
-        "videos": [
-            {"label": "Part 1: What is Drawabox?", "lesson": "https://drawabox.com/lesson/0/1", "video": "https://www.youtube.com/watch?v=9708PBUvCQ0"},
-            {"label": "Overcoming the Fear of a Blank Page", "video": "https://www.youtube.com/watch?v=mgl6Ll3K3gw"},
-            {"label": "Part 2: What are the Fundamentals?", "lesson": "https://drawabox.com/lesson/0/1", "video": "https://www.youtube.com/watch?v=GEAFLXM34L4"},
-            {"label": "Part 4: Getting the Most out of Drawabox", "lesson": "https://drawabox.com/lesson/0/3", "video": "https://www.youtube.com/watch?v=nBjTGvpd-q8"},
-            {"label": "Part 5: The Tools We Recommend", "lesson": "https://drawabox.com/lesson/0/4", "video": "https://www.youtube.com/watch?v=Egxv9dycg5Q"},
-        ],
+    ("lines", "ch1read"): {
+        "lesson": "https://designstudiopress.com/products/how-to-draw",
     },
-    ("lines", "l1_2_video"): {
-        "video": "https://www.youtube.com/watch?v=0_AdsK8x9Lw",
+    ("lines", "ch5read"): {
+        "lesson": "https://designstudiopress.com/products/how-to-draw",
     },
-    ("lines", "l1_2_grip"): {
-        "video": "https://www.youtube.com/watch?v=_IR8zH4RCfU",
+    ("construction", "ch2read"): {
+        "lesson": "https://designstudiopress.com/products/how-to-draw",
     },
-    ("lines", "l1_3_markmaking"): {
-        "video": "https://www.youtube.com/watch?v=x5Pes5fy-Eo",
-    },
-    ("lines", "l1_4_homework"): {
-        "videos": [
-            {"label": "Exercise 1: Superimposed Lines", "lesson": "https://drawabox.com/lesson/1/superimposedlines", "video": "https://www.youtube.com/watch?v=dzGmoJanhbQ"},
-            {"label": "Exercise 2: Ghosted Lines", "lesson": "https://drawabox.com/lesson/1/ghostedlines", "video": "https://www.youtube.com/watch?v=LkJG6pKTuRc"},
-            {"label": "The Levels of the Ghosting Method", "lesson": "https://drawabox.com/lesson/1/ghostedlines", "video": "https://www.youtube.com/watch?v=o1HAVipdsZM"},
-            {"label": "Exercise 3: Ghosted Planes", "lesson": "https://drawabox.com/lesson/1/ghostedplanes", "video": "https://www.youtube.com/watch?v=JsG7cMasVjo"},
-        ],
-    },
-    ("lines", "l1_5_video"): {
-        "video": "https://www.youtube.com/watch?v=tHJ3rzk6kno",
-    },
-    ("lines", "l1_5_homework"): {
-        "videos": [
-            {"label": "Exercise 4: Tables of Ellipses", "lesson": "https://drawabox.com/lesson/1/tablesofellipses", "video": "https://www.youtube.com/watch?v=7WLmXufShyA"},
-            {"label": "Exercise 4: Things to Remember", "lesson": "https://drawabox.com/lesson/1/tablesofellipses", "video": "https://www.youtube.com/watch?v=gyRHkTPqfrQ"},
-            {"label": "Exercise 5: Ellipses in Planes", "lesson": "https://drawabox.com/lesson/1/ellipsesinplanes", "video": "https://www.youtube.com/watch?v=9EUc-nni1_w"},
-            {"label": "Exercise 5: Things to Remember", "lesson": "https://drawabox.com/lesson/1/ellipsesinplanes", "video": "https://www.youtube.com/watch?v=CKgeIA2PqY8"},
-            {"label": "Exercise 6: Funnels", "lesson": "https://drawabox.com/lesson/1/funnels", "video": "https://www.youtube.com/watch?v=xiMEIg2fU-g"},
-            {"label": "Exercise 6: Things to Remember", "lesson": "https://drawabox.com/lesson/1/funnels", "video": "https://www.youtube.com/watch?v=HMbBMQMICmk"},
-        ],
-    },
-    ("lines", "l1_6_video"): {
-        "video": "https://www.youtube.com/watch?v=XhDWiPARouY",
-    },
-    ("lines", "l1_7_video"): {
-        "video": "https://www.youtube.com/watch?v=tH6kpY6lYUw",
-    },
-    ("lines", "l1_8_video"): {
-        "video": "https://www.youtube.com/watch?v=N3Tm0UDDHgs",
-    },
-    ("lines", "l1_11_homework"): {
-        "videos": [
-            {"label": "Exercise 7: Plotted Perspective", "lesson": "https://drawabox.com/lesson/1/plottedperspective", "video": "https://www.youtube.com/watch?v=mrn8Z6IqRnw"},
-            {"label": "Exercise 8: Rough Perspective", "lesson": "https://drawabox.com/lesson/1/roughperspective", "video": "https://www.youtube.com/watch?v=hbjFN6RN1jA"},
-            {"label": "Exercise 9: Rotated Boxes", "lesson": "https://drawabox.com/lesson/1/rotatedboxes", "video": "https://www.youtube.com/watch?v=Oz98L4Fyxoo"},
-            {"label": "Estimating Rotation", "lesson": "https://drawabox.com/lesson/1/rotatedboxes", "video": "https://www.youtube.com/watch?v=gSbFHHrQK7w"},
-            {"label": "Line Weight and Overlaps", "video": "https://www.youtube.com/watch?v=treOc3Pp-aE"},
-            {"label": "Exercise 10: Organic Perspective", "lesson": "https://drawabox.com/lesson/1/organicperspective", "video": "https://www.youtube.com/watch?v=OCIBJSxS9fY"},
-            {"label": "Boxes: The Y Method", "lesson": "https://drawabox.com/lesson/1/organicperspective", "video": "https://www.youtube.com/watch?v=evGWbjDI6xQ"},
-            {"label": "The 250 Box Challenge", "lesson": "https://drawabox.com/lesson/250boxes", "video": "https://www.youtube.com/watch?v=ltbHkgPiQZo"},
-            {"label": "250 Box Challenge: The First Fifty", "lesson": "https://drawabox.com/lesson/250boxes/2", "video": "https://www.youtube.com/watch?v=86g7QL7gOWg"},
-            {"label": "250 Box Challenge: The Next Fifty", "lesson": "https://drawabox.com/lesson/250boxes/3", "video": "https://www.youtube.com/watch?v=KFEFN139TdY"},
-        ],
-    },
-    ("construction", "l2_1_homework"): {
-        "videos": [
-            {"label": "Organic Arrows", "lesson": "https://drawabox.com/lesson/2/organicarrows", "video": "https://www.youtube.com/watch?v=B_iaMu-crZk"},
-            {"label": "Sausages with Contour Lines", "lesson": "https://drawabox.com/lesson/2/contourlines", "video": "https://www.youtube.com/watch?v=y5By0Q_XFBM"},
-        ],
-    },
-    # ModernDayJames' "UNDERSTANDING PERSPECTIVE" playlist has no separate
-    # dedicated 2-point video; its own "One Point Perspective for Beginners"
-    # description says it covers all three (1, 2, and 3 point) in one video.
-    ("perspective", "onepoint"): {
-        "video": "https://www.youtube.com/watch?v=nAlCyQqEZSU",
-    },
-    ("perspective", "twopoint"): {
-        "video": "https://www.youtube.com/watch?v=nAlCyQqEZSU",
+    # The 1994 series is one $12 bundle, not individually-linkable lectures --
+    # every checklist item points at the same real, official purchase page.
+    ("perspective", "lecture1"): {
+        "lesson": "https://marshallart.gumroad.com/l/wbwxz",
     },
     # These two already have real, verified sources named in this page's own
     # prose (a Proko YouTube playlist and the archive.org Loomis scan) -- no
@@ -1207,12 +1005,6 @@ ITEM_LINKS = {
         ],
     },
 }
-# Every sub-page gets at least a plain link to its own page; entries above
-# layer confirmed videos on top of (or instead of) that.
-for _key, _val in list(_LINES_DEFAULT_LINKS.items()) + list(_CONSTRUCTION_DEFAULT_LINKS.items()):
-    ITEM_LINKS.setdefault(_key, {})
-    for _k, _v in _val.items():
-        ITEM_LINKS[_key].setdefault(_k, _v)
 
 def tracker_box(page_id):
     items = CHECKLISTS.get(page_id)
@@ -1265,8 +1057,8 @@ def tracker_box(page_id):
 
 TOC_SUBS = {
     "rhythm": "How to structure 1&ndash;3 hours a week, and what to buy",
-    "lines": "Confident lines, ellipses, and basic perspective",
-    "construction": "3D forms and the (partial) box challenge",
+    "lines": "Confident lines and ellipse control, from a real perspective-drawing textbook",
+    "construction": "3D forms and perspective grids, from the same book",
     "perspective": "Just enough 1- and 2-point perspective",
     "gesture": "Movement, flow, and simplified cartoon anatomy",
     "character": "Shape language, expression, and your own style",
@@ -1370,20 +1162,22 @@ index_body = f'''
 <section>
   <div class="tldr">
     <h3>The short version</h3>
-    <p>You do not need to finish <a href="https://drawabox.com" target="_blank" rel="noopener">Drawabox</a> or the <a href="https://www.soloartcurriculum.com/" target="_blank" rel="noopener">Solo Art Curriculum</a> &mdash; both are built to
-    produce generalist realism artists over a year or more of near-daily work. Take Drawabox&rsquo;s
-    Lessons 0&ndash;2 for spatial fundamentals, then deliberately pivot toward cartooning: Loomis,
-    Proko, the Etherington Brothers, and Scott McCloud on comics craft.</p>
-    <p>At 1&ndash;3 hrs a week, this is a multi-year hobby, not a bootcamp. Adopt Drawabox&rsquo;s own
-    <strong>50% rule</strong> from day one, stay on paper through character design, and add an
-    iPad only once you can build a character from imagination.</p>
+    <p>You do not need to finish the <a href="https://www.soloartcurriculum.com/" target="_blank" rel="noopener">Solo Art Curriculum</a> &mdash; it&rsquo;s built to
+    produce a generalist realism artist over a year or more of near-daily work. Work through Scott
+    Robertson &amp; Thomas Bertling&rsquo;s <em>How to Draw</em> for spatial fundamentals, then
+    deliberately pivot toward cartooning: Loomis, Proko, the Etherington Brothers, and Scott
+    McCloud on comics craft.</p>
+    <p>At 1&ndash;3 hrs a week, this is a multi-year hobby, not a bootcamp. Split every session
+    roughly 50/50 between structured practice and free drawing from day one, stay on paper through
+    character design, and add an iPad only once you can build a character from imagination.</p>
   </div>
 
   <h3 style="margin-top:40px;">Key findings from the research</h3>
   <ul class="findings">
-    <li><span class="fn">1</span><span><strong>Drawabox teaches spatial reasoning, not style.</strong>
-    Its early lessons transfer to any style; its later lessons (plants, animals, vehicles) are
-    realism-flavored repetition most cartoonists don&rsquo;t need.</span></li>
+    <li><span class="fn">1</span><span><strong>A clearly-taught fundamentals book beats a free but
+    confusing one.</strong> <em>How to Draw</em>&rsquo;s early chapters transfer to any style; its
+    later vehicle and product-design chapters are precision-heavy repetition most cartoonists
+    don&rsquo;t need.</span></li>
     <li><span class="fn">2</span><span><strong>The Solo Art Curriculum is excellent, but built for a
     different artist.</strong> Its figure-drawing and character-design units are worth borrowing;
     its anatomy and painting sequence targets concept artists, not cartoonists.</span></li>
