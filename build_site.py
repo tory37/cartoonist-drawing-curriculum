@@ -1,3 +1,4 @@
+import hashlib
 import json
 import os
 import struct
@@ -5,6 +6,13 @@ import zlib
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 os.makedirs(OUT, exist_ok=True)
+
+# Cache-busting query string appended to this site's own CSS/JS asset
+# links. Derived from this script's own source, so it changes on every
+# content edit -- forcing browsers and GitHub Pages' CDN to fetch fresh
+# assets instead of serving a stale cached copy after a deploy.
+with open(os.path.abspath(__file__), "rb") as _f:
+    BUILD_VERSION = hashlib.sha256(_f.read()).hexdigest()[:10]
 
 # ---------- shared stylesheet ----------
 CSS = '''
@@ -1081,14 +1089,14 @@ def shell(title, body, page_id=""):
 <title>{title} &mdash; Draw Your Own Comics</title>
 {FAVICON_LINKS}
 {FONT_LINKS}
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v={BUILD_VERSION}">
 </head>
 <body data-page-id="{page_id}">
 {body}
-<script src="progress-schema.js"></script>
-<script src="firebase-config.js"></script>
+<script src="progress-schema.js?v={BUILD_VERSION}"></script>
+<script src="firebase-config.js?v={BUILD_VERSION}"></script>
 <script src="https://accounts.google.com/gsi/client"></script>
-<script type="module" src="app.js"></script>
+<script type="module" src="app.js?v={BUILD_VERSION}"></script>
 </body>
 </html>
 '''
