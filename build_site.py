@@ -458,38 +458,37 @@ drawn from the shoulder, not a scratchy, hesitant one.</div>
 ''')
 
 add("construction", "03-construction.html", "Basic construction &amp; 3D forms", "construction",
-    '<em>How to Draw</em> (Ch. 2&ndash;4 &amp; 6) &middot; roughly 4&ndash;10 weeks', '''
-<p>Work Chapters 2 through 4 of <em>How to Draw</em> &mdash; perspective terminology, technique, and
-building your first perspective grids &mdash; then Chapter 6, &ldquo;Working with Volume,&rdquo; for
-constructing solid 3D forms inside those grids. Understanding how simple volumes fit together in
-space is the backbone of &ldquo;built from shapes&rdquo; cartooning (a head as a rounded box, a body
-as a blob).</p>
-<div class="callout do"><span class="tag">pace it</span>
-This is the densest material in the book. Go slowly and work small &mdash; a page of simple boxes
-and cylinders sitting in a grid is plenty per session &mdash; and skip the book&rsquo;s later
-vehicle/product-design chapters entirely. A loose cartoonist fakes and stylizes perspective for
-expression; you don&rsquo;t need that level of measured precision.</div>
+    '<a href="https://www.youtube.com/channel/UC5dyu9y0EV0cSvGtbBtHw_w" target="_blank" rel="noopener">Sycra</a> (YouTube, free) &middot; roughly 3&ndash;6 weeks', '''
+<p>Watch Sycra&rsquo;s <a href="https://www.youtube.com/watch?v=iTey_rv-Trc" target="_blank" rel="noopener">&ldquo;How to Draw Anything with Construction&rdquo;</a> &mdash; free, and it teaches
+exactly the &ldquo;built from shapes&rdquo; thinking cartooning actually needs: run a simple line of
+action through a form, then wrap simple solids (spheres, cylinders, boxes) around it. No
+vanishing-point math required.</p>
+<div class="callout do"><span class="tag">why it matters</span>
+This is the mental model behind every cartoon character in this style: a head is a rounded box, a
+body is a blob or a sausage, a prop is two or three overlapping simple solids. Once this clicks,
+gesture and character design (the next two modules) get dramatically easier.</div>
+<p>Practice on ordinary objects around you before jumping to characters &mdash; a mug, a shoe, a
+lamp. Simple, everyday subjects make the &ldquo;shapes stacked in space&rdquo; logic obvious.</p>
 ''')
 
 add("perspective", "04-perspective.html", "Just enough perspective", "perspective",
-    'Marshall Vandruff&rsquo;s <a href="https://marshallart.gumroad.com/l/wbwxz" target="_blank" rel="noopener">Perspective Drawing Series</a> ($12) &middot; roughly 3&ndash;6 weeks', '''
+    'The Etherington Brothers&rsquo; free perspective tutorials &middot; roughly 2&ndash;4 weeks', '''
 <p>Learn enough 1- and 2-point perspective to place a character in a room and draw a believable
 box, building, or prop. That&rsquo;s the whole goal here.</p>
-<h3>The best perspective teacher most people never hear of</h3>
-<p>Marshall Vandruff&rsquo;s <a href="https://marshallart.gumroad.com/l/wbwxz" target="_blank" rel="noopener">1994 Perspective Drawing Series</a> &mdash; twelve one-hour lectures recorded
-live at Fullerton College &mdash; is widely considered some of the clearest perspective teaching ever
-put on video, and it&rsquo;s $12 for the whole series. It explains the <em>why</em> behind the
-grid-building you just practiced in the construction module, taught as an actual lecture instead
-of a wall of procedural text. Preview his teaching style for free on his
-<a href="https://www.youtube.com/@MarshallVandruffVideos" target="_blank" rel="noopener">YouTube channel</a> before buying.</p>
-<div class="callout skip"><span class="tag">skip / deprioritize</span>
-Lectures 10&ndash;12 (Depth Measuring Systems and Plan Projection) are aimed at technical/product-design
-precision &mdash; measuring exact real-world distances into a drawing. Skip them; a cartoonist fakes
-and stylizes perspective for expression, not measured accuracy.</div>
+<p>The Etherington Brothers &mdash; already your character-design resource later in this course &mdash;
+have their own free, cartoon-native perspective tutorials: <a href="http://theetheringtonbrothers.blogspot.com/2019/09/how-to-think-when-you-draw-1-point.html" target="_blank" rel="noopener">1-point perspective</a>
+(<a href="http://theetheringtonbrothers.blogspot.com/2019/09/how-to-think-when-you-draw-1-point_8.html" target="_blank" rel="noopener">part two</a>), <a href="http://theetheringtonbrothers.blogspot.com/2022/12/how-to-think-when-you-draw-2-point.html" target="_blank" rel="noopener">2-point perspective</a>, and
+<a href="http://theetheringtonbrothers.blogspot.com/2021/11/how-to-think-when-you-draw-perspective.html" target="_blank" rel="noopener">perspective boxes</a>. Visual, practical, and built for exactly this
+style &mdash; no textbook or lecture series required.</p>
 <div class="callout do"><span class="tag">free alternatives</span>
-<a href="https://www.youtube.com/moderndayjames" target="_blank" rel="noopener">ModernDayJames</a> covers the same 1/2/3-point basics for free on YouTube in a looser,
-cartoon-friendly way, and Ernest Norling&rsquo;s classic <a href="https://archive.org/details/perspective-made-easy-by-ernest-r.-norling" target="_blank" rel="noopener"><em>Perspective Made Easy</em></a> (free and legal,
-Internet Archive) is a good plain-English companion if you&rsquo;d rather read than watch or pay.</div>
+<a href="https://www.youtube.com/moderndayjames" target="_blank" rel="noopener">ModernDayJames</a> covers the same ground for free on YouTube in a looser way, and Ernest
+Norling&rsquo;s classic <a href="https://archive.org/details/perspective-made-easy-by-ernest-r.-norling" target="_blank" rel="noopener"><em>Perspective Made Easy</em></a> (free and legal, Internet Archive) is a
+good plain-English companion if you&rsquo;d rather read than watch.</div>
+<div class="callout skip"><span class="tag">optional deep dive</span>
+If perspective genuinely clicks for you and you want to go further, Marshall Vandruff&rsquo;s
+<a href="https://marshallart.gumroad.com/l/wbwxz" target="_blank" rel="noopener">1994 Perspective Drawing Series</a> ($12, 12 lectures) is some of the clearest, most in-depth
+perspective teaching ever recorded &mdash; but it&rsquo;s well past what a cartoonist strictly needs,
+so treat it as optional, not required.</div>
 ''')
 
 add("gesture", "05-gesture.html", "Gesture &amp; simplified anatomy", "gesture",
@@ -667,9 +666,9 @@ add("recs", "09-recommendations.html", "Putting it together", "recs", None, '''
 <ul>
   <li><strong>Past Phase 1&ndash;2</strong> &mdash; your lines are noticeably more confident and a box or
   cylinder &ldquo;sits&rdquo; believably in 3D. Don&rsquo;t wait for perfection.</li>
-  <li><strong>Don&rsquo;t try to master every grid-construction method in <em>How to Draw</em>.</strong>
-  Once basic one- and two-point boxes click, move to the perspective module and start applying it
-  loosely &mdash; precision grids are a means, not the goal, for a cartoonist.</li>
+  <li><strong>Don&rsquo;t chase perfect construction before moving on.</strong> Once a simple object
+  built from a couple of overlapping shapes reads believably, move to the perspective module and
+  start applying it loosely &mdash; precision is a means, not the goal, for a cartoonist.</li>
   <li><strong>Spend the bulk of your years in Phases 4&ndash;6</strong> &mdash; gesture, character design,
   comics. This is what actually makes a cartoonist.</li>
 </ul>
@@ -696,16 +695,17 @@ add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, 
   McCloud&rsquo;s books are in copyright &mdash; use a library.</li>
   <li><strong>Some &ldquo;free&rdquo; resources have paid upsells &mdash; and some good resources were
   never free.</strong> <a href="https://www.proko.com" target="_blank" rel="noopener">Proko</a> and the Solo Art
-  Curriculum surface a lot of free content but also sell premium courses. Marshall Vandruff&rsquo;s
-  perspective lectures are $12, not free, and there&rsquo;s no legitimate free copy of Scott
-  Robertson&rsquo;s <em>How to Draw</em> &mdash; ignore any &ldquo;free PDF&rdquo; scan you find online; it&rsquo;s
-  still in print and in copyright.</li>
+  Curriculum surface a lot of free content but also sell premium courses. There&rsquo;s no legitimate
+  free copy of Scott Robertson&rsquo;s <em>How to Draw</em> &mdash; ignore any &ldquo;free PDF&rdquo; scan
+  you find online; it&rsquo;s still in print and in copyright. Marshall Vandruff&rsquo;s perspective
+  lectures, mentioned as an optional deep dive, are $12 &mdash; nothing in the required path costs
+  money except the books below.</li>
   <li><strong>Links and channels change.</strong> If a specific video or playlist has moved,
   search the creator&rsquo;s name directly &mdash; the recommendation still stands even when the URL doesn&rsquo;t.</li>
-  <li><strong>This course asks you to spend about $120, deliberately.</strong> Scott Robertson
-  &amp; Thomas Bertling&rsquo;s <em>How to Draw</em> (~$40) and Marshall Vandruff&rsquo;s perspective
-  lectures ($12) replace what used to be a fully free path through this material &mdash; a
-  deliberate trade for teaching quality, not a cost added lightly. Brunetti&rsquo;s
+  <li><strong>This course asks you to spend about $110, deliberately.</strong> Scott Robertson
+  &amp; Thomas Bertling&rsquo;s <em>How to Draw</em> (~$40) replaces what used to be a fully free path
+  through line and ellipse fundamentals &mdash; a deliberate trade for teaching quality, not a cost
+  added lightly. Brunetti&rsquo;s
   <em>Cartooning: Philosophy and Practice</em>, Barry&rsquo;s <em>Making Comics</em>, and
   Mateu-Mestre&rsquo;s <em>Framed Ink</em> add another ~$70 for the comics-craft half, chosen
   instead of assembling an equivalent from free YouTube links, which doesn&rsquo;t really exist for
@@ -752,16 +752,17 @@ as settled fact.</p>
   identifiable working artist, a published book, or an established institution &mdash; not an
   anonymous blog or an assembled mixtape of whatever ranked well in a search.</li>
   <li><strong>Free by default, paid when it&rsquo;s actually worth it.</strong> Most of this course
-  costs nothing. A small number of real, classroom-tested books and one cheap video series (about
-  $120 total across the whole course) were added deliberately where no free equivalent taught as
-  well &mdash; while pricier options ($249, $500) were looked at and explicitly turned down as
-  overkill for a hobbyist goal.</li>
+  costs nothing. A small number of real, classroom-tested books (about $110 total across the whole
+  course) were added deliberately where no free equivalent taught as well &mdash; while pricier
+  options ($249, $500, and even a cheap $12 video series) were looked at and explicitly kept
+  optional rather than required.</li>
   <li><strong>Honest about the weak spots.</strong> The &ldquo;skip / contested&rdquo; callouts, the
   caveats page, and the note in the comics module admitting that free critique loops are genuinely
   hard to come by are all here on purpose &mdash; a curriculum that hides its own tradeoffs isn&rsquo;t
-  trustworthy. So is swapping a resource out entirely, like dropping Drawabox for a
-  clearer-taught (if no longer free) alternative, when it stops working for the person actually
-  using this course.</li>
+  trustworthy. So is swapping a resource out entirely, like dropping Drawabox for clearer-taught
+  alternatives &mdash; mostly free, one a paid book &mdash; when it stops working for the person
+  actually using this course, and then dropping a replacement too when it turns out to have the
+  same problem in a different module.</li>
 </ul>
 
 <h3>Disclaimers</h3>
@@ -784,10 +785,12 @@ as settled fact.</p>
 <p><strong>Foundations</strong></p>
 <ul>
   <li>Scott Robertson &amp; Thomas Bertling, <a href="https://designstudiopress.com/products/how-to-draw" target="_blank" rel="noopener"><em>How to Draw</em></a> (Design Studio Press)</li>
-  <li>Marshall Vandruff, <a href="https://marshallart.gumroad.com/l/wbwxz" target="_blank" rel="noopener">1994 Perspective Drawing Series</a></li>
+  <li><a href="https://www.youtube.com/channel/UC5dyu9y0EV0cSvGtbBtHw_w" target="_blank" rel="noopener">Sycra</a> (YouTube) &mdash; free construction teaching</li>
+  <li>Robin &amp; Lorenzo Etherington&rsquo;s free <a href="http://theetheringtonbrothers.blogspot.com/2019/09/how-to-think-when-you-draw-1-point.html" target="_blank" rel="noopener">perspective tutorials</a></li>
   <li>Andrew Loomis, <em>Fun With a Pencil</em>, via the <a href="https://archive.org/details/andrew-loomis-fun-with-a-pencil" target="_blank" rel="noopener">Internet Archive</a></li>
   <li>Ernest Norling, <em>Perspective Made Easy</em>, via the <a href="https://archive.org/details/perspective-made-easy-by-ernest-r.-norling" target="_blank" rel="noopener">Internet Archive</a></li>
   <li><a href="https://www.youtube.com/moderndayjames" target="_blank" rel="noopener">ModernDayJames</a> (YouTube)</li>
+  <li>Marshall Vandruff&rsquo;s <a href="https://marshallart.gumroad.com/l/wbwxz" target="_blank" rel="noopener">1994 Perspective Drawing Series</a> &mdash; optional deep dive, $12</li>
 </ul>
 <p><strong>Gesture &amp; anatomy</strong></p>
 <ul>
@@ -864,22 +867,15 @@ CHECKLISTS = {
         ("ellipsedrill", "Fill a page with ellipses in a range of degrees and rotations"),
     ],
     "construction": [
-        ("ch2read", "Read How to Draw Chapter 2 (perspective terminology)"),
-        ("ch3read", "Read How to Draw Chapter 3 (perspective drawing technique)"),
-        ("ch4read", "Read How to Draw Chapter 4 and build your first perspective grid"),
-        ("ch6read", "Read How to Draw Chapter 6, &ldquo;Working with Volume&rdquo;"),
-        ("formdrill", "Draw a page of simple boxes and cylinders sitting inside a perspective grid"),
+        ("constructionvideo", "Watch Sycra&rsquo;s &ldquo;How to Draw Anything with Construction&rdquo;"),
+        ("arrowdrill", "Practice building a form around a single &ldquo;arrow&rdquo; line of action"),
+        ("simpleforms", "Draw a page of everyday objects built from 2&ndash;3 overlapping simple solids (sphere, cylinder, box)"),
     ],
     "perspective": [
-        ("lecture1", "Lecture 1: Intro to Perspective"),
-        ("lecture2", "Lecture 2: Right Angles, Part 1"),
-        ("lecture3", "Lecture 3: Right Angles, Part 2"),
-        ("lecture4", "Lecture 4: Right Angles, Part 3"),
-        ("lecture5", "Lecture 5: Circles &amp; Ellipses, Part 1"),
-        ("lecture6", "Lecture 6: Circles &amp; Ellipses, Part 2"),
-        ("lecture7", "Lecture 7: Circles &amp; Ellipses, Part 3"),
-        ("lecture8", "Lecture 8: Right Angles &amp; Circles Combined"),
-        ("lecture9", "Lecture 9: Inclined Planes &amp; The Vanishing Trace"),
+        ("onepoint1", "Etherington Brothers: 1-Point Perspective, Part 1"),
+        ("onepoint2", "Etherington Brothers: 1-Point Perspective, Part 2"),
+        ("twopoint", "Etherington Brothers: 2-Point Perspective"),
+        ("perspectiveboxes", "Etherington Brothers: Perspective Boxes"),
         ("roomsketch", "Sketch a character standing in a simple room"),
     ],
     "gesture": [
@@ -941,13 +937,20 @@ ITEM_LINKS = {
     ("lines", "ch5read"): {
         "lesson": "https://designstudiopress.com/products/how-to-draw",
     },
-    ("construction", "ch2read"): {
-        "lesson": "https://designstudiopress.com/products/how-to-draw",
+    ("construction", "constructionvideo"): {
+        "video": "https://www.youtube.com/watch?v=iTey_rv-Trc",
     },
-    # The 1994 series is one $12 bundle, not individually-linkable lectures --
-    # every checklist item points at the same real, official purchase page.
-    ("perspective", "lecture1"): {
-        "lesson": "https://marshallart.gumroad.com/l/wbwxz",
+    ("perspective", "onepoint1"): {
+        "lesson": "http://theetheringtonbrothers.blogspot.com/2019/09/how-to-think-when-you-draw-1-point.html",
+    },
+    ("perspective", "onepoint2"): {
+        "lesson": "http://theetheringtonbrothers.blogspot.com/2019/09/how-to-think-when-you-draw-1-point_8.html",
+    },
+    ("perspective", "twopoint"): {
+        "lesson": "http://theetheringtonbrothers.blogspot.com/2022/12/how-to-think-when-you-draw-2-point.html",
+    },
+    ("perspective", "perspectiveboxes"): {
+        "lesson": "http://theetheringtonbrothers.blogspot.com/2021/11/how-to-think-when-you-draw-perspective.html",
     },
     # These two already have real, verified sources named in this page's own
     # prose (a Proko YouTube playlist and the archive.org Loomis scan) -- no
@@ -1058,7 +1061,7 @@ def tracker_box(page_id):
 TOC_SUBS = {
     "rhythm": "How to structure 1&ndash;3 hours a week, and what to buy",
     "lines": "Confident lines and ellipse control, from a real perspective-drawing textbook",
-    "construction": "3D forms and perspective grids, from the same book",
+    "construction": "3D forms built from simple shapes, the free way",
     "perspective": "Just enough 1- and 2-point perspective",
     "gesture": "Movement, flow, and simplified cartoon anatomy",
     "character": "Shape language, expression, and your own style",
