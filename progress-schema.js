@@ -11,22 +11,15 @@ window.PROGRESS_SCHEMA = {
     "ellipsedrill"
   ],
   "construction": [
-    "ch2read",
-    "ch3read",
-    "ch4read",
-    "ch6read",
-    "formdrill"
+    "constructionvideo",
+    "arrowdrill",
+    "simpleforms"
   ],
   "perspective": [
-    "lecture1",
-    "lecture2",
-    "lecture3",
-    "lecture4",
-    "lecture5",
-    "lecture6",
-    "lecture7",
-    "lecture8",
-    "lecture9",
+    "onepoint1",
+    "onepoint2",
+    "twopoint",
+    "perspectiveboxes",
     "roomsketch"
   ],
   "gesture": [
