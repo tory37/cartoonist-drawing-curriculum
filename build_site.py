@@ -1112,6 +1112,19 @@ EXERCISES = [
         images=[],
         source=None,
     ),
+    dict(
+        id="one-point-boxes",
+        title="1-point perspective boxes",
+        tags=["perspective"],
+        time="15 min",
+        body="Draw a horizon line and choose a vanishing point on it. Draw a rectangle, then connect each of "
+             "its corners to the vanishing point. Draw a second, smaller rectangle between those connecting "
+             "lines, farther away, and you have a box. Build the whole box with light construction lines "
+             "first, then darken the box's inside edges, and darken its outline darkest of all. Retrace each "
+             "line several times to build up different line weights.",
+        images=[],
+        source=None,
+    ),
 ]
 
 def exercise_tags_used():
