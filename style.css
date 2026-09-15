@@ -269,18 +269,25 @@ footer.site{
 .toolkit-pick-btn:hover{opacity:.88;}
 .exercise-grid{display:flex; flex-direction:column; gap:16px; margin:20px 0;}
 .exercise-card{
-  border:1px solid var(--line); border-radius:8px; padding:20px 22px; background:var(--surface);
+  border:1px solid var(--line); border-radius:8px; background:var(--surface);
   transition:border-color .25s ease, box-shadow .25s ease;
 }
 .exercise-card.picked{border-color:var(--green); box-shadow:0 0 0 1px var(--green);}
+.exercise-summary{list-style:none; cursor:pointer; padding:20px 22px;}
+.exercise-summary::-webkit-details-marker{display:none;}
+.exercise-card[open] > .exercise-summary{padding-bottom:10px;}
 .exercise-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;}
+.exercise-head-side{display:flex; align-items:center; gap:10px; flex:none;}
+.exercise-chevron{color:var(--ink-soft); display:flex; transition:transform .2s ease;}
+.exercise-card[open] .exercise-chevron{transform:rotate(180deg);}
 .exercise-tags{display:flex; flex-wrap:wrap; gap:6px;}
 .tag-chip{
   font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--blue-soft);
   border:1px solid var(--line); border-radius:8px; padding:2px 8px;
 }
 .exercise-time{font-size:12.5px; color:var(--ink-soft); white-space:nowrap; flex:none;}
-.exercise-title{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0 0 8px;}
+.exercise-title{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0;}
+.exercise-body{padding:0 22px 20px;}
 .exercise-steps{font-size:15px; margin:0; padding-left:20px;}
 .exercise-steps li{margin-bottom:6px;}
 .exercise-steps li:last-child{margin-bottom:0;}
