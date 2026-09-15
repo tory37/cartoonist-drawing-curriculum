@@ -286,18 +286,25 @@ footer.site{
 .toolkit-pick-btn:hover{opacity:.88;}
 .exercise-grid{display:flex; flex-direction:column; gap:16px; margin:20px 0;}
 .exercise-card{
-  border:1px solid var(--line); border-radius:8px; padding:20px 22px; background:var(--surface);
+  border:1px solid var(--line); border-radius:8px; background:var(--surface);
   transition:border-color .25s ease, box-shadow .25s ease;
 }
 .exercise-card.picked{border-color:var(--green); box-shadow:0 0 0 1px var(--green);}
+.exercise-summary{list-style:none; cursor:pointer; padding:20px 22px;}
+.exercise-summary::-webkit-details-marker{display:none;}
+.exercise-card[open] > .exercise-summary{padding-bottom:10px;}
 .exercise-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;}
+.exercise-head-side{display:flex; align-items:center; gap:10px; flex:none;}
+.exercise-chevron{color:var(--ink-soft); display:flex; transition:transform .2s ease;}
+.exercise-card[open] .exercise-chevron{transform:rotate(180deg);}
 .exercise-tags{display:flex; flex-wrap:wrap; gap:6px;}
 .tag-chip{
   font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--blue-soft);
   border:1px solid var(--line); border-radius:8px; padding:2px 8px;
 }
 .exercise-time{font-size:12.5px; color:var(--ink-soft); white-space:nowrap; flex:none;}
-.exercise-title{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0 0 8px;}
+.exercise-title{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0;}
+.exercise-body{padding:0 22px 20px;}
 .exercise-steps{font-size:15px; margin:0; padding-left:20px;}
 .exercise-steps li{margin-bottom:6px;}
 .exercise-steps li:last-child{margin-bottom:0;}
@@ -463,6 +470,7 @@ ICONS = {
 
 HOME_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 TOOLKIT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h18" stroke-linecap="round"/></svg>'
+CHEVRON_ICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>'
 
 PAGES = []  # filled below, list of dicts: id, file, title, kicker, icon, duration, body
 
@@ -1096,7 +1104,10 @@ ITEM_LINKS = {
 # (list of image paths/URLs -- empty for now; the site doesn't host any
 # exercise images yet, but a non-empty list renders them, so this needs no
 # future markup changes, just adding files and paths here) and source
-# (optional {"label", "url"} credit link back to where the drill came from).
+# (optional {"label", "url"} credit link back to where the drill came from;
+# "url" may be omitted for a plain-text citation with no link).
+HOW_TO_DRAW = {"label": "How to Draw, by Scott Robertson &amp; Thomas Bertling"}
+
 EXERCISES = [
     dict(
         id="parallel-lines",
@@ -1109,7 +1120,7 @@ EXERCISES = [
             "Keep the spacing and angle consistent as the lines lengthen.",
         ],
         images=[],
-        source=None,
+        source=HOW_TO_DRAW,
     ),
     dict(
         id="ghosting",
@@ -1122,7 +1133,7 @@ EXERCISES = [
             "Draw it in one confident pass, aiming to hit both the start and end point precisely.",
         ],
         images=[],
-        source=None,
+        source=HOW_TO_DRAW,
     ),
     dict(
         id="lines-through-point",
@@ -1136,7 +1147,7 @@ EXERCISES = [
             "Repeat from many angles until the point is surrounded by lines radiating through it.",
         ],
         images=[],
-        source=None,
+        source=HOW_TO_DRAW,
     ),
     dict(
         id="one-point-boxes",
@@ -1152,7 +1163,7 @@ EXERCISES = [
             "Retrace each line several times to build up different line weights.",
         ],
         images=[],
-        source=None,
+        source=HOW_TO_DRAW,
     ),
     dict(
         id="two-point-boxes",
@@ -1175,7 +1186,7 @@ EXERCISES = [
             },
         ],
         images=[],
-        source=None,
+        source=HOW_TO_DRAW,
     ),
     dict(
         id="curves-through-points",
@@ -1194,7 +1205,7 @@ EXERCISES = [
             },
         ],
         images=[],
-        source={"label": "How to Draw, by Scott Robertson &amp; Thomas Bertling"},
+        source=HOW_TO_DRAW,
     ),
 ]
 
@@ -1235,16 +1246,23 @@ def exercise_card(ex):
         steps_html += "".join(note_li(n) for n in inline_notes if n["after"] == i)
     steps_html += "".join(note_li(n) for n in trailing_notes)
 
-    return f'''<div class="exercise-card" id="ex-{ex['id']}" data-tags="{' '.join(ex['tags'])}">
-    <div class="exercise-head">
-      <span class="exercise-tags">{tag_chips}</span>
-      {time_html}
+    return f'''<details class="exercise-card" id="ex-{ex['id']}" data-tags="{' '.join(ex['tags'])}">
+    <summary class="exercise-summary">
+      <div class="exercise-head">
+        <span class="exercise-tags">{tag_chips}</span>
+        <span class="exercise-head-side">
+          {time_html}
+          <span class="exercise-chevron">{CHEVRON_ICON}</span>
+        </span>
+      </div>
+      <h3 class="exercise-title">{ex['title']}</h3>
+    </summary>
+    <div class="exercise-body">
+      <ul class="exercise-steps">{steps_html}</ul>
+      {images_html}
+      {source_html}
     </div>
-    <h3 class="exercise-title">{ex['title']}</h3>
-    <ul class="exercise-steps">{steps_html}</ul>
-    {images_html}
-    {source_html}
-  </div>'''
+  </details>'''
 
 def tracker_box(page_id):
     items = CHECKLISTS.get(page_id)
@@ -1503,7 +1521,10 @@ TOOLKIT_JS = '''
       var idx = Math.floor(Math.random() * pool.length);
       picked.push(pool.splice(idx, 1)[0]);
     }
-    for (var i = 0; i < picked.length; i++) picked[i].classList.add("picked");
+    for (var i = 0; i < picked.length; i++){
+      picked[i].classList.add("picked");
+      picked[i].open = true;
+    }
     if (picked.length) picked[0].scrollIntoView({behavior:"smooth", block:"center"});
   });
 
