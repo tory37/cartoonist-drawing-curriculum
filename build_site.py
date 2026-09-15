@@ -1234,6 +1234,26 @@ EXERCISES = [
         images=[],
         source=HOW_TO_DRAW,
     ),
+    dict(
+        id="ellipses-between-lines",
+        title="Ellipses between two lines",
+        tags=["warmup", "ellipses"],
+        time="5 min",
+        steps=[
+            "Draw a minor axis line, then a line to its left and one to its right.",
+            "Place a series of ellipses on the minor axis, matching each one's width to the two outer lines at that point.",
+            "Vary the degree of the ellipses &mdash; how narrow or wide they are &mdash; as you go, not just their size.",
+        ],
+        notes=[
+            {
+                "label": "Avoid",
+                "text": "Drawing the two outer lines asymmetrically about the minor axis &mdash; if they aren't symmetrical, no ellipse can actually fit between them.",
+                "after": 1,
+            },
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
 ]
 
 def exercise_tags_used():
