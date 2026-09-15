@@ -1177,6 +1177,25 @@ EXERCISES = [
         images=[],
         source=None,
     ),
+    dict(
+        id="curves-through-points",
+        title="Curves through multiple points",
+        tags=["warmup", "curves"],
+        time="5 min",
+        steps=[
+            "Place several points on the page, spaced out to follow the curve you intend to draw.",
+            "Draw a smooth, accelerating curve through them, treating each point as a waypoint to pass through rather than a place to stop.",
+            "It's fine to draw the curve in segments &mdash; rotate the page and let your wrist and fingers move naturally for each one.",
+        ],
+        notes=[
+            {
+                "label": "Avoid",
+                "text": "Stopping at each point, which creates edges and corners instead of a smooth curve. Also avoid drawing slowly or hesitantly &mdash; that produces fuzzy, hairy lines. Commit to each segment so the curve can be repeated at high quality.",
+            },
+        ],
+        images=[],
+        source={"label": "How to Draw, by Scott Robertson &amp; Thomas Bertling"},
+    ),
 ]
 
 def exercise_tags_used():
@@ -1196,7 +1215,10 @@ def exercise_card(ex):
         images_html = f'<div class="exercise-images">{imgs}</div>'
     source_html = ""
     if ex["source"]:
-        source_html = f'<p class="exercise-source">From <a href="{ex["source"]["url"]}" target="_blank" rel="noopener">{ex["source"]["label"]}</a></p>'
+        if ex["source"].get("url"):
+            source_html = f'<p class="exercise-source">From <a href="{ex["source"]["url"]}" target="_blank" rel="noopener">{ex["source"]["label"]}</a></p>'
+        else:
+            source_html = f'<p class="exercise-source">From {ex["source"]["label"]}</p>'
     def note_li(n):
         return f'<li class="exercise-note"><span class="note-label">{n["label"]}</span>{n["text"]}</li>'
 
