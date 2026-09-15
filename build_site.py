@@ -1221,6 +1221,11 @@ EXERCISES = [
         ],
         notes=[
             {
+                "label": "Alternative order",
+                "text": "Draw the minor axis first, then place the ellipse over it &mdash; rotate the page to find the best angle for your hand. Either way, check that the ellipse is symmetrical and that the axis stays centered and perpendicular to it; a lopsided ellipse and an off-axis line are the two most common mistakes.",
+                "after": 0,
+            },
+            {
                 "label": "Avoid",
                 "text": "Darkening the ellipse by retracing it, even to fix a bad one &mdash; repeating the stroke only makes the flaw more obvious. Redraw it fresh instead.",
                 "after": 2,
