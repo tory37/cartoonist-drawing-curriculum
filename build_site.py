@@ -1207,6 +1207,28 @@ EXERCISES = [
         images=[],
         source=HOW_TO_DRAW,
     ),
+    dict(
+        id="ellipse-minor-axis",
+        title="Ellipse &amp; minor axis",
+        tags=["warmup", "ellipses"],
+        time="5 min",
+        steps=[
+            "Draw a freehand ellipse, moving your whole arm rather than just your wrist.",
+            "Keep the line light so it can be cleaned up later with an ellipse guide.",
+            "Check that the ellipse has no flat spots and isn't lopsided.",
+            "Place the minor axis on the ellipse &mdash; the line across its narrow dimension that splits it into two equal halves. Getting this right matters for placing the ellipse in perspective.",
+            "Double-check with an ellipse guide, or fold the paper along the minor axis and hold it up to the light to confirm the two halves line up.",
+        ],
+        notes=[
+            {
+                "label": "Avoid",
+                "text": "Darkening the ellipse by retracing it, even to fix a bad one &mdash; repeating the stroke only makes the flaw more obvious. Redraw it fresh instead.",
+                "after": 2,
+            },
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
 ]
 
 def exercise_tags_used():
