@@ -1163,7 +1163,8 @@ EXERCISES = [
             "Draw the horizon line, then draw a vertical line for the box's front corner &mdash; this establishes the X, Y, and Z axes.",
             "Extend the X-axis and Y-axis lines from the bottom of that vertical until they hit the horizon line. Where they cross the horizon gives you the left and right vanishing points.",
             "Draw lines from the top of the vertical to both vanishing points. Add two more verticals at any distance &mdash; one to the left, one to the right.",
-            "Close the box by drawing lines from the tops of those two new verticals to the opposite vanishing points. Add the resulting hidden vertical edge in the back.",
+            "From the tops of those two new verticals, draw lines to the opposite vanishing points. Where they cross gives you the box's back-top corner.",
+            "Do the same from the bottoms of those two new verticals to the opposite vanishing points. Where they cross gives you the back-bottom corner &mdash; connect it to the back-top corner to draw the hidden vertical edge.",
             "Darken the box's visible edges. The lighter construction lines should still show through.",
         ],
         notes=[
