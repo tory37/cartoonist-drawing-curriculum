@@ -292,6 +292,12 @@ footer.site{
 .stage-badge.current{color:var(--blue); background:var(--tint); border:1px solid var(--blue-soft);}
 .stage-badge.mastered{color:var(--green); background:rgba(123,180,150,.1); border:1px solid var(--green);}
 .toolkit-section.stage-current{border-color:var(--blue-soft);}
+.covered-badge{
+  font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
+  color:var(--ink-soft); border:1px solid var(--line); border-radius:6px; padding:2px 8px;
+  text-decoration:none; white-space:nowrap;
+}
+.covered-badge:hover{color:var(--blue); border-color:var(--blue-soft);}
 .toolkit-section .section-chevron{color:var(--ink-soft); display:flex; flex:none; transition:transform .2s ease;}
 .toolkit-section[open] .section-chevron{transform:rotate(180deg);}
 .toolkit-section-body{padding:0 20px 18px;}
