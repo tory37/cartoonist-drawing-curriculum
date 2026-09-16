@@ -314,7 +314,7 @@ footer.site{
 }
 .stage-badge.current{color:var(--blue); background:var(--tint); border:1px solid var(--blue-soft);}
 .stage-badge.superseded{color:var(--green); background:rgba(123,180,150,.1); border:1px solid var(--green);}
-.toolkit-section.stage-current{border-color:var(--blue-soft);}
+.toolkit-section.has-here{border-color:var(--blue-soft);}
 .covered-badge{
   font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
   color:var(--ink-soft); border:1px solid var(--line); border-radius:6px; padding:2px 8px;
@@ -330,28 +330,21 @@ footer.site{
   transition:border-color .25s ease, box-shadow .25s ease;
 }
 .exercise-card.picked{border-color:var(--green); box-shadow:0 0 0 1px var(--green);}
+.exercise-card.is-here{border-color:var(--blue-soft); box-shadow:0 0 0 1px var(--blue-soft);}
 .exercise-summary{list-style:none; cursor:pointer; padding:20px 22px;}
 .exercise-summary::-webkit-details-marker{display:none;}
 .exercise-card[open] > .exercise-summary{padding-bottom:10px;}
-.exercise-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;}
-.exercise-head-side{display:flex; align-items:center; gap:10px; flex:none;}
-.practiced-toggle{display:flex; align-items:center; gap:6px;}
-.practiced-check{
-  appearance:none; -webkit-appearance:none; -moz-appearance:none;
-  margin:0; width:16px; height:16px; flex:none;
-  border:1.5px solid var(--ink-soft); border-radius:4px; background:var(--paper-deep);
-  position:relative; cursor:pointer;
+.exercise-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; flex-wrap:wrap;}
+.exercise-head-side{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
+.here-toggle{
+  font-size:11px; text-transform:uppercase; letter-spacing:.03em; font-weight:600;
+  color:var(--ink-soft); background:var(--paper-deep); border:1px solid var(--line);
+  border-radius:999px; padding:4px 10px; cursor:pointer; white-space:nowrap; flex:none;
 }
-.practiced-check:checked{background:var(--green); border-color:var(--green);}
-.practiced-check:checked::after{
-  content:""; position:absolute; left:4px; top:1px; width:4px; height:8px;
-  border:solid var(--paper-deep); border-width:0 2px 2px 0; transform:rotate(45deg);
-}
-.practiced-check:focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
-.practiced-label{
-  font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--ink-soft); cursor:pointer;
-}
-@media (max-width:480px){.practiced-label{display:none;}}
+.here-toggle:hover{color:var(--blue); border-color:var(--blue-soft);}
+.here-toggle:focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
+.here-toggle[aria-pressed="true"]{color:var(--blue); background:var(--tint); border-color:var(--blue-soft);}
+@media (max-width:480px){.here-toggle{font-size:10px; padding:4px 8px;}}
 .exercise-chevron{color:var(--ink-soft); display:flex; transition:transform .2s ease;}
 .exercise-card[open] .exercise-chevron{transform:rotate(180deg);}
 .exercise-tags{display:flex; flex-wrap:wrap; gap:6px;}
@@ -1152,9 +1145,9 @@ ITEM_LINKS = {
 # the toolkit's search box -- no separate list to maintain, a new tag just
 # needs to be used here), time (short display string or None), builds_on
 # (optional list of earlier exercise ids whose skill this one already
-# exercises as a side effect -- see CURRENT_EXERCISE below for how this
-# drives which drills quietly retire; omit it unless the dependency is
-# real content, not just "came earlier"), steps (list of plain-language
+# exercises as a side effect -- see the note below EXERCISES for how this
+# drives the toolkit's "I am here" / Covered system; omit it unless the
+# dependency is real content, not just "came earlier"), steps (list of plain-language
 # instruction steps, rendered as a bulleted
 # list so a multi-step drill reads clearly at a glance; may include simple
 # inline HTML like <strong>/<em> per step), notes (optional list of
@@ -1172,23 +1165,17 @@ ITEM_LINKS = {
 # "url" may be omitted for a plain-text citation with no link).
 HOW_TO_DRAW = {"label": "How to Draw, by Scott Robertson &amp; Thomas Bertling"}
 
-# CURRENT_EXERCISE is the one drill being actively worked on right now.
-# Every other exercise's "covered" status is DERIVED, not hand-set: each
-# exercise may declare "builds_on" -- the ids of earlier exercises whose
-# skill it already exercises as a side effect (grounded in what the steps
-# actually require, e.g. mirror-horizontal-planes builds on
-# duplicating-rectangle because its own steps say to mirror "using the
-# duplication technique"). Walking builds_on backward from CURRENT_EXERCISE
-# finds every drill that's implicitly still being practiced -- those retire
-# quietly (never deleted) with a note on which current drill covers them.
+# "builds_on" (see the EXERCISES doc comment above) feeds a dependency graph
+# that ships to the browser as EXERCISE_GRAPH_JSON, below. There's no
+# hand-set "current" exercise -- each visitor marks whichever drill they're
+# actively practicing as "I am here" (stored locally, per browser), and
+# everything upstream of it in this graph is automatically marked Covered,
+# since practicing the later drill already keeps the earlier skill warm.
 # Only add a builds_on edge when the dependency is real content, not just
 # "came earlier in the book": multiply-divide-boxes and mirror-offset-planes,
-# for instance, sit chronologically before the current mirroring work but
-# aren't on its dependency path, so they correctly stay active rather than
-# retiring alongside things that actually are.
-# Re-examine this each time a new exercise is added: does it build on
-# something specific enough to name, and should CURRENT_EXERCISE move to it?
-CURRENT_EXERCISE = "mirror-rotated-tilted-planes"
+# for instance, sit chronologically before the mirroring drills but aren't
+# on their dependency path, so they correctly stay uncovered unless a
+# visitor's own "here" pick reaches them some other way.
 
 EXERCISES = [
     dict(
@@ -1564,30 +1551,10 @@ def exercise_categories_used():
             seen.append(c)
     return seen
 
-EXERCISES_BY_ID = {ex["id"]: ex for ex in EXERCISES}
-
-def compute_coverage():
-    # Walks builds_on backward from CURRENT_EXERCISE, breadth-first, so
-    # every id it reaches gets "covered_by" set to the nearer (more-current)
-    # exercise that pulled it in -- that's what a "Covered" badge names and
-    # links to. Ids CURRENT_EXERCISE doesn't reach (even if they're earlier
-    # in the book) are left out entirely, on purpose: see the note above
-    # CURRENT_EXERCISE for why that's a feature, not a gap.
-    covered_by = {}
-    frontier = [CURRENT_EXERCISE]
-    seen = {CURRENT_EXERCISE}
-    while frontier:
-        next_frontier = []
-        for eid in frontier:
-            for parent_id in EXERCISES_BY_ID[eid].get("builds_on", []):
-                if parent_id not in seen:
-                    seen.add(parent_id)
-                    covered_by[parent_id] = eid
-                    next_frontier.append(parent_id)
-        frontier = next_frontier
-    return covered_by
-
-COVERED_BY = compute_coverage()
+# The builds_on graph is computed client-side, per visitor, from whichever
+# exercise they mark "I am here" -- see EXERCISE_GRAPH_JSON below and its
+# use in TOOLKIT_JS.
+EXERCISE_GRAPH_JSON = json.dumps({ex["id"]: ex.get("builds_on", []) for ex in EXERCISES})
 
 def slugify(s):
     out = []
@@ -1601,15 +1568,6 @@ def slugify(s):
 def exercise_card(ex):
     tag_chips = "".join(f'<span class="tag-chip">{t}</span>' for t in ex["tags"])
     time_html = f'<span class="exercise-time">{ex["time"]}</span>' if ex["time"] else ""
-    badge_html = ""
-    if ex["id"] == CURRENT_EXERCISE:
-        badge_html = '<span class="stage-badge current">Current</span>'
-    elif ex["id"] in COVERED_BY:
-        covering = EXERCISES_BY_ID[COVERED_BY[ex["id"]]]
-        badge_html = (
-            f'<a class="covered-badge" href="#ex-{covering["id"]}" '
-            f'title="Already exercised by {covering["title"]}">Covered</a>'
-        )
     images_html = ""
     if ex["images"]:
         imgs = "".join(f'<img src="{src}" alt="">' for src in ex["images"])
@@ -1641,12 +1599,9 @@ def exercise_card(ex):
       <div class="exercise-head">
         <span class="exercise-tags">{tag_chips}</span>
         <span class="exercise-head-side">
-          <span class="practiced-toggle" data-id="{ex['id']}">
-            <input type="checkbox" class="practiced-check" id="practiced-{ex['id']}" aria-label="Mark &lsquo;{ex['title']}&rsquo; as practiced">
-            <label for="practiced-{ex['id']}" class="practiced-label">Practiced</label>
-          </span>
+          <button type="button" class="here-toggle" data-id="{ex['id']}" aria-pressed="false">I am here</button>
           {time_html}
-          {badge_html}
+          <span class="stage-badge-slot" data-badge-for="{ex['id']}"></span>
           <span class="exercise-chevron">{CHEVRON_ICON}</span>
         </span>
       </div>
@@ -1875,23 +1830,12 @@ def exercises_in(cat):
     return [ex for ex in EXERCISES if ex["category"] == cat]
 
 def toolkit_section(cat):
-    ids = [ex["id"] for ex in exercises_in(cat)]
-    has_current = CURRENT_EXERCISE in ids
-    fully_covered = ids and all(eid in COVERED_BY for eid in ids)
-    status = "current" if has_current else "superseded" if fully_covered else ""
-    badge = ""
-    if status == "current":
-        badge = '<span class="stage-badge current">Current</span>'
-    elif status == "superseded":
-        badge = '<span class="stage-badge superseded">Superseded</span>'
-    open_attr = " open" if status == "current" else ""
-    stage_class = f" stage-{status}" if status else ""
-    return f'''<details class="toolkit-section{stage_class}" id="section-{slugify(cat)}" data-category="{slugify(cat)}"{open_attr}>
+    return f'''<details class="toolkit-section" id="section-{slugify(cat)}" data-category="{slugify(cat)}">
   <summary class="toolkit-section-summary">
     <span class="toolkit-section-main">
       <span class="toolkit-section-title">{cat}</span>
       <span class="section-count">{len(exercises_in(cat))}</span>
-      {badge}
+      <span class="stage-badge-slot" data-section-badge></span>
     </span>
     <span class="section-chevron">{CHEVRON_ICON}</span>
   </summary>
@@ -1976,50 +1920,132 @@ TOOLKIT_JS = '''
     target.scrollIntoView({behavior:"smooth", block:"center"});
   });
 
-  // Personal "Practiced" tracking -- entirely local to this browser, never
-  // synced anywhere. This is independent of the Current/Covered/Superseded
-  // badges above, which describe how the book's own techniques build on
-  // each other, not any one reader's progress.
-  var STORAGE_KEY = "toolkitPracticed";
-  var checks = document.querySelectorAll(".practiced-check");
+  // Personal "I am here" tracking -- entirely local to this browser, never
+  // synced anywhere. Mark whichever drill you're actively practicing, and
+  // everything upstream of it in the builds_on graph below is automatically
+  // marked Covered, since practicing the later drill already keeps the
+  // earlier skill warm. A category where every drill is covered goes
+  // Superseded. Nothing here reflects any curriculum-lesson progress --
+  // it's a personal record of where you are in this one page.
+  var STORAGE_KEY = "toolkitHereId";
+  var GRAPH = ''' + EXERCISE_GRAPH_JSON + ''';
+  var cards = document.querySelectorAll(".exercise-card");
   var progressNote = document.getElementById("toolkit-progress-note");
 
-  function loadPracticed(){
+  function loadHereId(){
+    try { return localStorage.getItem(STORAGE_KEY) || null; } catch (e) { return null; }
+  }
+  function saveHereId(id){
     try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    } catch (e) { return []; }
+      if (id) localStorage.setItem(STORAGE_KEY, id);
+      else localStorage.removeItem(STORAGE_KEY);
+    } catch (e) {}
   }
-  function savePracticed(ids){
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(ids)); } catch (e) {}
+  function titleFor(id){
+    var card = document.getElementById("ex-" + id);
+    return card ? card.querySelector(".exercise-title").textContent : id;
   }
-  function updateProgressNote(count){
+  // Walks builds_on backward from hereId, breadth-first, so every id it
+  // reaches maps to the nearer (more-current) exercise that pulled it in --
+  // that's what a "Covered" badge names and links to.
+  function computeCovered(hereId){
+    var covered = {};
+    if (!hereId || !GRAPH[hereId]) return covered;
+    var frontier = [hereId];
+    var seen = {};
+    seen[hereId] = true;
+    while (frontier.length){
+      var next = [];
+      for (var i = 0; i < frontier.length; i++){
+        var parents = GRAPH[frontier[i]] || [];
+        for (var j = 0; j < parents.length; j++){
+          var p = parents[j];
+          if (!seen[p]){
+            seen[p] = true;
+            covered[p] = frontier[i];
+            next.push(p);
+          }
+        }
+      }
+      frontier = next;
+    }
+    return covered;
+  }
+
+  function render(){
+    var hereId = loadHereId();
+    var covered = computeCovered(hereId);
+
+    for (var i = 0; i < cards.length; i++){
+      var card = cards[i];
+      var id = card.id.replace(/^ex-/, "");
+      var slot = card.querySelector(".stage-badge-slot");
+      var btn = card.querySelector(".here-toggle");
+      card.classList.toggle("is-here", id === hereId);
+      if (id === hereId){
+        slot.innerHTML = '<span class="stage-badge current">Here</span>';
+        btn.setAttribute("aria-pressed", "true");
+        btn.title = "Click to clear";
+      } else if (covered[id]){
+        var coveringTitle = titleFor(covered[id]).replace(/"/g, "&quot;");
+        slot.innerHTML = '<a class="covered-badge" href="#ex-' + covered[id] +
+          '" title="Already exercised by ' + coveringTitle + '">Covered</a>';
+        btn.setAttribute("aria-pressed", "false");
+        btn.title = "";
+      } else {
+        slot.innerHTML = "";
+        btn.setAttribute("aria-pressed", "false");
+        btn.title = "";
+      }
+    }
+
+    for (var s = 0; s < sections.length; s++){
+      var section = sections[s];
+      var secCards = section.querySelectorAll(".exercise-card");
+      var secBadge = section.querySelector("[data-section-badge]");
+      var hasHere = false, allCovered = secCards.length > 0;
+      for (var c = 0; c < secCards.length; c++){
+        var cid = secCards[c].id.replace(/^ex-/, "");
+        if (cid === hereId) hasHere = true;
+        if (!(cid in covered)) allCovered = false;
+      }
+      section.classList.toggle("has-here", hasHere);
+      secBadge.innerHTML = allCovered ? '<span class="stage-badge superseded">Superseded</span>' : "";
+    }
+
     if (!progressNote) return;
-    progressNote.textContent = "You've marked " + count + " of " + checks.length + " drills practiced.";
+    if (!hereId){
+      progressNote.textContent = "Click \\u201cI am here\\u201d on whichever drill you're actively practicing to track your spot.";
+    } else {
+      var n = Object.keys(covered).length;
+      progressNote.textContent = "You're at \\u201c" + titleFor(hereId) + "\\u201d \\u2014 " +
+        n + (n === 1 ? " earlier drill is" : " earlier drills are") + " already covered.";
+    }
   }
 
-  var practiced = loadPracticed();
-  for (var i = 0; i < checks.length; i++){
-    checks[i].checked = practiced.indexOf(checks[i].closest(".practiced-toggle").getAttribute("data-id")) !== -1;
-  }
-  updateProgressNote(practiced.length);
-
-  var toggles = document.querySelectorAll(".practiced-toggle");
-  for (var i = 0; i < toggles.length; i++){
+  var hereButtons = document.querySelectorAll(".here-toggle");
+  for (var i = 0; i < hereButtons.length; i++){
     // Stops the click here, on its way up, before it reaches <summary> --
-    // otherwise checking this box would also spring the card open/closed.
-    toggles[i].addEventListener("click", function(e){ e.stopPropagation(); });
+    // otherwise this would also spring the card open/closed.
+    hereButtons[i].addEventListener("click", function(e){
+      e.stopPropagation();
+      var id = this.getAttribute("data-id");
+      saveHereId(loadHereId() === id ? null : id);
+      render();
+    });
   }
 
-  for (var i = 0; i < checks.length; i++){
-    checks[i].addEventListener("change", function(){
-      var id = this.closest(".practiced-toggle").getAttribute("data-id");
-      var ids = loadPracticed();
-      var idx = ids.indexOf(id);
-      if (this.checked && idx === -1) ids.push(id);
-      if (!this.checked && idx !== -1) ids.splice(idx, 1);
-      savePracticed(ids);
-      updateProgressNote(ids.length);
-    });
+  render();
+
+  // On first load, open straight to a returning visitor's saved spot.
+  var initialHereId = loadHereId();
+  if (initialHereId){
+    var initialCard = document.getElementById("ex-" + initialHereId);
+    if (initialCard){
+      initialCard.open = true;
+      var initialSection = initialCard.closest(".toolkit-section");
+      if (initialSection) initialSection.open = true;
+    }
   }
 })();
 '''
@@ -2038,9 +2064,9 @@ toolkit_body = f'''
     no need to dig back through old modules. Ask to have new drills added here as you learn them.
   </p>
   <p class="toolkit-badge-note">
-    <b>Current</b>, <b>Covered</b>, and <b>Superseded</b> describe how the book's own techniques build on
-    each other &mdash; the same for every reader, not a record of your progress. Check off
-    <b>Practiced</b> yourself on any drill to track that; it's saved only in this browser.
+    Click <b>I am here</b> on whichever drill you're actively practicing. Everything it already
+    re-exercises is marked <b>Covered</b> automatically, and a section where every drill is covered
+    goes <b>Superseded</b>. This is personal to you &mdash; saved only in this browser, never synced.
   </p>
 </header>
 
