@@ -301,9 +301,11 @@ footer.site{
 .covered-badge{
   font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
   color:var(--ink-soft); border:1px solid var(--line); border-radius:6px; padding:2px 8px;
-  text-decoration:none; white-space:nowrap;
+  text-decoration:none; max-width:100%;
 }
 .covered-badge:hover{color:var(--blue); border-color:var(--blue-soft);}
+.exercise-card.is-covered{opacity:.62;}
+.exercise-card.is-covered:hover, .exercise-card.is-covered:focus-within{opacity:1;}
 .toolkit-section .section-chevron{color:var(--ink-soft); display:flex; flex:none; transition:transform .2s ease;}
 .toolkit-section[open] .section-chevron{transform:rotate(180deg);}
 .toolkit-section-body{padding:0 20px 18px;}

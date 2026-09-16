@@ -318,9 +318,11 @@ footer.site{
 .covered-badge{
   font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
   color:var(--ink-soft); border:1px solid var(--line); border-radius:6px; padding:2px 8px;
-  text-decoration:none; white-space:nowrap;
+  text-decoration:none; max-width:100%;
 }
 .covered-badge:hover{color:var(--blue); border-color:var(--blue-soft);}
+.exercise-card.is-covered{opacity:.62;}
+.exercise-card.is-covered:hover, .exercise-card.is-covered:focus-within{opacity:1;}
 .toolkit-section .section-chevron{color:var(--ink-soft); display:flex; flex:none; transition:transform .2s ease;}
 .toolkit-section[open] .section-chevron{transform:rotate(180deg);}
 .toolkit-section-body{padding:0 20px 18px;}
@@ -1888,13 +1890,21 @@ TOOLKIT_JS = '''
 
   pickBtn.addEventListener("click", function(){
     var cards = document.querySelectorAll(".exercise-card");
+    var hereId = loadHereId();
+    var covered = computeCovered(hereId);
     var visible = [];
+    var fresh = [];
     for (var i = 0; i < cards.length; i++){
       cards[i].classList.remove("picked");
-      if (cards[i].style.display !== "none") visible.push(cards[i]);
+      if (cards[i].style.display === "none") continue;
+      visible.push(cards[i]);
+      var id = cards[i].id.replace(/^ex-/, "");
+      // Skip the drill you're already on and anything it already covers --
+      // "Pick 3" is for what's still worth warming up, not what's covered.
+      if (id !== hereId && !(id in covered)) fresh.push(cards[i]);
     }
-    var n = Math.min(3, visible.length);
-    var pool = visible.slice();
+    var pool = (fresh.length ? fresh : visible).slice();
+    var n = Math.min(3, pool.length);
     var picked = [];
     for (var i = 0; i < n; i++){
       var idx = Math.floor(Math.random() * pool.length);
@@ -1982,14 +1992,20 @@ TOOLKIT_JS = '''
       var slot = card.querySelector(".stage-badge-slot");
       var btn = card.querySelector(".here-toggle");
       card.classList.toggle("is-here", id === hereId);
+      card.classList.toggle("is-covered", !!covered[id]);
       if (id === hereId){
         slot.innerHTML = '<span class="stage-badge current">Here</span>';
         btn.setAttribute("aria-pressed", "true");
         btn.title = "Click to clear";
       } else if (covered[id]){
-        var coveringTitle = titleFor(covered[id]).replace(/"/g, "&quot;");
+        // Spell out which drill covers it right on the badge -- a hover
+        // tooltip alone doesn't work on touch, and "Covered" by itself
+        // doesn't say covered by *what*, or why that means it's not
+        // urgent: practicing the named drill already keeps this skill warm.
+        var coveringTitle = titleFor(covered[id]);
         slot.innerHTML = '<a class="covered-badge" href="#ex-' + covered[id] +
-          '" title="Already exercised by ' + coveringTitle + '">Covered</a>';
+          '" title="Practicing this already keeps &lsquo;' + coveringTitle.replace(/"/g, "&quot;") +
+          '&rsquo; warm, so it is not urgent on its own">Covered by ' + coveringTitle + '</a>';
         btn.setAttribute("aria-pressed", "false");
         btn.title = "";
       } else {
@@ -2064,9 +2080,12 @@ toolkit_body = f'''
     no need to dig back through old modules. Ask to have new drills added here as you learn them.
   </p>
   <p class="toolkit-badge-note">
-    Click <b>I am here</b> on whichever drill you're actively practicing. Everything it already
-    re-exercises is marked <b>Covered</b> automatically, and a section where every drill is covered
-    goes <b>Superseded</b>. This is personal to you &mdash; saved only in this browser, never synced.
+    Click <b>I am here</b> on whichever drill you're actively practicing. That doesn't make earlier
+    drills <em>mastered</em> exactly &mdash; it means practicing this one already keeps them warm as a
+    side effect, so they're marked <b>Covered</b> (dimmed, not urgent to revisit) instead of dropped.
+    A section where every drill is covered goes <b>Superseded</b>. <b>Pick 3 for me</b> skips both your
+    current spot and anything covered. All of this is personal to you &mdash; saved only in this
+    browser, never synced.
   </p>
 </header>
 
