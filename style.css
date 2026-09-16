@@ -253,39 +253,49 @@ footer.site{
 .tracker-note{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
 
 /* exercise toolkit page */
-.toolkit-sections-nav{display:flex; flex-wrap:wrap; gap:8px 10px; margin:26px 0 0;}
-.section-nav-link{
-  display:flex; align-items:center; gap:7px; font-size:13px; color:var(--ink-soft);
-  background:var(--surface); border:1px solid var(--line); border-radius:14px;
-  padding:6px 14px; text-decoration:none;
-}
-.section-nav-link:hover{border-color:var(--blue); color:var(--blue);}
-.section-nav-link .section-count{
-  font-size:11px; color:var(--ink-soft); background:var(--tint); border-radius:8px; padding:1px 6px;
-}
 .toolkit-toolbar{
-  display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:16px 0 26px;
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:26px 0 6px;
 }
-.toolkit-section{margin-top:44px;}
-.toolkit-section-title{
-  font-family:'Fraunces', serif; font-weight:600; font-size:21px; margin:0;
-  display:flex; align-items:baseline; gap:10px;
+.search-box{
+  flex:1 1 220px; display:flex; align-items:center; gap:9px;
+  background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:9px 14px; color:var(--ink-soft); font-size:14.5px;
 }
-.toolkit-section-title .section-count{
-  font-family:'Work Sans', sans-serif; font-weight:500; font-size:13px; color:var(--ink-soft);
+.search-box svg{width:16px; height:16px; flex:none; color:var(--ink-soft);}
+.search-box input{
+  background:none; border:none; outline:none; color:var(--ink); font:inherit; width:100%;
 }
-.filter-chip{
-  font-family:inherit; font-size:13px; color:var(--ink-soft); background:var(--surface);
-  border:1px solid var(--line); border-radius:14px; padding:6px 14px; cursor:pointer;
-}
-.filter-chip:hover{border-color:var(--blue); color:var(--ink);}
-.filter-chip.active{background:var(--blue); border-color:var(--blue); color:var(--paper); font-weight:600;}
+.search-box input::placeholder{color:var(--ink-soft);}
 .toolkit-pick-btn{
   font-family:inherit; font-size:13px; font-weight:600; color:var(--paper); background:var(--green);
-  border:1px solid var(--green); border-radius:14px; padding:6px 16px; cursor:pointer; margin-left:auto;
+  border:1px solid var(--green); border-radius:14px; padding:6px 16px; cursor:pointer;
 }
 .toolkit-pick-btn:hover{opacity:.88;}
-.exercise-grid{display:flex; flex-direction:column; gap:16px; margin:20px 0;}
+.toolkit-hit-count{font-size:12.5px; color:var(--ink-soft); margin:0 0 20px;}
+
+.toolkit-section{
+  border:1px solid var(--line); border-radius:10px; background:var(--surface);
+  margin-top:14px; overflow:hidden;
+}
+.toolkit-section-summary{
+  list-style:none; cursor:pointer; padding:16px 20px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.toolkit-section-summary::-webkit-details-marker{display:none;}
+.toolkit-section-main{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+.toolkit-section-title{font-family:'Fraunces', serif; font-weight:600; font-size:20px;}
+.toolkit-section .section-count{font-size:13px; color:var(--ink-soft);}
+.stage-badge{
+  font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+  border-radius:6px; padding:2px 8px;
+}
+.stage-badge.current{color:var(--blue); background:var(--tint); border:1px solid var(--blue-soft);}
+.stage-badge.mastered{color:var(--green); background:rgba(123,180,150,.1); border:1px solid var(--green);}
+.toolkit-section.stage-current{border-color:var(--blue-soft);}
+.toolkit-section .section-chevron{color:var(--ink-soft); display:flex; flex:none; transition:transform .2s ease;}
+.toolkit-section[open] .section-chevron{transform:rotate(180deg);}
+.toolkit-section-body{padding:0 20px 18px;}
+.exercise-grid{display:flex; flex-direction:column; gap:16px; margin:6px 0 0;}
 .exercise-card{
   border:1px solid var(--line); border-radius:8px; background:var(--surface);
   transition:border-color .25s ease, box-shadow .25s ease;

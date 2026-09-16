@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=774f697c0b">
+<link rel="stylesheet" href="style.css?v=d53179bf97">
 </head>
 <body data-page-id="toolkit">
 
@@ -47,17 +47,28 @@
 
 <div class="wrap">
 <section>
-  <nav class="toolkit-sections-nav"><a class="section-nav-link" href="#section-warm-ups">Warm-ups<span class="section-count">6</span></a><a class="section-nav-link" href="#section-perspective-boxes">Perspective boxes<span class="section-count">2</span></a><a class="section-nav-link" href="#section-dividing-amp-multiplying">Dividing &amp; multiplying<span class="section-count">5</span></a><a class="section-nav-link" href="#section-mirroring-in-perspective">Mirroring in perspective<span class="section-count">5</span></a></nav>
   <div class="toolkit-toolbar">
-    <button class="filter-chip active" data-filter="all">All</button><button class="filter-chip" data-filter="warmup">Warmup</button><button class="filter-chip" data-filter="lines">Lines</button><button class="filter-chip" data-filter="perspective">Perspective</button><button class="filter-chip" data-filter="curves">Curves</button><button class="filter-chip" data-filter="ellipses">Ellipses</button><button class="filter-chip" data-filter="construction">Construction</button><button class="filter-chip" data-filter="mirroring">Mirroring</button>
+    <label class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+      <input id="toolkit-search" type="text" placeholder="Search drills or tags">
+    </label>
     <button class="toolkit-pick-btn" id="toolkit-pick-btn">Pick 3 for me</button>
   </div>
+  <p class="toolkit-hit-count" id="toolkit-hit-count" style="display:none"></p>
 </section>
 
-<section class="toolkit-section" id="section-warm-ups">
-  <h2 class="toolkit-section-title">Warm-ups<span class="section-count">6</span></h2>
-  <div class="exercise-grid">
-    <details class="exercise-card" id="ex-parallel-lines" data-tags="warmup lines">
+<details class="toolkit-section stage-mastered" id="section-warm-ups" data-category="warm-ups">
+  <summary class="toolkit-section-summary">
+    <span class="toolkit-section-main">
+      <span class="toolkit-section-title">Warm-ups</span>
+      <span class="section-count">6</span>
+      <span class="stage-badge mastered">Mastered</span>
+    </span>
+    <span class="section-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+  </summary>
+  <div class="toolkit-section-body">
+    <div class="exercise-grid">
+      <details class="exercise-card" id="ex-parallel-lines" data-tags="warmup lines">
     <summary class="exercise-summary">
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">warmup</span><span class="tag-chip">lines</span></span>
@@ -154,12 +165,21 @@
       <p class="exercise-source">From How to Draw, by Scott Robertson &amp; Thomas Bertling</p>
     </div>
   </details>
+    </div>
   </div>
-</section>
-<section class="toolkit-section" id="section-perspective-boxes">
-  <h2 class="toolkit-section-title">Perspective boxes<span class="section-count">2</span></h2>
-  <div class="exercise-grid">
-    <details class="exercise-card" id="ex-one-point-boxes" data-tags="perspective">
+</details>
+<details class="toolkit-section" id="section-perspective-boxes" data-category="perspective-boxes">
+  <summary class="toolkit-section-summary">
+    <span class="toolkit-section-main">
+      <span class="toolkit-section-title">Perspective boxes</span>
+      <span class="section-count">2</span>
+      
+    </span>
+    <span class="section-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+  </summary>
+  <div class="toolkit-section-body">
+    <div class="exercise-grid">
+      <details class="exercise-card" id="ex-one-point-boxes" data-tags="perspective">
     <summary class="exercise-summary">
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">perspective</span></span>
@@ -192,12 +212,21 @@
       <p class="exercise-source">From How to Draw, by Scott Robertson &amp; Thomas Bertling</p>
     </div>
   </details>
+    </div>
   </div>
-</section>
-<section class="toolkit-section" id="section-dividing-amp-multiplying">
-  <h2 class="toolkit-section-title">Dividing &amp; multiplying<span class="section-count">5</span></h2>
-  <div class="exercise-grid">
-    <details class="exercise-card" id="ex-dividing-rectangle-half" data-tags="construction">
+</details>
+<details class="toolkit-section" id="section-dividing-amp-multiplying" data-category="dividing-amp-multiplying">
+  <summary class="toolkit-section-summary">
+    <span class="toolkit-section-main">
+      <span class="toolkit-section-title">Dividing &amp; multiplying</span>
+      <span class="section-count">5</span>
+      
+    </span>
+    <span class="section-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+  </summary>
+  <div class="toolkit-section-body">
+    <div class="exercise-grid">
+      <details class="exercise-card" id="ex-dividing-rectangle-half" data-tags="construction">
     <summary class="exercise-summary">
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">construction</span></span>
@@ -278,12 +307,21 @@
       <p class="exercise-source">From How to Draw, by Scott Robertson &amp; Thomas Bertling</p>
     </div>
   </details>
+    </div>
   </div>
-</section>
-<section class="toolkit-section" id="section-mirroring-in-perspective">
-  <h2 class="toolkit-section-title">Mirroring in perspective<span class="section-count">5</span></h2>
-  <div class="exercise-grid">
-    <details class="exercise-card" id="ex-mirror-horizontal-planes" data-tags="mirroring">
+</details>
+<details class="toolkit-section stage-current" id="section-mirroring-in-perspective" data-category="mirroring-in-perspective" open>
+  <summary class="toolkit-section-summary">
+    <span class="toolkit-section-main">
+      <span class="toolkit-section-title">Mirroring in perspective</span>
+      <span class="section-count">5</span>
+      <span class="stage-badge current">Current</span>
+    </span>
+    <span class="section-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+  </summary>
+  <div class="toolkit-section-body">
+    <div class="exercise-grid">
+      <details class="exercise-card" id="ex-mirror-horizontal-planes" data-tags="mirroring">
     <summary class="exercise-summary">
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">mirroring</span></span>
@@ -364,58 +402,56 @@
       <p class="exercise-source">From How to Draw, by Scott Robertson &amp; Thomas Bertling</p>
     </div>
   </details>
+    </div>
   </div>
-</section>
+</details>
 
-<p class="toolkit-empty" id="toolkit-empty">Nothing tagged that yet.</p>
+<p class="toolkit-empty" id="toolkit-empty">Nothing matches that.</p>
 
 <footer class="site"><p><a href="index.html">&larr; Back to the table of contents</a></p></footer>
 </div>
 <script>
 (function(){
-  var chips = document.querySelectorAll(".filter-chip");
-  var cards = document.querySelectorAll(".exercise-card");
   var sections = document.querySelectorAll(".toolkit-section");
   var empty = document.getElementById("toolkit-empty");
+  var searchInput = document.getElementById("toolkit-search");
+  var hitCount = document.getElementById("toolkit-hit-count");
   var pickBtn = document.getElementById("toolkit-pick-btn");
-  var activeFilter = "all";
 
-  function applySectionVisibility(){
-    var anyVisible = false;
+  function applySearch(){
+    var q = searchInput.value.trim().toLowerCase();
+    var totalHits = 0;
     for (var i = 0; i < sections.length; i++){
-      var cardsIn = sections[i].querySelectorAll(".exercise-card");
-      var visible = 0;
-      for (var j = 0; j < cardsIn.length; j++){
-        if (cardsIn[j].style.display !== "none") visible++;
+      var sec = sections[i];
+      var cards = sec.querySelectorAll(".exercise-card");
+      var hits = 0;
+      for (var j = 0; j < cards.length; j++){
+        var card = cards[j];
+        var hay = (card.getAttribute("data-tags") || "") + " " +
+          card.querySelector(".exercise-title").textContent.toLowerCase();
+        var show = !q || hay.indexOf(q) !== -1;
+        card.style.display = show ? "" : "none";
+        if (show){ hits++; totalHits++; }
+        if (q) card.open = show;
       }
-      sections[i].style.display = visible ? "" : "none";
-      if (visible) anyVisible = true;
+      sec.style.display = (q && hits === 0) ? "none" : "";
+      if (q) sec.open = hits > 0;
     }
-    empty.style.display = anyVisible ? "none" : "block";
-  }
-
-  function applyFilter(){
-    for (var i = 0; i < cards.length; i++){
-      var tags = (cards[i].getAttribute("data-tags") || "").split(" ");
-      var show = activeFilter === "all" || tags.indexOf(activeFilter) !== -1;
-      cards[i].style.display = show ? "" : "none";
+    if (q){
+      hitCount.style.display = "";
+      hitCount.textContent = totalHits + (totalHits === 1 ? " drill matches \u201c" : " drills match \u201c") + searchInput.value.trim() + "\u201d";
+    } else {
+      hitCount.style.display = "none";
     }
-    applySectionVisibility();
+    empty.style.display = (q && totalHits === 0) ? "block" : "none";
   }
-
-  for (var i = 0; i < chips.length; i++){
-    chips[i].addEventListener("click", function(){
-      for (var j = 0; j < chips.length; j++) chips[j].classList.remove("active");
-      this.classList.add("active");
-      activeFilter = this.getAttribute("data-filter");
-      applyFilter();
-    });
-  }
+  searchInput.addEventListener("input", applySearch);
 
   pickBtn.addEventListener("click", function(){
-    for (var i = 0; i < cards.length; i++) cards[i].classList.remove("picked");
+    var cards = document.querySelectorAll(".exercise-card");
     var visible = [];
     for (var i = 0; i < cards.length; i++){
+      cards[i].classList.remove("picked");
       if (cards[i].style.display !== "none") visible.push(cards[i]);
     }
     var n = Math.min(3, visible.length);
@@ -428,17 +464,16 @@
     for (var i = 0; i < picked.length; i++){
       picked[i].classList.add("picked");
       picked[i].open = true;
+      picked[i].closest(".toolkit-section").open = true;
     }
     if (picked.length) picked[0].scrollIntoView({behavior:"smooth", block:"center"});
   });
-
-  applyFilter();
 })();
 </script>
 
-<script src="progress-schema.js?v=774f697c0b"></script>
-<script src="firebase-config.js?v=774f697c0b"></script>
+<script src="progress-schema.js?v=d53179bf97"></script>
+<script src="firebase-config.js?v=d53179bf97"></script>
 <script src="https://accounts.google.com/gsi/client"></script>
-<script type="module" src="app.js?v=774f697c0b"></script>
+<script type="module" src="app.js?v=d53179bf97"></script>
 </body>
 </html>

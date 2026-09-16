@@ -270,39 +270,49 @@ footer.site{
 .tracker-note{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
 
 /* exercise toolkit page */
-.toolkit-sections-nav{display:flex; flex-wrap:wrap; gap:8px 10px; margin:26px 0 0;}
-.section-nav-link{
-  display:flex; align-items:center; gap:7px; font-size:13px; color:var(--ink-soft);
-  background:var(--surface); border:1px solid var(--line); border-radius:14px;
-  padding:6px 14px; text-decoration:none;
-}
-.section-nav-link:hover{border-color:var(--blue); color:var(--blue);}
-.section-nav-link .section-count{
-  font-size:11px; color:var(--ink-soft); background:var(--tint); border-radius:8px; padding:1px 6px;
-}
 .toolkit-toolbar{
-  display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:16px 0 26px;
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:26px 0 6px;
 }
-.toolkit-section{margin-top:44px;}
-.toolkit-section-title{
-  font-family:'Fraunces', serif; font-weight:600; font-size:21px; margin:0;
-  display:flex; align-items:baseline; gap:10px;
+.search-box{
+  flex:1 1 220px; display:flex; align-items:center; gap:9px;
+  background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:9px 14px; color:var(--ink-soft); font-size:14.5px;
 }
-.toolkit-section-title .section-count{
-  font-family:'Work Sans', sans-serif; font-weight:500; font-size:13px; color:var(--ink-soft);
+.search-box svg{width:16px; height:16px; flex:none; color:var(--ink-soft);}
+.search-box input{
+  background:none; border:none; outline:none; color:var(--ink); font:inherit; width:100%;
 }
-.filter-chip{
-  font-family:inherit; font-size:13px; color:var(--ink-soft); background:var(--surface);
-  border:1px solid var(--line); border-radius:14px; padding:6px 14px; cursor:pointer;
-}
-.filter-chip:hover{border-color:var(--blue); color:var(--ink);}
-.filter-chip.active{background:var(--blue); border-color:var(--blue); color:var(--paper); font-weight:600;}
+.search-box input::placeholder{color:var(--ink-soft);}
 .toolkit-pick-btn{
   font-family:inherit; font-size:13px; font-weight:600; color:var(--paper); background:var(--green);
-  border:1px solid var(--green); border-radius:14px; padding:6px 16px; cursor:pointer; margin-left:auto;
+  border:1px solid var(--green); border-radius:14px; padding:6px 16px; cursor:pointer;
 }
 .toolkit-pick-btn:hover{opacity:.88;}
-.exercise-grid{display:flex; flex-direction:column; gap:16px; margin:20px 0;}
+.toolkit-hit-count{font-size:12.5px; color:var(--ink-soft); margin:0 0 20px;}
+
+.toolkit-section{
+  border:1px solid var(--line); border-radius:10px; background:var(--surface);
+  margin-top:14px; overflow:hidden;
+}
+.toolkit-section-summary{
+  list-style:none; cursor:pointer; padding:16px 20px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.toolkit-section-summary::-webkit-details-marker{display:none;}
+.toolkit-section-main{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+.toolkit-section-title{font-family:'Fraunces', serif; font-weight:600; font-size:20px;}
+.toolkit-section .section-count{font-size:13px; color:var(--ink-soft);}
+.stage-badge{
+  font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+  border-radius:6px; padding:2px 8px;
+}
+.stage-badge.current{color:var(--blue); background:var(--tint); border:1px solid var(--blue-soft);}
+.stage-badge.mastered{color:var(--green); background:rgba(123,180,150,.1); border:1px solid var(--green);}
+.toolkit-section.stage-current{border-color:var(--blue-soft);}
+.toolkit-section .section-chevron{color:var(--ink-soft); display:flex; flex:none; transition:transform .2s ease;}
+.toolkit-section[open] .section-chevron{transform:rotate(180deg);}
+.toolkit-section-body{padding:0 20px 18px;}
+.exercise-grid{display:flex; flex-direction:column; gap:16px; margin:6px 0 0;}
 .exercise-card{
   border:1px solid var(--line); border-radius:8px; background:var(--surface);
   transition:border-color .25s ease, box-shadow .25s ease;
@@ -1109,8 +1119,8 @@ ITEM_LINKS = {
 # Each entry: id (unique slug), title, category (short section heading the
 # card groups under on the toolkit page -- sections render in the order
 # their category first appears below, so a new category just needs to be
-# used here), tags (list of str, used for the filter chips -- chips are
-# generated from whatever tags actually appear below, so a new tag just
+# used here), tags (list of str, shown as chips on the card and matched by
+# the toolkit's search box -- no separate list to maintain, a new tag just
 # needs to be used here), time (short display string or None),
 # steps (list of plain-language instruction steps, rendered as a bulleted
 # list so a multi-step drill reads clearly at a glance; may include simple
@@ -1128,6 +1138,23 @@ ITEM_LINKS = {
 # (optional {"label", "url"} credit link back to where the drill came from;
 # "url" may be omitted for a plain-text citation with no link).
 HOW_TO_DRAW = {"label": "How to Draw, by Scott Robertson &amp; Thomas Bertling"}
+
+# Which category is being actively drilled right now, and which ones have
+# been superseded by later material -- e.g. once mirroring drills are the
+# daily practice, plain line/ghosting warm-ups are already being exercised
+# inside them, so Warm-ups retires to "mastered" rather than staying
+# front-and-center forever. This is curated by hand, not derived from
+# anything tracked per-visitor: every reader sees the same read on where
+# the book has gotten to. Re-examine it each time a new category is added
+# -- does the new material now cover ground an earlier category used to
+# own on its own? If so, move that earlier category to "mastered" (never
+# delete it, just let it retire) and point "current" at the new one.
+# One category may be "current", any number may be "mastered", everything
+# else is unmarked (a plain, collapsed section, no badge).
+CATEGORY_STATUS = {
+    "Warm-ups": "mastered",
+    "Mirroring in perspective": "current",
+}
 
 EXERCISES = [
     dict(
@@ -1481,14 +1508,6 @@ EXERCISES = [
     ),
 ]
 
-def exercise_tags_used():
-    seen = []
-    for ex in EXERCISES:
-        for t in ex["tags"]:
-            if t not in seen:
-                seen.append(t)
-    return seen
-
 def exercise_categories_used():
     seen = []
     for ex in EXERCISES:
@@ -1763,78 +1782,81 @@ with open(f"{OUT}/index.html", "w") as f:
     f.write(shell("Contents", index_body))
 
 # ---------- build toolkit.html ----------
-toolkit_tags = exercise_tags_used()
-filter_chips = '<button class="filter-chip active" data-filter="all">All</button>' + "".join(
-    f'<button class="filter-chip" data-filter="{t}">{t.capitalize()}</button>' for t in toolkit_tags
-)
-
 toolkit_categories = exercise_categories_used()
 
 def exercises_in(cat):
     return [ex for ex in EXERCISES if ex["category"] == cat]
 
-section_nav = "".join(
-    f'<a class="section-nav-link" href="#section-{slugify(cat)}">{cat}'
-    f'<span class="section-count">{len(exercises_in(cat))}</span></a>'
-    for cat in toolkit_categories
-)
-
-toolkit_sections = "".join(
-    f'''<section class="toolkit-section" id="section-{slugify(cat)}">
-  <h2 class="toolkit-section-title">{cat}<span class="section-count">{len(exercises_in(cat))}</span></h2>
-  <div class="exercise-grid">
-    {"".join(exercise_card(ex) for ex in exercises_in(cat))}
+def toolkit_section(cat):
+    status = CATEGORY_STATUS.get(cat, "")
+    badge = ""
+    if status == "current":
+        badge = '<span class="stage-badge current">Current</span>'
+    elif status == "mastered":
+        badge = '<span class="stage-badge mastered">Mastered</span>'
+    open_attr = " open" if status == "current" else ""
+    stage_class = f" stage-{status}" if status else ""
+    return f'''<details class="toolkit-section{stage_class}" id="section-{slugify(cat)}" data-category="{slugify(cat)}"{open_attr}>
+  <summary class="toolkit-section-summary">
+    <span class="toolkit-section-main">
+      <span class="toolkit-section-title">{cat}</span>
+      <span class="section-count">{len(exercises_in(cat))}</span>
+      {badge}
+    </span>
+    <span class="section-chevron">{CHEVRON_ICON}</span>
+  </summary>
+  <div class="toolkit-section-body">
+    <div class="exercise-grid">
+      {"".join(exercise_card(ex) for ex in exercises_in(cat))}
+    </div>
   </div>
-</section>
+</details>
 '''
-    for cat in toolkit_categories
-)
+
+toolkit_sections = "".join(toolkit_section(cat) for cat in toolkit_categories)
 
 TOOLKIT_JS = '''
 (function(){
-  var chips = document.querySelectorAll(".filter-chip");
-  var cards = document.querySelectorAll(".exercise-card");
   var sections = document.querySelectorAll(".toolkit-section");
   var empty = document.getElementById("toolkit-empty");
+  var searchInput = document.getElementById("toolkit-search");
+  var hitCount = document.getElementById("toolkit-hit-count");
   var pickBtn = document.getElementById("toolkit-pick-btn");
-  var activeFilter = "all";
 
-  function applySectionVisibility(){
-    var anyVisible = false;
+  function applySearch(){
+    var q = searchInput.value.trim().toLowerCase();
+    var totalHits = 0;
     for (var i = 0; i < sections.length; i++){
-      var cardsIn = sections[i].querySelectorAll(".exercise-card");
-      var visible = 0;
-      for (var j = 0; j < cardsIn.length; j++){
-        if (cardsIn[j].style.display !== "none") visible++;
+      var sec = sections[i];
+      var cards = sec.querySelectorAll(".exercise-card");
+      var hits = 0;
+      for (var j = 0; j < cards.length; j++){
+        var card = cards[j];
+        var hay = (card.getAttribute("data-tags") || "") + " " +
+          card.querySelector(".exercise-title").textContent.toLowerCase();
+        var show = !q || hay.indexOf(q) !== -1;
+        card.style.display = show ? "" : "none";
+        if (show){ hits++; totalHits++; }
+        if (q) card.open = show;
       }
-      sections[i].style.display = visible ? "" : "none";
-      if (visible) anyVisible = true;
+      sec.style.display = (q && hits === 0) ? "none" : "";
+      if (q) sec.open = hits > 0;
     }
-    empty.style.display = anyVisible ? "none" : "block";
-  }
-
-  function applyFilter(){
-    for (var i = 0; i < cards.length; i++){
-      var tags = (cards[i].getAttribute("data-tags") || "").split(" ");
-      var show = activeFilter === "all" || tags.indexOf(activeFilter) !== -1;
-      cards[i].style.display = show ? "" : "none";
+    if (q){
+      hitCount.style.display = "";
+      hitCount.textContent = totalHits + (totalHits === 1 ? " drill matches \\u201c" : " drills match \\u201c") + searchInput.value.trim() + "\\u201d";
+    } else {
+      hitCount.style.display = "none";
     }
-    applySectionVisibility();
+    empty.style.display = (q && totalHits === 0) ? "block" : "none";
   }
-
-  for (var i = 0; i < chips.length; i++){
-    chips[i].addEventListener("click", function(){
-      for (var j = 0; j < chips.length; j++) chips[j].classList.remove("active");
-      this.classList.add("active");
-      activeFilter = this.getAttribute("data-filter");
-      applyFilter();
-    });
-  }
+  searchInput.addEventListener("input", applySearch);
 
   pickBtn.addEventListener("click", function(){
-    for (var i = 0; i < cards.length; i++) cards[i].classList.remove("picked");
+    var cards = document.querySelectorAll(".exercise-card");
     var visible = [];
     for (var i = 0; i < cards.length; i++){
+      cards[i].classList.remove("picked");
       if (cards[i].style.display !== "none") visible.push(cards[i]);
     }
     var n = Math.min(3, visible.length);
@@ -1847,11 +1869,10 @@ TOOLKIT_JS = '''
     for (var i = 0; i < picked.length; i++){
       picked[i].classList.add("picked");
       picked[i].open = true;
+      picked[i].closest(".toolkit-section").open = true;
     }
     if (picked.length) picked[0].scrollIntoView({behavior:"smooth", block:"center"});
   });
-
-  applyFilter();
 })();
 '''
 
@@ -1872,15 +1893,18 @@ toolkit_body = f'''
 
 <div class="wrap">
 <section>
-  <nav class="toolkit-sections-nav">{section_nav}</nav>
   <div class="toolkit-toolbar">
-    {filter_chips}
+    <label class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+      <input id="toolkit-search" type="text" placeholder="Search drills or tags">
+    </label>
     <button class="toolkit-pick-btn" id="toolkit-pick-btn">Pick 3 for me</button>
   </div>
+  <p class="toolkit-hit-count" id="toolkit-hit-count" style="display:none"></p>
 </section>
 
 {toolkit_sections}
-<p class="toolkit-empty" id="toolkit-empty">Nothing tagged that yet.</p>
+<p class="toolkit-empty" id="toolkit-empty">Nothing matches that.</p>
 
 <footer class="site"><p><a href="index.html">&larr; Back to the table of contents</a></p></footer>
 </div>
