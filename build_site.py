@@ -309,6 +309,12 @@ footer.site{
 .stage-badge.current{color:var(--blue); background:var(--tint); border:1px solid var(--blue-soft);}
 .stage-badge.mastered{color:var(--green); background:rgba(123,180,150,.1); border:1px solid var(--green);}
 .toolkit-section.stage-current{border-color:var(--blue-soft);}
+.covered-badge{
+  font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
+  color:var(--ink-soft); border:1px solid var(--line); border-radius:6px; padding:2px 8px;
+  text-decoration:none; white-space:nowrap;
+}
+.covered-badge:hover{color:var(--blue); border-color:var(--blue-soft);}
 .toolkit-section .section-chevron{color:var(--ink-soft); display:flex; flex:none; transition:transform .2s ease;}
 .toolkit-section[open] .section-chevron{transform:rotate(180deg);}
 .toolkit-section-body{padding:0 20px 18px;}
@@ -1121,8 +1127,12 @@ ITEM_LINKS = {
 # their category first appears below, so a new category just needs to be
 # used here), tags (list of str, shown as chips on the card and matched by
 # the toolkit's search box -- no separate list to maintain, a new tag just
-# needs to be used here), time (short display string or None),
-# steps (list of plain-language instruction steps, rendered as a bulleted
+# needs to be used here), time (short display string or None), builds_on
+# (optional list of earlier exercise ids whose skill this one already
+# exercises as a side effect -- see CURRENT_EXERCISE below for how this
+# drives which drills quietly retire; omit it unless the dependency is
+# real content, not just "came earlier"), steps (list of plain-language
+# instruction steps, rendered as a bulleted
 # list so a multi-step drill reads clearly at a glance; may include simple
 # inline HTML like <strong>/<em> per step), notes (optional list of
 # {"label", "text", "after"} asides -- e.g. an alternative method for a
@@ -1139,22 +1149,23 @@ ITEM_LINKS = {
 # "url" may be omitted for a plain-text citation with no link).
 HOW_TO_DRAW = {"label": "How to Draw, by Scott Robertson &amp; Thomas Bertling"}
 
-# Which category is being actively drilled right now, and which ones have
-# been superseded by later material -- e.g. once mirroring drills are the
-# daily practice, plain line/ghosting warm-ups are already being exercised
-# inside them, so Warm-ups retires to "mastered" rather than staying
-# front-and-center forever. This is curated by hand, not derived from
-# anything tracked per-visitor: every reader sees the same read on where
-# the book has gotten to. Re-examine it each time a new category is added
-# -- does the new material now cover ground an earlier category used to
-# own on its own? If so, move that earlier category to "mastered" (never
-# delete it, just let it retire) and point "current" at the new one.
-# One category may be "current", any number may be "mastered", everything
-# else is unmarked (a plain, collapsed section, no badge).
-CATEGORY_STATUS = {
-    "Warm-ups": "mastered",
-    "Mirroring in perspective": "current",
-}
+# CURRENT_EXERCISE is the one drill being actively worked on right now.
+# Every other exercise's "covered" status is DERIVED, not hand-set: each
+# exercise may declare "builds_on" -- the ids of earlier exercises whose
+# skill it already exercises as a side effect (grounded in what the steps
+# actually require, e.g. mirror-horizontal-planes builds on
+# duplicating-rectangle because its own steps say to mirror "using the
+# duplication technique"). Walking builds_on backward from CURRENT_EXERCISE
+# finds every drill that's implicitly still being practiced -- those retire
+# quietly (never deleted) with a note on which current drill covers them.
+# Only add a builds_on edge when the dependency is real content, not just
+# "came earlier in the book": multiply-divide-boxes and mirror-offset-planes,
+# for instance, sit chronologically before the current mirroring work but
+# aren't on its dependency path, so they correctly stay active rather than
+# retiring alongside things that actually are.
+# Re-examine this each time a new exercise is added: does it build on
+# something specific enough to name, and should CURRENT_EXERCISE move to it?
+CURRENT_EXERCISE = "mirror-rotated-tilted-planes"
 
 EXERCISES = [
     dict(
@@ -1191,6 +1202,7 @@ EXERCISES = [
         category="Warm-ups",
         tags=["warmup", "lines"],
         time="5 min",
+        builds_on=["ghosting"],
         steps=[
             "Mark a single point on the page.",
             "Ghost each stroke the same way as in the Ghosting drill.",
@@ -1206,6 +1218,7 @@ EXERCISES = [
         category="Perspective boxes",
         tags=["perspective"],
         time="15 min",
+        builds_on=["ghosting", "parallel-lines", "lines-through-point"],
         steps=[
             "Draw a horizon line and choose a vanishing point on it.",
             "Draw a rectangle, then connect each of its corners to the vanishing point.",
@@ -1223,6 +1236,7 @@ EXERCISES = [
         category="Perspective boxes",
         tags=["perspective"],
         time="15 min",
+        builds_on=["one-point-boxes"],
         steps=[
             "Draw the horizon line, then draw a vertical line for the box's front corner &mdash; this establishes the X, Y, and Z axes.",
             "Extend the X-axis and Y-axis lines from the bottom of that vertical until they hit the horizon line. Where they cross the horizon gives you the left and right vanishing points.",
@@ -1295,6 +1309,7 @@ EXERCISES = [
         category="Warm-ups",
         tags=["warmup", "ellipses"],
         time="5 min",
+        builds_on=["ellipse-minor-axis"],
         steps=[
             "Draw a minor axis line, then a line to its left and one to its right.",
             "Place a series of ellipses on the minor axis, matching each one's width to the two outer lines at that point.",
@@ -1316,6 +1331,7 @@ EXERCISES = [
         category="Dividing &amp; multiplying",
         tags=["construction"],
         time="10 min",
+        builds_on=["one-point-boxes"],
         steps=[
             "Draw the rectangle, staying inside your cone of vision so the perspective doesn't distort unexpectedly.",
             "Draw both diagonals, connecting opposite corners. Keep them light &mdash; they should disappear in the final drawing.",
@@ -1338,6 +1354,7 @@ EXERCISES = [
         category="Dividing &amp; multiplying",
         tags=["construction"],
         time="10 min",
+        builds_on=["dividing-rectangle-half"],
         steps=[
             "Draw the rectangle and decide which direction to multiply toward. Since the height stays the same, extend the two lines that run in that direction.",
             "Find the midpoint of that extended line &mdash; using diagonals, or by eye if the line is horizontal or vertical.",
@@ -1364,6 +1381,7 @@ EXERCISES = [
         category="Dividing &amp; multiplying",
         tags=["construction"],
         time="15 min",
+        builds_on=["duplicating-rectangle"],
         steps=[
             "Draw a lower and an upper line converging toward a common vanishing point.",
             "Connect them with two parallel lines to create a rectangle.",
@@ -1388,6 +1406,7 @@ EXERCISES = [
         category="Dividing &amp; multiplying",
         tags=["construction"],
         time="15 min",
+        builds_on=["multiply-divide-rectangles", "two-point-boxes"],
         steps=[
             "Build a base box, then stack more boxes on top of it or beside it, using the same multiplying/dividing technique you'd use on a flat rectangle.",
             "Draw through each box &mdash; showing its hidden edges &mdash; wherever it helps you double-check the construction.",
@@ -1408,6 +1427,7 @@ EXERCISES = [
         category="Dividing &amp; multiplying",
         tags=["construction"],
         time="10 min",
+        builds_on=["dividing-rectangle-half"],
         steps=[
             "Define the plane you want to subdivide.",
             "Draw a line parallel to the horizon, starting at the plane's front edge, and divide it into however many equal segments you need (5, for example).",
@@ -1424,6 +1444,7 @@ EXERCISES = [
         category="Mirroring in perspective",
         tags=["mirroring"],
         time="10 min",
+        builds_on=["duplicating-rectangle"],
         steps=[
             "Draw the rectangle you want to mirror, plus a perpendicular mirror-plane line. Extend the rectangle's width lines until they reach the mirror plane.",
             "Draw the rectangle's diagonals to find its midpoint, then draw a line from that midpoint, in perspective, to the mirror plane.",
@@ -1439,6 +1460,7 @@ EXERCISES = [
         category="Mirroring in perspective",
         tags=["mirroring"],
         time="10 min",
+        builds_on=["mirror-horizontal-planes"],
         steps=[
             "Draw the vertical rectangle you want to mirror, then draw its diagonals to find the midpoint of the mirror plane.",
             "Extend the rectangle's width dimensions toward the expected position of the mirrored rectangle, and find that rectangle's centerpoint too.",
@@ -1453,6 +1475,7 @@ EXERCISES = [
         category="Mirroring in perspective",
         tags=["mirroring"],
         time="10 min",
+        builds_on=["mirror-horizontal-planes"],
         steps=[
             "Set up a plane that hovers above the ground or mirror plane, then extend the lines at each of its corners toward the mirror direction.",
             "Mirror the plane's front line across the mirror plane using the multiplication technique.",
@@ -1468,6 +1491,7 @@ EXERCISES = [
         category="Mirroring in perspective",
         tags=["mirroring"],
         time="15 min",
+        builds_on=["mirror-horizontal-planes", "two-point-boxes"],
         steps=[
             "Set up the tilted plane and the plane you'll mirror it across, using a perspective grid to keep both located clearly in space, relative to each other.",
             "Pick a point on the tilted plane to mirror. Extend both the tilted plane's edge and the mirror plane's edge until they intersect, and drop a vertical from the top of the tilted plane down to the ground plane if it isn't already there.",
@@ -1484,6 +1508,7 @@ EXERCISES = [
         category="Mirroring in perspective",
         tags=["mirroring"],
         time="25 min",
+        builds_on=["mirror-tilted-planes"],
         steps=[
             "Look at all four points of the tilted, rotated plane you want to mirror &mdash; since it's both tilted and rotated, at most two points share a height, and none share depth or width.",
             "Mirror the plane's top-front point across the mirror plane using the rectangle duplication technique.",
@@ -1516,6 +1541,31 @@ def exercise_categories_used():
             seen.append(c)
     return seen
 
+EXERCISES_BY_ID = {ex["id"]: ex for ex in EXERCISES}
+
+def compute_coverage():
+    # Walks builds_on backward from CURRENT_EXERCISE, breadth-first, so
+    # every id it reaches gets "covered_by" set to the nearer (more-current)
+    # exercise that pulled it in -- that's what a "Covered" badge names and
+    # links to. Ids CURRENT_EXERCISE doesn't reach (even if they're earlier
+    # in the book) are left out entirely, on purpose: see the note above
+    # CURRENT_EXERCISE for why that's a feature, not a gap.
+    covered_by = {}
+    frontier = [CURRENT_EXERCISE]
+    seen = {CURRENT_EXERCISE}
+    while frontier:
+        next_frontier = []
+        for eid in frontier:
+            for parent_id in EXERCISES_BY_ID[eid].get("builds_on", []):
+                if parent_id not in seen:
+                    seen.add(parent_id)
+                    covered_by[parent_id] = eid
+                    next_frontier.append(parent_id)
+        frontier = next_frontier
+    return covered_by
+
+COVERED_BY = compute_coverage()
+
 def slugify(s):
     out = []
     for ch in s.lower():
@@ -1528,6 +1578,15 @@ def slugify(s):
 def exercise_card(ex):
     tag_chips = "".join(f'<span class="tag-chip">{t}</span>' for t in ex["tags"])
     time_html = f'<span class="exercise-time">{ex["time"]}</span>' if ex["time"] else ""
+    badge_html = ""
+    if ex["id"] == CURRENT_EXERCISE:
+        badge_html = '<span class="stage-badge current">Current</span>'
+    elif ex["id"] in COVERED_BY:
+        covering = EXERCISES_BY_ID[COVERED_BY[ex["id"]]]
+        badge_html = (
+            f'<a class="covered-badge" href="#ex-{covering["id"]}" '
+            f'title="Already exercised by {covering["title"]}">Covered</a>'
+        )
     images_html = ""
     if ex["images"]:
         imgs = "".join(f'<img src="{src}" alt="">' for src in ex["images"])
@@ -1560,6 +1619,7 @@ def exercise_card(ex):
         <span class="exercise-tags">{tag_chips}</span>
         <span class="exercise-head-side">
           {time_html}
+          {badge_html}
           <span class="exercise-chevron">{CHEVRON_ICON}</span>
         </span>
       </div>
@@ -1788,7 +1848,10 @@ def exercises_in(cat):
     return [ex for ex in EXERCISES if ex["category"] == cat]
 
 def toolkit_section(cat):
-    status = CATEGORY_STATUS.get(cat, "")
+    ids = [ex["id"] for ex in exercises_in(cat)]
+    has_current = CURRENT_EXERCISE in ids
+    fully_covered = ids and all(eid in COVERED_BY for eid in ids)
+    status = "current" if has_current else "mastered" if fully_covered else ""
     badge = ""
     if status == "current":
         badge = '<span class="stage-badge current">Current</span>'
@@ -1872,6 +1935,18 @@ TOOLKIT_JS = '''
       picked[i].closest(".toolkit-section").open = true;
     }
     if (picked.length) picked[0].scrollIntoView({behavior:"smooth", block:"center"});
+  });
+
+  document.addEventListener("click", function(e){
+    var link = e.target.closest(".covered-badge");
+    if (!link) return;
+    e.preventDefault();
+    var target = document.querySelector(link.getAttribute("href"));
+    if (!target) return;
+    target.open = true;
+    var sec = target.closest(".toolkit-section");
+    if (sec) sec.open = true;
+    target.scrollIntoView({behavior:"smooth", block:"center"});
   });
 })();
 '''
