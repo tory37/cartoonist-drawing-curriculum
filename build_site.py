@@ -1894,18 +1894,27 @@ TOOLKIT_JS = '''
     var covered = computeCovered(hereId);
     var visible = [];
     var fresh = [];
+    var hereCard = null;
     for (var i = 0; i < cards.length; i++){
       cards[i].classList.remove("picked");
       if (cards[i].style.display === "none") continue;
       visible.push(cards[i]);
       var id = cards[i].id.replace(/^ex-/, "");
-      // Skip the drill you're already on and anything it already covers --
-      // "Pick 3" is for what's still worth warming up, not what's covered.
-      if (id !== hereId && !(id in covered)) fresh.push(cards[i]);
+      if (id === hereId) hereCard = cards[i];
+      // Covered drills are already kept warm as a side effect of "here" --
+      // skip those. "here" itself stays eligible below: if you're actively
+      // practicing it, it belongs in the mix most of the time.
+      if (!(id in covered)) fresh.push(cards[i]);
     }
     var pool = (fresh.length ? fresh : visible).slice();
-    var n = Math.min(3, pool.length);
     var picked = [];
+    // Weight toward including "here", but don't force it -- once few fresh
+    // drills remain (e.g. near the end of the book), let the pool decide.
+    if (hereCard && pool.indexOf(hereCard) !== -1 && Math.random() < 5 / 6){
+      picked.push(hereCard);
+      pool.splice(pool.indexOf(hereCard), 1);
+    }
+    var n = Math.min(3 - picked.length, pool.length);
     for (var i = 0; i < n; i++){
       var idx = Math.floor(Math.random() * pool.length);
       picked.push(pool.splice(idx, 1)[0]);
@@ -2083,9 +2092,9 @@ toolkit_body = f'''
     Click <b>I am here</b> on whichever drill you're actively practicing. That doesn't make earlier
     drills <em>mastered</em> exactly &mdash; it means practicing this one already keeps them warm as a
     side effect, so they're marked <b>Covered</b> (dimmed, not urgent to revisit) instead of dropped.
-    A section where every drill is covered goes <b>Superseded</b>. <b>Pick 3 for me</b> skips both your
-    current spot and anything covered. All of this is personal to you &mdash; saved only in this
-    browser, never synced.
+    A section where every drill is covered goes <b>Superseded</b>. <b>Pick 3 for me</b> skips
+    anything covered and usually includes your current spot, since that's what you're actually
+    practicing. All of this is personal to you &mdash; saved only in this browser, never synced.
   </p>
 </header>
 
