@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=0e289c2309">
+<link rel="stylesheet" href="style.css?v=aa1cc77341">
 </head>
 <body data-page-id="toolkit">
 
@@ -43,6 +43,11 @@
     Exercises you've already learned, kept somewhere you can just open, pick a few, and warm up &mdash;
     no need to dig back through old modules. Ask to have new drills added here as you learn them.
   </p>
+  <p class="toolkit-badge-note">
+    <b>Current</b>, <b>Covered</b>, and <b>Superseded</b> describe how the book's own techniques build on
+    each other &mdash; the same for every reader, not a record of your progress. Check off
+    <b>Practiced</b> yourself on any drill to track that; it's saved only in this browser.
+  </p>
 </header>
 
 <div class="wrap">
@@ -55,6 +60,7 @@
     <button class="toolkit-pick-btn" id="toolkit-pick-btn">Pick 3 for me</button>
   </div>
   <p class="toolkit-hit-count" id="toolkit-hit-count" style="display:none"></p>
+  <p class="toolkit-progress-note" id="toolkit-progress-note"></p>
 </section>
 
 <details class="toolkit-section" id="section-warm-ups" data-category="warm-ups">
@@ -73,6 +79,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">warmup</span><span class="tag-chip">lines</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="parallel-lines">
+            <input type="checkbox" class="practiced-check" id="practiced-parallel-lines" aria-label="Mark &lsquo;Parallel lines&rsquo; as practiced">
+            <label for="practiced-parallel-lines" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">5 min</span>
           <a class="covered-badge" href="#ex-one-point-boxes" title="Already exercised by 1-point perspective boxes">Covered</a>
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -90,6 +100,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">warmup</span><span class="tag-chip">lines</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="ghosting">
+            <input type="checkbox" class="practiced-check" id="practiced-ghosting" aria-label="Mark &lsquo;Ghosting&rsquo; as practiced">
+            <label for="practiced-ghosting" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">5 min</span>
           <a class="covered-badge" href="#ex-one-point-boxes" title="Already exercised by 1-point perspective boxes">Covered</a>
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -107,6 +121,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">warmup</span><span class="tag-chip">lines</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="lines-through-point">
+            <input type="checkbox" class="practiced-check" id="practiced-lines-through-point" aria-label="Mark &lsquo;Lines through a point&rsquo; as practiced">
+            <label for="practiced-lines-through-point" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">5 min</span>
           <a class="covered-badge" href="#ex-one-point-boxes" title="Already exercised by 1-point perspective boxes">Covered</a>
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -124,6 +142,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">warmup</span><span class="tag-chip">curves</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="curves-through-points">
+            <input type="checkbox" class="practiced-check" id="practiced-curves-through-points" aria-label="Mark &lsquo;Curves through multiple points&rsquo; as practiced">
+            <label for="practiced-curves-through-points" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">5 min</span>
           
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -141,6 +163,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">warmup</span><span class="tag-chip">ellipses</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="ellipse-minor-axis">
+            <input type="checkbox" class="practiced-check" id="practiced-ellipse-minor-axis" aria-label="Mark &lsquo;Ellipse &amp; minor axis&rsquo; as practiced">
+            <label for="practiced-ellipse-minor-axis" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">5 min</span>
           
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -158,6 +184,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">warmup</span><span class="tag-chip">ellipses</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="ellipses-between-lines">
+            <input type="checkbox" class="practiced-check" id="practiced-ellipses-between-lines" aria-label="Mark &lsquo;Ellipses between two lines&rsquo; as practiced">
+            <label for="practiced-ellipses-between-lines" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">5 min</span>
           
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -174,12 +204,12 @@
     </div>
   </div>
 </details>
-<details class="toolkit-section stage-mastered" id="section-perspective-boxes" data-category="perspective-boxes">
+<details class="toolkit-section stage-superseded" id="section-perspective-boxes" data-category="perspective-boxes">
   <summary class="toolkit-section-summary">
     <span class="toolkit-section-main">
       <span class="toolkit-section-title">Perspective boxes</span>
       <span class="section-count">2</span>
-      <span class="stage-badge mastered">Mastered</span>
+      <span class="stage-badge superseded">Superseded</span>
     </span>
     <span class="section-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
   </summary>
@@ -190,6 +220,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">perspective</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="one-point-boxes">
+            <input type="checkbox" class="practiced-check" id="practiced-one-point-boxes" aria-label="Mark &lsquo;1-point perspective boxes&rsquo; as practiced">
+            <label for="practiced-one-point-boxes" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">15 min</span>
           <a class="covered-badge" href="#ex-two-point-boxes" title="Already exercised by 2-point perspective boxes">Covered</a>
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -207,6 +241,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">perspective</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="two-point-boxes">
+            <input type="checkbox" class="practiced-check" id="practiced-two-point-boxes" aria-label="Mark &lsquo;2-point perspective boxes&rsquo; as practiced">
+            <label for="practiced-two-point-boxes" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">15 min</span>
           <a class="covered-badge" href="#ex-mirror-tilted-planes" title="Already exercised by Mirroring tilted planes">Covered</a>
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -239,6 +277,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">construction</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="dividing-rectangle-half">
+            <input type="checkbox" class="practiced-check" id="practiced-dividing-rectangle-half" aria-label="Mark &lsquo;Dividing a rectangle in half, in perspective&rsquo; as practiced">
+            <label for="practiced-dividing-rectangle-half" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">10 min</span>
           <a class="covered-badge" href="#ex-duplicating-rectangle" title="Already exercised by Duplicating a rectangle, in perspective">Covered</a>
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -256,6 +298,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">construction</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="duplicating-rectangle">
+            <input type="checkbox" class="practiced-check" id="practiced-duplicating-rectangle" aria-label="Mark &lsquo;Duplicating a rectangle, in perspective&rsquo; as practiced">
+            <label for="practiced-duplicating-rectangle" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">10 min</span>
           <a class="covered-badge" href="#ex-mirror-horizontal-planes" title="Already exercised by Mirroring horizontal planes">Covered</a>
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -273,6 +319,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">construction</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="multiply-divide-rectangles">
+            <input type="checkbox" class="practiced-check" id="practiced-multiply-divide-rectangles" aria-label="Mark &lsquo;Multiplying &amp; dividing rectangles&rsquo; as practiced">
+            <label for="practiced-multiply-divide-rectangles" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">15 min</span>
           
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -290,6 +340,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">construction</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="multiply-divide-boxes">
+            <input type="checkbox" class="practiced-check" id="practiced-multiply-divide-boxes" aria-label="Mark &lsquo;Multiplying &amp; dividing boxes&rsquo; as practiced">
+            <label for="practiced-multiply-divide-boxes" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">15 min</span>
           
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -307,6 +361,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">construction</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="odd-numbered-proportions">
+            <input type="checkbox" class="practiced-check" id="practiced-odd-numbered-proportions" aria-label="Mark &lsquo;Dividing into odd-numbered proportions&rsquo; as practiced">
+            <label for="practiced-odd-numbered-proportions" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">10 min</span>
           
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -339,6 +397,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">mirroring</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="mirror-horizontal-planes">
+            <input type="checkbox" class="practiced-check" id="practiced-mirror-horizontal-planes" aria-label="Mark &lsquo;Mirroring horizontal planes&rsquo; as practiced">
+            <label for="practiced-mirror-horizontal-planes" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">10 min</span>
           <a class="covered-badge" href="#ex-mirror-tilted-planes" title="Already exercised by Mirroring tilted planes">Covered</a>
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -356,6 +418,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">mirroring</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="mirror-vertical-planes">
+            <input type="checkbox" class="practiced-check" id="practiced-mirror-vertical-planes" aria-label="Mark &lsquo;Mirroring vertical planes&rsquo; as practiced">
+            <label for="practiced-mirror-vertical-planes" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">10 min</span>
           
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -373,6 +439,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">mirroring</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="mirror-offset-planes">
+            <input type="checkbox" class="practiced-check" id="practiced-mirror-offset-planes" aria-label="Mark &lsquo;Mirroring offset planes&rsquo; as practiced">
+            <label for="practiced-mirror-offset-planes" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">10 min</span>
           
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -390,6 +460,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">mirroring</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="mirror-tilted-planes">
+            <input type="checkbox" class="practiced-check" id="practiced-mirror-tilted-planes" aria-label="Mark &lsquo;Mirroring tilted planes&rsquo; as practiced">
+            <label for="practiced-mirror-tilted-planes" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">15 min</span>
           <a class="covered-badge" href="#ex-mirror-rotated-tilted-planes" title="Already exercised by Mirroring rotated, tilted planes">Covered</a>
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -407,6 +481,10 @@
       <div class="exercise-head">
         <span class="exercise-tags"><span class="tag-chip">mirroring</span></span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="mirror-rotated-tilted-planes">
+            <input type="checkbox" class="practiced-check" id="practiced-mirror-rotated-tilted-planes" aria-label="Mark &lsquo;Mirroring rotated, tilted planes&rsquo; as practiced">
+            <label for="practiced-mirror-rotated-tilted-planes" class="practiced-label">Practiced</label>
+          </span>
           <span class="exercise-time">25 min</span>
           <span class="stage-badge current">Current</span>
           <span class="exercise-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -498,12 +576,58 @@
     if (sec) sec.open = true;
     target.scrollIntoView({behavior:"smooth", block:"center"});
   });
+
+  // Personal "Practiced" tracking -- entirely local to this browser, never
+  // synced anywhere. This is independent of the Current/Covered/Superseded
+  // badges above, which describe how the book's own techniques build on
+  // each other, not any one reader's progress.
+  var STORAGE_KEY = "toolkitPracticed";
+  var checks = document.querySelectorAll(".practiced-check");
+  var progressNote = document.getElementById("toolkit-progress-note");
+
+  function loadPracticed(){
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    } catch (e) { return []; }
+  }
+  function savePracticed(ids){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(ids)); } catch (e) {}
+  }
+  function updateProgressNote(count){
+    if (!progressNote) return;
+    progressNote.textContent = "You've marked " + count + " of " + checks.length + " drills practiced.";
+  }
+
+  var practiced = loadPracticed();
+  for (var i = 0; i < checks.length; i++){
+    checks[i].checked = practiced.indexOf(checks[i].closest(".practiced-toggle").getAttribute("data-id")) !== -1;
+  }
+  updateProgressNote(practiced.length);
+
+  var toggles = document.querySelectorAll(".practiced-toggle");
+  for (var i = 0; i < toggles.length; i++){
+    // Stops the click here, on its way up, before it reaches <summary> --
+    // otherwise checking this box would also spring the card open/closed.
+    toggles[i].addEventListener("click", function(e){ e.stopPropagation(); });
+  }
+
+  for (var i = 0; i < checks.length; i++){
+    checks[i].addEventListener("change", function(){
+      var id = this.closest(".practiced-toggle").getAttribute("data-id");
+      var ids = loadPracticed();
+      var idx = ids.indexOf(id);
+      if (this.checked && idx === -1) ids.push(id);
+      if (!this.checked && idx !== -1) ids.splice(idx, 1);
+      savePracticed(ids);
+      updateProgressNote(ids.length);
+    });
+  }
 })();
 </script>
 
-<script src="progress-schema.js?v=0e289c2309"></script>
-<script src="firebase-config.js?v=0e289c2309"></script>
+<script src="progress-schema.js?v=aa1cc77341"></script>
+<script src="firebase-config.js?v=aa1cc77341"></script>
 <script src="https://accounts.google.com/gsi/client"></script>
-<script type="module" src="app.js?v=0e289c2309"></script>
+<script type="module" src="app.js?v=aa1cc77341"></script>
 </body>
 </html>

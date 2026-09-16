@@ -61,6 +61,11 @@ h1{
 }
 h1 em{font-style:italic; font-weight:500; color:var(--blue);}
 .subhead{font-size:19px; color:var(--ink-soft); max-width:520px; margin:18px 0 28px;}
+.toolkit-badge-note{
+  font-size:13.5px; color:var(--ink-soft); max-width:560px; margin:-16px 0 28px;
+  border-left:2px solid var(--line); padding-left:12px;
+}
+.toolkit-badge-note b{color:var(--ink); font-weight:600;}
 .underline{width:180px; height:14px; margin-bottom:8px;}
 .underline path{
   fill:none; stroke:var(--red); stroke-width:3; stroke-linecap:round;
@@ -272,6 +277,7 @@ footer.site{
 }
 .toolkit-pick-btn:hover{opacity:.88;}
 .toolkit-hit-count{font-size:12.5px; color:var(--ink-soft); margin:0 0 20px;}
+.toolkit-progress-note{font-size:12.5px; color:var(--ink-soft); margin:-10px 0 20px;}
 
 .toolkit-section{
   border:1px solid var(--line); border-radius:10px; background:var(--surface);
@@ -290,7 +296,7 @@ footer.site{
   border-radius:6px; padding:2px 8px;
 }
 .stage-badge.current{color:var(--blue); background:var(--tint); border:1px solid var(--blue-soft);}
-.stage-badge.mastered{color:var(--green); background:rgba(123,180,150,.1); border:1px solid var(--green);}
+.stage-badge.superseded{color:var(--green); background:rgba(123,180,150,.1); border:1px solid var(--green);}
 .toolkit-section.stage-current{border-color:var(--blue-soft);}
 .covered-badge{
   font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
@@ -312,6 +318,23 @@ footer.site{
 .exercise-card[open] > .exercise-summary{padding-bottom:10px;}
 .exercise-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;}
 .exercise-head-side{display:flex; align-items:center; gap:10px; flex:none;}
+.practiced-toggle{display:flex; align-items:center; gap:6px;}
+.practiced-check{
+  appearance:none; -webkit-appearance:none; -moz-appearance:none;
+  margin:0; width:16px; height:16px; flex:none;
+  border:1.5px solid var(--ink-soft); border-radius:4px; background:var(--paper-deep);
+  position:relative; cursor:pointer;
+}
+.practiced-check:checked{background:var(--green); border-color:var(--green);}
+.practiced-check:checked::after{
+  content:""; position:absolute; left:4px; top:1px; width:4px; height:8px;
+  border:solid var(--paper-deep); border-width:0 2px 2px 0; transform:rotate(45deg);
+}
+.practiced-check:focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
+.practiced-label{
+  font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--ink-soft); cursor:pointer;
+}
+@media (max-width:480px){.practiced-label{display:none;}}
 .exercise-chevron{color:var(--ink-soft); display:flex; transition:transform .2s ease;}
 .exercise-card[open] .exercise-chevron{transform:rotate(180deg);}
 .exercise-tags{display:flex; flex-wrap:wrap; gap:6px;}

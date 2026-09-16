@@ -78,6 +78,11 @@ h1{
 }
 h1 em{font-style:italic; font-weight:500; color:var(--blue);}
 .subhead{font-size:19px; color:var(--ink-soft); max-width:520px; margin:18px 0 28px;}
+.toolkit-badge-note{
+  font-size:13.5px; color:var(--ink-soft); max-width:560px; margin:-16px 0 28px;
+  border-left:2px solid var(--line); padding-left:12px;
+}
+.toolkit-badge-note b{color:var(--ink); font-weight:600;}
 .underline{width:180px; height:14px; margin-bottom:8px;}
 .underline path{
   fill:none; stroke:var(--red); stroke-width:3; stroke-linecap:round;
@@ -289,6 +294,7 @@ footer.site{
 }
 .toolkit-pick-btn:hover{opacity:.88;}
 .toolkit-hit-count{font-size:12.5px; color:var(--ink-soft); margin:0 0 20px;}
+.toolkit-progress-note{font-size:12.5px; color:var(--ink-soft); margin:-10px 0 20px;}
 
 .toolkit-section{
   border:1px solid var(--line); border-radius:10px; background:var(--surface);
@@ -307,7 +313,7 @@ footer.site{
   border-radius:6px; padding:2px 8px;
 }
 .stage-badge.current{color:var(--blue); background:var(--tint); border:1px solid var(--blue-soft);}
-.stage-badge.mastered{color:var(--green); background:rgba(123,180,150,.1); border:1px solid var(--green);}
+.stage-badge.superseded{color:var(--green); background:rgba(123,180,150,.1); border:1px solid var(--green);}
 .toolkit-section.stage-current{border-color:var(--blue-soft);}
 .covered-badge{
   font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
@@ -329,6 +335,23 @@ footer.site{
 .exercise-card[open] > .exercise-summary{padding-bottom:10px;}
 .exercise-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;}
 .exercise-head-side{display:flex; align-items:center; gap:10px; flex:none;}
+.practiced-toggle{display:flex; align-items:center; gap:6px;}
+.practiced-check{
+  appearance:none; -webkit-appearance:none; -moz-appearance:none;
+  margin:0; width:16px; height:16px; flex:none;
+  border:1.5px solid var(--ink-soft); border-radius:4px; background:var(--paper-deep);
+  position:relative; cursor:pointer;
+}
+.practiced-check:checked{background:var(--green); border-color:var(--green);}
+.practiced-check:checked::after{
+  content:""; position:absolute; left:4px; top:1px; width:4px; height:8px;
+  border:solid var(--paper-deep); border-width:0 2px 2px 0; transform:rotate(45deg);
+}
+.practiced-check:focus-visible{outline:2px solid var(--blue); outline-offset:2px;}
+.practiced-label{
+  font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--ink-soft); cursor:pointer;
+}
+@media (max-width:480px){.practiced-label{display:none;}}
 .exercise-chevron{color:var(--ink-soft); display:flex; transition:transform .2s ease;}
 .exercise-card[open] .exercise-chevron{transform:rotate(180deg);}
 .exercise-tags{display:flex; flex-wrap:wrap; gap:6px;}
@@ -1618,6 +1641,10 @@ def exercise_card(ex):
       <div class="exercise-head">
         <span class="exercise-tags">{tag_chips}</span>
         <span class="exercise-head-side">
+          <span class="practiced-toggle" data-id="{ex['id']}">
+            <input type="checkbox" class="practiced-check" id="practiced-{ex['id']}" aria-label="Mark &lsquo;{ex['title']}&rsquo; as practiced">
+            <label for="practiced-{ex['id']}" class="practiced-label">Practiced</label>
+          </span>
           {time_html}
           {badge_html}
           <span class="exercise-chevron">{CHEVRON_ICON}</span>
@@ -1851,12 +1878,12 @@ def toolkit_section(cat):
     ids = [ex["id"] for ex in exercises_in(cat)]
     has_current = CURRENT_EXERCISE in ids
     fully_covered = ids and all(eid in COVERED_BY for eid in ids)
-    status = "current" if has_current else "mastered" if fully_covered else ""
+    status = "current" if has_current else "superseded" if fully_covered else ""
     badge = ""
     if status == "current":
         badge = '<span class="stage-badge current">Current</span>'
-    elif status == "mastered":
-        badge = '<span class="stage-badge mastered">Mastered</span>'
+    elif status == "superseded":
+        badge = '<span class="stage-badge superseded">Superseded</span>'
     open_attr = " open" if status == "current" else ""
     stage_class = f" stage-{status}" if status else ""
     return f'''<details class="toolkit-section{stage_class}" id="section-{slugify(cat)}" data-category="{slugify(cat)}"{open_attr}>
@@ -1948,6 +1975,52 @@ TOOLKIT_JS = '''
     if (sec) sec.open = true;
     target.scrollIntoView({behavior:"smooth", block:"center"});
   });
+
+  // Personal "Practiced" tracking -- entirely local to this browser, never
+  // synced anywhere. This is independent of the Current/Covered/Superseded
+  // badges above, which describe how the book's own techniques build on
+  // each other, not any one reader's progress.
+  var STORAGE_KEY = "toolkitPracticed";
+  var checks = document.querySelectorAll(".practiced-check");
+  var progressNote = document.getElementById("toolkit-progress-note");
+
+  function loadPracticed(){
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    } catch (e) { return []; }
+  }
+  function savePracticed(ids){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(ids)); } catch (e) {}
+  }
+  function updateProgressNote(count){
+    if (!progressNote) return;
+    progressNote.textContent = "You've marked " + count + " of " + checks.length + " drills practiced.";
+  }
+
+  var practiced = loadPracticed();
+  for (var i = 0; i < checks.length; i++){
+    checks[i].checked = practiced.indexOf(checks[i].closest(".practiced-toggle").getAttribute("data-id")) !== -1;
+  }
+  updateProgressNote(practiced.length);
+
+  var toggles = document.querySelectorAll(".practiced-toggle");
+  for (var i = 0; i < toggles.length; i++){
+    // Stops the click here, on its way up, before it reaches <summary> --
+    // otherwise checking this box would also spring the card open/closed.
+    toggles[i].addEventListener("click", function(e){ e.stopPropagation(); });
+  }
+
+  for (var i = 0; i < checks.length; i++){
+    checks[i].addEventListener("change", function(){
+      var id = this.closest(".practiced-toggle").getAttribute("data-id");
+      var ids = loadPracticed();
+      var idx = ids.indexOf(id);
+      if (this.checked && idx === -1) ids.push(id);
+      if (!this.checked && idx !== -1) ids.splice(idx, 1);
+      savePracticed(ids);
+      updateProgressNote(ids.length);
+    });
+  }
 })();
 '''
 
@@ -1964,6 +2037,11 @@ toolkit_body = f'''
     Exercises you've already learned, kept somewhere you can just open, pick a few, and warm up &mdash;
     no need to dig back through old modules. Ask to have new drills added here as you learn them.
   </p>
+  <p class="toolkit-badge-note">
+    <b>Current</b>, <b>Covered</b>, and <b>Superseded</b> describe how the book's own techniques build on
+    each other &mdash; the same for every reader, not a record of your progress. Check off
+    <b>Practiced</b> yourself on any drill to track that; it's saved only in this browser.
+  </p>
 </header>
 
 <div class="wrap">
@@ -1976,6 +2054,7 @@ toolkit_body = f'''
     <button class="toolkit-pick-btn" id="toolkit-pick-btn">Pick 3 for me</button>
   </div>
   <p class="toolkit-hit-count" id="toolkit-hit-count" style="display:none"></p>
+  <p class="toolkit-progress-note" id="toolkit-progress-note"></p>
 </section>
 
 {toolkit_sections}
