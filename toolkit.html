@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=6c6605e6f3">
+<link rel="stylesheet" href="style.css?v=83fb30f546">
 </head>
 <body data-page-id="toolkit">
 
@@ -528,7 +528,16 @@
       picked[i].open = true;
       picked[i].closest(".toolkit-section").open = true;
     }
-    if (picked.length) picked[0].scrollIntoView({behavior:"smooth", block:"center"});
+    if (picked.length){
+      // Opening the <details> elements above doesn't finish laying out until
+      // the next paint on some mobile browsers, so scrolling in the same
+      // tick can land on a stale, pre-reflow position. Wait two frames.
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          picked[0].scrollIntoView({behavior:"smooth", block:"center"});
+        });
+      });
+    }
   });
 
   document.addEventListener("click", function(e){
@@ -679,9 +688,9 @@
 })();
 </script>
 
-<script src="progress-schema.js?v=6c6605e6f3"></script>
-<script src="firebase-config.js?v=6c6605e6f3"></script>
+<script src="progress-schema.js?v=83fb30f546"></script>
+<script src="firebase-config.js?v=83fb30f546"></script>
 <script src="https://accounts.google.com/gsi/client"></script>
-<script type="module" src="app.js?v=6c6605e6f3"></script>
+<script type="module" src="app.js?v=83fb30f546"></script>
 </body>
 </html>

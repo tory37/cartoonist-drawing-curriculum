@@ -1924,7 +1924,16 @@ TOOLKIT_JS = '''
       picked[i].open = true;
       picked[i].closest(".toolkit-section").open = true;
     }
-    if (picked.length) picked[0].scrollIntoView({behavior:"smooth", block:"center"});
+    if (picked.length){
+      // Opening the <details> elements above doesn't finish laying out until
+      // the next paint on some mobile browsers, so scrolling in the same
+      // tick can land on a stale, pre-reflow position. Wait two frames.
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          picked[0].scrollIntoView({behavior:"smooth", block:"center"});
+        });
+      });
+    }
   });
 
   document.addEventListener("click", function(e){
