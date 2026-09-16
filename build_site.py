@@ -270,8 +270,26 @@ footer.site{
 .tracker-note{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
 
 /* exercise toolkit page */
+.toolkit-sections-nav{display:flex; flex-wrap:wrap; gap:8px 10px; margin:26px 0 0;}
+.section-nav-link{
+  display:flex; align-items:center; gap:7px; font-size:13px; color:var(--ink-soft);
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:6px 14px; text-decoration:none;
+}
+.section-nav-link:hover{border-color:var(--blue); color:var(--blue);}
+.section-nav-link .section-count{
+  font-size:11px; color:var(--ink-soft); background:var(--tint); border-radius:8px; padding:1px 6px;
+}
 .toolkit-toolbar{
-  display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:26px 0;
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:16px 0 26px;
+}
+.toolkit-section{margin-top:44px;}
+.toolkit-section-title{
+  font-family:'Fraunces', serif; font-weight:600; font-size:21px; margin:0;
+  display:flex; align-items:baseline; gap:10px;
+}
+.toolkit-section-title .section-count{
+  font-family:'Work Sans', sans-serif; font-weight:500; font-size:13px; color:var(--ink-soft);
 }
 .filter-chip{
   font-family:inherit; font-size:13px; color:var(--ink-soft); background:var(--surface);
@@ -1088,9 +1106,12 @@ ITEM_LINKS = {
 # meant to grow over time as the user learns new drills worth revisiting; ask
 # to have new ones added here rather than editing by hand.
 #
-# Each entry: id (unique slug), title, tags (list of str, used for the filter
-# chips -- chips are generated from whatever tags actually appear below, so a
-# new tag just needs to be used here), time (short display string or None),
+# Each entry: id (unique slug), title, category (short section heading the
+# card groups under on the toolkit page -- sections render in the order
+# their category first appears below, so a new category just needs to be
+# used here), tags (list of str, used for the filter chips -- chips are
+# generated from whatever tags actually appear below, so a new tag just
+# needs to be used here), time (short display string or None),
 # steps (list of plain-language instruction steps, rendered as a bulleted
 # list so a multi-step drill reads clearly at a glance; may include simple
 # inline HTML like <strong>/<em> per step), notes (optional list of
@@ -1112,6 +1133,7 @@ EXERCISES = [
     dict(
         id="parallel-lines",
         title="Parallel lines",
+        category="Warm-ups",
         tags=["warmup", "lines"],
         time="5 min",
         steps=[
@@ -1125,6 +1147,7 @@ EXERCISES = [
     dict(
         id="ghosting",
         title="Ghosting",
+        category="Warm-ups",
         tags=["warmup", "lines"],
         time="5 min",
         steps=[
@@ -1138,6 +1161,7 @@ EXERCISES = [
     dict(
         id="lines-through-point",
         title="Lines through a point",
+        category="Warm-ups",
         tags=["warmup", "lines"],
         time="5 min",
         steps=[
@@ -1152,6 +1176,7 @@ EXERCISES = [
     dict(
         id="one-point-boxes",
         title="1-point perspective boxes",
+        category="Perspective boxes",
         tags=["perspective"],
         time="15 min",
         steps=[
@@ -1168,6 +1193,7 @@ EXERCISES = [
     dict(
         id="two-point-boxes",
         title="2-point perspective boxes",
+        category="Perspective boxes",
         tags=["perspective"],
         time="15 min",
         steps=[
@@ -1191,6 +1217,7 @@ EXERCISES = [
     dict(
         id="curves-through-points",
         title="Curves through multiple points",
+        category="Warm-ups",
         tags=["warmup", "curves"],
         time="5 min",
         steps=[
@@ -1210,6 +1237,7 @@ EXERCISES = [
     dict(
         id="ellipse-minor-axis",
         title="Ellipse &amp; minor axis",
+        category="Warm-ups",
         tags=["warmup", "ellipses"],
         time="5 min",
         steps=[
@@ -1237,6 +1265,7 @@ EXERCISES = [
     dict(
         id="ellipses-between-lines",
         title="Ellipses between two lines",
+        category="Warm-ups",
         tags=["warmup", "ellipses"],
         time="5 min",
         steps=[
@@ -1254,6 +1283,202 @@ EXERCISES = [
         images=[],
         source=HOW_TO_DRAW,
     ),
+    dict(
+        id="dividing-rectangle-half",
+        title="Dividing a rectangle in half, in perspective",
+        category="Dividing &amp; multiplying",
+        tags=["construction"],
+        time="10 min",
+        steps=[
+            "Draw the rectangle, staying inside your cone of vision so the perspective doesn't distort unexpectedly.",
+            "Draw both diagonals, connecting opposite corners. Keep them light &mdash; they should disappear in the final drawing.",
+            "Draw a line through the point where the diagonals cross to divide the rectangle in half, following the perspective grid.",
+            "Repeat the technique on each half to find finer subdivisions, like quarters or sixteenths.",
+        ],
+        notes=[
+            {
+                "label": "Note",
+                "text": "The two halves are still equal, but in perspective the nearer one will look wider than the farther one &mdash; that's foreshortening, not a mistake.",
+                "after": 3,
+            },
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
+    dict(
+        id="duplicating-rectangle",
+        title="Duplicating a rectangle, in perspective",
+        category="Dividing &amp; multiplying",
+        tags=["construction"],
+        time="10 min",
+        steps=[
+            "Draw the rectangle and decide which direction to multiply toward. Since the height stays the same, extend the two lines that run in that direction.",
+            "Find the midpoint of that extended line &mdash; using diagonals, or by eye if the line is horizontal or vertical.",
+            "Draw a diagonal from the rectangle's far corner through that midpoint, and continue it until it crosses the extended line.",
+            "Draw a line parallel to the rectangle's edge from that intersection point &mdash; that's the far boundary of the duplicated rectangle.",
+        ],
+        notes=[
+            {
+                "label": "Tip",
+                "text": "Of the two possible diagonals in step 3, pick the shorter one to draw &mdash; a shorter hand-drawn line is more precise.",
+                "after": 3,
+            },
+            {
+                "label": "Tip",
+                "text": "This technique multiplies in any direction, not just the one shown here.",
+            },
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
+    dict(
+        id="multiply-divide-rectangles",
+        title="Multiplying &amp; dividing rectangles",
+        category="Dividing &amp; multiplying",
+        tags=["construction"],
+        time="15 min",
+        steps=[
+            "Draw a lower and an upper line converging toward a common vanishing point.",
+            "Connect them with two parallel lines to create a rectangle.",
+            "Multiply that rectangle toward or away from you using the duplication technique &mdash; each new rectangle foreshortens automatically.",
+        ],
+        notes=[
+            {
+                "label": "Tip",
+                "text": "Rotate the page to find the best arm position for each straight line. With practice, a tick mark is enough &mdash; you won't need to draw the full construction line every time.",
+            },
+            {
+                "label": "Avoid",
+                "text": "Adding multiple lines while correcting a mistake, trying to find the right spot. That only darkens the drawing and draws attention to the uncertainty. Draw one line, make an educated guess, and correct from there.",
+            },
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
+    dict(
+        id="multiply-divide-boxes",
+        title="Multiplying &amp; dividing boxes",
+        category="Dividing &amp; multiplying",
+        tags=["construction"],
+        time="15 min",
+        steps=[
+            "Build a base box, then stack more boxes on top of it or beside it, using the same multiplying/dividing technique you'd use on a flat rectangle.",
+            "Draw through each box &mdash; showing its hidden edges &mdash; wherever it helps you double-check the construction.",
+            "If two lines don't meet where you expect, trace back through the construction to find exactly where it started to misalign, rather than guessing.",
+        ],
+        notes=[
+            {
+                "label": "Note",
+                "text": "Being deliberate about tracking down a misalignment, rather than skipping past it, is what actually speeds up learning this.",
+            },
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
+    dict(
+        id="odd-numbered-proportions",
+        title="Dividing into odd-numbered proportions",
+        category="Dividing &amp; multiplying",
+        tags=["construction"],
+        time="10 min",
+        steps=[
+            "Define the plane you want to subdivide.",
+            "Draw a line parallel to the horizon, starting at the plane's front edge, and divide it into however many equal segments you need (5, for example).",
+            "Connect the last subdivision point to the far end of the plane's front edge, and extend that line until it reaches the horizon &mdash; where it lands is a new vanishing point. Every line parallel to it converges there too.",
+            "From each remaining segment point, draw a line to that new vanishing point.",
+            "Wherever those lines cross the plane's actual front edge, draw a vertical line upward &mdash; that transfers the subdivisions onto the plane itself.",
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
+    dict(
+        id="mirror-horizontal-planes",
+        title="Mirroring horizontal planes",
+        category="Mirroring in perspective",
+        tags=["mirroring"],
+        time="10 min",
+        steps=[
+            "Draw the rectangle you want to mirror, plus a perpendicular mirror-plane line. Extend the rectangle's width lines until they reach the mirror plane.",
+            "Draw the rectangle's diagonals to find its midpoint, then draw a line from that midpoint, in perspective, to the mirror plane.",
+            "Use that mirror point to mirror the rectangle's near line across the mirror plane with the duplication technique, then do the same for the far line.",
+            "Connect the two mirrored lines &mdash; you now have a mirrored plane. The same technique works for any other parallel-plane construction.",
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
+    dict(
+        id="mirror-vertical-planes",
+        title="Mirroring vertical planes",
+        category="Mirroring in perspective",
+        tags=["mirroring"],
+        time="10 min",
+        steps=[
+            "Draw the vertical rectangle you want to mirror, then draw its diagonals to find the midpoint of the mirror plane.",
+            "Extend the rectangle's width dimensions toward the expected position of the mirrored rectangle, and find that rectangle's centerpoint too.",
+            "Complete the construction with diagonals to find the height of the mirrored rectangle, then darken its final lines.",
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
+    dict(
+        id="mirror-offset-planes",
+        title="Mirroring offset planes",
+        category="Mirroring in perspective",
+        tags=["mirroring"],
+        time="10 min",
+        steps=[
+            "Set up a plane that hovers above the ground or mirror plane, then extend the lines at each of its corners toward the mirror direction.",
+            "Mirror the plane's front line across the mirror plane using the multiplication technique.",
+            "Complete the mirrored plane by following the perspective grid, using vertical lines to define its size.",
+            "Darken the outer edges.",
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
+    dict(
+        id="mirror-tilted-planes",
+        title="Mirroring tilted planes",
+        category="Mirroring in perspective",
+        tags=["mirroring"],
+        time="15 min",
+        steps=[
+            "Set up the tilted plane and the plane you'll mirror it across, using a perspective grid to keep both located clearly in space, relative to each other.",
+            "Pick a point on the tilted plane to mirror. Extend both the tilted plane's edge and the mirror plane's edge until they intersect, and drop a vertical from the top of the tilted plane down to the ground plane if it isn't already there.",
+            "Use the multiplication technique to mirror that point across the mirror plane.",
+            "Connect the intersection point from step 2 to the newly mirrored point &mdash; the plane's angle has now been mirrored in perspective.",
+            "Follow the perspective grid's guidelines to the vanishing point to transfer a few more mirrored points, then connect them to complete the mirrored plane.",
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
+    dict(
+        id="mirror-rotated-tilted-planes",
+        title="Mirroring rotated, tilted planes",
+        category="Mirroring in perspective",
+        tags=["mirroring"],
+        time="25 min",
+        steps=[
+            "Look at all four points of the tilted, rotated plane you want to mirror &mdash; since it's both tilted and rotated, at most two points share a height, and none share depth or width.",
+            "Mirror the plane's top-front point across the mirror plane using the rectangle duplication technique.",
+            "Extend the plane's tilted centerline until it crosses its extended tilted front edge.",
+            "Connect that crossing point to the top-front point you already mirrored.",
+            "From the plane's lower-front corner, draw a line perpendicular, in perspective, to the mirror plane &mdash; where it crosses the line from the previous step is the mirrored lower-front corner.",
+            "Find the mirrored ground line by extending the line along the ground from the lower-front corner until it reaches the mirror plane.",
+            "Clip that ground line to its correct length: extend the line that's perpendicular to the mirror plane and runs to the rectangle's lower-back edge, and use where it crosses the mirrored line as the endpoint.",
+            "Repeat the same technique to find the direction and length of the upper edge.",
+            "Find the upper edge's endpoint by extending the upper line at the back of the construction.",
+            "Connect the remaining open edges &mdash; you've now mirrored a plane that was both tilted and rotated.",
+            "Darken the edges of both planes.",
+        ],
+        notes=[
+            {
+                "label": "Note",
+                "text": "Three points define a plane, so the fourth has to be worked out to actually sit on it &mdash; it's easy to forget that and end up with a shape that couldn't physically exist. (M.C. Escher did this on purpose.)",
+            },
+        ],
+        images=[],
+        source=HOW_TO_DRAW,
+    ),
 ]
 
 def exercise_tags_used():
@@ -1263,6 +1488,23 @@ def exercise_tags_used():
             if t not in seen:
                 seen.append(t)
     return seen
+
+def exercise_categories_used():
+    seen = []
+    for ex in EXERCISES:
+        c = ex["category"]
+        if c not in seen:
+            seen.append(c)
+    return seen
+
+def slugify(s):
+    out = []
+    for ch in s.lower():
+        if ch.isalnum():
+            out.append(ch)
+        elif out and out[-1] != "-":
+            out.append("-")
+    return "".join(out).strip("-")
 
 def exercise_card(ex):
     tag_chips = "".join(f'<span class="tag-chip">{t}</span>' for t in ex["tags"])
@@ -1525,25 +1767,59 @@ toolkit_tags = exercise_tags_used()
 filter_chips = '<button class="filter-chip active" data-filter="all">All</button>' + "".join(
     f'<button class="filter-chip" data-filter="{t}">{t.capitalize()}</button>' for t in toolkit_tags
 )
-exercise_cards = "\n".join(exercise_card(ex) for ex in EXERCISES)
+
+toolkit_categories = exercise_categories_used()
+
+def exercises_in(cat):
+    return [ex for ex in EXERCISES if ex["category"] == cat]
+
+section_nav = "".join(
+    f'<a class="section-nav-link" href="#section-{slugify(cat)}">{cat}'
+    f'<span class="section-count">{len(exercises_in(cat))}</span></a>'
+    for cat in toolkit_categories
+)
+
+toolkit_sections = "".join(
+    f'''<section class="toolkit-section" id="section-{slugify(cat)}">
+  <h2 class="toolkit-section-title">{cat}<span class="section-count">{len(exercises_in(cat))}</span></h2>
+  <div class="exercise-grid">
+    {"".join(exercise_card(ex) for ex in exercises_in(cat))}
+  </div>
+</section>
+'''
+    for cat in toolkit_categories
+)
 
 TOOLKIT_JS = '''
 (function(){
   var chips = document.querySelectorAll(".filter-chip");
   var cards = document.querySelectorAll(".exercise-card");
+  var sections = document.querySelectorAll(".toolkit-section");
   var empty = document.getElementById("toolkit-empty");
   var pickBtn = document.getElementById("toolkit-pick-btn");
   var activeFilter = "all";
 
+  function applySectionVisibility(){
+    var anyVisible = false;
+    for (var i = 0; i < sections.length; i++){
+      var cardsIn = sections[i].querySelectorAll(".exercise-card");
+      var visible = 0;
+      for (var j = 0; j < cardsIn.length; j++){
+        if (cardsIn[j].style.display !== "none") visible++;
+      }
+      sections[i].style.display = visible ? "" : "none";
+      if (visible) anyVisible = true;
+    }
+    empty.style.display = anyVisible ? "none" : "block";
+  }
+
   function applyFilter(){
-    var visible = 0;
     for (var i = 0; i < cards.length; i++){
       var tags = (cards[i].getAttribute("data-tags") || "").split(" ");
       var show = activeFilter === "all" || tags.indexOf(activeFilter) !== -1;
       cards[i].style.display = show ? "" : "none";
-      if (show) visible++;
     }
-    empty.style.display = visible ? "none" : "block";
+    applySectionVisibility();
   }
 
   for (var i = 0; i < chips.length; i++){
@@ -1596,16 +1872,15 @@ toolkit_body = f'''
 
 <div class="wrap">
 <section>
+  <nav class="toolkit-sections-nav">{section_nav}</nav>
   <div class="toolkit-toolbar">
     {filter_chips}
     <button class="toolkit-pick-btn" id="toolkit-pick-btn">Pick 3 for me</button>
   </div>
-
-  <div class="exercise-grid">
-    {exercise_cards}
-  </div>
-  <p class="toolkit-empty" id="toolkit-empty">Nothing tagged that yet.</p>
 </section>
+
+{toolkit_sections}
+<p class="toolkit-empty" id="toolkit-empty">Nothing tagged that yet.</p>
 
 <footer class="site"><p><a href="index.html">&larr; Back to the table of contents</a></p></footer>
 </div>

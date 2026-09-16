@@ -253,8 +253,26 @@ footer.site{
 .tracker-note{font-size:13px; color:var(--ink-soft); margin:12px 0 0;}
 
 /* exercise toolkit page */
+.toolkit-sections-nav{display:flex; flex-wrap:wrap; gap:8px 10px; margin:26px 0 0;}
+.section-nav-link{
+  display:flex; align-items:center; gap:7px; font-size:13px; color:var(--ink-soft);
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:6px 14px; text-decoration:none;
+}
+.section-nav-link:hover{border-color:var(--blue); color:var(--blue);}
+.section-nav-link .section-count{
+  font-size:11px; color:var(--ink-soft); background:var(--tint); border-radius:8px; padding:1px 6px;
+}
 .toolkit-toolbar{
-  display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:26px 0;
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:16px 0 26px;
+}
+.toolkit-section{margin-top:44px;}
+.toolkit-section-title{
+  font-family:'Fraunces', serif; font-weight:600; font-size:21px; margin:0;
+  display:flex; align-items:baseline; gap:10px;
+}
+.toolkit-section-title .section-count{
+  font-family:'Work Sans', sans-serif; font-weight:500; font-size:13px; color:var(--ink-soft);
 }
 .filter-chip{
   font-family:inherit; font-size:13px; color:var(--ink-soft); background:var(--surface);
