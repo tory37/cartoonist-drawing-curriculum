@@ -584,7 +584,7 @@ drawn from the shoulder, not a scratchy, hesitant one.</div>
 
 add("construction", "03-construction.html", "Basic construction &amp; 3D forms", "construction",
     '<a href="https://www.youtube.com/channel/UC5dyu9y0EV0cSvGtbBtHw_w" target="_blank" rel="noopener">Sycra</a> (YouTube, free) &middot; roughly 3&ndash;6 weeks', '''
-<p>Watch Sycra&rsquo;s <a href="https://www.youtube.com/watch?v=iTey_rv-Trc" target="_blank" rel="noopener">&ldquo;How to Draw Anything with Construction&rdquo;</a> &mdash; free, and it teaches
+<p>Watch Sycra&rsquo;s <a href="https://www.youtube.com/watch?v=j2KVnOfyAIE" target="_blank" rel="noopener">&ldquo;The Importance of Construction in Drawing&rdquo;</a> &mdash; free, and it teaches
 exactly the &ldquo;built from shapes&rdquo; thinking cartooning actually needs: run a simple line of
 action through a form, then wrap simple solids (spheres, cylinders, boxes) around it. No
 vanishing-point math required.</p>
@@ -1052,6 +1052,10 @@ CHECKLISTS = {
 # A "videos" entry is a dict {"label", "lesson" (optional), "video" (optional)}
 # pairing one named exercise/part with its own confirmed reading page and/or
 # video.
+# If a link here turns out to be dead or mis-cited, log the fix in
+# SOURCES.md (what it was, what it turned out to be, how it was verified)
+# before swapping the URL below -- that log is the only record of citations
+# that were checked versus ones nobody's ever confirmed.
 ITEM_LINKS = {
     ("rhythm", "diaryhabit"): {
         "lesson": "https://www.openculture.com/2021/09/cartoonist-lynda-barry-teaches-you-how-to-make-a-visual-daily-diary.html",
@@ -1063,7 +1067,9 @@ ITEM_LINKS = {
         "lesson": "https://designstudiopress.com/products/how-to-draw",
     },
     ("construction", "constructionvideo"): {
-        "video": "https://www.youtube.com/watch?v=iTey_rv-Trc",
+        # Was v=iTey_rv-Trc, mislabeled as Sycra -- that ID is actually Brad
+        # Colbow's "Brad's Art School". See SOURCES.md for the fix writeup.
+        "video": "https://www.youtube.com/watch?v=j2KVnOfyAIE",
     },
     ("perspective", "onepoint1"): {
         "lesson": "http://theetheringtonbrothers.blogspot.com/2019/09/how-to-think-when-you-draw-1-point.html",
