@@ -1792,7 +1792,7 @@ def shell(title, body, page_id=""):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title} &mdash; Draw Your Own Comics</title>
+<title>{title} &mdash; Cartooning Guide</title>
 {FAVICON_LINKS}
 {FONT_LINKS}
 <link rel="stylesheet" href="style.css?v={BUILD_VERSION}">
