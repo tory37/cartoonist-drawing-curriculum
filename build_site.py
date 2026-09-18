@@ -216,7 +216,14 @@ a:hover{color:var(--dj-accent-hi);}
 
 .wrap{max-width:var(--max); margin:0 auto; padding:20px 24px 90px;}
 
-header.masthead{max-width:var(--max); margin:0 auto; padding:40px 24px 8px;}
+header.masthead{max-width:var(--max); margin:0 auto; padding:40px 24px 8px; position:relative; overflow:hidden;}
+.hero-mark{
+  position:absolute; top:-10%; right:-6%; width:42%; max-width:380px; aspect-ratio:1;
+  background-color:var(--dj-accent);
+  -webkit-mask:url('djaunt-icon-bone.svg') no-repeat center / contain;
+          mask:url('djaunt-icon-bone.svg') no-repeat center / contain;
+  opacity:.06; pointer-events:none;
+}
 .kicker{
   font-family:var(--dj-font-mono); font-size:var(--dj-text-xs); text-transform:uppercase;
   letter-spacing:var(--dj-tracking-label); color:var(--dj-text-muted);
@@ -1851,6 +1858,7 @@ for i, p in enumerate(PAGES):
 index_body = f'''
 {sitebar()}
 <header class="masthead">
+  <div class="hero-mark" aria-hidden="true"></div>
   <div class="kicker">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     A curated, human-made resource curriculum
@@ -2195,6 +2203,7 @@ TOOLKIT_JS = '''
 toolkit_body = f'''
 {sitebar()}
 <header class="masthead">
+  <div class="hero-mark" aria-hidden="true"></div>
   <div class="kicker">
     {TOOLKIT_ICON}
     Your growing set of practice drills
