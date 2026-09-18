@@ -563,7 +563,7 @@ with open(f"{OUT}/style.css", "w") as f:
 _ICON_FILES = [
     "favicon.ico", "favicon.svg", "icon-16.png", "icon-32.png",
     "icon-192.png", "icon-512.png", "icon-512-maskable.png",
-    "apple-touch-icon.png", "djaunt-icon-bone.svg",
+    "apple-touch-icon.png", "djaunt-icon-frost.svg",
 ]
 _ROOT = os.path.dirname(os.path.abspath(__file__))
 for _name in _ICON_FILES:
@@ -576,8 +576,8 @@ MANIFEST = {
     "start_url": "index.html",
     "scope": ".",
     "display": "standalone",
-    "background_color": "#0D0C0A",
-    "theme_color": "#0D0C0A",
+    "background_color": "#070F12",
+    "theme_color": "#070F12",
     "icons": [
         {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
         {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
@@ -597,7 +597,7 @@ FAVICON_LINKS = '''<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#0D0C0A">
+<meta name="theme-color" content="#070F12">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Draw Comics">'''
@@ -1784,11 +1784,11 @@ TOC_SUBS = {
 # Draw Your Own Comics keeps its own name and content -- Djaunt supplies the
 # visual system (color, type, geometry) plus this one small, unlinked credit
 # line on every page, not top billing. See BRANDING.md in djaunt-branding.
-DJAUNT_CREDIT = '''<div class="dj-credit"><img src="djaunt-icon-bone.svg" alt="" width="14" height="14">Part of Djaunt</div>'''
+DJAUNT_CREDIT = '''<div class="dj-credit"><img src="djaunt-icon-frost.svg" alt="" width="14" height="14">Part of Djaunt</div>'''
 
 def shell(title, body, page_id=""):
     return f'''<!DOCTYPE html>
-<html lang="en" data-dj-theme="hoard">
+<html lang="en" data-dj-theme="frost">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
