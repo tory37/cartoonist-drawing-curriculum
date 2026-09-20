@@ -275,15 +275,8 @@ ul,ol{margin:0 0 16px; padding-left:22px;}
 li{margin-bottom:7px;}
 strong{font-weight:600;}
 
-.callout{
-  border-left:3px solid var(--dj-border); padding:12px 16px; margin:16px 0;
-  border-radius:var(--dj-radius-sm); background:var(--dj-surface); font-size:15.5px;
-}
-.callout.do{border-color:var(--dj-success);}
-.callout.skip{border-color:var(--dj-danger);}
-.callout .tag{font-weight:700; font-size:11.5px; margin-bottom:5px; display:block;}
-.callout.do .tag{color:var(--dj-success);}
-.callout.skip .tag{color:var(--dj-danger);}
+/* .dj-callout/.dj-callout-success/.dj-callout-danger/.dj-callout-tag come
+   from djaunt-branding's components/callout/callout.css, linked in shell(). */
 
 .tldr{
   background:color-mix(in srgb, var(--dj-accent) 8%, transparent);
@@ -348,16 +341,9 @@ footer.site{
   font-size:13px; color:var(--dj-text-muted);
 }
 
-/* auth control in sitebar */
+/* auth control in sitebar — .dj-button/.dj-button-small/.dj-button-primary
+   come from djaunt-branding's components/buttons/buttons.css, linked in shell(). */
 .auth-control{display:flex; align-items:center; gap:10px; font-size:13px;}
-.auth-btn{
-  border:1px solid var(--dj-border); background:var(--dj-surface); color:var(--dj-text);
-  padding:6px 13px; border-radius:var(--dj-radius-md); font-size:12.5px; cursor:pointer;
-  font-family:inherit; white-space:nowrap;
-}
-.auth-btn:hover{border-color:var(--dj-accent); color:var(--dj-accent);}
-.auth-btn.primary{background:var(--dj-accent); color:var(--dj-on-accent); border-color:var(--dj-accent);}
-.auth-btn.primary:hover{opacity:.88; color:var(--dj-on-accent);}
 .auth-user{font-weight:600; color:var(--dj-text);}
 .progress-pill{
   font-size:12px; color:var(--dj-text-muted); border:1px solid var(--dj-border);
@@ -667,7 +653,7 @@ form, worth ordering now while shipping catches up.</p>
 <a href="https://www.openculture.com/2021/09/cartoonist-lynda-barry-teaches-you-how-to-make-a-visual-daily-diary.html" target="_blank" rel="noopener">4-minute diary</a>.
 Split a page into four boxes: 7 things you did (2 min), 7 things you saw (2 min), one thing you
 overheard (30 sec), and one quick sketch from the day (30 sec).</p>
-<div class="callout do"><span class="tag">why it matters</span>
+<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">why it matters</span>
 It takes zero drawing skill to start, and it builds the observation and finishing habits that
 storytelling actually depends on &mdash; running in parallel with the hand-control drills in the next
 module, not after them. Do it a few times a week from here on, for the whole course.</div>
@@ -679,7 +665,7 @@ add("lines", "02-marks-and-lines.html", "Marks, lines &amp; confidence", "lines"
 markmaking, then jump ahead to Chapter 5, &ldquo;Ellipses and Rotations,&rdquo; for ellipse control.
 Robertson and Bertling both taught for years at Art Center College of Design, and the book
 explains the reasoning behind each drill instead of just assigning it.</p>
-<div class="callout do"><span class="tag">why it matters</span>
+<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">why it matters</span>
 This trains the single most transferable cartooning skill: a confident line and a clean shape
 drawn from the shoulder, not a scratchy, hesitant one.</div>
 <p>Keep it light &mdash; a page or two per session as your structured half, then go draw cartoons for the rest.</p>
@@ -691,7 +677,7 @@ add("construction", "03-construction.html", "Basic construction &amp; 3D forms",
 exactly the &ldquo;built from shapes&rdquo; thinking cartooning actually needs: run a simple line of
 action through a form, then wrap simple solids (spheres, cylinders, boxes) around it. No
 vanishing-point math required.</p>
-<div class="callout do"><span class="tag">why it matters</span>
+<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">why it matters</span>
 This is the mental model behind every cartoon character in this style: a head is a rounded box, a
 body is a blob or a sausage, a prop is two or three overlapping simple solids. Once this clicks,
 gesture and character design (the next two modules) get dramatically easier.</div>
@@ -708,11 +694,11 @@ have their own free, cartoon-native perspective tutorials: <a href="http://theet
 (<a href="http://theetheringtonbrothers.blogspot.com/2019/09/how-to-think-when-you-draw-1-point_8.html" target="_blank" rel="noopener">part two</a>), <a href="http://theetheringtonbrothers.blogspot.com/2022/12/how-to-think-when-you-draw-2-point.html" target="_blank" rel="noopener">2-point perspective</a>, and
 <a href="http://theetheringtonbrothers.blogspot.com/2021/11/how-to-think-when-you-draw-perspective.html" target="_blank" rel="noopener">perspective boxes</a>. Visual, practical, and built for exactly this
 style &mdash; no textbook or lecture series required.</p>
-<div class="callout do"><span class="tag">free alternatives</span>
+<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">free alternatives</span>
 <a href="https://www.youtube.com/moderndayjames" target="_blank" rel="noopener">ModernDayJames</a> covers the same ground for free on YouTube in a looser way, and Ernest
 Norling&rsquo;s classic <a href="https://archive.org/details/perspective-made-easy-by-ernest-r.-norling" target="_blank" rel="noopener"><em>Perspective Made Easy</em></a> (free and legal, Internet Archive) is a
 good plain-English companion if you&rsquo;d rather read than watch.</div>
-<div class="callout skip"><span class="tag">optional deep dive</span>
+<div class="dj-callout dj-callout-danger"><span class="dj-callout-tag">optional deep dive</span>
 If perspective genuinely clicks for you and you want to go further, Marshall Vandruff&rsquo;s
 <a href="https://marshallart.gumroad.com/l/wbwxz" target="_blank" rel="noopener">1994 Perspective Drawing Series</a> ($12, 12 lectures) is some of the clearest, most in-depth
 perspective teaching ever recorded &mdash; but it&rsquo;s well past what a cartoonist strictly needs,
@@ -739,10 +725,10 @@ Lasseter): draw from a model, get critiqued, repeat, week after week. His own cl
 freely shared online with his family&rsquo;s blessing at
 <a href="https://www.thinkinganimation.com/walt-stanchfield-handouts" target="_blank" rel="noopener">Thinking Animation</a> &mdash; read a few alongside your own weekly sessions; they&rsquo;re as much
 about attitude as technique.</p>
-<div class="callout do"><span class="tag">how to practice</span>
+<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">how to practice</span>
 Short timed gestures (30 seconds&ndash;2 minutes), then &ldquo;mannequinize&rdquo; into simple shapes.
 Chase flow and exaggeration, not accuracy &mdash; and keep it weekly for the whole course, not just this phase.</div>
-<div class="callout skip"><span class="tag">skip / deprioritize</span>
+<div class="dj-callout dj-callout-danger"><span class="dj-callout-tag">skip / deprioritize</span>
 Rigorous &eacute;corch&eacute;/muscle anatomy, &ldquo;100 heads / 100 hands&rdquo; realism challenges, and the
 Solo Art Curriculum&rsquo;s multi-term anatomy sequence. You need enough anatomy to caricature it,
 not medical accuracy.</div>
@@ -769,7 +755,7 @@ method is built to be run over and over, not done once: split a body into three 
 randomly pick each section&rsquo;s height (short/medium/tall) and width (narrow/medium/wide). Every
 combination produces a different, usable silhouette. Run it weekly with a fresh random combination
 &mdash; it&rsquo;s how the Etheringtons themselves teach building a personal library of shapes fast.</p>
-<div class="callout do"><span class="tag">exercises</span>
+<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">exercises</span>
 Run the 3-Shape drill weekly, then draw an expression sheet (and eventually a full turnaround model
 sheet) for whichever result you liked best that week &mdash; exactly where your Phase 1&ndash;2 construction
 work pays off.</div>
@@ -819,7 +805,7 @@ free <a href="https://www.cartoonstudies.org/wp-content/uploads/2014/06/24.pdf" 
 one all the way through &mdash; pencils, inks, letters &mdash; before moving up. This is Brunetti&rsquo;s own
 structure:</p>
 <blockquote>&ldquo;If you can draw a smiley face and a stick figure, you can start drawing comics.&rdquo;</blockquote>
-<div class="callout do"><span class="tag">the ladder</span>
+<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">the ladder</span>
 One single-panel gag &rarr; one 4-panel strip &rarr; one full page &rarr; a 4-page minicomic &rarr; an 8-page
 minicomic. Finish each rung before climbing &mdash; the finishing habit matters more than the page count.</div>
 
@@ -857,7 +843,7 @@ software skill; layering it on too early spends hours you don&rsquo;t have to sp
   <li>Free alternatives if you&rsquo;d rather not buy software yet: <strong><a href="https://krita.org" target="_blank" rel="noopener">Krita</a></strong> (desktop) or
   <strong><a href="https://ibispaint.com" target="_blank" rel="noopener">Ibis Paint</a> / <a href="https://medibangpaint.com" target="_blank" rel="noopener">Medibang</a></strong> (tablet).</li>
 </ul>
-<div class="callout do"><span class="tag">first steps</span>
+<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">first steps</span>
 Re-do a few Phase 1 line/ellipse drills digitally to calibrate to the screen, learn layers
 (sketch &rarr; ink &rarr; color), and settle on two or three brushes you like. Don&rsquo;t chase advanced rendering.</div>
 <h3>Color it: flatting basics</h3>
@@ -865,7 +851,7 @@ Re-do a few Phase 1 line/ellipse drills digitally to calibrate to the screen, le
 your linework with a flat, solid color on its own layer before any shading. It&rsquo;s the standard
 first step in digital comic coloring, and the difference between a coloring session that takes
 20 minutes and one that takes 3: <a href="https://www.youtube.com/watch?v=s55gkBwZRU8" target="_blank" rel="noopener">this Procreate walkthrough</a> shows the selection-and-fill method.</p>
-<div class="callout do"><span class="tag">keep it simple</span>
+<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">keep it simple</span>
 Pick 3&ndash;5 colors total for your first colored page. A limited palette forces decisions that
 actually read, and it&rsquo;s far more forgiving than choosing from millions of colors with no plan.</div>
 <h3>Choosing a palette, not just filling it in</h3>
@@ -1803,6 +1789,8 @@ def shell(title, body, page_id=""):
 {FAVICON_LINKS}
 {FONT_LINKS}
 <link rel="stylesheet" href="style.css?v={BUILD_VERSION}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/buttons/buttons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/callout/callout.css">
 </head>
 <body data-page-id="{page_id}">
 {body}
@@ -1823,7 +1811,7 @@ def auth_control():
     <span class="progress-pill" id="header-progress" style="display:none"></span>
     <span id="signin-btn"></span>
     <span class="auth-user" id="auth-user" style="display:none"></span>
-    <button class="auth-btn" id="signout-btn" style="display:none">Sign out</button>
+    <button class="dj-button dj-button-small" id="signout-btn" style="display:none">Sign out</button>
   </div>'''
 
 def sitebar():
@@ -1924,7 +1912,7 @@ index_body = f'''
     {toc_items}
   </ul>
 
-  <div class="callout">
+  <div class="dj-callout">
     <span class="tag">Warm up anytime</span>
     Once you've learned a few drills, revisit them from the <a href="toolkit.html">exercise toolkit</a> &mdash;
     pick a few, warm up, and get drawing without hunting back through old modules.
