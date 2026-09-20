@@ -57,8 +57,8 @@ function renderProgress(data){
   var bar = document.getElementById("overall-progress");
   if (bar){
     var pct = total ? Math.round((done / total) * 100) : 0;
-    bar.querySelector(".bar-fill").style.width = pct + "%";
-    bar.querySelector(".bar-label").textContent = done + "/" + total + " exercises tracked (" + pct + "%)";
+    bar.querySelector(".dj-bar-fill").style.width = pct + "%";
+    bar.querySelector(".dj-bar-label").textContent = done + "/" + total + " exercises tracked (" + pct + "%)";
   }
   var pills = document.querySelectorAll("[data-progress-for]");
   for (var i = 0; i < pills.length; i++){

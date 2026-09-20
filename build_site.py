@@ -350,11 +350,9 @@ footer.site{
   padding:4px 10px; border-radius:var(--dj-radius-sm); white-space:nowrap;
 }
 
-/* overall progress bar (index page) */
+/* overall progress bar (index page) — .dj-bar-track/.dj-bar-fill/.dj-bar-label
+   come from djaunt-branding's components/progress/progress.css, linked above. */
 .overall-bar{max-width:var(--max); margin:22px auto 0; padding:0 24px;}
-.bar-track{height:8px; background:var(--dj-ink-900); border-radius:var(--dj-radius-md); overflow:hidden; border:1px solid var(--dj-border);}
-.bar-fill{height:100%; width:0%; background:var(--dj-success); transition:width .5s ease;}
-.bar-label{font-size:12.5px; color:var(--dj-text-muted); margin-top:7px;}
 
 /* "continue where you left off" card (index page) */
 .continue-card{max-width:var(--max); margin:18px auto 0; padding:0 24px;}
@@ -458,24 +456,11 @@ footer.site{
 .toolkit-section-main{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
 .toolkit-section-title{font-family:var(--dj-font-display); font-weight:600; letter-spacing:var(--dj-tracking-display); font-size:20px;}
 .toolkit-section .section-count{font-size:13px; color:var(--dj-text-muted);}
-.stage-badge{
-  font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
-  border-radius:var(--dj-radius-sm); padding:2px 8px;
-}
-.stage-badge.current{
-  color:var(--dj-accent); background:color-mix(in srgb, var(--dj-accent) 8%, transparent);
-  border:1px solid var(--dj-accent);
-}
-.stage-badge.superseded{
-  color:var(--dj-success); background:color-mix(in srgb, var(--dj-success) 10%, transparent);
-  border:1px solid var(--dj-success);
-}
+/* .stage-badge / .covered-badge / .tag-chip are .dj-badge (from
+   djaunt-branding's components/badge/badge.css, linked above) plus a
+   local residual for the bits the shared class doesn't cover. */
 .toolkit-section.has-here{border-color:var(--dj-accent);}
-.covered-badge{
-  font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
-  color:var(--dj-text-muted); border:1px solid var(--dj-border); border-radius:var(--dj-radius-sm); padding:2px 8px;
-  text-decoration:none; max-width:100%;
-}
+.covered-badge{ text-decoration:none; max-width:100%; }
 .covered-badge:hover{color:var(--dj-accent); border-color:var(--dj-accent);}
 .exercise-card.is-covered{opacity:.62;}
 .exercise-card.is-covered:hover, .exercise-card.is-covered:focus-within{opacity:1;}
@@ -509,10 +494,6 @@ footer.site{
 .exercise-chevron{color:var(--dj-text-muted); display:flex; transition:transform .2s ease;}
 .exercise-card[open] .exercise-chevron{transform:rotate(180deg);}
 .exercise-tags{display:flex; flex-wrap:wrap; gap:6px;}
-.tag-chip{
-  font-family:var(--dj-font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--dj-accent);
-  border:1px solid var(--dj-border); border-radius:var(--dj-radius-sm); padding:2px 8px;
-}
 .exercise-time{font-size:12.5px; color:var(--dj-text-muted); white-space:nowrap; flex:none;}
 .exercise-title{font-family:var(--dj-font-display); font-weight:600; letter-spacing:var(--dj-tracking-display); font-size:19px; margin:0;}
 .exercise-body{padding:0 22px 20px;}
@@ -1663,7 +1644,7 @@ def slugify(s):
     return "".join(out).strip("-")
 
 def exercise_card(ex):
-    tag_chips = "".join(f'<span class="tag-chip">{t}</span>' for t in ex["tags"])
+    tag_chips = "".join(f'<span class="dj-badge dj-badge-accent">{t}</span>' for t in ex["tags"])
     time_html = f'<span class="exercise-time">{ex["time"]}</span>' if ex["time"] else ""
     images_html = ""
     if ex["images"]:
@@ -1791,6 +1772,8 @@ def shell(title, body, page_id=""):
 <link rel="stylesheet" href="style.css?v={BUILD_VERSION}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/buttons/buttons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/callout/callout.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/progress/progress.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/badge/badge.css">
 </head>
 <body data-page-id="{page_id}">
 {body}
@@ -1867,8 +1850,8 @@ index_body = f'''
 </header>
 
 <div class="overall-bar" id="overall-progress">
-  <div class="bar-track"><div class="bar-fill"></div></div>
-  <div class="bar-label">Sign in above to start tracking your progress.</div>
+  <div class="dj-bar-track"><div class="dj-bar-fill dj-bar-fill-success"></div></div>
+  <div class="dj-bar-label">Sign in above to start tracking your progress.</div>
 </div>
 
 <div class="continue-card" id="continue-card" style="display:none">
@@ -2116,7 +2099,7 @@ TOOLKIT_JS = '''
       card.classList.toggle("is-here", id === hereId);
       card.classList.toggle("is-covered", !!covered[id]);
       if (id === hereId){
-        slot.innerHTML = '<span class="stage-badge current">Here</span>';
+        slot.innerHTML = '<span class="dj-badge dj-badge-accent">Here</span>';
         btn.setAttribute("aria-pressed", "true");
         btn.title = "Click to clear";
       } else if (covered[id]){
@@ -2125,7 +2108,7 @@ TOOLKIT_JS = '''
         // doesn't say covered by *what*, or why that means it's not
         // urgent: practicing the named drill already keeps this skill warm.
         var coveringTitle = titleFor(covered[id]);
-        slot.innerHTML = '<a class="covered-badge" href="#ex-' + covered[id] +
+        slot.innerHTML = '<a class="dj-badge covered-badge" href="#ex-' + covered[id] +
           '" title="Practicing this already keeps &lsquo;' + coveringTitle.replace(/"/g, "&quot;") +
           '&rsquo; warm, so it is not urgent on its own">Covered by ' + coveringTitle + '</a>';
         btn.setAttribute("aria-pressed", "false");
@@ -2148,7 +2131,7 @@ TOOLKIT_JS = '''
         if (!(cid in covered)) allCovered = false;
       }
       section.classList.toggle("has-here", hasHere);
-      secBadge.innerHTML = allCovered ? '<span class="stage-badge superseded">Superseded</span>' : "";
+      secBadge.innerHTML = allCovered ? '<span class="dj-badge dj-badge-success">Superseded</span>' : "";
     }
 
     if (!progressNote) return;
@@ -2364,8 +2347,8 @@ function renderProgress(data){
   var bar = document.getElementById("overall-progress");
   if (bar){
     var pct = total ? Math.round((done / total) * 100) : 0;
-    bar.querySelector(".bar-fill").style.width = pct + "%";
-    bar.querySelector(".bar-label").textContent = done + "/" + total + " exercises tracked (" + pct + "%)";
+    bar.querySelector(".dj-bar-fill").style.width = pct + "%";
+    bar.querySelector(".dj-bar-label").textContent = done + "/" + total + " exercises tracked (" + pct + "%)";
   }
   var pills = document.querySelectorAll("[data-progress-for]");
   for (var i = 0; i < pills.length; i++){
