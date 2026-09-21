@@ -17,11 +17,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;1,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=c322548e81">
+<link rel="stylesheet" href="style.css?v=888d256069">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/buttons/buttons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/callout/callout.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/progress/progress.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/badge/badge.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/hero/hero.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/empty-state/empty-state.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/filter-bar/filter-bar.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/divided-list/divided-list.css">
 </head>
 <body data-page-id="">
 
@@ -37,15 +41,15 @@
     <button class="dj-button dj-button-small" id="signout-btn" style="display:none">Sign out</button>
   </div>
 </div>
-<header class="masthead">
-  <div class="hero-mark" aria-hidden="true"></div>
+<header class="dj-hero">
+  <div class="dj-hero-mark" aria-hidden="true"></div>
   <div class="kicker">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     A curated, human-made resource curriculum
   </div>
   <h1>Draw your own comics,<br><em>one page at a time.</em></h1>
   <svg class="underline" viewBox="0 0 180 14"><path d="M3 9 C 40 2, 90 14, 130 6 S 175 4, 177 9"/></svg>
-  <p class="subhead">
+  <p class="dj-hero-lede">
     A sustainable, mostly-free curriculum built from resources other artists actually recommend &mdash;
     tuned for a busy beginner with 1&ndash;3 hours a week whose goal is loose, expressive, stylized comics,
     not photorealism.
@@ -86,15 +90,15 @@
   </div>
 
   <h3 style="margin-top:40px;">Key findings from the research</h3>
-  <ul class="findings">
-    <li><span class="fn">1</span><span><strong>A clearly-taught fundamentals book beats a free but
+  <ul class="findings dj-divided-list dj-divided-list-marked">
+    <li class="dj-divided-item"><span class="dj-divided-item-marker">1</span><span class="dj-divided-item-body"><strong>A clearly-taught fundamentals book beats a free but
     confusing one.</strong> <em>How to Draw</em>&rsquo;s early chapters transfer to any style; its
     later vehicle and product-design chapters are precision-heavy repetition most cartoonists
     don&rsquo;t need.</span></li>
-    <li><span class="fn">2</span><span><strong>The Solo Art Curriculum is excellent, but built for a
+    <li class="dj-divided-item"><span class="dj-divided-item-marker">2</span><span class="dj-divided-item-body"><strong>The Solo Art Curriculum is excellent, but built for a
     different artist.</strong> Its figure-drawing and character-design units are worth borrowing;
     its anatomy and painting sequence targets concept artists, not cartoonists.</span></li>
-    <li><span class="fn">3</span><span><strong>Dedicated cartooning resources already exist and are
+    <li class="dj-divided-item"><span class="dj-divided-item-marker">3</span><span class="dj-divided-item-body"><strong>Dedicated cartooning resources already exist and are
     free.</strong> Loomis, the Etherington Brothers, Proko, and McCloud cover exactly the ground a
     comic artist needs.</span></li>
   </ul>
@@ -272,9 +276,9 @@
 </div>
 
 <div class="dj-credit"><img src="djaunt-icon-radiant.svg" alt="" width="14" height="14">Part of Djaunt</div>
-<script src="progress-schema.js?v=c322548e81"></script>
-<script src="firebase-config.js?v=c322548e81"></script>
+<script src="progress-schema.js?v=888d256069"></script>
+<script src="firebase-config.js?v=888d256069"></script>
 <script src="https://accounts.google.com/gsi/client"></script>
-<script type="module" src="app.js?v=c322548e81"></script>
+<script type="module" src="app.js?v=888d256069"></script>
 </body>
 </html>

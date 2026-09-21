@@ -191,13 +191,15 @@ a:hover{color:var(--dj-accent-hi);}
 
 .wrap{max-width:var(--max); margin:0 auto; padding:20px 24px 90px;}
 
-header.masthead{max-width:var(--max); margin:0 auto; padding:40px 24px 8px; position:relative; overflow:hidden;}
-.hero-mark{
-  position:absolute; top:-10%; right:-6%; width:42%; max-width:380px; aspect-ratio:1;
+/* .dj-hero / .dj-hero-mark / .dj-hero-lede come from djaunt-branding's
+   components/hero/hero.css, linked in shell(). */
+.dj-hero{max-width:var(--max); margin:0 auto; padding:40px 24px 8px;}
+.dj-hero-mark{
+  top:-10%; right:-6%; width:42%; max-width:380px; aspect-ratio:1;
   background-color:var(--dj-accent);
   -webkit-mask:url('djaunt-icon-radiant.svg') no-repeat center / contain;
           mask:url('djaunt-icon-radiant.svg') no-repeat center / contain;
-  opacity:.06; pointer-events:none;
+  transform:none;
 }
 .kicker{
   font-family:var(--dj-font-mono); font-size:var(--dj-text-xs); text-transform:uppercase;
@@ -211,7 +213,7 @@ h1{
   margin:0 0 6px;
 }
 h1 em{font-style:italic; font-weight:600; color:var(--dj-accent);}
-.subhead{font-size:19px; color:var(--dj-text-muted); max-width:520px; margin:18px 0 28px;}
+.dj-hero-lede{font-size:19px; max-width:520px; margin:18px 0 28px;}
 .toolkit-badge-note{
   font-size:13.5px; color:var(--dj-text-muted); max-width:560px; margin:-16px 0 28px;
   border-left:2px solid var(--dj-border); padding-left:12px;
@@ -260,12 +262,16 @@ strong{font-weight:600;}
 }
 .tldr h3{margin-top:0;}
 
-.findings{list-style:none; margin:24px 0; padding:0;}
-.findings li{display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--dj-border);}
-.findings li:last-child{border-bottom:1px solid var(--dj-border);}
-.findings .fn{
-  font-family:var(--dj-font-mono); font-weight:500;
-  color:var(--dj-accent); font-size:20px; flex:none; width:34px;
+/* .findings uses djaunt-branding's components/divided-list/divided-list.css
+   (dj-divided-list dj-divided-list-marked), linked in shell(); this residual
+   keeps its framed top+bottom border and wider numbered marker. */
+.findings{margin:24px 0;}
+.findings .dj-divided-item{
+  padding:18px 0; border-top:1px solid var(--dj-border); border-bottom:none;
+}
+.findings .dj-divided-item:last-child{border-bottom:1px solid var(--dj-border);}
+.findings .dj-divided-item-marker{
+  font-weight:500; color:var(--dj-accent); font-size:20px; width:34px; min-width:34px;
 }
 
 blockquote{
@@ -398,19 +404,13 @@ footer.site{
 .tracker-note{font-size:13px; color:var(--dj-text-muted); margin:12px 0 0;}
 
 /* exercise toolkit page */
-.toolkit-toolbar{
-  display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:26px 0 6px;
-}
-.search-box{
-  flex:1 1 220px; display:flex; align-items:center; gap:9px;
-  background:var(--dj-surface); border:1px solid var(--dj-border); border-radius:var(--dj-radius-md);
-  padding:9px 14px; color:var(--dj-text-muted); font-size:14.5px;
-}
-.search-box svg{width:16px; height:16px; flex:none; color:var(--dj-text-muted);}
-.search-box input{
-  background:none; border:none; outline:none; color:var(--dj-text); font:inherit; width:100%;
-}
-.search-box input::placeholder{color:var(--dj-text-muted);}
+/* .toolkit-toolbar / .search-box use djaunt-branding's
+   components/filter-bar/filter-bar.css (dj-filter-bar / dj-filter-field /
+   dj-filter-icon / dj-filter-input), linked in shell(); this residual keeps
+   the toolbar's wider gap/margin and the search box's own sizing. */
+.toolkit-toolbar{ gap:10px 12px; margin:26px 0 6px; }
+.search-box{ flex-basis:220px; max-width:none; border-radius:var(--dj-radius-md); gap:9px; }
+.search-box .dj-filter-icon{ width:16px; height:16px; }
 .toolkit-pick-btn{
   font-family:inherit; font-size:13px; font-weight:600; color:var(--dj-bg); background:var(--dj-success);
   border:1px solid var(--dj-success); border-radius:var(--dj-radius-md); padding:6px 16px; cursor:pointer;
@@ -488,7 +488,7 @@ footer.site{
 .exercise-images{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 0;}
 .exercise-images img{max-width:100%; border-radius:var(--dj-radius-md); border:1px solid var(--dj-border);}
 .exercise-source{font-size:13px; color:var(--dj-text-muted); margin:12px 0 0;}
-.toolkit-empty{color:var(--dj-text-muted); font-size:15px; display:none;}
+/* .toolkit-empty uses djaunt-branding's components/empty-state/empty-state.css. */
 
 @media print{
   .sitebar, nav.pn, .tracker-box, .overall-bar, .continue-card, .dj-credit{display:none;}
