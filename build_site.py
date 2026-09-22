@@ -14,12 +14,15 @@ with open(os.path.abspath(__file__), "rb") as _f:
     BUILD_VERSION = hashlib.sha256(_f.read()).hexdigest()[:10]
 
 # ---------- brand tokens ----------
-# Verbatim from github.com/tory37/djaunt-branding (brand/tokens/tokens.css,
-# commit aab0d15). Djaunt is one person's catch-all brand across music,
-# software, and art -- see that repo's BRANDING.md. Site-specific rules
-# below consume only the role variables (--dj-bg, --dj-text, --dj-accent,
-# etc.), never a raw hex, so swapping data-dj-theme on <html> re-themes the
-# whole site for free. Don't hand-edit values in here; re-copy from source.
+# Curated from github.com/tory37/djaunt-branding (brand/tokens/tokens.css,
+# commit 99d14e8) -- the roles this site actually consumes, not a byte-for-
+# byte copy (the source file also carries ANSI/terminal and code-syntax
+# tokens this static site has no use for). Djaunt is one person's catch-all
+# brand across music, software, and art -- see that repo's BRANDING.md.
+# Site-specific rules below consume only the role variables (--dj-bg,
+# --dj-text, --dj-accent, --dj-accent-2/3/4, etc.), never a raw hex, so
+# swapping data-dj-theme on <html> re-themes the whole site for free. Don't
+# hand-edit values in here; re-copy from source.
 DJAUNT_TOKENS_CSS = '''
 :root {
   /* ---- Brand core ---- */
@@ -94,6 +97,12 @@ DJAUNT_TOKENS_CSS = '''
   --dj-accent: #D4A017;
   --dj-accent-hi: #F0C24B;
   --dj-accent-deep: #6E4A0E;
+  /* Categorical accents -- several simultaneous meaningful colors on one
+     surface (status lanes, a gauge's zones), never a second mood. See
+     BRANDING.md's "Categorical / multi-accent surfaces". */
+  --dj-accent-2: #3BB07C;
+  --dj-accent-3: #816ACD;
+  --dj-accent-4: #C65373;
   --dj-bg: #0D0C0A;
   --dj-surface: #14120F;
   --dj-surface-raised: #1C1913;
@@ -105,48 +114,56 @@ DJAUNT_TOKENS_CSS = '''
 }
 [data-dj-theme="fire"] {
   --dj-accent: #FF6B2C; --dj-accent-hi: #FF9560; --dj-accent-deep: #7A2408;
+  --dj-accent-2: #54D7A7; --dj-accent-3: #5A74D8; --dj-accent-4: #D754B0;
   --dj-bg: #100A07; --dj-surface: #1A100B; --dj-surface-raised: #241610; --dj-border: #352115;
   --dj-text: var(--dj-bone-200); --dj-text-muted: var(--dj-bone-400);
   --dj-on-accent: #100A07; --dj-glow: 0 0 24px #FF6B2C33;
 }
 [data-dj-theme="frost"] {
   --dj-accent: #7FD8F0; --dj-accent-hi: #B3EAF8; --dj-accent-deep: #14556E;
+  --dj-accent-2: #DB94D7; --dj-accent-3: #CCDB94; --dj-accent-4: #94DBBB;
   --dj-bg: #070F12; --dj-surface: #0C1720; --dj-surface-raised: #122029; --dj-border: #1B2E38;
   --dj-text: var(--dj-bone-200); --dj-text-muted: var(--dj-bone-400);
   --dj-on-accent: #070F12; --dj-glow: 0 0 24px #7FD8F033;
 }
 [data-dj-theme="storm"] {
   --dj-accent: #9B8CFF; --dj-accent-hi: #C3B8FF; --dj-accent-deep: #3B2C86;
+  --dj-accent-2: #E0E9A2; --dj-accent-3: #BCE9A2; --dj-accent-4: #A2BCE9;
   --dj-bg: #0A0912; --dj-surface: #12101F; --dj-surface-raised: #1A1729; --dj-border: #262138;
   --dj-text: var(--dj-bone-200); --dj-text-muted: var(--dj-bone-400);
   --dj-on-accent: #0A0912; --dj-glow: 0 0 24px #9B8CFF33;
 }
 [data-dj-theme="stone"] {
   --dj-accent: #93A98C; --dj-accent-hi: #BACBB4; --dj-accent-deep: #3C4D39;
+  --dj-accent-2: #8697AF; --dj-accent-3: #AF86A4; --dj-accent-4: #ABAF86;
   --dj-bg: #0A0C09; --dj-surface: #111510; --dj-surface-raised: #181D16; --dj-border: #242A21;
   --dj-text: var(--dj-bone-200); --dj-text-muted: var(--dj-bone-400);
   --dj-on-accent: #0A0C09; --dj-glow: 0 0 24px #93A98C33;
 }
 [data-dj-theme="venom"] {
   --dj-accent: #A8E01F; --dj-accent-hi: #C9F05E; --dj-accent-deep: #47660A;
+  --dj-accent-2: #557EC1; --dj-accent-3: #AD5AC3; --dj-accent-4: #ADBB44;
   --dj-bg: #080F04; --dj-surface: #0F170A; --dj-surface-raised: #15200E; --dj-border: #1F2E14;
   --dj-text: var(--dj-bone-200); --dj-text-muted: var(--dj-bone-400);
   --dj-on-accent: #080F04; --dj-glow: 0 0 24px #A8E01F33;
 }
 [data-dj-theme="void"] {
   --dj-accent: #B0A7C9; --dj-accent-hi: #D6CFE6; --dj-accent-deep: #3A3450;
+  --dj-accent-2: #C3C6AA; --dj-accent-3: #B0C6AA; --dj-accent-4: #AAB5C6;
   --dj-bg: #08080B; --dj-surface: #0F0F14; --dj-surface-raised: #16161D; --dj-border: #22222C;
   --dj-text: var(--dj-bone-200); --dj-text-muted: var(--dj-bone-400);
   --dj-on-accent: #08080B; --dj-glow: 0 0 24px #B0A7C933;
 }
 [data-dj-theme="radiant"] {
   --dj-accent: #FFE9A3; --dj-accent-hi: #FFF6D6; --dj-accent-deep: #8A6A1E;
+  --dj-accent-2: #B4EED6; --dj-accent-3: #C3B4EE; --dj-accent-4: #EEB4C2;
   --dj-bg: #12100A; --dj-surface: #1C1810; --dj-surface-raised: #262016; --dj-border: #342C1E;
   --dj-text: var(--dj-bone-200); --dj-text-muted: var(--dj-bone-400);
   --dj-on-accent: #12100A; --dj-glow: 0 0 24px #FFE9A333;
 }
 [data-dj-theme="deep"] {
   --dj-accent: #2FB3C9; --dj-accent-hi: #77D7E5; --dj-accent-deep: #0E4A57;
+  --dj-accent-2: #B359B5; --dj-accent-3: #9EAC4C; --dj-accent-4: #4CAC7A;
   --dj-bg: #050F11; --dj-surface: #0B1A1D; --dj-surface-raised: #102429; --dj-border: #183339;
   --dj-text: var(--dj-bone-200); --dj-text-muted: var(--dj-bone-400);
   --dj-on-accent: #050F11; --dj-glow: 0 0 24px #2FB3C933;
@@ -276,11 +293,11 @@ li{margin-bottom:7px;}
 strong{font-weight:600;}
 
 .callout{
-  border-left:3px solid var(--dj-border); padding:12px 16px; margin:16px 0;
-  border-radius:var(--dj-radius-sm); background:var(--dj-surface); font-size:15.5px;
+  border:1px solid var(--dj-border); border-left:3px solid var(--dj-border); padding:16px 20px; margin:16px 0;
+  border-radius:var(--dj-radius-md); background:var(--dj-surface); font-size:15.5px;
 }
-.callout.do{border-color:var(--dj-success);}
-.callout.skip{border-color:var(--dj-danger);}
+.callout.do{border-left-color:var(--dj-success);}
+.callout.skip{border-left-color:var(--dj-danger);}
 .callout .tag{font-weight:700; font-size:11.5px; margin-bottom:5px; display:block;}
 .callout.do .tag{color:var(--dj-success);}
 .callout.skip .tag{color:var(--dj-danger);}
@@ -367,7 +384,7 @@ footer.site{
 /* overall progress bar (index page) */
 .overall-bar{max-width:var(--max); margin:22px auto 0; padding:0 24px;}
 .bar-track{height:8px; background:var(--dj-ink-900); border-radius:var(--dj-radius-md); overflow:hidden; border:1px solid var(--dj-border);}
-.bar-fill{height:100%; width:0%; background:var(--dj-success); transition:width .5s ease;}
+.bar-fill{height:100%; width:0%; background:var(--dj-success); transition:width var(--dj-dur-slow) var(--dj-ease);}
 .bar-label{font-size:12.5px; color:var(--dj-text-muted); margin-top:7px;}
 
 /* "continue where you left off" card (index page) */
@@ -472,25 +489,23 @@ footer.site{
 .toolkit-section-main{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
 .toolkit-section-title{font-family:var(--dj-font-display); font-weight:600; letter-spacing:var(--dj-tracking-display); font-size:20px;}
 .toolkit-section .section-count{font-size:13px; color:var(--dj-text-muted);}
-.stage-badge{
-  font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+/* Djaunt badge recipe (brand/components/badge): --dj-badge-color feeds a
+   tinted border (40%) and background (14%) plus solid text, so every
+   category/stage/status tag in the shared system reads the same way. */
+.stage-badge, .covered-badge, .tag-chip{
+  --dj-badge-color:var(--dj-text-muted);
+  font-family:var(--dj-font-mono); font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
+  display:inline-flex; align-items:center; white-space:nowrap;
+  color:var(--dj-badge-color);
+  border:1px solid color-mix(in srgb, var(--dj-badge-color) 40%, transparent);
+  background:color-mix(in srgb, var(--dj-badge-color) 14%, transparent);
   border-radius:var(--dj-radius-sm); padding:2px 8px;
 }
-.stage-badge.current{
-  color:var(--dj-accent); background:color-mix(in srgb, var(--dj-accent) 8%, transparent);
-  border:1px solid var(--dj-accent);
-}
-.stage-badge.superseded{
-  color:var(--dj-success); background:color-mix(in srgb, var(--dj-success) 10%, transparent);
-  border:1px solid var(--dj-success);
-}
+.stage-badge.current{--dj-badge-color:var(--dj-accent);}
+.stage-badge.superseded{--dj-badge-color:var(--dj-success);}
 .toolkit-section.has-here{border-color:var(--dj-accent);}
-.covered-badge{
-  font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
-  color:var(--dj-text-muted); border:1px solid var(--dj-border); border-radius:var(--dj-radius-sm); padding:2px 8px;
-  text-decoration:none; max-width:100%;
-}
-.covered-badge:hover{color:var(--dj-accent); border-color:var(--dj-accent);}
+.covered-badge{text-decoration:none; max-width:100%;}
+.covered-badge:hover{--dj-badge-color:var(--dj-accent);}
 .exercise-card.is-covered{opacity:.62;}
 .exercise-card.is-covered:hover, .exercise-card.is-covered:focus-within{opacity:1;}
 .toolkit-section .section-chevron{color:var(--dj-text-muted); display:flex; flex:none; transition:transform .2s ease;}
@@ -523,10 +538,7 @@ footer.site{
 .exercise-chevron{color:var(--dj-text-muted); display:flex; transition:transform .2s ease;}
 .exercise-card[open] .exercise-chevron{transform:rotate(180deg);}
 .exercise-tags{display:flex; flex-wrap:wrap; gap:6px;}
-.tag-chip{
-  font-family:var(--dj-font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:var(--dj-accent);
-  border:1px solid var(--dj-border); border-radius:var(--dj-radius-sm); padding:2px 8px;
-}
+.tag-chip{--dj-badge-color:var(--dj-accent); font-size:11px; letter-spacing:.03em;}
 .exercise-time{font-size:12.5px; color:var(--dj-text-muted); white-space:nowrap; flex:none;}
 .exercise-title{font-family:var(--dj-font-display); font-weight:600; letter-spacing:var(--dj-tracking-display); font-size:19px; margin:0;}
 .exercise-body{padding:0 22px 20px;}
