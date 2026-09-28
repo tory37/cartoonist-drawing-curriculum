@@ -57,12 +57,11 @@ a:hover{color:var(--dj-accent-hi);}
 }
 .sitebar a.home svg{width:18px; height:18px;}
 .sitebar .pos{color:var(--dj-text-muted);}
-.toolkit-link{
+.nav-link{
   display:flex; align-items:center; gap:6px; color:var(--dj-text-muted); font-weight:500;
   text-decoration:none;
 }
-.toolkit-link svg{width:16px; height:16px;}
-.toolkit-link:hover{color:var(--dj-accent);}
+.nav-link:hover{color:var(--dj-accent);}
 
 .wrap{max-width:var(--max); margin:0 auto; padding:20px 24px 90px;}
 
@@ -89,11 +88,6 @@ h1{
 }
 h1 em{font-style:italic; font-weight:600; color:var(--dj-accent);}
 .dj-hero-lede{font-size:19px; max-width:520px; margin:18px 0 28px;}
-.toolkit-badge-note{
-  font-size:13.5px; color:var(--dj-text-muted); max-width:560px; margin:-16px 0 28px;
-  border-left:2px solid var(--dj-border); padding-left:12px;
-}
-.toolkit-badge-note b{color:var(--dj-text); font-weight:600;}
 .underline{width:180px; height:14px; margin-bottom:8px;}
 .underline path{
   fill:none; stroke:var(--dj-accent); stroke-width:3; stroke-linecap:round;
@@ -214,16 +208,14 @@ footer.site{
 .continue-title{font-family:var(--dj-font-display); font-weight:600; font-size:18px;}
 .continue-arrow{color:var(--dj-success); flex:none; font-size:20px;}
 
-/* table-of-contents group headings + the "suggestion" chip on later modules */
-.toc-group{margin:44px 0 0;}
-.toc-group-note{font-size:14.5px; color:var(--dj-text-muted); margin:6px 0 0;}
-.toc-group + .toc{margin-top:18px;}
+/* current module in the table of contents */
 .toc-now .toc-title{color:var(--dj-success);}
 
-/* "this is a suggestion, not a plan" banner at the top of later modules */
-.suggestion-banner{margin:4px 0 26px;}
+/* "not started yet" note at the top of modules not reached yet */
+.upcoming-note{margin:4px 0 26px;}
+.page-badge{margin:0 0 0 auto; align-self:center;}
 
-/* suggested-steps list on each later module (plain list, no tracking) */
+/* steps list on each module (plain list, no tracking) */
 .steps-box{
   margin:34px 0 6px; border:1px solid var(--dj-border); border-radius:var(--dj-radius-lg);
   padding:22px 24px; background:var(--dj-surface);
@@ -250,93 +242,6 @@ footer.site{
 }
 .track-card h3{margin-top:0;}
 .track-card p:last-child{margin-bottom:0;}
-
-/* exercise toolkit page */
-/* .toolkit-toolbar / .search-box use djaunt-branding's
-   components/filter-bar/filter-bar.css (dj-filter-bar / dj-filter-field /
-   dj-filter-icon / dj-filter-input), linked in shell(); this residual keeps
-   the toolbar's wider gap/margin and the search box's own sizing. */
-.toolkit-toolbar{ gap:10px 12px; margin:26px 0 6px; }
-.search-box{ flex-basis:220px; max-width:none; border-radius:var(--dj-radius-md); gap:9px; }
-.search-box .dj-filter-icon{ width:16px; height:16px; }
-.toolkit-pick-btn{
-  font-family:inherit; font-size:13px; font-weight:600; color:var(--dj-bg); background:var(--dj-success);
-  border:1px solid var(--dj-success); border-radius:var(--dj-radius-md); padding:6px 16px; cursor:pointer;
-}
-.toolkit-pick-btn:hover{opacity:.88;}
-.toolkit-hit-count{font-size:12.5px; color:var(--dj-text-muted); margin:0 0 20px;}
-.toolkit-progress-note{font-size:12.5px; color:var(--dj-text-muted); margin:-10px 0 20px;}
-
-.toolkit-section{
-  border:1px solid var(--dj-border); border-radius:var(--dj-radius-lg); background:var(--dj-surface);
-  margin-top:14px; overflow:hidden;
-}
-.toolkit-section-summary{
-  list-style:none; cursor:pointer; padding:16px 20px;
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-}
-.toolkit-section-summary::-webkit-details-marker{display:none;}
-.toolkit-section-main{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
-.toolkit-section-title{font-family:var(--dj-font-display); font-weight:600; letter-spacing:var(--dj-tracking-display); font-size:20px;}
-.toolkit-section .section-count{font-size:13px; color:var(--dj-text-muted);}
-/* .stage-badge / .covered-badge / .tag-chip are .dj-badge (from
-   djaunt-branding's components/badge/badge.css, linked above) plus a
-   local residual for the bits the shared class doesn't cover. */
-.toolkit-section.has-here{border-color:var(--dj-accent);}
-.covered-badge{ text-decoration:none; max-width:100%; }
-.covered-badge:hover{color:var(--dj-accent); border-color:var(--dj-accent);}
-.exercise-card.is-covered{opacity:.62;}
-.exercise-card.is-covered:hover, .exercise-card.is-covered:focus-within{opacity:1;}
-.toolkit-section .section-chevron{color:var(--dj-text-muted); display:flex; flex:none; transition:transform .2s ease;}
-.toolkit-section[open] .section-chevron{transform:rotate(180deg);}
-.toolkit-section-body{padding:0 20px 18px;}
-.exercise-grid{display:flex; flex-direction:column; gap:16px; margin:6px 0 0;}
-.exercise-card{
-  border:1px solid var(--dj-border); border-radius:var(--dj-radius-md); background:var(--dj-surface);
-  transition:border-color .25s ease, box-shadow .25s ease;
-}
-.exercise-card.picked{border-color:var(--dj-success); box-shadow:0 0 0 1px var(--dj-success);}
-.exercise-card.is-here{border-color:var(--dj-accent); box-shadow:0 0 0 1px var(--dj-accent);}
-.exercise-summary{list-style:none; cursor:pointer; padding:20px 22px;}
-.exercise-summary::-webkit-details-marker{display:none;}
-.exercise-card[open] > .exercise-summary{padding-bottom:10px;}
-.exercise-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; flex-wrap:wrap;}
-.exercise-head-side{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
-.here-toggle{
-  font-family:var(--dj-font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.03em; font-weight:500;
-  color:var(--dj-text-muted); background:var(--dj-ink-900); border:1px solid var(--dj-border);
-  border-radius:var(--dj-radius-sm); padding:4px 10px; cursor:pointer; white-space:nowrap; flex:none;
-}
-.here-toggle:hover{color:var(--dj-accent); border-color:var(--dj-accent);}
-.here-toggle:focus-visible{outline:2px solid var(--dj-accent); outline-offset:2px;}
-.here-toggle[aria-pressed="true"]{
-  color:var(--dj-accent); background:color-mix(in srgb, var(--dj-accent) 8%, transparent);
-  border-color:var(--dj-accent);
-}
-@media (max-width:480px){.here-toggle{font-size:10px; padding:4px 8px;}}
-.exercise-chevron{color:var(--dj-text-muted); display:flex; transition:transform .2s ease;}
-.exercise-card[open] .exercise-chevron{transform:rotate(180deg);}
-.exercise-tags{display:flex; flex-wrap:wrap; gap:6px;}
-.exercise-time{font-size:12.5px; color:var(--dj-text-muted); white-space:nowrap; flex:none;}
-.exercise-title{font-family:var(--dj-font-display); font-weight:600; letter-spacing:var(--dj-tracking-display); font-size:19px; margin:0;}
-.exercise-body{padding:0 22px 20px;}
-.exercise-steps{font-size:15px; margin:0; padding-left:20px;}
-.exercise-steps li{margin-bottom:6px;}
-.exercise-steps li:last-child{margin-bottom:0;}
-.exercise-steps li.exercise-note{
-  list-style:none; margin-left:-20px;
-  font-size:13.5px; color:var(--dj-text-muted); background:color-mix(in srgb, var(--dj-accent) 8%, transparent);
-  border-left:2px solid var(--dj-accent); border-radius:0 var(--dj-radius-md) var(--dj-radius-md) 0;
-  padding:8px 12px; margin-top:2px; margin-bottom:12px;
-}
-.exercise-note .note-label{
-  display:block; font-weight:700; text-transform:uppercase; letter-spacing:.03em;
-  font-size:11px; color:var(--dj-accent); margin-bottom:3px;
-}
-.exercise-images{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 0;}
-.exercise-images img{max-width:100%; border-radius:var(--dj-radius-md); border:1px solid var(--dj-border);}
-.exercise-source{font-size:13px; color:var(--dj-text-muted); margin:12px 0 0;}
-/* .toolkit-empty uses djaunt-branding's components/empty-state/empty-state.css. */
 
 @media print{
   .sitebar, nav.pn, .continue-card, .dj-credit{display:none;}
@@ -414,40 +319,83 @@ ICONS = {
 }
 
 HOME_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-TOOLKIT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h18" stroke-linecap="round"/></svg>'
-CHEVRON_ICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>'
+PAGES = []  # filled below, list of dicts: id, file, title, icon, duration, body, status
 
-PAGES = []  # filled below, list of dicts: id, file, title, icon, duration, body, kind
-
-# kind is one of:
-#   "now"        -- the current phase of the guide: the part to actually work
-#                   through right now.
-#   "suggestion" -- the original roadmap for later. Not a commitment: it may
-#                   or may not get followed, and gets a banner saying so.
-#   "reference"  -- caveats / about / sources.
-def add(id, file, title, icon, duration, body, kind="suggestion"):
-    PAGES.append(dict(id=id, file=file, title=title, icon=icon, duration=duration, body=body, kind=kind))
+# This plan is edited live as it gets worked through: modules that were done
+# describe what actually happened, and later modules get kept, changed, or
+# swapped out when they're reached. status is one of:
+#   "done"     -- worked through.
+#   "current"  -- being worked through now (the "Continue" link points here).
+#   "upcoming" -- not reached yet; the plan as it stands, open to change.
+#   None       -- not a module (recommendations / caveats / about).
+def add(id, file, title, icon, duration, body, status="upcoming"):
+    PAGES.append(dict(id=id, file=file, title=title, icon=icon, duration=duration, body=body, status=status))
 
 DRAWABOX_URL = "https://drawabox.com"
 DLAS_URL = "https://youtube.com/playlist?list=PL0V_JTTg_6baV8tBE4Qm1O8Vhxy59GTah"
 PETER_HAN_URL = "https://youtube.com/playlist?list=PLqR-aNpyEIVd91GCwsyOS3oRn6eoRhyio"
+HOW_TO_DRAW_URL = "https://designstudiopress.com/products/how-to-draw"
 
 def ext(url, text):
     return f'<a href="{url}" target="_blank" rel="noopener">{text}</a>'
 
-add("now", "learning-to-draw.html", "Learning to draw", "lines",
-    f'Drawabox basics, then {ext(DLAS_URL, "Draw Like a Sir")} + {ext(PETER_HAN_URL, "Peter Han")} &middot; as long as it takes', f'''
-<p>This is the big, general &ldquo;learn to draw&rdquo; phase &mdash; everything before getting
-specific about comics or cartooning. It&rsquo;s the current phase of this guide; the modules after it
-are suggestions to consider once you get there.</p>
-
-<h3>Step 1 &mdash; The very beginning of Drawabox</h3>
+add("rhythm", "01-rhythm.html", "Getting set up", "rhythm",
+    f'The start of {ext(DRAWABOX_URL, "Drawabox")} &middot; a week or two', f'''
+<h3>The very beginning of Drawabox</h3>
 <p>Read the opening material of {ext(DRAWABOX_URL, "Drawabox")}: materials, how to hold the pen, and
-drawing from your shoulder instead of your wrist. That&rsquo;s all you need from it here &mdash; get the
-setup basics and some ideas about arm movement, then move on. You don&rsquo;t need to finish its lessons
-or do the 250 box challenge.</p>
+drawing from your shoulder instead of your wrist. That&rsquo;s all you need from it &mdash; the setup
+basics and some ideas about arm movement. You don&rsquo;t need to go further into its lessons or do
+the 250 box challenge.</p>
 
-<h3>Step 2 &mdash; Two playlists, side by side</h3>
+<h3>Weekly rhythm</h3>
+<p>Progress comes from consistency, not intensity. Structure it like this:</p>
+<ul>
+  <li><strong>Two sessions of 45&ndash;90 minutes a week</strong> (or one longer weekend block plus small doodling on the side).</li>
+  <li><strong>Split every session roughly 50/50</strong> &mdash; structured practice from your current module, then free &ldquo;play&rdquo;: doodle your own characters, copy cartoons you love, sketch from shows.</li>
+  <li><strong>Don&rsquo;t chase finished pieces early.</strong> The reps are the point, not the polish.</li>
+  <li><strong>Expect each module to take months.</strong> That&rsquo;s normal, and it&rsquo;s what makes this sustainable for five years instead of five weeks.</li>
+</ul>
+
+<h3>Supplies &mdash; keep it cheap</h3>
+<div class="supply-grid">
+  <div>&#9998; HB pencil + a softer 2B/3B</div>
+  <div>&#9998; Vinyl or kneaded eraser</div>
+  <div>&#9998; Canson XL or Strathmore sketchbook</div>
+  <div>&#9998; Staedtler Mars Lumograph pencils</div>
+  <div>&#9998; A pack of fineliners (for ink line drills &mdash; no erasing)</div>
+  <div>&#9998; Printer paper is fine to start</div>
+</div>
+
+<h3>Books worth having</h3>
+<div class="supply-grid">
+  <div>&#128214; Scott Robertson &amp; Thomas Bertling, {ext(HOW_TO_DRAW_URL, "<em>How to Draw</em>")} (~$40)</div>
+  <div>&#128214; Ivan Brunetti, <a href="https://yalebooks.yale.edu/book/9780300170993/cartooning/" target="_blank" rel="noopener"><em>Cartooning: Philosophy and Practice</em></a> (~$20)</div>
+  <div>&#128214; Lynda Barry, <a href="https://drawnandquarterly.com/books/making-comics/" target="_blank" rel="noopener"><em>Making Comics</em></a> (~$25)</div>
+  <div>&#128214; Marcos Mateu-Mestre, <a href="https://www.amazon.com/Framed-Ink-Drawing-Composition-Storytellers/dp/1933492953" target="_blank" rel="noopener"><em>Framed Ink</em></a> (~$25)</div>
+</div>
+<p><strong><em>How to Draw</em></strong> is a respected perspective and form textbook &mdash; Robertson and
+Bertling both taught for years at Art Center College of Design. It&rsquo;s recommended, but as a
+reference to dip into, not the main path: it gets dry fast for a beginner, and the playlists in the
+next module turned out to be a better way in. Brunetti, Barry, and Mateu-Mestre don&rsquo;t come into
+play until the comics module.</p>
+
+<h3>Worth considering: the 4-minute diary</h3>
+<p>Lynda Barry&rsquo;s
+<a href="https://www.openculture.com/2021/09/cartoonist-lynda-barry-teaches-you-how-to-make-a-visual-daily-diary.html" target="_blank" rel="noopener">4-minute diary</a>:
+split a page into four boxes &mdash; 7 things you did (2 min), 7 things you saw (2 min), one thing you
+overheard (30 sec), and one quick sketch from the day (30 sec).</p>
+<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">why it&rsquo;s here</span>
+It takes zero drawing skill, and it builds the observation and finishing habits that storytelling
+depends on. It isn&rsquo;t required to move on &mdash; keep it on the list and pick it up whenever it
+fits, a few times a week.</div>
+''', status="done")
+
+add("learn", "02-learning-to-draw.html", "Learning to draw", "lines",
+    f'{ext(DLAS_URL, "Draw Like a Sir")} + {ext(PETER_HAN_URL, "Peter Han")} &middot; as long as it takes', f'''
+<p>The big, general &ldquo;learn to draw&rdquo; module &mdash; lines, shapes, form, and space, before
+anything specific to comics or cartooning. It&rsquo;s built on two YouTube playlists worked through side
+by side.</p>
+
 <div class="track-card">
   <h3>{ext(DLAS_URL, "Draw Like a Sir")}</h3>
   <p>An excellent, very well produced guide to the concepts. Each video lays out what to work on, but
@@ -474,70 +422,19 @@ next video in each and repeat.</div>
   need to practice, Draw Like a Sir especially. When a concept doesn&rsquo;t click, or you run out of
   things to draw, go look it up: other tutorials on the same topic, drills and worksheets, reference
   photos, other artists&rsquo; takes. Finding your own practice material is part of the work.</li>
+  <li><strong>Build your own warm-up toolkit.</strong> This plan gives you the bones; the specifics
+  are yours. When you find a drill worth coming back to, write it down somewhere you&rsquo;ll see it
+  and use it to warm up. Your list will look different from anyone else&rsquo;s, and that&rsquo;s the point.</li>
   <li><strong>Mix drills and play.</strong> Drill the concept, then use it in drawings you actually
   want to make.</li>
-  <li><strong>Save drills that work.</strong> When you find an exercise worth coming back to, add it to
-  the <a href="toolkit.html">toolkit</a> so it&rsquo;s easy to warm up with later.</li>
 </ul>
 
-<h3>When this phase is done</h3>
-<p>Once you&rsquo;ve worked through both playlists, look over the suggested modules that follow and
-pick what fits. They&rsquo;re a starting point, not a fixed path, and this guide will be updated as
-things change.</p>
-''', kind="now")
-
-add("rhythm", "01-rhythm.html", "Weekly rhythm &amp; supplies", "rhythm", None, '''
-<p>Progress here comes from consistency, not intensity. Structure it like this:</p>
-<ul>
-  <li><strong>Two sessions of 45&ndash;90 minutes a week</strong> (or one longer weekend block plus small doodling on the side).</li>
-  <li><strong>Split every session roughly 50/50</strong> &mdash; structured exercise from your current phase, then free &ldquo;play&rdquo;: doodle your own characters, copy cartoons you love, sketch from shows.</li>
-  <li><strong>Don&rsquo;t chase finished pieces early.</strong> The reps are the point, not the polish.</li>
-  <li><strong>Expect each phase to take months.</strong> That&rsquo;s normal, and it&rsquo;s what makes this sustainable for five years instead of five weeks.</li>
-</ul>
-<h3>Supplies &mdash; keep it cheap</h3>
-<div class="supply-grid">
-  <div>&#9998; HB pencil + a softer 2B/3B</div>
-  <div>&#9998; Vinyl or kneaded eraser</div>
-  <div>&#9998; Canson XL or Strathmore sketchbook</div>
-  <div>&#9998; Staedtler Mars Lumograph pencils</div>
-  <div>&#9998; A pack of fineliners (for ink line drills &mdash; no erasing)</div>
-  <div>&#9998; Printer paper is fine to start</div>
-</div>
-<h3>Four books worth buying (~$110 total, one-time)</h3>
-<p>Everything else in this course is free, but four real, proven, expert-designed texts are worth
-paying for instead of us improvising an equivalent from YouTube:</p>
-<div class="supply-grid">
-  <div>&#128214; Scott Robertson &amp; Thomas Bertling, <a href="https://designstudiopress.com/products/how-to-draw" target="_blank" rel="noopener"><em>How to Draw</em></a> (~$40)</div>
-  <div>&#128214; Ivan Brunetti, <a href="https://yalebooks.yale.edu/book/9780300170993/cartooning/" target="_blank" rel="noopener"><em>Cartooning: Philosophy and Practice</em></a> (~$20)</div>
-  <div>&#128214; Lynda Barry, <a href="https://drawnandquarterly.com/books/making-comics/" target="_blank" rel="noopener"><em>Making Comics</em></a> (~$25)</div>
-  <div>&#128214; Marcos Mateu-Mestre, <a href="https://www.amazon.com/Framed-Ink-Drawing-Composition-Storytellers/dp/1933492953" target="_blank" rel="noopener"><em>Framed Ink</em></a> (~$25)</div>
-</div>
-<p><strong>Order <em>How to Draw</em> first</strong> &mdash; it&rsquo;s the very next module. Brunetti&rsquo;s
-escalating drills, Barry&rsquo;s teaching approach, and Mateu-Mestre&rsquo;s panel-staging system don&rsquo;t
-come into play until the comics module, but all four are real, classroom-tested courses in book
-form, worth ordering now while shipping catches up.</p>
-<h3>Start this now: the 4-minute diary</h3>
-<p>Before any fundamentals, start a habit you&rsquo;ll keep for the whole course &mdash; Lynda Barry&rsquo;s
-<a href="https://www.openculture.com/2021/09/cartoonist-lynda-barry-teaches-you-how-to-make-a-visual-daily-diary.html" target="_blank" rel="noopener">4-minute diary</a>.
-Split a page into four boxes: 7 things you did (2 min), 7 things you saw (2 min), one thing you
-overheard (30 sec), and one quick sketch from the day (30 sec).</p>
-<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">why it matters</span>
-It takes zero drawing skill to start, and it builds the observation and finishing habits that
-storytelling actually depends on &mdash; running in parallel with the hand-control drills in the next
-module, not after them. Do it a few times a week from here on, for the whole course.</div>
-''')
-
-add("lines", "02-marks-and-lines.html", "Marks, lines &amp; confidence", "lines",
-    'Scott Robertson &amp; Thomas Bertling, <a href="https://designstudiopress.com/products/how-to-draw" target="_blank" rel="noopener"><em>How to Draw</em></a> (Ch. 1 &amp; 5) &middot; roughly 3&ndash;6 weeks', '''
-<p>Work Chapter 1 of <a href="https://designstudiopress.com/products/how-to-draw" target="_blank" rel="noopener"><em>How to Draw</em></a> for confident, unbroken line work and proper
-markmaking, then jump ahead to Chapter 5, &ldquo;Ellipses and Rotations,&rdquo; for ellipse control.
-Robertson and Bertling both taught for years at Art Center College of Design, and the book
-explains the reasoning behind each drill instead of just assigning it.</p>
-<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">why it matters</span>
-This trains the single most transferable cartooning skill: a confident line and a clean shape
-drawn from the shoulder, not a scratchy, hesitant one.</div>
-<p>Keep it light &mdash; a page or two per session as your structured half, then go draw cartoons for the rest.</p>
-''')
+<h3>Companion reading</h3>
+<p>{ext(HOW_TO_DRAW_URL, "<em>How to Draw</em>")} covers much of the same ground &mdash; confident lines,
+ellipses, perspective boxes &mdash; with the reasoning behind each drill. This module originally started
+with its Chapters 1 and 5, but the book is dry as a starting point, so the playlists took over as the
+main path. Keep it around to look things up or go deeper when a topic grabs you.</p>
+''', status="current")
 
 add("construction", "03-construction.html", "Basic construction &amp; 3D forms", "construction",
     '<a href="https://www.youtube.com/channel/UC5dyu9y0EV0cSvGtbBtHw_w" target="_blank" rel="noopener">Sycra</a> (YouTube, free) &middot; roughly 3&ndash;6 weeks', '''
@@ -625,7 +522,7 @@ combination produces a different, usable silhouette. Run it weekly with a fresh 
 &mdash; it&rsquo;s how the Etheringtons themselves teach building a personal library of shapes fast.</p>
 <div class="dj-callout dj-callout-success"><span class="dj-callout-tag">exercises</span>
 Run the 3-Shape drill weekly, then draw an expression sheet (and eventually a full turnaround model
-sheet) for whichever result you liked best that week &mdash; exactly where your Phase 1&ndash;2 construction
+sheet) for whichever result you liked best that week &mdash; exactly where your module 02&ndash;03 construction
 work pays off.</div>
 ''')
 
@@ -702,7 +599,7 @@ platform. Free communities are worth using anyway &mdash; they&rsquo;re just les
 add("digital", "08-digital.html", "Transition to digital", "digital",
     '<a href="https://www.youtube.com/playlist?list=PLlpSQCrjuGkriILjGVhAMxaroOgpGDbvl" target="_blank" rel="noopener">Procreate&rsquo;s official Beginners Series</a> &middot; when you&rsquo;re ready', '''
 <p><strong>When:</strong> only once you can construct and pose a character from imagination on
-paper &mdash; roughly the end of Phase 4, into Phase 5. Digital drawing is a separate motor and
+paper &mdash; roughly the end of module 05, into module 06. Digital drawing is a separate motor and
 software skill; layering it on too early spends hours you don&rsquo;t have to spare.</p>
 <ul>
   <li><strong>Procreate&rsquo;s official <a href="https://www.youtube.com/playlist?list=PLlpSQCrjuGkriILjGVhAMxaroOgpGDbvl" target="_blank" rel="noopener">&ldquo;Beginners Series&rdquo;</a></strong> &mdash; free, four-part, on Procreate&rsquo;s
@@ -712,7 +609,7 @@ software skill; layering it on too early spends hours you don&rsquo;t have to sp
   <strong><a href="https://ibispaint.com" target="_blank" rel="noopener">Ibis Paint</a> / <a href="https://medibangpaint.com" target="_blank" rel="noopener">Medibang</a></strong> (tablet).</li>
 </ul>
 <div class="dj-callout dj-callout-success"><span class="dj-callout-tag">first steps</span>
-Re-do a few Phase 1 line/ellipse drills digitally to calibrate to the screen, learn layers
+Re-do a few of your own line/ellipse warm-ups digitally to calibrate to the screen, learn layers
 (sketch &rarr; ink &rarr; color), and settle on two or three brushes you like. Don&rsquo;t chase advanced rendering.</div>
 <h3>Color it: flatting basics</h3>
 <p>Once your layer workflow is comfortable, learn <strong>flatting</strong> &mdash; filling each area of
@@ -732,39 +629,39 @@ your <em>values</em> right before worrying about which exact hue you picked &mda
 beats a pretty palette every time.</p>
 ''')
 
-add("recs", "09-recommendations.html", "Putting it together", "recs", None, '''
+add("recs", "09-recommendations.html", "Putting it together", "recs", None, status=None, body='''
 <h3>Start this week</h3>
 <ul>
-  <li>Order <em>How to Draw</em> by Scott Robertson &amp; Thomas Bertling today &mdash; it&rsquo;s the very
-  next module. Buy a fineliner pen and cheap paper while you wait for it to ship.</li>
-  <li>Begin Phase 1 at two short sessions a week, always splitting time with fun cartoon doodling.</li>
-  <li>Order Brunetti&rsquo;s <em>Cartooning: Philosophy and Practice</em>, Barry&rsquo;s <em>Making
-  Comics</em>, and Mateu-Mestre&rsquo;s <em>Framed Ink</em> now (~$70 total) &mdash; you won&rsquo;t open them
-  for a while, but shipping takes time.</li>
-  <li>Start Lynda Barry&rsquo;s 4-minute diary this week &mdash; it needs no drawing skill and runs
-  alongside everything else, for the whole course.</li>
+  <li>Grab a fineliner pen and cheap paper, and read the opening of Drawabox (module 01).</li>
+  <li>Start the Draw Like a Sir and Peter Han playlists (module 02) at two short sessions a week,
+  always splitting time with fun cartoon doodling.</li>
+  <li>Consider Lynda Barry&rsquo;s 4-minute diary &mdash; it needs no drawing skill and can run
+  alongside everything else.</li>
 </ul>
 <h3>How you&rsquo;ll know it&rsquo;s time to move on</h3>
 <ul>
-  <li><strong>Past Phase 1&ndash;2</strong> &mdash; your lines are noticeably more confident and a box or
+  <li><strong>Past modules 02&ndash;03</strong> &mdash; your lines are noticeably more confident and a box or
   cylinder &ldquo;sits&rdquo; believably in 3D. Don&rsquo;t wait for perfection.</li>
   <li><strong>Don&rsquo;t chase perfect construction before moving on.</strong> Once a simple object
   built from a couple of overlapping shapes reads believably, move to the perspective module and
   start applying it loosely &mdash; precision is a means, not the goal, for a cartoonist.</li>
-  <li><strong>Spend the bulk of your years in Phases 4&ndash;6</strong> &mdash; gesture, character design,
+  <li><strong>Spend the bulk of your years in modules 05&ndash;07</strong> &mdash; gesture, character design,
   comics. This is what actually makes a cartoonist.</li>
 </ul>
 <h3>Adjust as you go</h3>
 <ul>
+  <li>This plan gets edited as it&rsquo;s worked through. If a resource isn&rsquo;t working, look for a
+  better one and swap it in &mdash; that&rsquo;s how module 02 came to be built on two YouTube playlists
+  instead of a textbook.</li>
   <li>Dreading practice? Increase the play half, drop the most tedious exercise, draw more of
   your own characters.</li>
-  <li>Figures feel stiff or floaty? Double down on gesture (Phase 4) &mdash; the highest-leverage fix.</li>
-  <li>Already drawing confident shapes? Compress Phases 1&ndash;3 and jump toward gesture and
+  <li>Figures feel stiff or floaty? Double down on gesture (module 05) &mdash; the highest-leverage fix.</li>
+  <li>Already drawing confident shapes? Compress modules 02&ndash;04 and jump toward gesture and
   character design faster.</li>
 </ul>
 ''')
 
-add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, kind="reference", body='''
+add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, status=None, body='''
 <div class="caveat-box">
 <ul style="margin:0; padding-left:20px;">
   <li><strong>Only using the start of Drawabox is a real trade-off, not a consensus call.</strong>
@@ -772,9 +669,9 @@ add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, 
   (materials, pen grip, drawing from the shoulder) was genuinely useful here; the rest of the course
   wasn&rsquo;t the right fit for the person this site is built for, which isn&rsquo;t a judgment on the
   drills themselves. If Drawabox is working for you, there&rsquo;s no reason to switch.</li>
-  <li><strong>Everything past the current phase is a suggestion.</strong> The later modules are the
-  original research-based roadmap. Real learning rarely follows a plan made in advance, so expect
-  them to change, get skipped, or get replaced once the current phase is done.</li>
+  <li><strong>Modules you haven&rsquo;t reached yet are the plan as it stands.</strong> They come from
+  research, not experience, and real learning rarely follows a plan made in advance &mdash; expect
+  them to change, get skipped, or get replaced once you actually get there.</li>
   <li><strong>Free-book legality varies by title and country.</strong> Treat the <a href="https://archive.org" target="_blank" rel="noopener">Internet
   Archive</a> as the safest free reading source for Loomis and Norling; buy in print if you want certainty.
   McCloud&rsquo;s books are in copyright &mdash; use a library.</li>
@@ -787,12 +684,11 @@ add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, 
   money except the books below.</li>
   <li><strong>Links and channels change.</strong> If a specific video or playlist has moved,
   search the creator&rsquo;s name directly &mdash; the recommendation still stands even when the URL doesn&rsquo;t.</li>
-  <li><strong>This course asks you to spend about $110, deliberately.</strong> Scott Robertson
-  &amp; Thomas Bertling&rsquo;s <em>How to Draw</em> (~$40) replaces what used to be a fully free path
-  through line and ellipse fundamentals &mdash; a deliberate trade for teaching quality, not a cost
-  added lightly. Brunetti&rsquo;s
+  <li><strong>The books are the only real cost.</strong> Scott Robertson &amp; Thomas
+  Bertling&rsquo;s <em>How to Draw</em> (~$40) is recommended as a companion reference rather than
+  required &mdash; the main drawing path is free YouTube. Brunetti&rsquo;s
   <em>Cartooning: Philosophy and Practice</em>, Barry&rsquo;s <em>Making Comics</em>, and
-  Mateu-Mestre&rsquo;s <em>Framed Ink</em> add another ~$70 for the comics-craft half, chosen
+  Mateu-Mestre&rsquo;s <em>Framed Ink</em> (~$70 together) cover the comics-craft half, chosen
   instead of assembling an equivalent from free YouTube links, which doesn&rsquo;t really exist for
   that material. We looked at pricier structured alternatives too &mdash;
   Proko&rsquo;s Marvel-branded storytelling course ($249) and Frank Santoro&rsquo;s mentored correspondence
@@ -806,7 +702,7 @@ add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, 
 </div>
 ''')
 
-add("about", "11-about.html", "About this course &amp; sources", "about", None, kind="reference", body='''
+add("about", "11-about.html", "About this course &amp; sources", "about", None, status=None, body='''
 <h3>How this came to be</h3>
 <p>This course started from a simple complaint: most &ldquo;learn to draw&rdquo; roadmaps are a pile of
 disconnected links, and a single one-off exercise (&ldquo;do a sketch&rdquo;) doesn&rsquo;t actually teach
@@ -821,10 +717,10 @@ class materials from real institutions. Where something couldn&rsquo;t
 be verified &mdash; a resource with no identifiable author, a vague &ldquo;there&rsquo;s probably a Discord
 for that&rdquo; &mdash; it was either left out or flagged honestly as unverified, rather than presented
 as settled fact.</p>
-<p>The course has since been reshaped around how learning actually goes, since no plan made in
-advance fully matches it. The <a href="learning-to-draw.html">current phase</a> is a concrete guide
-built on two YouTube playlists that proved worth following, and the rest of the original roadmap
-stays here as suggestions to consider later, not a fixed path.</p>
+<p>It&rsquo;s also a living plan, edited as it&rsquo;s worked through. No plan made in advance fully
+matches how someone actually learns, so modules that have been done describe what actually worked
+&mdash; keeping course where the plan held up, and swapping in a better resource where it didn&rsquo;t
+&mdash; while modules not yet reached stay open to change.</p>
 
 <h3>What we optimized for</h3>
 <ul>
@@ -841,17 +737,16 @@ stays here as suggestions to consider later, not a fixed path.</p>
   identifiable working artist, a published book, or an established institution &mdash; not an
   anonymous blog or an assembled mixtape of whatever ranked well in a search.</li>
   <li><strong>Free by default, paid when it&rsquo;s actually worth it.</strong> Most of this course
-  costs nothing. A small number of real, classroom-tested books (about $110 total across the whole
-  course) were added deliberately where no free equivalent taught as well &mdash; while pricier
+  costs nothing. A small number of real, classroom-tested books (about $70 for the comics half, plus an
+  optional ~$40 drawing reference) were added deliberately where no free equivalent taught as well &mdash; while pricier
   options ($249, $500, and even a cheap $12 video series) were looked at and explicitly kept
   optional rather than required.</li>
   <li><strong>Honest about the weak spots.</strong> The &ldquo;skip / contested&rdquo; callouts, the
   caveats page, and the note in the comics module admitting that free critique loops are genuinely
   hard to come by are all here on purpose &mdash; a curriculum that hides its own tradeoffs isn&rsquo;t
-  trustworthy. So is swapping a resource out entirely, like dropping Drawabox for clearer-taught
-  alternatives &mdash; mostly free, one a paid book &mdash; when it stops working for the person
-  actually using this course, and then dropping a replacement too when it turns out to have the
-  same problem in a different module.</li>
+  trustworthy. So is swapping a resource out when it stops working for the person actually using this
+  course &mdash; keeping only the start of Drawabox, then moving <em>How to Draw</em> from the main path
+  to a companion reference when it proved too dry, in favor of two YouTube playlists.</li>
 </ul>
 
 <h3>Disclaimers</h3>
@@ -952,15 +847,16 @@ class Section:
 
 CHECKLISTS = {
     "rhythm": [
-        ("supplies", "Got a fineliner pen, an HB pencil, and cheap paper"),
-        ("schedule", "Picked your two weekly session slots"),
-        ("diaryhabit", "Started the 4-minute diary habit (keep it going a few times a week)"),
+        ("drawabox", "Read the opening of Drawabox: materials, pen grip, drawing from the shoulder"),
+        ("supplies", "Get a fineliner pen, an HB pencil, and cheap paper"),
+        ("schedule", "Pick your two weekly session slots"),
+        ("diaryhabit", "Optional: try the 4-minute diary a few times a week"),
     ],
-    "lines": [
-        ("ch1read", "Read How to Draw Chapter 1 (materials &amp; markmaking)"),
-        ("linedrill", "Practice confident, unbroken line strokes drawn from the shoulder, not the wrist"),
-        ("ch5read", "Read How to Draw Chapter 5, &ldquo;Ellipses and Rotations&rdquo;"),
-        ("ellipsedrill", "Fill a page with ellipses in a range of degrees and rotations"),
+    "learn": [
+        ("loop", "Watch the next video (or so) from each playlist, in order"),
+        ("practice", "Practice what it covered until you can do it on purpose &mdash; researching extra drills and material as needed"),
+        ("warmups", "Write down the drills worth keeping as your own warm-up list"),
+        ("repeat", "Repeat until both playlists are done"),
     ],
     "construction": [
         ("constructionvideo", "Watch Sycra&rsquo;s &ldquo;How to Draw Anything with Construction&rdquo;"),
@@ -1009,7 +905,7 @@ CHECKLISTS = {
     ],
     "digital": [
         ("procreatepart1", "Watch Procreate Beginners Series, Part One"),
-        ("digitaldrill", "Redo a line/ellipse drill digitally"),
+        ("digitaldrill", "Redo a few of your own line/ellipse warm-ups digitally"),
         ("layerworkflow", "Set up a sketch &rarr; ink &rarr; color layer workflow"),
         ("brushpicks", "Pick your 2&ndash;3 go-to brushes"),
         ("flattingdrill", "Practice flatting a page: solid color fills before any shading"),
@@ -1031,11 +927,14 @@ ITEM_LINKS = {
     ("rhythm", "diaryhabit"): {
         "lesson": "https://www.openculture.com/2021/09/cartoonist-lynda-barry-teaches-you-how-to-make-a-visual-daily-diary.html",
     },
-    ("lines", "ch1read"): {
-        "lesson": "https://designstudiopress.com/products/how-to-draw",
+    ("rhythm", "drawabox"): {
+        "lesson": "https://drawabox.com",
     },
-    ("lines", "ch5read"): {
-        "lesson": "https://designstudiopress.com/products/how-to-draw",
+    ("learn", "loop"): {
+        "videos": [
+            {"label": "Draw Like a Sir", "video": "https://youtube.com/playlist?list=PL0V_JTTg_6baV8tBE4Qm1O8Vhxy59GTah"},
+            {"label": "Peter Han", "video": "https://youtube.com/playlist?list=PLqR-aNpyEIVd91GCwsyOS3oRn6eoRhyio"},
+        ],
     },
     ("construction", "constructionvideo"): {
         # Was v=iTey_rv-Trc, mislabeled as Sycra -- that ID is actually Brad
@@ -1111,488 +1010,6 @@ ITEM_LINKS = {
     },
 }
 
-# ---------- exercise toolkit ----------
-# A standalone, browsable library of warm-up/practice drills -- separate from
-# the CHECKLISTS above (which are one-time module checkpoints). This list is
-# meant to grow over time as the user learns new drills worth revisiting; ask
-# to have new ones added here rather than editing by hand.
-#
-# Each entry: id (unique slug), title, category (short section heading the
-# card groups under on the toolkit page -- sections render in the order
-# their category first appears below, so a new category just needs to be
-# used here), tags (list of str, shown as chips on the card and matched by
-# the toolkit's search box -- no separate list to maintain, a new tag just
-# needs to be used here), time (short display string or None), builds_on
-# (optional list of earlier exercise ids whose skill this one already
-# exercises as a side effect -- see the note below EXERCISES for how this
-# drives the toolkit's "I am here" / Covered system; omit it unless the
-# dependency is real content, not just "came earlier"), steps (list of plain-language
-# instruction steps, rendered as a bulleted
-# list so a multi-step drill reads clearly at a glance; may include simple
-# inline HTML like <strong>/<em> per step), notes (optional list of
-# {"label", "text", "after"} asides -- e.g. an alternative method for a
-# couple of the steps, or a tip -- rendered as their own callout, visually
-# distinct from a step (no bullet, tinted background) so it never reads as
-# "the next step" in the sequence. "after" places it inline: the 1-based
-# step index it follows, or 0 to put it before step 1; omit "after" for a
-# general tip appended once after all the steps. Omit the "notes" key
-# entirely on an exercise with none), images
-# (list of image paths/URLs -- empty for now; the site doesn't host any
-# exercise images yet, but a non-empty list renders them, so this needs no
-# future markup changes, just adding files and paths here) and source
-# (optional {"label", "url"} credit link back to where the drill came from;
-# "url" may be omitted for a plain-text citation with no link).
-HOW_TO_DRAW = {"label": "How to Draw, by Scott Robertson &amp; Thomas Bertling"}
-
-# "builds_on" (see the EXERCISES doc comment above) feeds a dependency graph
-# that ships to the browser as EXERCISE_GRAPH_JSON, below. There's no
-# hand-set "current" exercise -- each visitor marks whichever drill they're
-# actively practicing as "I am here" (stored locally, per browser), and
-# everything upstream of it in this graph is automatically marked Covered,
-# since practicing the later drill already keeps the earlier skill warm.
-# Only add a builds_on edge when the dependency is real content, not just
-# "came earlier in the book": multiply-divide-boxes and mirror-offset-planes,
-# for instance, sit chronologically before the mirroring drills but aren't
-# on their dependency path, so they correctly stay uncovered unless a
-# visitor's own "here" pick reaches them some other way.
-
-EXERCISES = [
-    dict(
-        id="parallel-lines",
-        title="Parallel lines",
-        category="Warm-ups",
-        tags=["warmup", "lines"],
-        time="5 min",
-        steps=[
-            "Draw a series of straight, parallel lines across the page.",
-            "Start short &mdash; about 3 inches &mdash; and let each one grow a little longer than the last, working up to the full width of the page.",
-            "Keep the spacing and angle consistent as the lines lengthen.",
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="ghosting",
-        title="Ghosting",
-        category="Warm-ups",
-        tags=["warmup", "lines"],
-        time="5 min",
-        steps=[
-            "Mark two points anywhere on the page.",
-            "Before committing, &ldquo;ghost&rdquo; the stroke &mdash; replay the arm motion just above the paper a few times to rehearse the line.",
-            "Draw it in one confident pass, aiming to hit both the start and end point precisely.",
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="lines-through-point",
-        title="Lines through a point",
-        category="Warm-ups",
-        tags=["warmup", "lines"],
-        time="5 min",
-        builds_on=["ghosting"],
-        steps=[
-            "Mark a single point on the page.",
-            "Ghost each stroke the same way as in the Ghosting drill.",
-            "Aim to pass straight through the point somewhere in the middle of the line, not at its start or end.",
-            "Repeat from many angles until the point is surrounded by lines radiating through it.",
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="one-point-boxes",
-        title="1-point perspective boxes",
-        category="Perspective boxes",
-        tags=["perspective"],
-        time="15 min",
-        builds_on=["ghosting", "parallel-lines", "lines-through-point"],
-        steps=[
-            "Draw a horizon line and choose a vanishing point on it.",
-            "Draw a rectangle, then connect each of its corners to the vanishing point.",
-            "Draw a second, smaller rectangle between those connecting lines, farther away &mdash; that&rsquo;s your box.",
-            "Build the whole box with light construction lines first.",
-            "Darken the box's inside edges, then darken its outline darkest of all.",
-            "Retrace each line several times to build up different line weights.",
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="two-point-boxes",
-        title="2-point perspective boxes",
-        category="Perspective boxes",
-        tags=["perspective"],
-        time="15 min",
-        builds_on=["one-point-boxes"],
-        steps=[
-            "Draw the horizon line, then draw a vertical line for the box's front corner &mdash; this establishes the X, Y, and Z axes.",
-            "Extend the X-axis and Y-axis lines from the bottom of that vertical until they hit the horizon line. Where they cross the horizon gives you the left and right vanishing points.",
-            "Draw lines from the top of the vertical to both vanishing points. Add two more verticals at any distance &mdash; one to the left, one to the right.",
-            "From the tops of those two new verticals, draw lines to the opposite vanishing points. Where they cross gives you the box's back-top corner.",
-            "Do the same from the bottoms of those two new verticals to the opposite vanishing points. Where they cross gives you the back-bottom corner &mdash; connect it to the back-top corner to draw the hidden vertical edge.",
-            "Darken the box's visible edges. The lighter construction lines should still show through.",
-        ],
-        notes=[
-            {
-                "label": "Alternative to steps 1&ndash;2",
-                "text": "Place the left and right vanishing points on the horizon first, then draw the vertical and connect them afterward &mdash; instead of the corner's angle defining where the vanishing points fall.",
-                "after": 2,
-            },
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="curves-through-points",
-        title="Curves through multiple points",
-        category="Warm-ups",
-        tags=["warmup", "curves"],
-        time="5 min",
-        steps=[
-            "Place several points on the page, spaced out to follow the curve you intend to draw.",
-            "Draw a smooth, accelerating curve through them, treating each point as a waypoint to pass through rather than a place to stop.",
-            "It's fine to draw the curve in segments &mdash; rotate the page and let your wrist and fingers move naturally for each one.",
-        ],
-        notes=[
-            {
-                "label": "Avoid",
-                "text": "Stopping at each point, which creates edges and corners instead of a smooth curve. Also avoid drawing slowly or hesitantly &mdash; that produces fuzzy, hairy lines. Commit to each segment so the curve can be repeated at high quality.",
-            },
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="ellipse-minor-axis",
-        title="Ellipse &amp; minor axis",
-        category="Warm-ups",
-        tags=["warmup", "ellipses"],
-        time="5 min",
-        steps=[
-            "Draw a freehand ellipse, moving your whole arm rather than just your wrist.",
-            "Keep the line light so it can be cleaned up later with an ellipse guide.",
-            "Check that the ellipse has no flat spots and isn't lopsided.",
-            "Place the minor axis on the ellipse &mdash; the line across its narrow dimension that splits it into two equal halves. Getting this right matters for placing the ellipse in perspective.",
-            "Double-check with an ellipse guide, or fold the paper along the minor axis and hold it up to the light to confirm the two halves line up.",
-        ],
-        notes=[
-            {
-                "label": "Alternative order",
-                "text": "Draw the minor axis first, then place the ellipse over it &mdash; rotate the page to find the best angle for your hand. Either way, check that the ellipse is symmetrical and that the axis stays centered and perpendicular to it; a lopsided ellipse and an off-axis line are the two most common mistakes.",
-                "after": 0,
-            },
-            {
-                "label": "Avoid",
-                "text": "Darkening the ellipse by retracing it, even to fix a bad one &mdash; repeating the stroke only makes the flaw more obvious. Redraw it fresh instead.",
-                "after": 2,
-            },
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="ellipses-between-lines",
-        title="Ellipses between two lines",
-        category="Warm-ups",
-        tags=["warmup", "ellipses"],
-        time="5 min",
-        builds_on=["ellipse-minor-axis"],
-        steps=[
-            "Draw a minor axis line, then a line to its left and one to its right.",
-            "Place a series of ellipses on the minor axis, matching each one's width to the two outer lines at that point.",
-            "Vary the degree of the ellipses &mdash; how narrow or wide they are &mdash; as you go, not just their size.",
-        ],
-        notes=[
-            {
-                "label": "Avoid",
-                "text": "Drawing the two outer lines asymmetrically about the minor axis &mdash; if they aren't symmetrical, no ellipse can actually fit between them.",
-                "after": 1,
-            },
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="dividing-rectangle-half",
-        title="Dividing a rectangle in half, in perspective",
-        category="Dividing &amp; multiplying",
-        tags=["construction"],
-        time="10 min",
-        builds_on=["one-point-boxes"],
-        steps=[
-            "Draw the rectangle, staying inside your cone of vision so the perspective doesn't distort unexpectedly.",
-            "Draw both diagonals, connecting opposite corners. Keep them light &mdash; they should disappear in the final drawing.",
-            "Draw a line through the point where the diagonals cross to divide the rectangle in half, following the perspective grid.",
-            "Repeat the technique on each half to find finer subdivisions, like quarters or sixteenths.",
-        ],
-        notes=[
-            {
-                "label": "Note",
-                "text": "The two halves are still equal, but in perspective the nearer one will look wider than the farther one &mdash; that's foreshortening, not a mistake.",
-                "after": 3,
-            },
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="duplicating-rectangle",
-        title="Duplicating a rectangle, in perspective",
-        category="Dividing &amp; multiplying",
-        tags=["construction"],
-        time="10 min",
-        builds_on=["dividing-rectangle-half"],
-        steps=[
-            "Draw the rectangle and decide which direction to multiply toward. Since the height stays the same, extend the two lines that run in that direction.",
-            "Find the midpoint of that extended line &mdash; using diagonals, or by eye if the line is horizontal or vertical.",
-            "Draw a diagonal from the rectangle's far corner through that midpoint, and continue it until it crosses the extended line.",
-            "Draw a line parallel to the rectangle's edge from that intersection point &mdash; that's the far boundary of the duplicated rectangle.",
-        ],
-        notes=[
-            {
-                "label": "Tip",
-                "text": "Of the two possible diagonals in step 3, pick the shorter one to draw &mdash; a shorter hand-drawn line is more precise.",
-                "after": 3,
-            },
-            {
-                "label": "Tip",
-                "text": "This technique multiplies in any direction, not just the one shown here.",
-            },
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="multiply-divide-rectangles",
-        title="Multiplying &amp; dividing rectangles",
-        category="Dividing &amp; multiplying",
-        tags=["construction"],
-        time="15 min",
-        builds_on=["duplicating-rectangle"],
-        steps=[
-            "Draw a lower and an upper line converging toward a common vanishing point.",
-            "Connect them with two parallel lines to create a rectangle.",
-            "Multiply that rectangle toward or away from you using the duplication technique &mdash; each new rectangle foreshortens automatically.",
-        ],
-        notes=[
-            {
-                "label": "Tip",
-                "text": "Rotate the page to find the best arm position for each straight line. With practice, a tick mark is enough &mdash; you won't need to draw the full construction line every time.",
-            },
-            {
-                "label": "Avoid",
-                "text": "Adding multiple lines while correcting a mistake, trying to find the right spot. That only darkens the drawing and draws attention to the uncertainty. Draw one line, make an educated guess, and correct from there.",
-            },
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="multiply-divide-boxes",
-        title="Multiplying &amp; dividing boxes",
-        category="Dividing &amp; multiplying",
-        tags=["construction"],
-        time="15 min",
-        builds_on=["multiply-divide-rectangles", "two-point-boxes"],
-        steps=[
-            "Build a base box, then stack more boxes on top of it or beside it, using the same multiplying/dividing technique you'd use on a flat rectangle.",
-            "Draw through each box &mdash; showing its hidden edges &mdash; wherever it helps you double-check the construction.",
-            "If two lines don't meet where you expect, trace back through the construction to find exactly where it started to misalign, rather than guessing.",
-        ],
-        notes=[
-            {
-                "label": "Note",
-                "text": "Being deliberate about tracking down a misalignment, rather than skipping past it, is what actually speeds up learning this.",
-            },
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="odd-numbered-proportions",
-        title="Dividing into odd-numbered proportions",
-        category="Dividing &amp; multiplying",
-        tags=["construction"],
-        time="10 min",
-        builds_on=["dividing-rectangle-half"],
-        steps=[
-            "Define the plane you want to subdivide.",
-            "Draw a line parallel to the horizon, starting at the plane's front edge, and divide it into however many equal segments you need (5, for example).",
-            "Connect the last subdivision point to the far end of the plane's front edge, and extend that line until it reaches the horizon &mdash; where it lands is a new vanishing point. Every line parallel to it converges there too.",
-            "From each remaining segment point, draw a line to that new vanishing point.",
-            "Wherever those lines cross the plane's actual front edge, draw a vertical line upward &mdash; that transfers the subdivisions onto the plane itself.",
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="mirror-horizontal-planes",
-        title="Mirroring horizontal planes",
-        category="Mirroring in perspective",
-        tags=["mirroring"],
-        time="10 min",
-        builds_on=["duplicating-rectangle"],
-        steps=[
-            "Draw the rectangle you want to mirror, plus a perpendicular mirror-plane line. Extend the rectangle's width lines until they reach the mirror plane.",
-            "Draw the rectangle's diagonals to find its midpoint, then draw a line from that midpoint, in perspective, to the mirror plane.",
-            "Use that mirror point to mirror the rectangle's near line across the mirror plane with the duplication technique, then do the same for the far line.",
-            "Connect the two mirrored lines &mdash; you now have a mirrored plane. The same technique works for any other parallel-plane construction.",
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="mirror-vertical-planes",
-        title="Mirroring vertical planes",
-        category="Mirroring in perspective",
-        tags=["mirroring"],
-        time="10 min",
-        builds_on=["mirror-horizontal-planes"],
-        steps=[
-            "Draw the vertical rectangle you want to mirror, then draw its diagonals to find the midpoint of the mirror plane.",
-            "Extend the rectangle's width dimensions toward the expected position of the mirrored rectangle, and find that rectangle's centerpoint too.",
-            "Complete the construction with diagonals to find the height of the mirrored rectangle, then darken its final lines.",
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="mirror-offset-planes",
-        title="Mirroring offset planes",
-        category="Mirroring in perspective",
-        tags=["mirroring"],
-        time="10 min",
-        builds_on=["mirror-horizontal-planes"],
-        steps=[
-            "Set up a plane that hovers above the ground or mirror plane, then extend the lines at each of its corners toward the mirror direction.",
-            "Mirror the plane's front line across the mirror plane using the multiplication technique.",
-            "Complete the mirrored plane by following the perspective grid, using vertical lines to define its size.",
-            "Darken the outer edges.",
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="mirror-tilted-planes",
-        title="Mirroring tilted planes",
-        category="Mirroring in perspective",
-        tags=["mirroring"],
-        time="15 min",
-        builds_on=["mirror-horizontal-planes", "two-point-boxes"],
-        steps=[
-            "Set up the tilted plane and the plane you'll mirror it across, using a perspective grid to keep both located clearly in space, relative to each other.",
-            "Pick a point on the tilted plane to mirror. Extend both the tilted plane's edge and the mirror plane's edge until they intersect, and drop a vertical from the top of the tilted plane down to the ground plane if it isn't already there.",
-            "Use the multiplication technique to mirror that point across the mirror plane.",
-            "Connect the intersection point from step 2 to the newly mirrored point &mdash; the plane's angle has now been mirrored in perspective.",
-            "Follow the perspective grid's guidelines to the vanishing point to transfer a few more mirrored points, then connect them to complete the mirrored plane.",
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-    dict(
-        id="mirror-rotated-tilted-planes",
-        title="Mirroring rotated, tilted planes",
-        category="Mirroring in perspective",
-        tags=["mirroring"],
-        time="25 min",
-        builds_on=["mirror-tilted-planes"],
-        steps=[
-            "Look at all four points of the tilted, rotated plane you want to mirror &mdash; since it's both tilted and rotated, at most two points share a height, and none share depth or width.",
-            "Mirror the plane's top-front point across the mirror plane using the rectangle duplication technique.",
-            "Extend the plane's tilted centerline until it crosses its extended tilted front edge.",
-            "Connect that crossing point to the top-front point you already mirrored.",
-            "From the plane's lower-front corner, draw a line perpendicular, in perspective, to the mirror plane &mdash; where it crosses the line from the previous step is the mirrored lower-front corner.",
-            "Find the mirrored ground line by extending the line along the ground from the lower-front corner until it reaches the mirror plane.",
-            "Clip that ground line to its correct length: extend the line that's perpendicular to the mirror plane and runs to the rectangle's lower-back edge, and use where it crosses the mirrored line as the endpoint.",
-            "Repeat the same technique to find the direction and length of the upper edge.",
-            "Find the upper edge's endpoint by extending the upper line at the back of the construction.",
-            "Connect the remaining open edges &mdash; you've now mirrored a plane that was both tilted and rotated.",
-            "Darken the edges of both planes.",
-        ],
-        notes=[
-            {
-                "label": "Note",
-                "text": "Three points define a plane, so the fourth has to be worked out to actually sit on it &mdash; it's easy to forget that and end up with a shape that couldn't physically exist. (M.C. Escher did this on purpose.)",
-            },
-        ],
-        images=[],
-        source=HOW_TO_DRAW,
-    ),
-]
-
-def exercise_categories_used():
-    seen = []
-    for ex in EXERCISES:
-        c = ex["category"]
-        if c not in seen:
-            seen.append(c)
-    return seen
-
-# The builds_on graph is computed client-side, per visitor, from whichever
-# exercise they mark "I am here" -- see EXERCISE_GRAPH_JSON below and its
-# use in TOOLKIT_JS.
-EXERCISE_GRAPH_JSON = json.dumps({ex["id"]: ex.get("builds_on", []) for ex in EXERCISES})
-
-def slugify(s):
-    out = []
-    for ch in s.lower():
-        if ch.isalnum():
-            out.append(ch)
-        elif out and out[-1] != "-":
-            out.append("-")
-    return "".join(out).strip("-")
-
-def exercise_card(ex):
-    tag_chips = "".join(f'<span class="dj-badge dj-badge-accent">{t}</span>' for t in ex["tags"])
-    time_html = f'<span class="exercise-time">{ex["time"]}</span>' if ex["time"] else ""
-    images_html = ""
-    if ex["images"]:
-        imgs = "".join(f'<img src="{src}" alt="">' for src in ex["images"])
-        images_html = f'<div class="exercise-images">{imgs}</div>'
-    source_html = ""
-    if ex["source"]:
-        if ex["source"].get("url"):
-            source_html = f'<p class="exercise-source">From <a href="{ex["source"]["url"]}" target="_blank" rel="noopener">{ex["source"]["label"]}</a></p>'
-        else:
-            source_html = f'<p class="exercise-source">From {ex["source"]["label"]}</p>'
-    def note_li(n):
-        return f'<li class="exercise-note"><span class="note-label">{n["label"]}</span>{n["text"]}</li>'
-
-    # Notes attach inline within the step list via "after" (the 1-based step
-    # index they follow; 0 means before step 1). A note with no "after" key
-    # is a general tip, appended once all steps are laid out.
-    notes = ex.get("notes", [])
-    inline_notes = [n for n in notes if "after" in n]
-    trailing_notes = [n for n in notes if "after" not in n]
-
-    steps_html = "".join(note_li(n) for n in inline_notes if n["after"] == 0)
-    for i, step in enumerate(ex["steps"], start=1):
-        steps_html += f'<li>{step}</li>'
-        steps_html += "".join(note_li(n) for n in inline_notes if n["after"] == i)
-    steps_html += "".join(note_li(n) for n in trailing_notes)
-
-    return f'''<details class="exercise-card" id="ex-{ex['id']}" data-tags="{' '.join(ex['tags'])}">
-    <summary class="exercise-summary">
-      <div class="exercise-head">
-        <span class="exercise-tags">{tag_chips}</span>
-        <span class="exercise-head-side">
-          <button type="button" class="here-toggle" data-id="{ex['id']}" aria-pressed="false">I am here</button>
-          {time_html}
-          <span class="stage-badge-slot" data-badge-for="{ex['id']}"></span>
-          <span class="exercise-chevron">{CHEVRON_ICON}</span>
-        </span>
-      </div>
-      <h3 class="exercise-title">{ex['title']}</h3>
-    </summary>
-    <div class="exercise-body">
-      <ul class="exercise-steps">{steps_html}</ul>
-      {images_html}
-      {source_html}
-    </div>
-  </details>'''
-
 def steps_box(page_id):
     items = CHECKLISTS.get(page_id)
     if not items:
@@ -1632,21 +1049,25 @@ def steps_box(page_id):
                 links_html = f'<span class="item-links">{joined}</span>'
         rows += f'<li>{label}{links_html}</li>\n'
     return f'''<div class="steps-box">
-    <h3>Suggested steps</h3>
+    <h3>Steps</h3>
     <ul>
     {rows}
     </ul>
   </div>'''
 
-SUGGESTION_BANNER = '''<div class="dj-callout suggestion-banner"><span class="dj-callout-tag">suggestion, not a plan</span>
-This module is part of the original roadmap. It may or may not get followed as you grow &mdash; it&rsquo;s
-here to consider once you get this far, not a commitment. The current phase is
-<a href="learning-to-draw.html">learning to draw</a>.</div>'''
+STATUS_BADGES = {
+    "done": '<span class="dj-badge dj-badge-success">Done</span>',
+    "current": '<span class="dj-badge dj-badge-accent">Current</span>',
+    "upcoming": '<span class="dj-badge">Not started</span>',
+}
+
+UPCOMING_NOTE = '''<div class="dj-callout upcoming-note"><span class="dj-callout-tag">not started yet</span>
+This is the plan for this module as it stands. It gets revisited once it&rsquo;s reached &mdash; kept if it
+still fits, changed or swapped out if something better turns up along the way.</div>'''
 
 TOC_SUBS = {
-    "now": "Drawabox basics, then Draw Like a Sir + Peter Han, one video at a time",
-    "rhythm": "How to structure 1&ndash;3 hours a week, and what to buy",
-    "lines": "Confident lines and ellipse control, from a real perspective-drawing textbook",
+    "rhythm": "The opening of Drawabox, a weekly rhythm, supplies, and books",
+    "learn": "Draw Like a Sir + Peter Han, one video at a time, practiced to proficiency",
     "construction": "3D forms built from simple shapes, the free way",
     "perspective": "Just enough 1- and 2-point perspective",
     "gesture": "Movement, flow, and simplified cartoon anatomy",
@@ -1674,12 +1095,9 @@ def shell(title, body, page_id=""):
 {FONT_LINKS}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/brand/tokens/tokens.css">
 <link rel="stylesheet" href="style.css?v={BUILD_VERSION}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/buttons/buttons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/callout/callout.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/badge/badge.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/hero/hero.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/empty-state/empty-state.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/filter-bar/filter-bar.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/divided-list/divided-list.css">
 </head>
 <body data-page-id="{page_id}">
@@ -1689,27 +1107,23 @@ def shell(title, body, page_id=""):
 </html>
 '''
 
+CURRENT = next(p for p in PAGES if p["status"] == "current")
+
 def sitebar():
     return f'''<div class="sitebar">
   <div class="sitebar-links">
     <a class="home" href="index.html">{HOME_ICON}Draw Your Own Comics</a>
-    <a class="toolkit-link" href="learning-to-draw.html">Current phase</a>
-    <a class="toolkit-link" href="toolkit.html">{TOOLKIT_ICON}Toolkit</a>
+    <a class="nav-link" href="{CURRENT['file']}">Continue &rarr;</a>
   </div>
 </div>'''
 
-# Displayed page number: the current phase shows "NOW"; the rest keep their
-# original 01..NN module numbers (so existing prose like "Phase 4" and the
-# 0N-*.html filenames still line up).
 def page_no(p):
-    if p["kind"] == "now":
-        return "NOW"
-    return f'{[q for q in PAGES if q["kind"] != "now"].index(p) + 1:02d}'
+    return f'{PAGES.index(p) + 1:02d}'
 
 # ---------- build index.html ----------
 def toc_item(p):
-    chip = '<span class="dj-badge">Suggestion</span>' if p["kind"] == "suggestion" else ""
-    return f'''<li class="{'toc-now' if p['kind'] == 'now' else ''}"><a href="{p['file']}">
+    chip = STATUS_BADGES.get(p["status"], "")
+    return f'''<li class="{'toc-now' if p['status'] == 'current' else ''}"><a href="{p['file']}">
     <span class="toc-head">
       <span class="toc-marker">
         {ICONS[p['icon']]}
@@ -1725,8 +1139,7 @@ def toc_item(p):
   </a></li>
 '''
 
-def toc_for(kind):
-    return "".join(toc_item(p) for p in PAGES if p["kind"] == kind)
+toc_items = "".join(toc_item(p) for p in PAGES)
 
 index_body = f'''
 {sitebar()}
@@ -1734,27 +1147,26 @@ index_body = f'''
   <div class="dj-hero-mark" aria-hidden="true"></div>
   <div class="kicker">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    A learning-to-draw guide, plus a roadmap of suggestions
+    A living plan, edited as it&rsquo;s worked through
   </div>
   <h1>Draw your own comics,<br><em>one page at a time.</em></h1>
   <svg class="underline" viewBox="0 0 180 14"><path d="M3 9 C 40 2, 90 14, 130 6 S 175 4, 177 9"/></svg>
   <p class="dj-hero-lede">
-    A guide to learning to draw, on the way to loose, expressive, stylized comics &mdash; a clear
-    current phase to work through now, and a set of suggestions for later that may or may not get
-    followed.
+    A mostly-free plan for going from learning to draw to making loose, expressive, stylized comics
+    &mdash; the bones of a path, updated as it&rsquo;s actually followed. You fill in the specifics.
   </p>
   <div class="meta-row">
-    <div><b>Current phase</b>Learning to draw</div>
-    <div><b>Working from</b>Draw Like a Sir + Peter Han</div>
-    <div><b>Pace</b>A video each, then practice to proficiency</div>
+    <div><b>Starting point</b>Complete beginner, pencil &amp; paper</div>
+    <div><b>Time budget</b>1&ndash;3 hrs / week</div>
     <div><b>Style range</b>Pendleton Ward &rarr; Dilworth &rarr; Invader Zim</div>
+    <div><b>Format</b>Self-paced, years not weeks</div>
   </div>
 </header>
 
 <div class="continue-card">
-  <div class="continue-label">Start here</div>
-  <a class="continue-link" href="learning-to-draw.html">
-    <span class="continue-title">Learning to draw &mdash; Draw Like a Sir + Peter Han</span>
+  <div class="continue-label">Continue</div>
+  <a class="continue-link" href="{CURRENT['file']}">
+    <span class="continue-title">{page_no(CURRENT)} &middot; {CURRENT['title']}</span>
     <span class="continue-arrow">&rarr;</span>
   </a>
 </div>
@@ -1763,377 +1175,45 @@ index_body = f'''
 <section>
   <div class="tldr">
     <h3>The short version</h3>
-    <p>The <a href="learning-to-draw.html">current phase</a> is the big, general &ldquo;learn to
-    draw&rdquo; phase, before anything specific to comics. Start with the very beginning of Drawabox
-    (materials, pen grip, drawing from the shoulder), then work through two YouTube playlists side by
-    side &mdash; Draw Like a Sir for the concepts and Peter Han for instruction and homework. Watch a
-    video or so of each, practice until you&rsquo;re proficient (not perfect), researching your own
-    practice material as needed, then move on.</p>
-    <p>Everything after it is the original roadmap, kept as suggestions to consider when you get there
-    &mdash; no plan made in advance matches how learning actually goes, so it will change.</p>
+    <p>Get set up with the opening of Drawabox &mdash; materials, pen grip, drawing from the
+    shoulder. Then learn to draw from two YouTube playlists side by side: Draw Like a Sir for the
+    concepts and Peter Han for instruction and homework. Watch a video or so of each, practice until
+    you&rsquo;re proficient (not perfect), researching your own practice material as needed, then move on.
+    After that: construction, perspective, gesture, character design, and finally comics.</p>
+    <p>This plan is edited as it&rsquo;s worked through. Modules marked done describe what actually
+    worked; modules not started yet are the plan as it stands, and will change if something better
+    turns up. At 1&ndash;3 hrs a week, this is a multi-year hobby, not a bootcamp.</p>
   </div>
 
-  <h3 style="margin-top:40px;">From the original research (still just suggestions)</h3>
+  <h3 style="margin-top:40px;">Principles behind the plan</h3>
   <ul class="findings dj-divided-list dj-divided-list-marked">
-    <li class="dj-divided-item"><span class="dj-divided-item-marker">1</span><span class="dj-divided-item-body"><strong>A clearly-taught fundamentals book beats a free but
-    confusing one.</strong> <em>How to Draw</em>&rsquo;s early chapters transfer to any style; its
-    later vehicle and product-design chapters are precision-heavy repetition most cartoonists
-    don&rsquo;t need.</span></li>
-    <li class="dj-divided-item"><span class="dj-divided-item-marker">2</span><span class="dj-divided-item-body"><strong>The Solo Art Curriculum is excellent, but built for a
-    different artist.</strong> Its figure-drawing and character-design units are worth borrowing;
-    its anatomy and painting sequence targets concept artists, not cartoonists.</span></li>
+    <li class="dj-divided-item"><span class="dj-divided-item-marker">1</span><span class="dj-divided-item-body"><strong>The best resource is the one you&rsquo;ll actually
+    keep using.</strong> A respected textbook that feels dry loses to a well-made video series you look
+    forward to &mdash; keep the textbook as a reference, not the main path.</span></li>
+    <li class="dj-divided-item"><span class="dj-divided-item-marker">2</span><span class="dj-divided-item-body"><strong>Bones, not specifics.</strong> The plan names
+    what to learn and where; finding extra drills, reference, and your own warm-up routine is part of
+    the work.</span></li>
     <li class="dj-divided-item"><span class="dj-divided-item-marker">3</span><span class="dj-divided-item-body"><strong>Dedicated cartooning resources already exist and are
     free.</strong> Loomis, the Etherington Brothers, Proko, and McCloud cover exactly the ground a
-    comic artist needs.</span></li>
+    comic artist needs, once the general drawing basics are in place.</span></li>
   </ul>
 
-  <div class="toc-group">
-    <h3 style="margin:0;">Now</h3>
-    <p class="toc-group-note">The phase to work through right now.</p>
-  </div>
+  <h3 style="margin-top:44px;">The plan</h3>
   <ul class="toc">
-    {toc_for("now")}
+    {toc_items}
   </ul>
-
-  <div class="toc-group">
-    <h3 style="margin:0;">Later &mdash; suggestions</h3>
-    <p class="toc-group-note">The original roadmap. Places to consider when you get there; they may
-    or may not get followed as you grow.</p>
-  </div>
-  <ul class="toc">
-    {toc_for("suggestion")}
-  </ul>
-
-  <div class="toc-group">
-    <h3 style="margin:0;">Reference</h3>
-  </div>
-  <ul class="toc">
-    {toc_for("reference")}
-  </ul>
-
-  <div class="dj-callout">
-    <span class="tag">Warm up anytime</span>
-    Once you've learned a few drills, revisit them from the <a href="toolkit.html">exercise toolkit</a> &mdash;
-    pick a few, warm up, and get drawing without hunting back through old modules.
-  </div>
 </section>
 
 <footer class="site">
-  <p>Compiled from web research into free, community-recommended drawing resources &mdash; September 2026.
-  Not a professional curriculum; a personal roadmap built for one specific goal: making comics you&rsquo;re proud of.</p>
+  <p>Compiled from web research into free, community-recommended drawing resources, and revised as
+  it&rsquo;s followed &mdash; September 2026. Not a professional curriculum; a personal roadmap built for
+  one specific goal: making comics you&rsquo;re proud of.</p>
 </footer>
 </div>
 '''
 
 with open(f"{OUT}/index.html", "w") as f:
     f.write(shell("Contents", index_body))
-
-# ---------- build toolkit.html ----------
-toolkit_categories = exercise_categories_used()
-
-def exercises_in(cat):
-    return [ex for ex in EXERCISES if ex["category"] == cat]
-
-def toolkit_section(cat):
-    return f'''<details class="toolkit-section" id="section-{slugify(cat)}" data-category="{slugify(cat)}">
-  <summary class="toolkit-section-summary">
-    <span class="toolkit-section-main">
-      <span class="toolkit-section-title">{cat}</span>
-      <span class="section-count">{len(exercises_in(cat))}</span>
-      <span class="stage-badge-slot" data-section-badge></span>
-    </span>
-    <span class="section-chevron">{CHEVRON_ICON}</span>
-  </summary>
-  <div class="toolkit-section-body">
-    <div class="exercise-grid">
-      {"".join(exercise_card(ex) for ex in exercises_in(cat))}
-    </div>
-  </div>
-</details>
-'''
-
-toolkit_sections = "".join(toolkit_section(cat) for cat in toolkit_categories)
-
-TOOLKIT_JS = '''
-(function(){
-  var sections = document.querySelectorAll(".toolkit-section");
-  var empty = document.getElementById("toolkit-empty");
-  var searchInput = document.getElementById("toolkit-search");
-  var hitCount = document.getElementById("toolkit-hit-count");
-  var pickBtn = document.getElementById("toolkit-pick-btn");
-
-  function applySearch(){
-    var q = searchInput.value.trim().toLowerCase();
-    var totalHits = 0;
-    for (var i = 0; i < sections.length; i++){
-      var sec = sections[i];
-      var cards = sec.querySelectorAll(".exercise-card");
-      var hits = 0;
-      for (var j = 0; j < cards.length; j++){
-        var card = cards[j];
-        var hay = (card.getAttribute("data-tags") || "") + " " +
-          card.querySelector(".exercise-title").textContent.toLowerCase();
-        var show = !q || hay.indexOf(q) !== -1;
-        card.style.display = show ? "" : "none";
-        if (show){ hits++; totalHits++; }
-        if (q) card.open = show;
-      }
-      sec.style.display = (q && hits === 0) ? "none" : "";
-      if (q) sec.open = hits > 0;
-    }
-    if (q){
-      hitCount.style.display = "";
-      hitCount.textContent = totalHits + (totalHits === 1 ? " drill matches \\u201c" : " drills match \\u201c") + searchInput.value.trim() + "\\u201d";
-    } else {
-      hitCount.style.display = "none";
-    }
-    empty.hidden = !(q && totalHits === 0);
-  }
-  searchInput.addEventListener("input", applySearch);
-
-  pickBtn.addEventListener("click", function(){
-    var cards = document.querySelectorAll(".exercise-card");
-    var hereId = loadHereId();
-    var covered = computeCovered(hereId);
-    var visible = [];
-    var fresh = [];
-    var hereCard = null;
-    for (var i = 0; i < cards.length; i++){
-      cards[i].classList.remove("picked");
-      if (cards[i].style.display === "none") continue;
-      visible.push(cards[i]);
-      var id = cards[i].id.replace(/^ex-/, "");
-      if (id === hereId) hereCard = cards[i];
-      // Covered drills are already kept warm as a side effect of "here" --
-      // skip those. "here" itself stays eligible below: if you're actively
-      // practicing it, it belongs in the mix most of the time.
-      if (!(id in covered)) fresh.push(cards[i]);
-    }
-    var pool = (fresh.length ? fresh : visible).slice();
-    var picked = [];
-    // Weight toward including "here", but don't force it -- once few fresh
-    // drills remain (e.g. near the end of the book), let the pool decide.
-    if (hereCard && pool.indexOf(hereCard) !== -1 && Math.random() < 5 / 6){
-      picked.push(hereCard);
-      pool.splice(pool.indexOf(hereCard), 1);
-    }
-    var n = Math.min(3 - picked.length, pool.length);
-    for (var i = 0; i < n; i++){
-      var idx = Math.floor(Math.random() * pool.length);
-      picked.push(pool.splice(idx, 1)[0]);
-    }
-    for (var i = 0; i < picked.length; i++){
-      picked[i].classList.add("picked");
-      picked[i].open = true;
-      picked[i].closest(".toolkit-section").open = true;
-    }
-    if (picked.length){
-      // Opening the <details> elements above doesn't finish laying out until
-      // the next paint on some mobile browsers, so scrolling in the same
-      // tick can land on a stale, pre-reflow position. Wait two frames.
-      requestAnimationFrame(function(){
-        requestAnimationFrame(function(){
-          picked[0].scrollIntoView({behavior:"smooth", block:"center"});
-        });
-      });
-    }
-  });
-
-  document.addEventListener("click", function(e){
-    var link = e.target.closest(".covered-badge");
-    if (!link) return;
-    e.preventDefault();
-    var target = document.querySelector(link.getAttribute("href"));
-    if (!target) return;
-    target.open = true;
-    var sec = target.closest(".toolkit-section");
-    if (sec) sec.open = true;
-    target.scrollIntoView({behavior:"smooth", block:"center"});
-  });
-
-  // Personal "I am here" tracking -- entirely local to this browser, never
-  // synced anywhere. Mark whichever drill you're actively practicing, and
-  // everything upstream of it in the builds_on graph below is automatically
-  // marked Covered, since practicing the later drill already keeps the
-  // earlier skill warm. A category where every drill is covered goes
-  // Superseded. Nothing here reflects any curriculum-lesson progress --
-  // it's a personal record of where you are in this one page.
-  var STORAGE_KEY = "toolkitHereId";
-  var GRAPH = ''' + EXERCISE_GRAPH_JSON + ''';
-  var cards = document.querySelectorAll(".exercise-card");
-  var progressNote = document.getElementById("toolkit-progress-note");
-
-  function loadHereId(){
-    try { return localStorage.getItem(STORAGE_KEY) || null; } catch (e) { return null; }
-  }
-  function saveHereId(id){
-    try {
-      if (id) localStorage.setItem(STORAGE_KEY, id);
-      else localStorage.removeItem(STORAGE_KEY);
-    } catch (e) {}
-  }
-  function titleFor(id){
-    var card = document.getElementById("ex-" + id);
-    return card ? card.querySelector(".exercise-title").textContent : id;
-  }
-  // Walks builds_on backward from hereId, breadth-first, so every id it
-  // reaches maps to the nearer (more-current) exercise that pulled it in --
-  // that's what a "Covered" badge names and links to.
-  function computeCovered(hereId){
-    var covered = {};
-    if (!hereId || !GRAPH[hereId]) return covered;
-    var frontier = [hereId];
-    var seen = {};
-    seen[hereId] = true;
-    while (frontier.length){
-      var next = [];
-      for (var i = 0; i < frontier.length; i++){
-        var parents = GRAPH[frontier[i]] || [];
-        for (var j = 0; j < parents.length; j++){
-          var p = parents[j];
-          if (!seen[p]){
-            seen[p] = true;
-            covered[p] = frontier[i];
-            next.push(p);
-          }
-        }
-      }
-      frontier = next;
-    }
-    return covered;
-  }
-
-  function render(){
-    var hereId = loadHereId();
-    var covered = computeCovered(hereId);
-
-    for (var i = 0; i < cards.length; i++){
-      var card = cards[i];
-      var id = card.id.replace(/^ex-/, "");
-      var slot = card.querySelector(".stage-badge-slot");
-      var btn = card.querySelector(".here-toggle");
-      card.classList.toggle("is-here", id === hereId);
-      card.classList.toggle("is-covered", !!covered[id]);
-      if (id === hereId){
-        slot.innerHTML = '<span class="dj-badge dj-badge-accent">Here</span>';
-        btn.setAttribute("aria-pressed", "true");
-        btn.title = "Click to clear";
-      } else if (covered[id]){
-        // Spell out which drill covers it right on the badge -- a hover
-        // tooltip alone doesn't work on touch, and "Covered" by itself
-        // doesn't say covered by *what*, or why that means it's not
-        // urgent: practicing the named drill already keeps this skill warm.
-        var coveringTitle = titleFor(covered[id]);
-        slot.innerHTML = '<a class="dj-badge covered-badge" href="#ex-' + covered[id] +
-          '" title="Practicing this already keeps &lsquo;' + coveringTitle.replace(/"/g, "&quot;") +
-          '&rsquo; warm, so it is not urgent on its own">Covered by ' + coveringTitle + '</a>';
-        btn.setAttribute("aria-pressed", "false");
-        btn.title = "";
-      } else {
-        slot.innerHTML = "";
-        btn.setAttribute("aria-pressed", "false");
-        btn.title = "";
-      }
-    }
-
-    for (var s = 0; s < sections.length; s++){
-      var section = sections[s];
-      var secCards = section.querySelectorAll(".exercise-card");
-      var secBadge = section.querySelector("[data-section-badge]");
-      var hasHere = false, allCovered = secCards.length > 0;
-      for (var c = 0; c < secCards.length; c++){
-        var cid = secCards[c].id.replace(/^ex-/, "");
-        if (cid === hereId) hasHere = true;
-        if (!(cid in covered)) allCovered = false;
-      }
-      section.classList.toggle("has-here", hasHere);
-      secBadge.innerHTML = allCovered ? '<span class="dj-badge dj-badge-success">Superseded</span>' : "";
-    }
-
-    if (!progressNote) return;
-    if (!hereId){
-      progressNote.textContent = "Click \\u201cI am here\\u201d on whichever drill you're actively practicing to track your spot.";
-    } else {
-      var n = Object.keys(covered).length;
-      progressNote.textContent = "You're at \\u201c" + titleFor(hereId) + "\\u201d \\u2014 " +
-        n + (n === 1 ? " earlier drill is" : " earlier drills are") + " already covered.";
-    }
-  }
-
-  var hereButtons = document.querySelectorAll(".here-toggle");
-  for (var i = 0; i < hereButtons.length; i++){
-    // Stops the click here, on its way up, before it reaches <summary> --
-    // otherwise this would also spring the card open/closed.
-    hereButtons[i].addEventListener("click", function(e){
-      e.stopPropagation();
-      var id = this.getAttribute("data-id");
-      saveHereId(loadHereId() === id ? null : id);
-      render();
-    });
-  }
-
-  render();
-
-  // On first load, open straight to a returning visitor's saved spot.
-  var initialHereId = loadHereId();
-  if (initialHereId){
-    var initialCard = document.getElementById("ex-" + initialHereId);
-    if (initialCard){
-      initialCard.open = true;
-      var initialSection = initialCard.closest(".toolkit-section");
-      if (initialSection) initialSection.open = true;
-    }
-  }
-})();
-'''
-
-toolkit_body = f'''
-{sitebar()}
-<header class="dj-hero">
-  <div class="dj-hero-mark" aria-hidden="true"></div>
-  <div class="kicker">
-    {TOOLKIT_ICON}
-    Your growing set of practice drills
-  </div>
-  <h1>Warm-up <em>toolkit.</em></h1>
-  <svg class="underline" viewBox="0 0 180 14"><path d="M3 9 C 40 2, 90 14, 130 6 S 175 4, 177 9"/></svg>
-  <p class="dj-hero-lede">
-    Exercises you've already learned, kept somewhere you can just open, pick a few, and warm up &mdash;
-    no need to dig back through old modules. Ask to have new drills added here as you learn them.
-  </p>
-  <p class="toolkit-badge-note">
-    Click <b>I am here</b> on whichever drill you're actively practicing. That doesn't make earlier
-    drills <em>mastered</em> exactly &mdash; it means practicing this one already keeps them warm as a
-    side effect, so they're marked <b>Covered</b> (dimmed, not urgent to revisit) instead of dropped.
-    A section where every drill is covered goes <b>Superseded</b>. <b>Pick 3 for me</b> skips
-    anything covered and usually includes your current spot, since that's what you're actually
-    practicing. All of this is personal to you &mdash; saved only in this browser, never synced.
-  </p>
-</header>
-
-<div class="wrap">
-<section>
-  <div class="toolkit-toolbar dj-filter-bar">
-    <label class="search-box dj-filter-field">
-      <svg class="dj-filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
-      <input id="toolkit-search" class="dj-filter-input" type="text" placeholder="Search drills or tags">
-    </label>
-    <button class="toolkit-pick-btn" id="toolkit-pick-btn">Pick 3 for me</button>
-  </div>
-  <p class="toolkit-hit-count" id="toolkit-hit-count" style="display:none"></p>
-  <p class="toolkit-progress-note" id="toolkit-progress-note"></p>
-</section>
-
-{toolkit_sections}
-<p class="toolkit-empty dj-empty-state" id="toolkit-empty" hidden>Nothing matches that.</p>
-
-<footer class="site"><p><a href="index.html">&larr; Back to the table of contents</a></p></footer>
-</div>
-<script>{TOOLKIT_JS}</script>
-'''
-
-with open(f"{OUT}/toolkit.html", "w") as f:
-    f.write(shell("Exercise Toolkit", toolkit_body, page_id="toolkit"))
 
 # ---------- build each section page ----------
 for i, p in enumerate(PAGES):
@@ -2150,7 +1230,8 @@ for i, p in enumerate(PAGES):
     pn += '</nav>'
 
     duration_html = f'<div class="duration">{p["duration"]}</div>' if p["duration"] else ''
-    banner_html = SUGGESTION_BANNER if p["kind"] == "suggestion" else ''
+    banner_html = UPCOMING_NOTE if p["status"] == "upcoming" else ''
+    badge_html = STATUS_BADGES.get(p["status"], "")
 
     body = f'''
 {sitebar()}
@@ -2159,6 +1240,7 @@ for i, p in enumerate(PAGES):
   <div class="page-head">
     {ICONS[p['icon']]}
     <h2><span class="no">{page_no(p)}</span>{p['title']}</h2>
+    <span class="page-badge">{badge_html}</span>
   </div>
   {duration_html}
   {banner_html}
@@ -2176,5 +1258,5 @@ for i, p in enumerate(PAGES):
 # progress-schema.js / firebase-config.js / app.js) was removed -- see git
 # history if it comes back.
 
-print("Built", len(PAGES) + 2, "pages")
+print("Built", len(PAGES) + 1, "pages")
 print(os.listdir(OUT))

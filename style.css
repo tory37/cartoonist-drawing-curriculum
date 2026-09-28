@@ -41,12 +41,11 @@ a:hover{color:var(--dj-accent-hi);}
 }
 .sitebar a.home svg{width:18px; height:18px;}
 .sitebar .pos{color:var(--dj-text-muted);}
-.toolkit-link{
+.nav-link{
   display:flex; align-items:center; gap:6px; color:var(--dj-text-muted); font-weight:500;
   text-decoration:none;
 }
-.toolkit-link svg{width:16px; height:16px;}
-.toolkit-link:hover{color:var(--dj-accent);}
+.nav-link:hover{color:var(--dj-accent);}
 
 .wrap{max-width:var(--max); margin:0 auto; padding:20px 24px 90px;}
 
@@ -73,11 +72,6 @@ h1{
 }
 h1 em{font-style:italic; font-weight:600; color:var(--dj-accent);}
 .dj-hero-lede{font-size:19px; max-width:520px; margin:18px 0 28px;}
-.toolkit-badge-note{
-  font-size:13.5px; color:var(--dj-text-muted); max-width:560px; margin:-16px 0 28px;
-  border-left:2px solid var(--dj-border); padding-left:12px;
-}
-.toolkit-badge-note b{color:var(--dj-text); font-weight:600;}
 .underline{width:180px; height:14px; margin-bottom:8px;}
 .underline path{
   fill:none; stroke:var(--dj-accent); stroke-width:3; stroke-linecap:round;
@@ -198,16 +192,14 @@ footer.site{
 .continue-title{font-family:var(--dj-font-display); font-weight:600; font-size:18px;}
 .continue-arrow{color:var(--dj-success); flex:none; font-size:20px;}
 
-/* table-of-contents group headings + the "suggestion" chip on later modules */
-.toc-group{margin:44px 0 0;}
-.toc-group-note{font-size:14.5px; color:var(--dj-text-muted); margin:6px 0 0;}
-.toc-group + .toc{margin-top:18px;}
+/* current module in the table of contents */
 .toc-now .toc-title{color:var(--dj-success);}
 
-/* "this is a suggestion, not a plan" banner at the top of later modules */
-.suggestion-banner{margin:4px 0 26px;}
+/* "not started yet" note at the top of modules not reached yet */
+.upcoming-note{margin:4px 0 26px;}
+.page-badge{margin:0 0 0 auto; align-self:center;}
 
-/* suggested-steps list on each later module (plain list, no tracking) */
+/* steps list on each module (plain list, no tracking) */
 .steps-box{
   margin:34px 0 6px; border:1px solid var(--dj-border); border-radius:var(--dj-radius-lg);
   padding:22px 24px; background:var(--dj-surface);
@@ -234,93 +226,6 @@ footer.site{
 }
 .track-card h3{margin-top:0;}
 .track-card p:last-child{margin-bottom:0;}
-
-/* exercise toolkit page */
-/* .toolkit-toolbar / .search-box use djaunt-branding's
-   components/filter-bar/filter-bar.css (dj-filter-bar / dj-filter-field /
-   dj-filter-icon / dj-filter-input), linked in shell(); this residual keeps
-   the toolbar's wider gap/margin and the search box's own sizing. */
-.toolkit-toolbar{ gap:10px 12px; margin:26px 0 6px; }
-.search-box{ flex-basis:220px; max-width:none; border-radius:var(--dj-radius-md); gap:9px; }
-.search-box .dj-filter-icon{ width:16px; height:16px; }
-.toolkit-pick-btn{
-  font-family:inherit; font-size:13px; font-weight:600; color:var(--dj-bg); background:var(--dj-success);
-  border:1px solid var(--dj-success); border-radius:var(--dj-radius-md); padding:6px 16px; cursor:pointer;
-}
-.toolkit-pick-btn:hover{opacity:.88;}
-.toolkit-hit-count{font-size:12.5px; color:var(--dj-text-muted); margin:0 0 20px;}
-.toolkit-progress-note{font-size:12.5px; color:var(--dj-text-muted); margin:-10px 0 20px;}
-
-.toolkit-section{
-  border:1px solid var(--dj-border); border-radius:var(--dj-radius-lg); background:var(--dj-surface);
-  margin-top:14px; overflow:hidden;
-}
-.toolkit-section-summary{
-  list-style:none; cursor:pointer; padding:16px 20px;
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-}
-.toolkit-section-summary::-webkit-details-marker{display:none;}
-.toolkit-section-main{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
-.toolkit-section-title{font-family:var(--dj-font-display); font-weight:600; letter-spacing:var(--dj-tracking-display); font-size:20px;}
-.toolkit-section .section-count{font-size:13px; color:var(--dj-text-muted);}
-/* .stage-badge / .covered-badge / .tag-chip are .dj-badge (from
-   djaunt-branding's components/badge/badge.css, linked above) plus a
-   local residual for the bits the shared class doesn't cover. */
-.toolkit-section.has-here{border-color:var(--dj-accent);}
-.covered-badge{ text-decoration:none; max-width:100%; }
-.covered-badge:hover{color:var(--dj-accent); border-color:var(--dj-accent);}
-.exercise-card.is-covered{opacity:.62;}
-.exercise-card.is-covered:hover, .exercise-card.is-covered:focus-within{opacity:1;}
-.toolkit-section .section-chevron{color:var(--dj-text-muted); display:flex; flex:none; transition:transform .2s ease;}
-.toolkit-section[open] .section-chevron{transform:rotate(180deg);}
-.toolkit-section-body{padding:0 20px 18px;}
-.exercise-grid{display:flex; flex-direction:column; gap:16px; margin:6px 0 0;}
-.exercise-card{
-  border:1px solid var(--dj-border); border-radius:var(--dj-radius-md); background:var(--dj-surface);
-  transition:border-color .25s ease, box-shadow .25s ease;
-}
-.exercise-card.picked{border-color:var(--dj-success); box-shadow:0 0 0 1px var(--dj-success);}
-.exercise-card.is-here{border-color:var(--dj-accent); box-shadow:0 0 0 1px var(--dj-accent);}
-.exercise-summary{list-style:none; cursor:pointer; padding:20px 22px;}
-.exercise-summary::-webkit-details-marker{display:none;}
-.exercise-card[open] > .exercise-summary{padding-bottom:10px;}
-.exercise-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; flex-wrap:wrap;}
-.exercise-head-side{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
-.here-toggle{
-  font-family:var(--dj-font-mono); font-size:11px; text-transform:uppercase; letter-spacing:.03em; font-weight:500;
-  color:var(--dj-text-muted); background:var(--dj-ink-900); border:1px solid var(--dj-border);
-  border-radius:var(--dj-radius-sm); padding:4px 10px; cursor:pointer; white-space:nowrap; flex:none;
-}
-.here-toggle:hover{color:var(--dj-accent); border-color:var(--dj-accent);}
-.here-toggle:focus-visible{outline:2px solid var(--dj-accent); outline-offset:2px;}
-.here-toggle[aria-pressed="true"]{
-  color:var(--dj-accent); background:color-mix(in srgb, var(--dj-accent) 8%, transparent);
-  border-color:var(--dj-accent);
-}
-@media (max-width:480px){.here-toggle{font-size:10px; padding:4px 8px;}}
-.exercise-chevron{color:var(--dj-text-muted); display:flex; transition:transform .2s ease;}
-.exercise-card[open] .exercise-chevron{transform:rotate(180deg);}
-.exercise-tags{display:flex; flex-wrap:wrap; gap:6px;}
-.exercise-time{font-size:12.5px; color:var(--dj-text-muted); white-space:nowrap; flex:none;}
-.exercise-title{font-family:var(--dj-font-display); font-weight:600; letter-spacing:var(--dj-tracking-display); font-size:19px; margin:0;}
-.exercise-body{padding:0 22px 20px;}
-.exercise-steps{font-size:15px; margin:0; padding-left:20px;}
-.exercise-steps li{margin-bottom:6px;}
-.exercise-steps li:last-child{margin-bottom:0;}
-.exercise-steps li.exercise-note{
-  list-style:none; margin-left:-20px;
-  font-size:13.5px; color:var(--dj-text-muted); background:color-mix(in srgb, var(--dj-accent) 8%, transparent);
-  border-left:2px solid var(--dj-accent); border-radius:0 var(--dj-radius-md) var(--dj-radius-md) 0;
-  padding:8px 12px; margin-top:2px; margin-bottom:12px;
-}
-.exercise-note .note-label{
-  display:block; font-weight:700; text-transform:uppercase; letter-spacing:.03em;
-  font-size:11px; color:var(--dj-accent); margin-bottom:3px;
-}
-.exercise-images{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 0;}
-.exercise-images img{max-width:100%; border-radius:var(--dj-radius-md); border:1px solid var(--dj-border);}
-.exercise-source{font-size:13px; color:var(--dj-text-muted); margin:12px 0 0;}
-/* .toolkit-empty uses djaunt-branding's components/empty-state/empty-state.css. */
 
 @media print{
   .sitebar, nav.pn, .continue-card, .dj-credit{display:none;}
