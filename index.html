@@ -18,10 +18,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;1,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/brand/tokens/tokens.css">
-<link rel="stylesheet" href="style.css?v=6e4226d307">
+<link rel="stylesheet" href="style.css?v=7f333212ae">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/buttons/buttons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/callout/callout.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/progress/progress.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/badge/badge.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/hero/hero.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/empty-state/empty-state.css">
@@ -33,45 +32,35 @@
 <div class="sitebar">
   <div class="sitebar-links">
     <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>Draw Your Own Comics</a>
+    <a class="toolkit-link" href="learning-to-draw.html">Current phase</a>
     <a class="toolkit-link" href="toolkit.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h18" stroke-linecap="round"/></svg>Toolkit</a>
-  </div>
-  <div class="auth-control" id="auth-control">
-    <span class="progress-pill" id="header-progress" style="display:none"></span>
-    <span id="signin-btn"></span>
-    <span class="auth-user" id="auth-user" style="display:none"></span>
-    <button class="dj-button dj-button-small" id="signout-btn" style="display:none">Sign out</button>
   </div>
 </div>
 <header class="dj-hero">
   <div class="dj-hero-mark" aria-hidden="true"></div>
   <div class="kicker">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    A curated, human-made resource curriculum
+    A learning-to-draw guide, plus a roadmap of suggestions
   </div>
   <h1>Draw your own comics,<br><em>one page at a time.</em></h1>
   <svg class="underline" viewBox="0 0 180 14"><path d="M3 9 C 40 2, 90 14, 130 6 S 175 4, 177 9"/></svg>
   <p class="dj-hero-lede">
-    A sustainable, mostly-free curriculum built from resources other artists actually recommend &mdash;
-    tuned for a busy beginner with 1&ndash;3 hours a week whose goal is loose, expressive, stylized comics,
-    not photorealism.
+    A guide to learning to draw, on the way to loose, expressive, stylized comics &mdash; a clear
+    current phase to work through now, and a set of suggestions for later that may or may not get
+    followed.
   </p>
   <div class="meta-row">
-    <div><b>Starting point</b>Complete beginner, pencil &amp; paper</div>
-    <div><b>Time budget</b>1&ndash;3 hrs / week</div>
+    <div><b>Current phase</b>Learning to draw</div>
+    <div><b>Working from</b>Draw Like a Sir + Peter Han</div>
+    <div><b>Pace</b>A video each, then practice to proficiency</div>
     <div><b>Style range</b>Pendleton Ward &rarr; Dilworth &rarr; Invader Zim</div>
-    <div><b>Format</b>11 sections, self-paced, years not weeks</div>
   </div>
 </header>
 
-<div class="overall-bar" id="overall-progress">
-  <div class="dj-bar-track"><div class="dj-bar-fill dj-bar-fill-success"></div></div>
-  <div class="dj-bar-label">Sign in above to start tracking your progress.</div>
-</div>
-
-<div class="continue-card" id="continue-card" style="display:none">
-  <div class="continue-label">Continue where you left off</div>
-  <a class="continue-link" id="continue-link" href="#">
-    <span class="continue-title"></span>
+<div class="continue-card">
+  <div class="continue-label">Start here</div>
+  <a class="continue-link" href="learning-to-draw.html">
+    <span class="continue-title">Learning to draw &mdash; Draw Like a Sir + Peter Han</span>
     <span class="continue-arrow">&rarr;</span>
   </a>
 </div>
@@ -80,17 +69,17 @@
 <section>
   <div class="tldr">
     <h3>The short version</h3>
-    <p>You do not need to finish the <a href="https://www.soloartcurriculum.com/" target="_blank" rel="noopener">Solo Art Curriculum</a> &mdash; it&rsquo;s built to
-    produce a generalist realism artist over a year or more of near-daily work. Work through Scott
-    Robertson &amp; Thomas Bertling&rsquo;s <em>How to Draw</em> for spatial fundamentals, then
-    deliberately pivot toward cartooning: Loomis, Proko, the Etherington Brothers, and Scott
-    McCloud on comics craft.</p>
-    <p>At 1&ndash;3 hrs a week, this is a multi-year hobby, not a bootcamp. Split every session
-    roughly 50/50 between structured practice and free drawing from day one, stay on paper through
-    character design, and add an iPad only once you can build a character from imagination.</p>
+    <p>The <a href="learning-to-draw.html">current phase</a> is the big, general &ldquo;learn to
+    draw&rdquo; phase, before anything specific to comics. Start with the very beginning of Drawabox
+    (materials, pen grip, drawing from the shoulder), then work through two YouTube playlists side by
+    side &mdash; Draw Like a Sir for the concepts and Peter Han for instruction and homework. Watch a
+    video or so of each, practice until you&rsquo;re proficient (not perfect), researching your own
+    practice material as needed, then move on.</p>
+    <p>Everything after it is the original roadmap, kept as suggestions to consider when you get there
+    &mdash; no plan made in advance matches how learning actually goes, so it will change.</p>
   </div>
 
-  <h3 style="margin-top:40px;">Key findings from the research</h3>
+  <h3 style="margin-top:40px;">From the original research (still just suggestions)</h3>
   <ul class="findings dj-divided-list dj-divided-list-marked">
     <li class="dj-divided-item"><span class="dj-divided-item-marker">1</span><span class="dj-divided-item-body"><strong>A clearly-taught fundamentals book beats a free but
     confusing one.</strong> <em>How to Draw</em>&rsquo;s early chapters transfer to any style; its
@@ -104,135 +93,168 @@
     comic artist needs.</span></li>
   </ul>
 
-  <h3 style="margin-top:44px;">The eleven sections</h3>
+  <div class="toc-group">
+    <h3 style="margin:0;">Now</h3>
+    <p class="toc-group-note">The phase to work through right now.</p>
+  </div>
   <ul class="toc">
-    <li><a href="01-rhythm.html">
-    <span class="toc-head">
-      <span class="toc-marker">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/></svg>
-        <span class="no">01</span>
-      </span>
-      <span class="toc-status">
-        <span class="toc-progress" data-progress-for="rhythm"></span>
-        <span class="toc-arrow">&rarr;</span>
-      </span>
-    </span>
-    <span class="toc-title">Weekly rhythm &amp; supplies</span>
-    <span class="toc-sub">How to structure 1&ndash;3 hours a week, and what to buy</span>
-  </a></li>
-<li><a href="02-marks-and-lines.html">
+    <li class="toc-now"><a href="learning-to-draw.html">
     <span class="toc-head">
       <span class="toc-marker">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17c3-8 6-11 9-11s5 5 9 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="no">02</span>
-      </span>
-      <span class="toc-status">
-        <span class="toc-progress" data-progress-for="lines"></span>
-        <span class="toc-arrow">&rarr;</span>
-      </span>
-    </span>
-    <span class="toc-title">Marks, lines &amp; confidence</span>
-    <span class="toc-sub">Confident lines and ellipse control, from a real perspective-drawing textbook</span>
-  </a></li>
-<li><a href="03-construction.html">
-    <span class="toc-head">
-      <span class="toc-marker">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8l8-4 8 4-8 4-8-4zM4 8v8l8 4 8-4V8M12 12v8" stroke-linejoin="round"/></svg>
-        <span class="no">03</span>
-      </span>
-      <span class="toc-status">
-        <span class="toc-progress" data-progress-for="construction"></span>
-        <span class="toc-arrow">&rarr;</span>
-      </span>
-    </span>
-    <span class="toc-title">Basic construction &amp; 3D forms</span>
-    <span class="toc-sub">3D forms built from simple shapes, the free way</span>
-  </a></li>
-<li><a href="04-perspective.html">
-    <span class="toc-head">
-      <span class="toc-marker">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 4 20h16L12 3z"/><path d="M8 14h8" stroke-linecap="round"/></svg>
-        <span class="no">04</span>
-      </span>
-      <span class="toc-status">
-        <span class="toc-progress" data-progress-for="perspective"></span>
-        <span class="toc-arrow">&rarr;</span>
-      </span>
-    </span>
-    <span class="toc-title">Just enough perspective</span>
-    <span class="toc-sub">Just enough 1- and 2-point perspective</span>
-  </a></li>
-<li><a href="05-gesture.html">
-    <span class="toc-head">
-      <span class="toc-marker">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="5" r="2"/><path d="M12 7v6M12 13l-5 6M12 13l5 6M7 10l5 3 5-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="no">05</span>
-      </span>
-      <span class="toc-status">
-        <span class="toc-progress" data-progress-for="gesture"></span>
-        <span class="toc-arrow">&rarr;</span>
-      </span>
-    </span>
-    <span class="toc-title">Gesture &amp; simplified anatomy</span>
-    <span class="toc-sub">Movement, flow, and simplified cartoon anatomy</span>
-  </a></li>
-<li><a href="06-character-design.html">
-    <span class="toc-head">
-      <span class="toc-marker">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/><path d="M8.5 15c1.5 1.4 5.5 1.4 7 0" stroke-linecap="round"/></svg>
-        <span class="no">06</span>
-      </span>
-      <span class="toc-status">
-        <span class="toc-progress" data-progress-for="character"></span>
-        <span class="toc-arrow">&rarr;</span>
-      </span>
-    </span>
-    <span class="toc-title">Character design &amp; stylization</span>
-    <span class="toc-sub">Shape language, expression, and your own style</span>
-  </a></li>
-<li><a href="07-comics.html">
-    <span class="toc-head">
-      <span class="toc-marker">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="3" y="13" width="18" height="7" rx="1"/></svg>
-        <span class="no">07</span>
-      </span>
-      <span class="toc-status">
-        <span class="toc-progress" data-progress-for="comics"></span>
-        <span class="toc-arrow">&rarr;</span>
-      </span>
-    </span>
-    <span class="toc-title">Comics: paneling &amp; storytelling</span>
-    <span class="toc-sub">Scripting, layout, lettering, and finishing a real minicomic</span>
-  </a></li>
-<li><a href="08-digital.html">
-    <span class="toc-head">
-      <span class="toc-marker">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="18" r="1" fill="currentColor" stroke="none"/></svg>
-        <span class="no">08</span>
-      </span>
-      <span class="toc-status">
-        <span class="toc-progress" data-progress-for="digital"></span>
-        <span class="toc-arrow">&rarr;</span>
-      </span>
-    </span>
-    <span class="toc-title">Transition to digital</span>
-    <span class="toc-sub">Moving from paper to an iPad, when you&rsquo;re ready</span>
-  </a></li>
-<li><a href="09-recommendations.html">
-    <span class="toc-head">
-      <span class="toc-marker">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="no">09</span>
+        <span class="no">NOW</span>
       </span>
       <span class="toc-status">
         
         <span class="toc-arrow">&rarr;</span>
       </span>
     </span>
+    <span class="toc-title">Learning to draw</span>
+    <span class="toc-sub">Drawabox basics, then Draw Like a Sir + Peter Han, one video at a time</span>
+  </a></li>
+
+  </ul>
+
+  <div class="toc-group">
+    <h3 style="margin:0;">Later &mdash; suggestions</h3>
+    <p class="toc-group-note">The original roadmap. Places to consider when you get there; they may
+    or may not get followed as you grow.</p>
+  </div>
+  <ul class="toc">
+    <li class=""><a href="01-rhythm.html">
+    <span class="toc-head">
+      <span class="toc-marker">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/></svg>
+        <span class="no">01</span>
+      </span>
+      <span class="toc-status">
+        <span class="dj-badge">Suggestion</span>
+        <span class="toc-arrow">&rarr;</span>
+      </span>
+    </span>
+    <span class="toc-title">Weekly rhythm &amp; supplies</span>
+    <span class="toc-sub">How to structure 1&ndash;3 hours a week, and what to buy</span>
+  </a></li>
+<li class=""><a href="02-marks-and-lines.html">
+    <span class="toc-head">
+      <span class="toc-marker">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17c3-8 6-11 9-11s5 5 9 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="no">02</span>
+      </span>
+      <span class="toc-status">
+        <span class="dj-badge">Suggestion</span>
+        <span class="toc-arrow">&rarr;</span>
+      </span>
+    </span>
+    <span class="toc-title">Marks, lines &amp; confidence</span>
+    <span class="toc-sub">Confident lines and ellipse control, from a real perspective-drawing textbook</span>
+  </a></li>
+<li class=""><a href="03-construction.html">
+    <span class="toc-head">
+      <span class="toc-marker">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8l8-4 8 4-8 4-8-4zM4 8v8l8 4 8-4V8M12 12v8" stroke-linejoin="round"/></svg>
+        <span class="no">03</span>
+      </span>
+      <span class="toc-status">
+        <span class="dj-badge">Suggestion</span>
+        <span class="toc-arrow">&rarr;</span>
+      </span>
+    </span>
+    <span class="toc-title">Basic construction &amp; 3D forms</span>
+    <span class="toc-sub">3D forms built from simple shapes, the free way</span>
+  </a></li>
+<li class=""><a href="04-perspective.html">
+    <span class="toc-head">
+      <span class="toc-marker">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 4 20h16L12 3z"/><path d="M8 14h8" stroke-linecap="round"/></svg>
+        <span class="no">04</span>
+      </span>
+      <span class="toc-status">
+        <span class="dj-badge">Suggestion</span>
+        <span class="toc-arrow">&rarr;</span>
+      </span>
+    </span>
+    <span class="toc-title">Just enough perspective</span>
+    <span class="toc-sub">Just enough 1- and 2-point perspective</span>
+  </a></li>
+<li class=""><a href="05-gesture.html">
+    <span class="toc-head">
+      <span class="toc-marker">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="5" r="2"/><path d="M12 7v6M12 13l-5 6M12 13l5 6M7 10l5 3 5-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="no">05</span>
+      </span>
+      <span class="toc-status">
+        <span class="dj-badge">Suggestion</span>
+        <span class="toc-arrow">&rarr;</span>
+      </span>
+    </span>
+    <span class="toc-title">Gesture &amp; simplified anatomy</span>
+    <span class="toc-sub">Movement, flow, and simplified cartoon anatomy</span>
+  </a></li>
+<li class=""><a href="06-character-design.html">
+    <span class="toc-head">
+      <span class="toc-marker">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/><path d="M8.5 15c1.5 1.4 5.5 1.4 7 0" stroke-linecap="round"/></svg>
+        <span class="no">06</span>
+      </span>
+      <span class="toc-status">
+        <span class="dj-badge">Suggestion</span>
+        <span class="toc-arrow">&rarr;</span>
+      </span>
+    </span>
+    <span class="toc-title">Character design &amp; stylization</span>
+    <span class="toc-sub">Shape language, expression, and your own style</span>
+  </a></li>
+<li class=""><a href="07-comics.html">
+    <span class="toc-head">
+      <span class="toc-marker">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="3" y="13" width="18" height="7" rx="1"/></svg>
+        <span class="no">07</span>
+      </span>
+      <span class="toc-status">
+        <span class="dj-badge">Suggestion</span>
+        <span class="toc-arrow">&rarr;</span>
+      </span>
+    </span>
+    <span class="toc-title">Comics: paneling &amp; storytelling</span>
+    <span class="toc-sub">Scripting, layout, lettering, and finishing a real minicomic</span>
+  </a></li>
+<li class=""><a href="08-digital.html">
+    <span class="toc-head">
+      <span class="toc-marker">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="18" r="1" fill="currentColor" stroke="none"/></svg>
+        <span class="no">08</span>
+      </span>
+      <span class="toc-status">
+        <span class="dj-badge">Suggestion</span>
+        <span class="toc-arrow">&rarr;</span>
+      </span>
+    </span>
+    <span class="toc-title">Transition to digital</span>
+    <span class="toc-sub">Moving from paper to an iPad, when you&rsquo;re ready</span>
+  </a></li>
+<li class=""><a href="09-recommendations.html">
+    <span class="toc-head">
+      <span class="toc-marker">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="no">09</span>
+      </span>
+      <span class="toc-status">
+        <span class="dj-badge">Suggestion</span>
+        <span class="toc-arrow">&rarr;</span>
+      </span>
+    </span>
     <span class="toc-title">Putting it together</span>
     <span class="toc-sub">Where to start and how to know it&rsquo;s time to move on</span>
   </a></li>
-<li><a href="10-caveats.html">
+
+  </ul>
+
+  <div class="toc-group">
+    <h3 style="margin:0;">Reference</h3>
+  </div>
+  <ul class="toc">
+    <li class=""><a href="10-caveats.html">
     <span class="toc-head">
       <span class="toc-marker">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01" stroke-linecap="round"/></svg>
@@ -246,7 +268,7 @@
     <span class="toc-title">Caveats worth remembering</span>
     <span class="toc-sub">What&rsquo;s contested, what changes, what to double-check</span>
   </a></li>
-<li><a href="11-about.html">
+<li class=""><a href="11-about.html">
     <span class="toc-head">
       <span class="toc-marker">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c2-1 5-1 8 1 3-2 6-2 8-1v13c-2-1-5-1-8 1-3-2-6-2-8-1V5z" stroke-linejoin="round" stroke-linecap="round"/><path d="M12 6v13" stroke-linecap="round"/></svg>
@@ -277,9 +299,5 @@
 </div>
 
 <div class="dj-credit"><img src="djaunt-icon-radiant.svg" alt="" width="14" height="14">Part of Djaunt</div>
-<script src="progress-schema.js?v=6e4226d307"></script>
-<script src="firebase-config.js?v=6e4226d307"></script>
-<script src="https://accounts.google.com/gsi/client"></script>
-<script type="module" src="app.js?v=6e4226d307"></script>
 </body>
 </html>

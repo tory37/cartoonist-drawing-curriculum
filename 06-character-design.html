@@ -18,10 +18,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;1,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/brand/tokens/tokens.css">
-<link rel="stylesheet" href="style.css?v=6e4226d307">
+<link rel="stylesheet" href="style.css?v=7f333212ae">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/buttons/buttons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/callout/callout.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/progress/progress.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/badge/badge.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/hero/hero.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/empty-state/empty-state.css">
@@ -33,13 +32,8 @@
 <div class="sitebar">
   <div class="sitebar-links">
     <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>Draw Your Own Comics</a>
+    <a class="toolkit-link" href="learning-to-draw.html">Current phase</a>
     <a class="toolkit-link" href="toolkit.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h18" stroke-linecap="round"/></svg>Toolkit</a>
-  </div>
-  <div class="auth-control" id="auth-control">
-    <span class="progress-pill" id="header-progress" style="display:none"></span>
-    <span id="signin-btn"></span>
-    <span class="auth-user" id="auth-user" style="display:none"></span>
-    <button class="dj-button dj-button-small" id="signout-btn" style="display:none">Sign out</button>
   </div>
 </div>
 <div class="wrap">
@@ -49,6 +43,10 @@
     <h2><span class="no">06</span>Character design &amp; stylization</h2>
   </div>
   <div class="duration"><a href="https://theetheringtonbrothers.blogspot.com/p/every-how-to-think-when-you-draw.html" target="_blank" rel="noopener">Etherington Brothers</a>, <a href="https://www.youtube.com/tonikopantoja" target="_blank" rel="noopener">Toniko Pantoja</a>, <a href="https://www.youtube.com/channel/UC5dyu9y0EV0cSvGtbBtHw_w" target="_blank" rel="noopener">Sycra</a> &middot; ongoing, months</div>
+  <div class="dj-callout suggestion-banner"><span class="dj-callout-tag">suggestion, not a plan</span>
+This module is part of the original roadmap. It may or may not get followed as you grow &mdash; it&rsquo;s
+here to consider once you get this far, not a commitment. The current phase is
+<a href="learning-to-draw.html">learning to draw</a>.</div>
   
 <ul>
   <li><strong>Etherington Brothers, <a href="https://theetheringtonbrothers.blogspot.com/p/every-how-to-think-when-you-draw.html" target="_blank" rel="noopener">&ldquo;How to THINK When You Draw&rdquo;</a></strong> &mdash; 300+ free tutorials,
@@ -74,24 +72,14 @@ Run the 3-Shape drill weekly, then draw an expression sheet (and eventually a fu
 sheet) for whichever result you liked best that week &mdash; exactly where your Phase 1&ndash;2 construction
 work pays off.</div>
 
-  <div class="tracker-box">
-    <h3>Track your progress</h3>
-    <div class="track-item">
-      <input type="checkbox" id="character-etherington" data-id="etherington" disabled>
-      <label for="character-etherington">Browse the Etherington Brothers&rsquo; character-shape tutorials</label>
-      <span class="item-links"><span class="link-line"><a href="https://theetheringtonbrothers.blogspot.com/p/every-how-to-think-when-you-draw.html" target="_blank" rel="noopener">Lesson</a></span></span>
-    </div>
-<div class="track-item">
-      <input type="checkbox" id="character-shapedrill" data-id="shapedrill" disabled>
-      <label for="character-shapedrill">Run the 3-Shape design drill (repeat weekly with a new random combination)</label>
-      <span class="item-links"><span class="link-line"><a href="https://theetheringtonbrothers.blogspot.com/2018/01/how-to-think-when-you-draw-3-shape.html" target="_blank" rel="noopener">Lesson</a></span></span>
-    </div>
-<div class="track-item">
-      <input type="checkbox" id="character-expressionsheet" data-id="expressionsheet" disabled>
-      <label for="character-expressionsheet">Draw an expression sheet for your favorite result each week</label>
-    </div>
+  <div class="steps-box">
+    <h3>Suggested steps</h3>
+    <ul>
+    <li>Browse the Etherington Brothers&rsquo; character-shape tutorials<span class="item-links"><span class="link-line"><a href="https://theetheringtonbrothers.blogspot.com/p/every-how-to-think-when-you-draw.html" target="_blank" rel="noopener">Lesson</a></span></span></li>
+<li>Run the 3-Shape design drill (repeat weekly with a new random combination)<span class="item-links"><span class="link-line"><a href="https://theetheringtonbrothers.blogspot.com/2018/01/how-to-think-when-you-draw-3-shape.html" target="_blank" rel="noopener">Lesson</a></span></span></li>
+<li>Draw an expression sheet for your favorite result each week</li>
 
-    <p class="tracker-note" id="tracker-note">Sign in above to save your progress and sync it across devices.</p>
+    </ul>
   </div>
 </section>
 <nav class="pn"><a href="05-gesture.html"><span class="lbl">&larr; Previous</span>Gesture &amp; simplified anatomy</a><a class="to-next" href="07-comics.html"><span class="lbl">Next &rarr;</span>Comics: paneling &amp; storytelling</a></nav>
@@ -99,9 +87,5 @@ work pays off.</div>
 </div>
 
 <div class="dj-credit"><img src="djaunt-icon-radiant.svg" alt="" width="14" height="14">Part of Djaunt</div>
-<script src="progress-schema.js?v=6e4226d307"></script>
-<script src="firebase-config.js?v=6e4226d307"></script>
-<script src="https://accounts.google.com/gsi/client"></script>
-<script type="module" src="app.js?v=6e4226d307"></script>
 </body>
 </html>

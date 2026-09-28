@@ -18,10 +18,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,600;0,700;1,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/brand/tokens/tokens.css">
-<link rel="stylesheet" href="style.css?v=6e4226d307">
+<link rel="stylesheet" href="style.css?v=7f333212ae">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/buttons/buttons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/callout/callout.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/progress/progress.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/badge/badge.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/hero/hero.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/empty-state/empty-state.css">
@@ -33,13 +32,8 @@
 <div class="sitebar">
   <div class="sitebar-links">
     <a class="home" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7M6 10v9h12v-9" stroke-linecap="round" stroke-linejoin="round"/></svg>Draw Your Own Comics</a>
+    <a class="toolkit-link" href="learning-to-draw.html">Current phase</a>
     <a class="toolkit-link" href="toolkit.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h18" stroke-linecap="round"/></svg>Toolkit</a>
-  </div>
-  <div class="auth-control" id="auth-control">
-    <span class="progress-pill" id="header-progress" style="display:none"></span>
-    <span id="signin-btn"></span>
-    <span class="auth-user" id="auth-user" style="display:none"></span>
-    <button class="dj-button dj-button-small" id="signout-btn" style="display:none">Sign out</button>
   </div>
 </div>
 <div class="wrap">
@@ -49,6 +43,10 @@
     <h2><span class="no">09</span>Putting it together</h2>
   </div>
   
+  <div class="dj-callout suggestion-banner"><span class="dj-callout-tag">suggestion, not a plan</span>
+This module is part of the original roadmap. It may or may not get followed as you grow &mdash; it&rsquo;s
+here to consider once you get this far, not a commitment. The current phase is
+<a href="learning-to-draw.html">learning to draw</a>.</div>
   
 <h3>Start this week</h3>
 <ul>
@@ -87,9 +85,5 @@
 </div>
 
 <div class="dj-credit"><img src="djaunt-icon-radiant.svg" alt="" width="14" height="14">Part of Djaunt</div>
-<script src="progress-schema.js?v=6e4226d307"></script>
-<script src="firebase-config.js?v=6e4226d307"></script>
-<script src="https://accounts.google.com/gsi/client"></script>
-<script type="module" src="app.js?v=6e4226d307"></script>
 </body>
 </html>

@@ -50,9 +50,6 @@ a:hover{color:var(--dj-accent-hi);}
   display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 14px;
   font-size:14px; color:var(--dj-text-muted);
 }
-@media (max-width:480px){
-  .auth-control{width:100%; justify-content:flex-end;}
-}
 .sitebar-links{display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
 .sitebar a.home{
   display:flex; align-items:center; gap:8px; color:var(--dj-text); font-weight:600;
@@ -200,20 +197,7 @@ footer.site{
   font-size:13px; color:var(--dj-text-muted);
 }
 
-/* auth control in sitebar — .dj-button/.dj-button-small/.dj-button-primary
-   come from djaunt-branding's components/buttons/buttons.css, linked in shell(). */
-.auth-control{display:flex; align-items:center; gap:10px; font-size:13px;}
-.auth-user{font-weight:600; color:var(--dj-text);}
-.progress-pill{
-  font-size:12px; color:var(--dj-text-muted); border:1px solid var(--dj-border);
-  padding:4px 10px; border-radius:var(--dj-radius-sm); white-space:nowrap;
-}
-
-/* overall progress bar (index page) — .dj-bar-track/.dj-bar-fill/.dj-bar-label
-   come from djaunt-branding's components/progress/progress.css, linked above. */
-.overall-bar{max-width:var(--max); margin:22px auto 0; padding:0 24px;}
-
-/* "continue where you left off" card (index page) */
+/* "start here" card (index page) */
 .continue-card{max-width:var(--max); margin:18px auto 0; padding:0 24px;}
 .continue-card .continue-label{
   font-size:12px; color:var(--dj-text-muted); margin-bottom:6px;
@@ -230,56 +214,42 @@ footer.site{
 .continue-title{font-family:var(--dj-font-display); font-weight:600; font-size:18px;}
 .continue-arrow{color:var(--dj-success); flex:none; font-size:20px;}
 
-/* per-section progress pill in the table of contents */
-.toc-progress{
-  font-size:12px; font-weight:600; color:var(--dj-text-muted); border:1px solid var(--dj-border);
-  padding:3px 10px; border-radius:var(--dj-radius-sm); flex:none; white-space:nowrap;
-}
-.toc-progress.complete{color:var(--dj-success); border-color:var(--dj-success);}
+/* table-of-contents group headings + the "suggestion" chip on later modules */
+.toc-group{margin:44px 0 0;}
+.toc-group-note{font-size:14.5px; color:var(--dj-text-muted); margin:6px 0 0;}
+.toc-group + .toc{margin-top:18px;}
+.toc-now .toc-title{color:var(--dj-success);}
 
-/* progress tracker checklist box on each phase page */
-.tracker-box{
+/* "this is a suggestion, not a plan" banner at the top of later modules */
+.suggestion-banner{margin:4px 0 26px;}
+
+/* suggested-steps list on each later module (plain list, no tracking) */
+.steps-box{
   margin:34px 0 6px; border:1px solid var(--dj-border); border-radius:var(--dj-radius-lg);
   padding:22px 24px; background:var(--dj-surface);
 }
-.tracker-box h3{margin-top:0;}
-.track-section{
-  font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:.03em;
-  color:var(--dj-text-muted); margin:18px 0 2px; padding-top:12px; border-top:1px solid var(--dj-border);
-}
-.track-section:first-child{margin-top:0; padding-top:0; border-top:none;}
-.track-section a{font-weight:500; text-transform:none; letter-spacing:0; margin-left:4px;}
-.track-item{
-  display:grid; grid-template-columns:22px 1fr; column-gap:12px; row-gap:6px;
-  align-items:start; padding:12px 0; font-size:15px;
+.steps-box h3{margin-top:0;}
+.steps-box ul{margin:0; padding-left:20px; font-size:15px;}
+.steps-box li{margin-bottom:10px;}
+.steps-box li:last-child{margin-bottom:0;}
+.step-section{
+  list-style:none; margin-left:-20px; font-weight:600; font-size:13px; text-transform:uppercase;
+  letter-spacing:.03em; color:var(--dj-text-muted); padding-top:12px; margin-top:6px;
   border-top:1px solid var(--dj-border);
 }
-.track-item:first-of-type{border-top:none; padding-top:3px;}
-/* Native checkboxes render at different sizes/positions across mobile
-   browsers, which is what made them look misaligned with the label text.
-   Drawing the box ourselves keeps it pixel-identical everywhere. */
-.track-item input[type=checkbox]{
-  appearance:none; -webkit-appearance:none; -moz-appearance:none;
-  margin:0; width:20px; height:20px; grid-column:1; grid-row:1;
-  border:1.5px solid var(--dj-text-muted); border-radius:var(--dj-radius-sm); background:var(--dj-ink-900);
-  position:relative; top:2px; cursor:pointer;
-}
-.track-item input[type=checkbox]:checked{background:var(--dj-success); border-color:var(--dj-success);}
-.track-item input[type=checkbox]:checked::after{
-  content:""; position:absolute; left:6px; top:2px; width:5px; height:10px;
-  border:solid var(--dj-bg); border-width:0 2px 2px 0; transform:rotate(45deg);
-}
-.track-item input[type=checkbox]:focus-visible{outline:2px solid var(--dj-accent); outline-offset:2px;}
-.track-item input[type=checkbox]:disabled{cursor:not-allowed; opacity:.45;}
-.track-item label{grid-column:2; grid-row:1; cursor:pointer; overflow-wrap:break-word;}
-.item-links{
-  grid-column:2; grid-row:2; display:flex; flex-direction:column; gap:2px;
-  font-size:12px; color:var(--dj-text-muted);
-}
+.step-section:first-child{padding-top:0; margin-top:0; border-top:none;}
+.item-links{display:flex; flex-direction:column; gap:2px; margin-top:3px; font-size:12px; color:var(--dj-text-muted);}
 .item-links a{color:var(--dj-text-muted);}
 .item-links a:hover{color:var(--dj-success);}
 .item-links b{font-weight:600; color:var(--dj-text);}
-.tracker-note{font-size:13px; color:var(--dj-text-muted); margin:12px 0 0;}
+
+/* playlist cards on the current-phase page */
+.track-card{
+  border:1px solid var(--dj-border); border-radius:var(--dj-radius-lg); background:var(--dj-surface);
+  padding:20px 22px; margin:16px 0;
+}
+.track-card h3{margin-top:0;}
+.track-card p:last-child{margin-bottom:0;}
 
 /* exercise toolkit page */
 /* .toolkit-toolbar / .search-box use djaunt-branding's
@@ -369,7 +339,7 @@ footer.site{
 /* .toolkit-empty uses djaunt-branding's components/empty-state/empty-state.css. */
 
 @media print{
-  .sitebar, nav.pn, .tracker-box, .overall-bar, .continue-card, .dj-credit{display:none;}
+  .sitebar, nav.pn, .continue-card, .dj-credit{display:none;}
   a{color:var(--dj-text); text-decoration:none;}
 }
 '''
@@ -447,10 +417,74 @@ HOME_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
 TOOLKIT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="12" rx="1.5"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13h18" stroke-linecap="round"/></svg>'
 CHEVRON_ICON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>'
 
-PAGES = []  # filled below, list of dicts: id, file, title, kicker, icon, duration, body
+PAGES = []  # filled below, list of dicts: id, file, title, icon, duration, body, kind
 
-def add(id, file, title, icon, duration, body):
-    PAGES.append(dict(id=id, file=file, title=title, icon=icon, duration=duration, body=body))
+# kind is one of:
+#   "now"        -- the current phase of the guide: the part to actually work
+#                   through right now.
+#   "suggestion" -- the original roadmap for later. Not a commitment: it may
+#                   or may not get followed, and gets a banner saying so.
+#   "reference"  -- caveats / about / sources.
+def add(id, file, title, icon, duration, body, kind="suggestion"):
+    PAGES.append(dict(id=id, file=file, title=title, icon=icon, duration=duration, body=body, kind=kind))
+
+DRAWABOX_URL = "https://drawabox.com"
+DLAS_URL = "https://youtube.com/playlist?list=PL0V_JTTg_6baV8tBE4Qm1O8Vhxy59GTah"
+PETER_HAN_URL = "https://youtube.com/playlist?list=PLqR-aNpyEIVd91GCwsyOS3oRn6eoRhyio"
+
+def ext(url, text):
+    return f'<a href="{url}" target="_blank" rel="noopener">{text}</a>'
+
+add("now", "learning-to-draw.html", "Learning to draw", "lines",
+    f'Drawabox basics, then {ext(DLAS_URL, "Draw Like a Sir")} + {ext(PETER_HAN_URL, "Peter Han")} &middot; as long as it takes', f'''
+<p>This is the big, general &ldquo;learn to draw&rdquo; phase &mdash; everything before getting
+specific about comics or cartooning. It&rsquo;s the current phase of this guide; the modules after it
+are suggestions to consider once you get there.</p>
+
+<h3>Step 1 &mdash; The very beginning of Drawabox</h3>
+<p>Read the opening material of {ext(DRAWABOX_URL, "Drawabox")}: materials, how to hold the pen, and
+drawing from your shoulder instead of your wrist. That&rsquo;s all you need from it here &mdash; get the
+setup basics and some ideas about arm movement, then move on. You don&rsquo;t need to finish its lessons
+or do the 250 box challenge.</p>
+
+<h3>Step 2 &mdash; Two playlists, side by side</h3>
+<div class="track-card">
+  <h3>{ext(DLAS_URL, "Draw Like a Sir")}</h3>
+  <p>An excellent, very well produced guide to the concepts. Each video lays out what to work on, but
+  it isn&rsquo;t a homework channel &mdash; it assumes you&rsquo;ll go find your own practice material for
+  the ideas it introduces.</p>
+</div>
+<div class="track-card">
+  <h3>{ext(PETER_HAN_URL, "Peter Han&rsquo;s course")}</h3>
+  <p>More focused on direct instruction and homework: concrete exercises to practice. Lean on it for
+  structured practice.</p>
+</div>
+
+<h3>How to work through them</h3>
+<div class="dj-callout dj-callout-success"><span class="dj-callout-tag">the loop</span>
+Watch both playlists in order. Take the next video (or so) from each, then stop and practice what it
+covered. Don&rsquo;t move on until you have some real proficiency with it &mdash; not mastery, just the
+feeling that you can do it on purpose. That might take one week, two weeks, or longer. Then watch the
+next video in each and repeat.</div>
+<ul>
+  <li><strong>Proficiency, not mastery.</strong> You&rsquo;ll keep coming back to every one of these
+  ideas for years. The bar for moving on is &ldquo;I get it and can do it reasonably,&rdquo; not
+  &ldquo;it&rsquo;s perfect.&rdquo;</li>
+  <li><strong>Solo research is the key skill here.</strong> Neither playlist hands you everything you
+  need to practice, Draw Like a Sir especially. When a concept doesn&rsquo;t click, or you run out of
+  things to draw, go look it up: other tutorials on the same topic, drills and worksheets, reference
+  photos, other artists&rsquo; takes. Finding your own practice material is part of the work.</li>
+  <li><strong>Mix drills and play.</strong> Drill the concept, then use it in drawings you actually
+  want to make.</li>
+  <li><strong>Save drills that work.</strong> When you find an exercise worth coming back to, add it to
+  the <a href="toolkit.html">toolkit</a> so it&rsquo;s easy to warm up with later.</li>
+</ul>
+
+<h3>When this phase is done</h3>
+<p>Once you&rsquo;ve worked through both playlists, look over the suggested modules that follow and
+pick what fits. They&rsquo;re a starting point, not a fixed path, and this guide will be updated as
+things change.</p>
+''', kind="now")
 
 add("rhythm", "01-rhythm.html", "Weekly rhythm &amp; supplies", "rhythm", None, '''
 <p>Progress here comes from consistency, not intensity. Structure it like this:</p>
@@ -730,14 +764,17 @@ add("recs", "09-recommendations.html", "Putting it together", "recs", None, '''
 </ul>
 ''')
 
-add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, '''
+add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, kind="reference", body='''
 <div class="caveat-box">
 <ul style="margin:0; padding-left:20px;">
-  <li><strong>Swapping out Drawabox is a real trade-off, not a consensus call.</strong> It&rsquo;s
-  free, thorough, and plenty of successful artists swear by it &mdash; this course dropped it as the
-  default path because its dense, procedural writing style was a genuine dealbreaker for the
-  person this course was built for, not because the underlying drills are bad. If Drawabox is
-  working for you, there&rsquo;s no reason to switch.</li>
+  <li><strong>Only using the start of Drawabox is a real trade-off, not a consensus call.</strong>
+  It&rsquo;s free, thorough, and plenty of successful artists swear by it. Its opening material
+  (materials, pen grip, drawing from the shoulder) was genuinely useful here; the rest of the course
+  wasn&rsquo;t the right fit for the person this site is built for, which isn&rsquo;t a judgment on the
+  drills themselves. If Drawabox is working for you, there&rsquo;s no reason to switch.</li>
+  <li><strong>Everything past the current phase is a suggestion.</strong> The later modules are the
+  original research-based roadmap. Real learning rarely follows a plan made in advance, so expect
+  them to change, get skipped, or get replaced once the current phase is done.</li>
   <li><strong>Free-book legality varies by title and country.</strong> Treat the <a href="https://archive.org" target="_blank" rel="noopener">Internet
   Archive</a> as the safest free reading source for Loomis and Norling; buy in print if you want certainty.
   McCloud&rsquo;s books are in copyright &mdash; use a library.</li>
@@ -769,7 +806,7 @@ add("caveats", "10-caveats.html", "Caveats worth remembering", "caveats", None, 
 </div>
 ''')
 
-add("about", "11-about.html", "About this course &amp; sources", "about", None, '''
+add("about", "11-about.html", "About this course &amp; sources", "about", None, kind="reference", body='''
 <h3>How this came to be</h3>
 <p>This course started from a simple complaint: most &ldquo;learn to draw&rdquo; roadmaps are a pile of
 disconnected links, and a single one-off exercise (&ldquo;do a sketch&rdquo;) doesn&rsquo;t actually teach
@@ -784,6 +821,10 @@ class materials from real institutions. Where something couldn&rsquo;t
 be verified &mdash; a resource with no identifiable author, a vague &ldquo;there&rsquo;s probably a Discord
 for that&rdquo; &mdash; it was either left out or flagged honestly as unverified, rather than presented
 as settled fact.</p>
+<p>The course has since been reshaped around how learning actually goes, since no plan made in
+advance fully matches it. The <a href="learning-to-draw.html">current phase</a> is a concrete guide
+built on two YouTube playlists that proved worth following, and the rest of the original roadmap
+stays here as suggestions to consider later, not a fixed path.</p>
 
 <h3>What we optimized for</h3>
 <ul>
@@ -830,6 +871,12 @@ as settled fact.</p>
 </div>
 
 <h3>Full list of sources &amp; thanks</h3>
+<p><strong>Current phase</strong></p>
+<ul>
+  <li><a href="https://drawabox.com" target="_blank" rel="noopener">Drawabox</a> (Uncomfortable) &mdash; the opening lessons only: materials, pen grip, drawing from the shoulder</li>
+  <li><a href="https://youtube.com/playlist?list=PL0V_JTTg_6baV8tBE4Qm1O8Vhxy59GTah" target="_blank" rel="noopener">Draw Like a Sir</a>&rsquo;s tutorial series (YouTube)</li>
+  <li><a href="https://youtube.com/playlist?list=PLqR-aNpyEIVd91GCwsyOS3oRn6eoRhyio" target="_blank" rel="noopener">Peter Han</a>&rsquo;s course (YouTube)</li>
+</ul>
 <p><strong>Foundations</strong></p>
 <ul>
   <li>Scott Robertson &amp; Thomas Bertling, <a href="https://designstudiopress.com/products/how-to-draw" target="_blank" rel="noopener"><em>How to Draw</em></a> (Design Studio Press)</li>
@@ -885,16 +932,17 @@ as settled fact.</p>
 against them shaped what this course chose to include:</p>
 <ul>
   <li>The <a href="https://www.soloartcurriculum.com/" target="_blank" rel="noopener">Solo Art Curriculum</a> &mdash; excellent, but built for a concept-art/realism artist, not a cartoonist</li>
-  <li><a href="https://drawabox.com" target="_blank" rel="noopener">Drawabox</a> (Uncomfortable) &mdash; free, thorough, and it works well for plenty of people; dropped from the main path here because its dense, procedural writing style was a genuine dealbreaker for the person this course was built for, not because the drills themselves are bad</li>
   <li>Proko&rsquo;s Marvel-branded &ldquo;The Art of Storytelling&rdquo; course ($249)</li>
   <li>Frank Santoro&rsquo;s mentored correspondence course ($500)</li>
 </ul>
 ''')
 
-# ---------- progress-tracking checklists ----------
-# Each page id maps to a list of entries: (item_id, label) is a checkable
-# action; a Section is a non-checkable heading that mirrors a table-of-
-# contents group (used to reproduce a source site's own outline exactly).
+# ---------- suggested steps for later modules ----------
+# Each page id maps to a list of entries: (item_id, label) is one suggested
+# step; a Section is a sub-heading grouping the steps below it. These used to
+# be sign-in-synced progress checkboxes; tracking was removed (it may come
+# back), so they now render as a plain list. item_id is kept so per-item
+# links in ITEM_LINKS still resolve, and so tracking can be re-added later.
 class Section:
     __slots__ = ("label", "url", "videos")
     def __init__(self, label, url=None, videos=None):
@@ -1545,7 +1593,7 @@ def exercise_card(ex):
     </div>
   </details>'''
 
-def tracker_box(page_id):
+def steps_box(page_id):
     items = CHECKLISTS.get(page_id)
     if not items:
         return ""
@@ -1557,10 +1605,9 @@ def tracker_box(page_id):
                 f' &middot; <a href="{vurl}" target="_blank" rel="noopener">Video: {vlabel}</a>'
                 for vlabel, vurl in entry.videos
             )
-            rows += f'<div class="track-section">{entry.label}{open_link}{video_links}</div>\n'
+            rows += f'<li class="step-section">{entry.label}{open_link}{video_links}</li>\n'
             continue
         item_id, label = entry
-        cb_id = f"{page_id}-{item_id}"
         links = ITEM_LINKS.get((page_id, item_id))
         links_html = ""
         if links:
@@ -1582,19 +1629,22 @@ def tracker_box(page_id):
                     lines.append(f'<b>{ex["label"]}:</b> ' + " &middot; ".join(ex_parts))
             if lines:
                 joined = "".join(f'<span class="link-line">{l}</span>' for l in lines)
-                links_html = f'\n      <span class="item-links">{joined}</span>'
-        rows += f'''<div class="track-item">
-      <input type="checkbox" id="{cb_id}" data-id="{item_id}" disabled>
-      <label for="{cb_id}">{label}</label>{links_html}
-    </div>
-'''
-    return f'''<div class="tracker-box">
-    <h3>Track your progress</h3>
+                links_html = f'<span class="item-links">{joined}</span>'
+        rows += f'<li>{label}{links_html}</li>\n'
+    return f'''<div class="steps-box">
+    <h3>Suggested steps</h3>
+    <ul>
     {rows}
-    <p class="tracker-note" id="tracker-note">Sign in above to save your progress and sync it across devices.</p>
+    </ul>
   </div>'''
 
+SUGGESTION_BANNER = '''<div class="dj-callout suggestion-banner"><span class="dj-callout-tag">suggestion, not a plan</span>
+This module is part of the original roadmap. It may or may not get followed as you grow &mdash; it&rsquo;s
+here to consider once you get this far, not a commitment. The current phase is
+<a href="learning-to-draw.html">learning to draw</a>.</div>'''
+
 TOC_SUBS = {
+    "now": "Drawabox basics, then Draw Like a Sir + Peter Han, one video at a time",
     "rhythm": "How to structure 1&ndash;3 hours a week, and what to buy",
     "lines": "Confident lines and ellipse control, from a real perspective-drawing textbook",
     "construction": "3D forms built from simple shapes, the free way",
@@ -1626,7 +1676,6 @@ def shell(title, body, page_id=""):
 <link rel="stylesheet" href="style.css?v={BUILD_VERSION}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/buttons/buttons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/callout/callout.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/progress/progress.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/badge/badge.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/hero/hero.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tory37/djaunt-branding@main/components/empty-state/empty-state.css">
@@ -1636,46 +1685,38 @@ def shell(title, body, page_id=""):
 <body data-page-id="{page_id}">
 {body}
 {DJAUNT_CREDIT}
-<script src="progress-schema.js?v={BUILD_VERSION}"></script>
-<script src="firebase-config.js?v={BUILD_VERSION}"></script>
-<script src="https://accounts.google.com/gsi/client"></script>
-<script type="module" src="app.js?v={BUILD_VERSION}"></script>
 </body>
 </html>
 '''
-
-def auth_control():
-    # signin-btn is a plain container now, not a button: Google Identity
-    # Services renders its own real "Sign in with Google" button (a
-    # cross-origin iframe) inside it -- see the note in APP_JS for why.
-    return '''<div class="auth-control" id="auth-control">
-    <span class="progress-pill" id="header-progress" style="display:none"></span>
-    <span id="signin-btn"></span>
-    <span class="auth-user" id="auth-user" style="display:none"></span>
-    <button class="dj-button dj-button-small" id="signout-btn" style="display:none">Sign out</button>
-  </div>'''
 
 def sitebar():
     return f'''<div class="sitebar">
   <div class="sitebar-links">
     <a class="home" href="index.html">{HOME_ICON}Draw Your Own Comics</a>
+    <a class="toolkit-link" href="learning-to-draw.html">Current phase</a>
     <a class="toolkit-link" href="toolkit.html">{TOOLKIT_ICON}Toolkit</a>
   </div>
-  {auth_control()}
 </div>'''
 
+# Displayed page number: the current phase shows "NOW"; the rest keep their
+# original 01..NN module numbers (so existing prose like "Phase 4" and the
+# 0N-*.html filenames still line up).
+def page_no(p):
+    if p["kind"] == "now":
+        return "NOW"
+    return f'{[q for q in PAGES if q["kind"] != "now"].index(p) + 1:02d}'
+
 # ---------- build index.html ----------
-toc_items = ""
-for i, p in enumerate(PAGES):
-    progress_pill = f'<span class="toc-progress" data-progress-for="{p["id"]}"></span>' if p['id'] in CHECKLISTS else ""
-    toc_items += f'''<li><a href="{p['file']}">
+def toc_item(p):
+    chip = '<span class="dj-badge">Suggestion</span>' if p["kind"] == "suggestion" else ""
+    return f'''<li class="{'toc-now' if p['kind'] == 'now' else ''}"><a href="{p['file']}">
     <span class="toc-head">
       <span class="toc-marker">
         {ICONS[p['icon']]}
-        <span class="no">{i+1:02d}</span>
+        <span class="no">{page_no(p)}</span>
       </span>
       <span class="toc-status">
-        {progress_pill}
+        {chip}
         <span class="toc-arrow">&rarr;</span>
       </span>
     </span>
@@ -1684,38 +1725,36 @@ for i, p in enumerate(PAGES):
   </a></li>
 '''
 
+def toc_for(kind):
+    return "".join(toc_item(p) for p in PAGES if p["kind"] == kind)
+
 index_body = f'''
 {sitebar()}
 <header class="dj-hero">
   <div class="dj-hero-mark" aria-hidden="true"></div>
   <div class="kicker">
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    A curated, human-made resource curriculum
+    A learning-to-draw guide, plus a roadmap of suggestions
   </div>
   <h1>Draw your own comics,<br><em>one page at a time.</em></h1>
   <svg class="underline" viewBox="0 0 180 14"><path d="M3 9 C 40 2, 90 14, 130 6 S 175 4, 177 9"/></svg>
   <p class="dj-hero-lede">
-    A sustainable, mostly-free curriculum built from resources other artists actually recommend &mdash;
-    tuned for a busy beginner with 1&ndash;3 hours a week whose goal is loose, expressive, stylized comics,
-    not photorealism.
+    A guide to learning to draw, on the way to loose, expressive, stylized comics &mdash; a clear
+    current phase to work through now, and a set of suggestions for later that may or may not get
+    followed.
   </p>
   <div class="meta-row">
-    <div><b>Starting point</b>Complete beginner, pencil &amp; paper</div>
-    <div><b>Time budget</b>1&ndash;3 hrs / week</div>
+    <div><b>Current phase</b>Learning to draw</div>
+    <div><b>Working from</b>Draw Like a Sir + Peter Han</div>
+    <div><b>Pace</b>A video each, then practice to proficiency</div>
     <div><b>Style range</b>Pendleton Ward &rarr; Dilworth &rarr; Invader Zim</div>
-    <div><b>Format</b>11 sections, self-paced, years not weeks</div>
   </div>
 </header>
 
-<div class="overall-bar" id="overall-progress">
-  <div class="dj-bar-track"><div class="dj-bar-fill dj-bar-fill-success"></div></div>
-  <div class="dj-bar-label">Sign in above to start tracking your progress.</div>
-</div>
-
-<div class="continue-card" id="continue-card" style="display:none">
-  <div class="continue-label">Continue where you left off</div>
-  <a class="continue-link" id="continue-link" href="#">
-    <span class="continue-title"></span>
+<div class="continue-card">
+  <div class="continue-label">Start here</div>
+  <a class="continue-link" href="learning-to-draw.html">
+    <span class="continue-title">Learning to draw &mdash; Draw Like a Sir + Peter Han</span>
     <span class="continue-arrow">&rarr;</span>
   </a>
 </div>
@@ -1724,17 +1763,17 @@ index_body = f'''
 <section>
   <div class="tldr">
     <h3>The short version</h3>
-    <p>You do not need to finish the <a href="https://www.soloartcurriculum.com/" target="_blank" rel="noopener">Solo Art Curriculum</a> &mdash; it&rsquo;s built to
-    produce a generalist realism artist over a year or more of near-daily work. Work through Scott
-    Robertson &amp; Thomas Bertling&rsquo;s <em>How to Draw</em> for spatial fundamentals, then
-    deliberately pivot toward cartooning: Loomis, Proko, the Etherington Brothers, and Scott
-    McCloud on comics craft.</p>
-    <p>At 1&ndash;3 hrs a week, this is a multi-year hobby, not a bootcamp. Split every session
-    roughly 50/50 between structured practice and free drawing from day one, stay on paper through
-    character design, and add an iPad only once you can build a character from imagination.</p>
+    <p>The <a href="learning-to-draw.html">current phase</a> is the big, general &ldquo;learn to
+    draw&rdquo; phase, before anything specific to comics. Start with the very beginning of Drawabox
+    (materials, pen grip, drawing from the shoulder), then work through two YouTube playlists side by
+    side &mdash; Draw Like a Sir for the concepts and Peter Han for instruction and homework. Watch a
+    video or so of each, practice until you&rsquo;re proficient (not perfect), researching your own
+    practice material as needed, then move on.</p>
+    <p>Everything after it is the original roadmap, kept as suggestions to consider when you get there
+    &mdash; no plan made in advance matches how learning actually goes, so it will change.</p>
   </div>
 
-  <h3 style="margin-top:40px;">Key findings from the research</h3>
+  <h3 style="margin-top:40px;">From the original research (still just suggestions)</h3>
   <ul class="findings dj-divided-list dj-divided-list-marked">
     <li class="dj-divided-item"><span class="dj-divided-item-marker">1</span><span class="dj-divided-item-body"><strong>A clearly-taught fundamentals book beats a free but
     confusing one.</strong> <em>How to Draw</em>&rsquo;s early chapters transfer to any style; its
@@ -1748,9 +1787,28 @@ index_body = f'''
     comic artist needs.</span></li>
   </ul>
 
-  <h3 style="margin-top:44px;">The eleven sections</h3>
+  <div class="toc-group">
+    <h3 style="margin:0;">Now</h3>
+    <p class="toc-group-note">The phase to work through right now.</p>
+  </div>
   <ul class="toc">
-    {toc_items}
+    {toc_for("now")}
+  </ul>
+
+  <div class="toc-group">
+    <h3 style="margin:0;">Later &mdash; suggestions</h3>
+    <p class="toc-group-note">The original roadmap. Places to consider when you get there; they may
+    or may not get followed as you grow.</p>
+  </div>
+  <ul class="toc">
+    {toc_for("suggestion")}
+  </ul>
+
+  <div class="toc-group">
+    <h3 style="margin:0;">Reference</h3>
+  </div>
+  <ul class="toc">
+    {toc_for("reference")}
   </ul>
 
   <div class="dj-callout">
@@ -2092,6 +2150,7 @@ for i, p in enumerate(PAGES):
     pn += '</nav>'
 
     duration_html = f'<div class="duration">{p["duration"]}</div>' if p["duration"] else ''
+    banner_html = SUGGESTION_BANNER if p["kind"] == "suggestion" else ''
 
     body = f'''
 {sitebar()}
@@ -2099,11 +2158,12 @@ for i, p in enumerate(PAGES):
 <section>
   <div class="page-head">
     {ICONS[p['icon']]}
-    <h2><span class="no">{i+1:02d}</span>{p['title']}</h2>
+    <h2><span class="no">{page_no(p)}</span>{p['title']}</h2>
   </div>
   {duration_html}
+  {banner_html}
   {p['body']}
-  {tracker_box(p['id'])}
+  {steps_box(p['id'])}
 </section>
 {pn}
 <footer class="site"><p><a href="index.html">&larr; Back to the table of contents</a></p></footer>
@@ -2112,241 +2172,9 @@ for i, p in enumerate(PAGES):
     with open(f"{OUT}/{p['file']}", "w") as f:
         f.write(shell(p['title'].replace('&amp;','&'), body, page_id=p['id']))
 
-# ---------- progress-schema.js (single source of truth for counts + page order) ----------
-import json
-schema_obj = {
-    pid: [entry[0] for entry in items if not isinstance(entry, Section)]
-    for pid, items in CHECKLISTS.items()
-}
-page_info = [{"id": p["id"], "file": p["file"], "title": p["title"]} for p in PAGES if p["id"] in CHECKLISTS]
-with open(f"{OUT}/progress-schema.js", "w") as f:
-    f.write("window.PROGRESS_SCHEMA = " + json.dumps(schema_obj, indent=2) + ";\n")
-    f.write("window.PAGE_INFO = " + json.dumps(page_info, indent=2) + ";\n")
+# Progress tracking (Firebase sign-in + synced checkboxes, generated as
+# progress-schema.js / firebase-config.js / app.js) was removed -- see git
+# history if it comes back.
 
-# ---------- firebase-config.js (placeholder — edit with your own project's config) ----------
-FIREBASE_CONFIG_JS = '''// Paste your Firebase project's web config here.
-// Firebase Console > Project settings > General > Your apps > SDK setup and configuration.
-// Until apiKey below is filled in, the site works fine but progress tracking stays off.
-window.FIREBASE_CONFIG = {
-  apiKey: "PASTE_YOUR_API_KEY",
-  authDomain: "PASTE_YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_YOUR_PROJECT_ID",
-  storageBucket: "PASTE_YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "PASTE_YOUR_SENDER_ID",
-  appId: "PASTE_YOUR_APP_ID",
-  // Firebase Console > Authentication > Sign-in method > Google > click it
-  // > "Web SDK configuration" > Web client ID. Used to sign in via Google
-  // Identity Services directly instead of Firebase's own popup/redirect,
-  // which silently fails on mobile browsers that block third-party
-  // storage between this site's domain and the authDomain above.
-  googleClientId: "PASTE_YOUR_GOOGLE_OAUTH_WEB_CLIENT_ID"
-};
-'''
-with open(f"{OUT}/firebase-config.js", "w") as f:
-    f.write(FIREBASE_CONFIG_JS)
-
-# ---------- app.js (tracking logic) ----------
-APP_JS = '''import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-import {
-  getAuth, GoogleAuthProvider, signInWithCredential, signOut, onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
-import {
-  getFirestore, doc, setDoc, onSnapshot
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
-
-var schema = window.PROGRESS_SCHEMA || {};
-var pageId = document.body.getAttribute("data-page-id") || null;
-
-var signinBtn = document.getElementById("signin-btn");
-var signoutBtn = document.getElementById("signout-btn");
-var authUserEl = document.getElementById("auth-user");
-var headerProgressEl = document.getElementById("header-progress");
-var trackerNote = document.getElementById("tracker-note");
-
-function totalForPage(pid){ return (schema[pid] || []).length; }
-function doneForPage(pid, data){
-  // Only count item ids that are still in the current schema -- stored
-  // data can carry checked ids from a checklist that's since been
-  // rewritten (renamed or removed items), and those shouldn't inflate
-  // the count against today's total.
-  var items = (data && data[pid]) || {};
-  var valid = schema[pid] || [];
-  var n = 0;
-  for (var i = 0; i < valid.length; i++) { if (items[valid[i]]) n++; }
-  return n;
-}
-function totalAll(){
-  var t = 0;
-  for (var pid in schema) t += schema[pid].length;
-  return t;
-}
-function doneAll(data){
-  var d = 0;
-  for (var pid in schema) d += doneForPage(pid, data);
-  return d;
-}
-
-function renderChecklist(data){
-  if (!pageId) return;
-  var items = (data && data[pageId]) || {};
-  var boxes = document.querySelectorAll(".track-item input[type=checkbox]");
-  for (var i = 0; i < boxes.length; i++){
-    var cb = boxes[i];
-    cb.checked = !!items[cb.getAttribute("data-id")];
-  }
-}
-
-function renderProgress(data){
-  var total = totalAll(), done = doneAll(data || {});
-  if (headerProgressEl){
-    headerProgressEl.textContent = total ? (done + "/" + total + " tracked") : "";
-    headerProgressEl.style.display = total ? "inline-block" : "none";
-  }
-  var bar = document.getElementById("overall-progress");
-  if (bar){
-    var pct = total ? Math.round((done / total) * 100) : 0;
-    bar.querySelector(".dj-bar-fill").style.width = pct + "%";
-    bar.querySelector(".dj-bar-label").textContent = done + "/" + total + " exercises tracked (" + pct + "%)";
-  }
-  var pills = document.querySelectorAll("[data-progress-for]");
-  for (var i = 0; i < pills.length; i++){
-    var node = pills[i];
-    var pid = node.getAttribute("data-progress-for");
-    var t = totalForPage(pid), d = doneForPage(pid, data || {});
-    node.textContent = t ? (d + "/" + t) : "";
-    node.classList.toggle("complete", t > 0 && d === t);
-  }
-}
-
-function renderContinue(data, signedIn){
-  var card = document.getElementById("continue-card");
-  if (!card) return;
-  var pages = window.PAGE_INFO || [];
-  if (!signedIn || doneAll(data || {}) === 0){
-    card.style.display = "none";
-    return;
-  }
-  var target = null;
-  for (var i = 0; i < pages.length; i++){
-    var p = pages[i];
-    if (doneForPage(p.id, data || {}) < totalForPage(p.id)){ target = p; break; }
-  }
-  if (!target){
-    card.style.display = "none";
-    return;
-  }
-  var link = document.getElementById("continue-link");
-  var titleEl = link.querySelector(".continue-title");
-  titleEl.innerHTML = target.title;
-  link.setAttribute("href", target.file);
-  card.style.display = "";
-}
-
-function setSignedInUI(user){
-  if (user){
-    if (signinBtn) signinBtn.style.display = "none";
-    if (signoutBtn) signoutBtn.style.display = "";
-    if (authUserEl){
-      authUserEl.style.display = "";
-      authUserEl.textContent = user.displayName ? user.displayName.split(" ")[0] : "Signed in";
-    }
-  } else {
-    if (signinBtn) signinBtn.style.display = "";
-    if (signoutBtn) signoutBtn.style.display = "none";
-    if (authUserEl) authUserEl.style.display = "none";
-  }
-  var boxes = document.querySelectorAll(".track-item input[type=checkbox]");
-  for (var i = 0; i < boxes.length; i++) boxes[i].disabled = !user;
-  if (trackerNote) trackerNote.style.display = user ? "none" : "";
-}
-
-var cfg = window.FIREBASE_CONFIG;
-var configured = cfg && cfg.apiKey && cfg.apiKey.indexOf("PASTE") === -1;
-
-if (!configured){
-  setSignedInUI(null);
-  renderProgress({});
-  renderContinue({}, false);
-  if (signinBtn) signinBtn.textContent = "Tracking not set up yet";
-  if (trackerNote) trackerNote.textContent = "Progress tracking isn\\u2019t connected yet \\u2014 see the setup steps to enable it.";
-} else {
-  var app = initializeApp(cfg);
-  var auth = getAuth(app);
-  var db = getFirestore(app);
-  var unsub = null;
-
-  // Firebase's own popup/redirect sign-in depends on a storage/iframe relay
-  // between this site's own domain and the Firebase authDomain (a
-  // different origin) to complete. Modern mobile browsers increasingly
-  // block that relay as third-party tracking protection (Safari's ITP,
-  // Firefox's Total Cookie Protection, etc.), so it fails silently: it
-  // looks like it worked, but the result never comes back. Google Identity
-  // Services talks to accounts.google.com directly instead (first-party,
-  // no relay needed) and hands back an ID token, which we exchange for a
-  // Firebase session in one direct call.
-  function handleGoogleCredential(response){
-    var cred = GoogleAuthProvider.credential(response.credential);
-    signInWithCredential(auth, cred).catch(function(e){
-      console.error("sign-in failed:", e);
-      if (trackerNote){
-        trackerNote.style.display = "";
-        trackerNote.textContent = "Sign-in didn\\u2019t go through (" + e.code + "). Please try again.";
-      }
-    });
-  }
-
-  var gsi = window.google && window.google.accounts && window.google.accounts.id;
-  if (signinBtn && gsi && cfg.googleClientId && cfg.googleClientId.indexOf("PASTE") === -1){
-    gsi.initialize({
-      client_id: cfg.googleClientId,
-      callback: handleGoogleCredential,
-      auto_select: false
-    });
-    gsi.renderButton(signinBtn, { theme: "filled_black", shape: "pill", size: "medium", text: "signin_with" });
-  }
-
-  if (signoutBtn) signoutBtn.addEventListener("click", function(){
-    signOut(auth);
-    if (gsi) gsi.disableAutoSelect();
-  });
-
-  var boxes = document.querySelectorAll(".track-item input[type=checkbox]");
-  for (var i = 0; i < boxes.length; i++){
-    (function(cb){
-      cb.addEventListener("change", function(){
-        if (!auth.currentUser || !pageId) return;
-        var id = cb.getAttribute("data-id");
-        var field = pageId + "." + id;
-        var payload = {};
-        payload[pageId] = {};
-        payload[pageId][id] = cb.checked;
-        payload.updatedAt = Date.now();
-        setDoc(doc(db, "progress", auth.currentUser.uid), payload, { mergeFields: [field, "updatedAt"] })
-          .catch(function(e){ console.error("write failed:", e); cb.checked = !cb.checked; });
-      });
-    })(boxes[i]);
-  }
-
-  onAuthStateChanged(auth, function(user){
-    setSignedInUI(user);
-    if (unsub){ unsub(); unsub = null; }
-    if (user){
-      unsub = onSnapshot(doc(db, "progress", user.uid), function(snap){
-        var data = snap.data() || {};
-        renderChecklist(data);
-        renderProgress(data);
-        renderContinue(data, true);
-      });
-    } else {
-      renderChecklist({});
-      renderProgress({});
-      renderContinue({}, false);
-    }
-  });
-}
-'''
-with open(f"{OUT}/app.js", "w") as f:
-    f.write(APP_JS)
-
-print("Built", len(PAGES) + 1, "pages + progress-schema.js + firebase-config.js + app.js")
+print("Built", len(PAGES) + 2, "pages")
 print(os.listdir(OUT))
