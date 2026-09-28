@@ -513,9 +513,9 @@ add("character", "06-character-design.html", "Character design &amp; stylization
   Dragon 3, Trolls, Croods 2); excellent free videos on appealing shape language.</li>
   <li><strong><a href="https://www.youtube.com/channel/UC5dyu9y0EV0cSvGtbBtHw_w" target="_blank" rel="noopener">Sycra</a></strong> (YouTube) &mdash; &ldquo;iterative drawing&rdquo; and shape-design; great for
   developing your own voice through variation rather than copying.</li>
-  <li><strong>Study your north stars directly.</strong> Copy frames from Adventure Time,
-  Invader Zim, and similar cartoons. Break each character into its underlying simple shapes &mdash;
-  Finn is a rounded box, Jake is a fluid blob.</li>
+  <li><strong>Study your north stars directly.</strong> Pick the cartoons and comics <em>you</em>
+  love &mdash; whatever made you want to draw &mdash; and copy frames from them. Break each character
+  into its underlying simple shapes (a rounded box, a fluid blob, a bean) to see how they&rsquo;re built.</li>
 </ul>
 <h3>A real, repeatable design drill &mdash; not a one-off</h3>
 <p>The Etherington Brothers&rsquo; <a href="https://theetheringtonbrothers.blogspot.com/2018/01/how-to-think-when-you-draw-3-shape.html" target="_blank" rel="noopener">3-Shape Characters</a>
@@ -578,8 +578,12 @@ One single-panel gag &rarr; one 4-panel strip &rarr; one full page &rarr; a 4-pa
 minicomic. Finish each rung before climbing &mdash; the finishing habit matters more than the page count.</div>
 
 <h3>Study the real thing</h3>
-<p>All three shows had real comic-book runs published by BOOM! Studios&rsquo; all-ages KaBOOM!
-imprint, drawn by identifiable people whose process is documented:</p>
+<p>Pick comics you love in the style you want to draw &mdash; do what you like, not what you think
+you&rsquo;re supposed to study. Read a few issues closely and copy a page panel-for-panel to see how
+someone working in that style solves layout and acting problems. If you can find interviews or
+process posts from the artists, read those too.</p>
+<p>A few examples of cartoon-style comics with well-documented process &mdash; tie-in runs from
+BOOM! Studios&rsquo; all-ages KaBOOM! imprint:</p>
 <ul>
   <li><strong>Adventure Time</strong> &mdash; <a href="https://comicsalliance.com/adventure-time-25-shelli-paroline-braden-lamb-interview/" target="_blank" rel="noopener">Shelli Paroline &amp; Braden Lamb</a>, the
   Eisner-winning art team, describe splitting script &rarr; layout &rarr; pencils &rarr; inks &rarr; color
@@ -588,8 +592,6 @@ imprint, drawn by identifiable people whose process is documented:</p>
   year alongside writer Kate Leth.</li>
   <li><strong>Regular Show</strong> &mdash; <a href="https://comicsalliance.com/allison-strejlau-art/" target="_blank" rel="noopener">Allison Strejlau</a> was the series artist, alongside writer KC Green.</li>
 </ul>
-<p>Read a few actual issues and copy a page panel-for-panel to see how someone working in exactly
-this style solves layout and acting problems.</p>
 
 <h3>Get feedback</h3>
 <p>Practice without feedback plateaus. Post one finished piece somewhere real people will critique
@@ -710,8 +712,8 @@ add("about", "11-about.html", "About this course &amp; sources", "about", None, 
 <p>This course started from a simple complaint: most &ldquo;learn to draw&rdquo; roadmaps are a pile of
 disconnected links, and a single one-off exercise (&ldquo;do a sketch&rdquo;) doesn&rsquo;t actually teach
 anything by itself. It was built through an extended back-and-forth between one person who wants to
-draw comics in a specific tradition &mdash; the all-ages, cartoon-style comics that ran alongside
-shows like <em>Adventure Time</em>, <em>Bravest Warriors</em>, and <em>Regular Show</em> &mdash; and
+draw comics with a cartooning lean &mdash; loose, expressive, cartoon-style comics rather than
+superhero or anime &mdash; and
 Claude, an AI assistant, doing the research and drafting.</p>
 <p>That means every claim in this course was checked, not invented: real book titles and prices,
 Scott Robertson&rsquo;s own published table of contents and Marshall Vandruff&rsquo;s own published
@@ -808,7 +810,7 @@ matches how someone actually learns, so modules that have been done describe wha
   <li>The Center for Cartoon Studies&rsquo; free <a href="https://www.cartoonstudies.org/wp-content/uploads/2014/06/24.pdf" target="_blank" rel="noopener">Expressive Lettering and Balloons</a> handout</li>
   <li><a href="https://boords.com/blog/writing-a-comic-book-script-101-expert-storytelling-tips" target="_blank" rel="noopener">Boords</a>&rsquo; comic-script-writing guide</li>
 </ul>
-<p><strong>Studying the target style (BOOM! Studios&rsquo; KaBOOM! imprint)</strong></p>
+<p><strong>Example artist interviews (BOOM! Studios&rsquo; KaBOOM! imprint)</strong></p>
 <ul>
   <li>Shelli Paroline &amp; Braden Lamb, <em>Adventure Time</em> (<a href="https://comicsalliance.com/adventure-time-25-shelli-paroline-braden-lamb-interview/" target="_blank" rel="noopener">interview</a>)</li>
   <li>Ian McGinty, <em>Bravest Warriors</em> (<a href="https://www.popoptiq.com/interview-with-bravest-warriors-artist-ian-mcginty/" target="_blank" rel="noopener">interview</a>)</li>
@@ -902,7 +904,7 @@ CHECKLISTS = {
         ("fourpagemini", "Finish a 4-page minicomic"),
         ("eightpagemini", "Finish an 8-page minicomic"),
         Section("Study the real thing"),
-        ("kaboomstudy", "Read a few Adventure Time / Bravest Warriors / Regular Show issues and copy a page"),
+        ("kaboomstudy", "Read a few issues of comics you love and copy a page panel-for-panel"),
         Section("Get feedback"),
         ("getfeedback", "Post one finished piece to a critique community"),
     ],
