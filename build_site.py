@@ -732,9 +732,9 @@ matches how someone actually learns, so modules that have been done describe wha
   &mdash; Walt Stanchfield&rsquo;s weekly Disney gesture classes, the Etherington Brothers&rsquo; repeatable
   3-Shape method, Lynda Barry&rsquo;s daily 4-minute diary &mdash; instead of a single &ldquo;go draw
   something&rdquo; checkbox.</li>
-  <li><strong>Built for one specific style, not a generic artist.</strong> This isn&rsquo;t a
-  general concept-art or superhero-comics roadmap with the serial numbers filed off; it&rsquo;s aimed
-  at loose, expressive, all-ages cartoon comics, and skips or deprioritizes the fundamentals
+  <li><strong>A comics guide with a cartooning lean.</strong> This isn&rsquo;t a
+  concept-art, classic American superhero, or anime/manga roadmap with the serial numbers filed off;
+  it&rsquo;s a general path to making comics, tilted toward loose, expressive cartoon styles, and skips or deprioritizes the fundamentals
   (rigorous anatomy, measured perspective, realistic rendering) that style doesn&rsquo;t need.</li>
   <li><strong>Real, credentialed sources only.</strong> Every named resource traces back to an
   identifiable working artist, a published book, or an established institution &mdash; not an
@@ -1161,7 +1161,7 @@ index_body = f'''
   <div class="meta-row">
     <div><b>Starting point</b>Complete beginner, pencil &amp; paper</div>
     <div><b>Time budget</b>Whatever you can fit in</div>
-    <div><b>Style range</b>Pendleton Ward &rarr; Dilworth &rarr; Invader Zim</div>
+    <div><b>Focus</b>Comics, leaning cartoon &mdash; not superhero or anime</div>
     <div><b>Format</b>Self-paced, years not weeks</div>
   </div>
 </header>
