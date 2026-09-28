@@ -347,11 +347,14 @@ drawing from your shoulder instead of your wrist. That&rsquo;s all you need from
 basics and some ideas about arm movement. You don&rsquo;t need to go further into its lessons or do
 the 250 box challenge.</p>
 
-<h3>Weekly rhythm</h3>
-<p>Progress comes from consistency, not intensity. Structure it like this:</p>
+<h3>Fitting it in</h3>
+<p>There&rsquo;s no schedule to keep. Draw as much as you can, wherever you can fit it in.</p>
 <ul>
-  <li><strong>Two sessions of 45&ndash;90 minutes a week</strong> (or one longer weekend block plus small doodling on the side).</li>
-  <li><strong>Split every session roughly 50/50</strong> &mdash; structured practice from your current module, then free &ldquo;play&rdquo;: doodle your own characters, copy cartoons you love, sketch from shows.</li>
+  <li><strong>Small sessions count.</strong> Ten minutes with a pen between other things is real
+  practice. Something is always better than nothing, and a lot of small sessions add up.</li>
+  <li><strong>Take the long sessions when you get them</strong>, but don&rsquo;t wait for one to start.</li>
+  <li><strong>Missed a few days? Just pick it back up.</strong> There&rsquo;s nothing to catch up on.</li>
+  <li><strong>When there&rsquo;s time, split it roughly 50/50</strong> &mdash; structured practice from your current module, then free &ldquo;play&rdquo;: doodle your own characters, copy cartoons you love, sketch from shows.</li>
   <li><strong>Don&rsquo;t chase finished pieces early.</strong> The reps are the point, not the polish.</li>
   <li><strong>Expect each module to take months.</strong> That&rsquo;s normal, and it&rsquo;s what makes this sustainable for five years instead of five weeks.</li>
 </ul>
@@ -488,7 +491,7 @@ how it was actually taught. For twenty years, Disney animator Walt Stanchfield r
 classes for the studio&rsquo;s own animators (his students include Glen Keane, Brad Bird, and John
 Lasseter): draw from a model, get critiqued, repeat, week after week. His own class handouts are
 freely shared online with his family&rsquo;s blessing at
-<a href="https://www.thinkinganimation.com/walt-stanchfield-handouts" target="_blank" rel="noopener">Thinking Animation</a> &mdash; read a few alongside your own weekly sessions; they&rsquo;re as much
+<a href="https://www.thinkinganimation.com/walt-stanchfield-handouts" target="_blank" rel="noopener">Thinking Animation</a> &mdash; read a few alongside your own gesture practice; they&rsquo;re as much
 about attitude as technique.</p>
 <div class="dj-callout dj-callout-success"><span class="dj-callout-tag">how to practice</span>
 Short timed gestures (30 seconds&ndash;2 minutes), then &ldquo;mannequinize&rdquo; into simple shapes.
@@ -633,8 +636,8 @@ add("recs", "09-recommendations.html", "Putting it together", "recs", None, stat
 <h3>Start this week</h3>
 <ul>
   <li>Grab a fineliner pen and cheap paper, and read the opening of Drawabox (module 01).</li>
-  <li>Start the Draw Like a Sir and Peter Han playlists (module 02) at two short sessions a week,
-  always splitting time with fun cartoon doodling.</li>
+  <li>Start the Draw Like a Sir and Peter Han playlists (module 02), drawing whenever you can fit it
+  in &mdash; even short sessions count &mdash; and mixing in fun cartoon doodling.</li>
   <li>Consider Lynda Barry&rsquo;s 4-minute diary &mdash; it needs no drawing skill and can run
   alongside everything else.</li>
 </ul>
@@ -849,7 +852,7 @@ CHECKLISTS = {
     "rhythm": [
         ("drawabox", "Read the opening of Drawabox: materials, pen grip, drawing from the shoulder"),
         ("supplies", "Get a fineliner pen, an HB pencil, and cheap paper"),
-        ("schedule", "Pick your two weekly session slots"),
+        ("schedule", "Start drawing whenever you can fit it in &mdash; even a few minutes counts"),
         ("diaryhabit", "Optional: try the 4-minute diary a few times a week"),
     ],
     "learn": [
@@ -1066,7 +1069,7 @@ This is the plan for this module as it stands. It gets revisited once it&rsquo;s
 still fits, changed or swapped out if something better turns up along the way.</div>'''
 
 TOC_SUBS = {
-    "rhythm": "The opening of Drawabox, a weekly rhythm, supplies, and books",
+    "rhythm": "The opening of Drawabox, fitting drawing into your life, supplies, and books",
     "learn": "Draw Like a Sir + Peter Han, one video at a time, practiced to proficiency",
     "construction": "3D forms built from simple shapes, the free way",
     "perspective": "Just enough 1- and 2-point perspective",
@@ -1157,7 +1160,7 @@ index_body = f'''
   </p>
   <div class="meta-row">
     <div><b>Starting point</b>Complete beginner, pencil &amp; paper</div>
-    <div><b>Time budget</b>1&ndash;3 hrs / week</div>
+    <div><b>Time budget</b>Whatever you can fit in</div>
     <div><b>Style range</b>Pendleton Ward &rarr; Dilworth &rarr; Invader Zim</div>
     <div><b>Format</b>Self-paced, years not weeks</div>
   </div>
@@ -1182,7 +1185,8 @@ index_body = f'''
     After that: construction, perspective, gesture, character design, and finally comics.</p>
     <p>This plan is edited as it&rsquo;s worked through. Modules marked done describe what actually
     worked; modules not started yet are the plan as it stands, and will change if something better
-    turns up. At 1&ndash;3 hrs a week, this is a multi-year hobby, not a bootcamp.</p>
+    turns up. Draw as much as you can, whenever you can &mdash; small sessions count. This is a multi-year hobby,
+    not a bootcamp.</p>
   </div>
 
   <h3 style="margin-top:40px;">Principles behind the plan</h3>
